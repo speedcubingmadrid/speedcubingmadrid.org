@@ -1,0 +1,15 @@
+- text: Accueil
+  section: accueil
+  url: /
+- text: Association
+  section: association
+  url: /association/
+- text: Speedcubing
+  section: speedcubing
+  url: /speedcubing/
+- text: Compétitions
+  section: competitions
+  url: /competitions/
+- text: Contact
+  section: contact
+  url: /contact/

@@ -5,16 +5,20 @@
 
   <body>
 
-    {% include header.html %}
+    <div id="container">
+      {% include header.html %}
+      {% include menu.html menu=site.data.menu %}
+      {% if page.section == "accueil" %}
+      {% include feature.html %}
+      {% endif %}
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
+      <div id="main">
+          {{ content }}
       </div>
+
+      {% include footer.html %}
+
     </div>
-
-    {% include footer.html %}
-
   </body>
 
 </html>
