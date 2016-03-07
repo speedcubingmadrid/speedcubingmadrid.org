@@ -1,0 +1,26 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Association Française de Speedcubing
+email: contact@speedcubingfrance.org
+description: > # this means to ignore newlines until "baseurl:"
+  Site de l'Association Française de Speedcubing.
+  Association ayant pour but de promouvoir le développement de la pratique du
+  Rubik's cube au niveau national, en particulier via des compétitions officielles
+  de la World Cube Association.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://www.speedcubingfrance.org"
+github_username:  speedcubingfrance
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+exlude: ['README.md', "LICENSE"]
