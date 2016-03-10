@@ -1,11 +1,18 @@
 ---
 layout: default
 ---
-<article class="post">
+
+<div id="sidebar">
+  {% for sec in page.section %}
+    {% assign sidemenu = site.data.submenus[sec] %}
+    {% if sidemenu %}
+      {% include sidemenu.html menu=sidemenu %}
+    {% endif %}
+  {% endfor %}
+</div>
 
   <div id="content">
     <h3 class="post-title">{{ page.title }}</h3>
     {{ content }}
   </div>
-
-</article>
+  <div class="clear">&nbsp;</div>

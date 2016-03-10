@@ -1,0 +1,38 @@
+association:
+  title: L'association
+  items:
+    - text: Présentation
+      url: /
+    - text: Adhésion
+      url: /
+    - text: Documents
+      url: /
+competitions:
+  title: Menu
+  items:
+    - text: Calendrier
+      url: /
+    - text: Ugine Jeu et Jouet 2015
+      url: /
+speedcubing:
+  title: Ressources
+  items:
+    - text: Présentation
+      url: /speedcubing/
+    - text: Règlement WCA (FR)
+      url: https://www.worldcubeassociation.org/regulations/translations/french/
+    - text: Championnats de France
+      url: /speedcubing/cdf/
+    - text: Coupe de France
+      url: /speedcubing/coupedefrance/
+    - text: Tutoriels
+      url: /speedcubing/tutos/
+tutos:
+  title: Tutoriels
+  items:
+    - text: Pour les compétiteurs
+      url: /
+    - text: Pour les juges
+      url: /
+    - text: Détails d'une résolution
+      url: /
