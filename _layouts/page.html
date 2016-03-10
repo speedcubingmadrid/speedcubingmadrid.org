@@ -12,7 +12,9 @@ layout: default
 </div>
 
   <div id="content">
+    {% if page.title %}
     <h2 class="post-title">{{ page.title }}</h2>
+    {% endif %}
     {{ content }}
   </div>
   <div class="clear">&nbsp;</div>

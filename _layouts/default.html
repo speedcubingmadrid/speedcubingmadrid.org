@@ -8,7 +8,7 @@
     <div id="container">
       {% include header.html %}
       {% include menu.html menu=site.data.menu %}
-      {% if page.section == "accueil" %}
+      {% if page.section contains "accueil" %}
       {% include feature.html %}
       {% endif %}
 

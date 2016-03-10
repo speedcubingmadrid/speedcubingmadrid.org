@@ -1,24 +1,30 @@
 ---
-layout: default
-section: accueil
+layout: page
+section:
+  - accueil
+  - current-competitions
+  - links
 ---
 
-<div class="home">
+<div id="home">
 
-  <h2 class="page-heading">News</h2>
-  <!--TODO somehow better this-->
+<h2>Dernières nouvelles :</h2>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
+{% for post in site.posts %}
+<div class='postdate'>{{ post.date | date: "%-d %b <br/> %Y" }}</div>
+<h3>
+  {% if post.fullpost %}
+  <a class="post-link, clear-decoration" href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a>
+  {% else %}
+  {{post.title}}
+  {% endif %}
+</h3>
+<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+{% if post.fullpost %}
+<br/>
+<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">Lire la suite...</a>
+{% endif %}
+</p>
+{% endfor %}
 
 </div>

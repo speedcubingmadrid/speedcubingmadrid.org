@@ -1,6 +1,6 @@
 <div class="sidebarbox">
     <h2>{{include.menu.title}}</h2>
-    <ul class="sidemenu">
+    <ul {% if include.menu.id %}id="{{include.menu.id}}"{% endif %} class="sidemenu">
         {% for item in include.menu.items %}
         <li><a href="{{site.baseurl}}{{item.url}}" >{{item.text}}</a></li>
         {% endfor %}

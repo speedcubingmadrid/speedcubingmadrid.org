@@ -36,3 +36,16 @@ tutos:
       url: /tuto-juges/
     - text: Détails d'une résolution
       url: /tuto-resolution/
+links:
+  title: Liens
+  items:
+    - text: World Cube Association
+      url: https://www.worldcubeassociation.org/
+    - text: Rubik's.com
+      url: http://www.rubiks.com/
+    - text: Francocube
+      url: http://www.francocube.com/
+
+current-competitions:
+  title: Compétitions courantes
+  id: side-compet
