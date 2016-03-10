@@ -31,8 +31,8 @@ tutos:
   title: Tutoriels
   items:
     - text: Pour les compétiteurs
-      url: /
+      url: /tuto-competiteurs/
     - text: Pour les juges
-      url: /
+      url: /tuto-juges/
     - text: Détails d'une résolution
-      url: /
+      url: /tuto-resolution/
