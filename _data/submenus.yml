@@ -2,11 +2,11 @@ association:
   title: L'association
   items:
     - text: Présentation
-      url: /
+      url: /association/
     - text: Adhésion
-      url: /
+      url: /association/adhesion/
     - text: Documents
-      url: /
+      url: /association/documents/
 competitions:
   title: Menu
   items:
