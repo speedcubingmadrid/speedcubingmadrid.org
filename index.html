@@ -10,7 +10,7 @@ section:
 
 <h2>Dernières nouvelles :</h2>
 
-{% for post in site.posts %}
+{% for post in site.categories.news %}
 <div class='postdate'>{{ post.date | date: "%-d %b <br/> %Y" }}</div>
 <h3>
   {% if post.fullpost %}

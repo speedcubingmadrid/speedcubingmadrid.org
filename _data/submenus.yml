@@ -47,5 +47,8 @@ links:
       url: http://www.francocube.com/
 
 current-competitions:
-  title: Compétitions courantes
+  title: Compétitions officielles
+  items:
+    - text: Bientôt de retour ;)
+      url: /
   id: side-compet
