@@ -11,9 +11,7 @@ competitions:
   title: Menu
   items:
     - text: Calendrier
-      url: /
-    - text: Ugine Jeu et Jouet 2015
-      url: /
+      url: /competitions/
 speedcubing:
   title: Ressources
   items:

@@ -4,5 +4,14 @@
         {% for item in include.menu.items %}
         <li><a href="{{site.baseurl}}{{item.url}}" >{{item.text}}</a></li>
         {% endfor %}
+        {% if page.section == "competitions" %}
+        {% for comp in site.categories.competitions %}
+        {% if comp.lang != "en" %}
+        <li>
+            <a class="post-link, clear-decoration" href="{% if comp.extern %}{{ comp.extern }}{% else %}{{ comp.url | prepend: site.baseurl }}{% endif %}">{{comp.title}}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
     </ul>
 </div>
