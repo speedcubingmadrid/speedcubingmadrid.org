@@ -22,7 +22,6 @@ Le [présent règlement]({{site.baseurl}}/uploads/reglementCDFDC_2015.pdf) défi
 <span style="color:red">Attention : le malus de 10pts pour les non-adhérents n'est pas encore pris en compte.</span>
 
 
-<script src="{{site.baseurl}}/js/jquery-1.12.1.min.js"></script>
 <script src="{{site.baseurl}}/js/cdf.js"></script>
 <script>
 $.getJSON("{{site.baseurl}}/uploads/rankings.json", cdf_load_json);

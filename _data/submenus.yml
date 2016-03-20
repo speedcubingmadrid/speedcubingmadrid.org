@@ -47,6 +47,6 @@ links:
 current-competitions:
   title: Compétitions officielles
   items:
-    - text: Bientôt de retour ;)
+    - text: Chargement en cours...
       url: /
   id: side-compet
