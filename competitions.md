@@ -12,4 +12,19 @@ Pour ajouter, modifier ou supprimer une compétition, merci d'écrire à notre a
 
 
 <span class="reg">Le calendrier est en maintenance et sera bientôt de retour !</span>
+<form action="javascript:void(0);">
+<table id="selector-calendar" class="planning">
+</table>
+</form><br/><span class='fr'>Compétitions françaises officielles</span><span class='reg'>Compétitions non officielles</span>
+<table id="calendar" class="planning">
+</table>
+
+<script>
+generate_selector("2016", "France");
+$.getJSON("{{site.baseurl}}/uploads/comps.json", function(data) {
+    //Load local unofficial comps and display calendar
+    localComps = data;
+    get_comps("2016", "France", generate_calendar);
+});
+</script>
 

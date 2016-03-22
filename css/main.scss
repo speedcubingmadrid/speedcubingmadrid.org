@@ -107,16 +107,16 @@ span.removed{color:red;}
 th.t25{width:25%;}
 th.t20{width:20%;}
 
-#planning table {margin:0;padding:0;width:100%}
-#planning tr {margin:0;padding:0;}
-#planning th {background-color:#467aa7;color:#fff;font-size:0.9em;margin:0 0 0 0;padding:5px;}
-#planning td {font-size:0.8em;padding:3px;padding-bottom:5px;vertical-align:top;text-align:center;border:1px solid #467aa7;margin: 0;}
-#planning a {text-decoration:none;color:#000}
+.planning table {margin:0;padding:0;width:100%}
+.planning tr {margin:0;padding:0;}
+.planning th {background-color:#467aa7;color:#fff;font-size:0.9em;margin:0 0 0 0;padding:5px;}
+.planning td {font-size:0.8em;padding:3px;padding-bottom:5px;vertical-align:top;text-align:center;border:1px solid #467aa7;margin: 0;}
+.planning a {text-decoration:none;color:#000}
 span.fr{display:block;text-decoration:none;background:#cfc;}
 span.reg{display:block;text-decoration:none;background:#fcc;}
 span.other{display:block;text-decoration:none;background:#fff;}
-#planning a.mod {display:block;text-decoration:none;border-bottom:1px solid #ddd;color:#777}
-#planning a:hover.mod {background-color:#eee;color:#333;border-bottom:1px solid #ccc;}
+.planning a.mod {display:block;text-decoration:none;border-bottom:1px solid #ddd;color:#777}
+.planning a:hover.mod {background-color:#eee;color:#333;border-bottom:1px solid #ccc;}
 
 .opensize0 { font-style : italic; }
 .opensize1 { font-weight : normal; }
