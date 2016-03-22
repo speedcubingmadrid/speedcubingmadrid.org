@@ -11,7 +11,6 @@ Il est possible d'ajouter un projet de compétition à une certaine date, avant 
 Pour ajouter, modifier ou supprimer une compétition, merci d'écrire à notre adresse de [contact](mailto:contact@speedcubingfrance.org).
 
 
-<span class="reg">Le calendrier est en maintenance et sera bientôt de retour !</span>
 <form action="javascript:void(0);">
 <table id="selector-calendar" class="planning">
 </table>
@@ -21,6 +20,7 @@ Pour ajouter, modifier ou supprimer une compétition, merci d'écrire à notre a
 
 <script>
 generate_selector("2016", "France");
+loading();
 $.getJSON("{{site.baseurl}}/uploads/comps.json", function(data) {
     //Load local unofficial comps and display calendar
     localComps = data;

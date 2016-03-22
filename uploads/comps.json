@@ -1,1 +1,34 @@
-[{    "city":"Toulouse",    "month":"4",    "day":"29",    "year":"2016",    "country":"France",    "name":"France 2016"}]
+[
+    {
+        "city":"Ugine",
+        "month":"12",
+        "day":"3",
+        "year":"2016",
+        "country":"France",
+        "name":"Ugine Jeux et Jouet 2016"
+    },
+    {
+        "city":"Cannes",
+        "month":"7",
+        "day":"2",
+        "year":"2016",
+        "country":"France",
+        "name":"Cannes Summer Open 2016"
+    },
+    {
+        "city":"Lyon",
+        "month":"5",
+        "day":"21",
+        "year":"2016",
+        "country":"France",
+        "name":"Lyon Megaminx Open 2016"
+    },
+    {
+        "city":"Toulouse",
+        "month":"4",
+        "day":"29",
+        "year":"2016",
+        "country":"France",
+        "name":"France 2016"
+    }
+]

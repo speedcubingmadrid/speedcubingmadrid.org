@@ -68,14 +68,13 @@ function generate_selector(year, region) {
   html += "</select></td></label>";
 
   //Form validation
-  html += "<td><input onclick='";
+  html += "<td><input onclick='loading();";
   html += "get_comps($(\"#years\").val(), $(\"#region\").val(), generate_calendar);";
   html += "' type='submit' id='filter' name='filter' value='Filtrer' /></td></tr>";
   $("#selector-calendar").html(html);
 }
 
 //Main logic to generate the calendar
-//TODO add some kind of "loading" information to the user
 function generate_calendar(year, region, data) {
   var html = "<tr>";
   var week = 0;
@@ -139,4 +138,8 @@ function get_comps(year, region, callback) {
   $.getJSON(baseUrl, function(data) {
     callback(year, region, data);
   });
+}
+
+function loading() {
+  $("#calendar").html("<tr><th>Chargement en cours...</th></tr>");
 }
