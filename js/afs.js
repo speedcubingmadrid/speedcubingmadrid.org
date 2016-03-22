@@ -34,7 +34,7 @@ function sundayInWeek(year, week) {
 
 //Translation int->label table
 function mois(month){
-  var moiss = 'Janvier Février Mars Avril Mai Juin Juillet Août Septembre Octobre Novembre Décembre'.split(' ');
+  var moiss = 'Jan. Fév. Mars Avril Mai Juin Juil. Août Sept. Oct. Nov. Déc.'.split(' ');
   return moiss[month];
 }
 
