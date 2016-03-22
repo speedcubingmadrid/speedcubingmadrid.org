@@ -31,7 +31,7 @@ $.getJSON("{{site.baseurl}}/uploads/rankings.json", cdf_load_json);
 <h4 id="score-title">Classement</h4>
 
 <form method="get" action="">
-<table id="planning" cellspacing="0" cellpadding="0">
+<table id="planning" class="planning" cellspacing="0" cellpadding="0">
 <tr>
 <th>Catégorie : </th>
 <td><select id="select-event" class="drop" name="event" onChange="load_rankings(this.options[this.selectedIndex].id, '', true);">
@@ -49,7 +49,7 @@ $.getJSON("{{site.baseurl}}/uploads/rankings.json", cdf_load_json);
 
 
 
-<table id="planning" style="width:100%;font-size: 0.8em;">
+<table class="planning" style="width:100%;font-size: 0.8em;">
 <tbody id="tbody-score">
 </tbody>
 </table>

@@ -9,6 +9,6 @@ Je vous renvoie aux instructions d'[installation de Jekyll](https://jekyllrb.com
 
 Une fois installé, un simple `jekyll serve` devrait démarrer un serveur local et vous permettre de parcourir le site à l'adresse `http://localhost:4000`.
 
-# WIP
+# TODO
 
-Ce site est en travaux, et le contenu original du site migrera progressivement vers le dépot.
+[] Documenter la publication de news et de pages de compétitions
