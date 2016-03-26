@@ -6,7 +6,7 @@ var localComps = {};
 function menu_list(year, region, data) {
   var htmlmenu = "";
   $.each( data, function( key, val ) {
-    htmlmenu += "<li>" + val.date + " " + val.year + "<br/>";
+    htmlmenu += "<li>" + val.date + ", " + val.year + "<br/>";
     htmlmenu += "<a href=\"" + wcaBaseUrlComp;
     htmlmenu += val.cid + " target=\"_blank\">" + val.name + "</a></li>";
   });
