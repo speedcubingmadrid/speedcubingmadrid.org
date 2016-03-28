@@ -30,5 +30,13 @@
         "year":"2016",
         "country":"France",
         "name":"French Championship 2016"
+    },
+    {
+        "city":"Belfort",
+        "month":"7",
+        "day":"9",
+        "year":"2016",
+        "country":"France",
+        "name":"Belfort Open 2016"
     }
 ]
