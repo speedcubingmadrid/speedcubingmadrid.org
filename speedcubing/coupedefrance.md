@@ -14,7 +14,7 @@ La Coupe est un événement organisé par l'AFS. Tout compétiteur sera automati
 La finalité est d'avoir une continuité entre toutes les compétitions françaises d'une même année et ainsi de récompenser les personnes les plus régulièrement présentes et performantes, par opposition aux championnats ou tournois qui consacrent un vainqueur ponctuel relativement aux adversaires présents
 ce jour-là.
 
-Le [présent règlement]({{site.baseurl}}/uploads/reglementCDFDC_2015.pdf) définit l'ensemble des éléments permettant le déroulement de cette Coupe de France Kingscube. Il est établi pour l'ensemble de la Coupe, et donc l'année en cours.
+Le [présent règlement]({{site.baseurl}}/uploads/reglementCDFDC_2016.pdf) définit l'ensemble des éléments permettant le déroulement de cette Coupe de France Kingscube. Il est établi pour l'ensemble de la Coupe, et donc l'année en cours.
 
 
 ### Classement
