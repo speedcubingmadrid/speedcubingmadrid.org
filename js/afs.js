@@ -1,5 +1,5 @@
 
-var wcaBaseUrlComp = "https://www.worldcubeassociation.org/results/c.php?i=";
+var wcaBaseUrlComp = "https://www.worldcubeassociation.org/competitions/";
 var localComps = {};
 
 //Create a menu from official comps data
@@ -8,7 +8,7 @@ function menu_list(year, region, data) {
   $.each( data, function( key, val ) {
     htmlmenu += "<li>" + val.date + ", " + val.year + "<br/>";
     htmlmenu += "<a href=\"" + wcaBaseUrlComp;
-    htmlmenu += val.cid + " target=\"_blank\">" + val.name + "</a></li>";
+    htmlmenu += val.cid + "\" target=\"_blank\">" + val.name + "</a></li>";
   });
   $("#side-compet").html(htmlmenu);
 }
@@ -45,7 +45,7 @@ function generate_selector(year, region) {
 
   //Selector for regions
   html += "<td><select id='region' name='region'>";
-  var regions = {"France":"France", "_Europe":"Europe", "World":"Monde"};
+  var regions = {"France":"France", "_Europe":"Europe", "all":"Monde"};
 
   $.each(regions, function(key, val) {
     html += "<option value='" + key + "' ";
@@ -107,7 +107,7 @@ function generate_calendar(year, region, data) {
       if (datecomp >= monday.getTime() && datecomp < mondayInWeek(year, week+1).getTime()) {
         //Change the class depending on the country
         html += '<span class="' + ((val.country == "France")?'fr':'other') + '">';
-        html += '<a href="' + wcaBaseUrlComp + val.cid + '">' + val.name + '</a> - ';
+        html += '<a href="' + wcaBaseUrlComp + val.cid + '" target="_blank">' + val.name + '</a> - ';
         html += (val.country == "France")?val.city:val.country;
         html += '</span>';
         names.push(val.name);
