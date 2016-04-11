@@ -3,12 +3,25 @@ var wcaBaseUrlComp = "https://www.worldcubeassociation.org/competitions/";
 var localComps = {};
 
 //Create a menu from official comps data
-function menu_list(year, region, data) {
+function menu_list(fullYear, region, data) {
   var htmlmenu = "";
   $.each( data, function( key, val ) {
-    htmlmenu += "<li>" + val.date + ", " + val.year + "<br/>";
+    var s = val.start_date.split("-")
+    var e = val.end_date.split("-")
+    // We most likely won't have a competition on new year's eve.
+    var year = s[0];
+    var month = s[1];
+    var day = s[2];
+    var e_day = e[2];
+    var e_month = e[1];
+    console.log(e_month);
+    console.log(mois(0));
+    htmlmenu += "<li>" + day;
+    if (month != e_month)
+      htmlmenu += " " + mois(parseInt(month)-1);
+    htmlmenu += " - " + e_day + " " + mois(parseInt(e_month)-1) + " " + year + "<br/>";
     htmlmenu += "<a href=\"" + wcaBaseUrlComp;
-    htmlmenu += val.cid + "\" target=\"_blank\">" + val.name + "</a></li>";
+    htmlmenu += val.id + "\" target=\"_blank\">" + val.name + "</a></li>";
   });
   $("#side-compet").html(htmlmenu);
 }
@@ -45,7 +58,8 @@ function generate_selector(year, region) {
 
   //Selector for regions
   html += "<td><select id='region' name='region'>";
-  var regions = {"France":"France", "_Europe":"Europe", "all":"Monde"};
+  //FIXME using no country id is "broken", we need to go through all the pages.
+  var regions = {"FR":"France"};
 
   $.each(regions, function(key, val) {
     html += "<option value='" + key + "' ";
@@ -60,7 +74,7 @@ function generate_selector(year, region) {
   html += "<td><select id='years' name='years'>";
 
   for (var i = currentYear - 1; i <= currentYear + 1; i++) {
-    html += "<option value='" + i + "' ";
+    html += "<option value='" + i + "-01-01' ";
     if (parseInt(year) == i)
       html += "selected='selected' ";
     html += ">" + i + "</option>";
@@ -75,8 +89,9 @@ function generate_selector(year, region) {
 }
 
 //Main logic to generate the calendar
-function generate_calendar(year, region, data) {
+function generate_calendar(fullYear, region, data) {
   var html = "<tr>";
+  var year = fullYear.split("-")[0];
   var week = 0;
   var currentMonth = -1;
   //Hihi
@@ -103,14 +118,14 @@ function generate_calendar(year, region, data) {
 
     //Look for potential official comps to display
     $.each(data, function(key, val) {
-      var datecomp = val.timestamp * 1000;
-      if (datecomp >= monday.getTime() && datecomp < mondayInWeek(year, week+1).getTime()) {
+      var datecomp = new Date(val.start_date);
+      if (datecomp >= monday && datecomp < mondayInWeek(year, week+1)) {
         //Change the class depending on the country
-        html += '<span class="' + ((val.country == "France")?'fr':'other') + '">';
-        html += '<a href="' + wcaBaseUrlComp + val.cid + '" target="_blank">' + val.name + '</a> - ';
-        html += (val.country == "France")?val.city:val.country;
+        html += '<span class="' + ((val.country_iso2 == "FR")?'fr':'other') + '">';
+        html += '<a href="' + wcaBaseUrlComp + val.id + '" target="_blank">' + val.short_name + '</a> - ';
+        html += (val.country_iso2 == "FR")?val.city:val.country_iso2;
         html += '</span>';
-        names.push(val.name);
+        names.push(val.short_name);
       }
     });
 
@@ -133,8 +148,8 @@ function generate_calendar(year, region, data) {
 }
 
 function get_comps(year, region, callback) {
-  //Avoid cross domain request by querying a php wrapper
-  var baseUrl = "http://speedcubingfrance.org/php/comps.php?region=" + region + "&years=" + year;
+  // Use WCA API to get the list of competitions.
+  var baseUrl = "https://www.worldcubeassociation.org/api/v0/competitions?sort=-start_date&country_iso2=" + region + "&start=" + year;
   $.getJSON(baseUrl, function(data) {
     callback(year, region, data);
   });

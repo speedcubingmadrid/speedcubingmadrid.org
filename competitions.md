@@ -19,12 +19,12 @@ Pour ajouter, modifier ou supprimer une compétition, merci d'écrire à notre a
 </table>
 
 <script>
-generate_selector("2016", "France");
+generate_selector("2016", "FR");
 loading();
 $.getJSON("{{site.baseurl}}/uploads/comps.json", function(data) {
     //Load local unofficial comps and display calendar
     localComps = data;
-    get_comps("2016", "France", generate_calendar);
+    get_comps("2016-01-01", "FR", generate_calendar);
 });
 </script>
 
