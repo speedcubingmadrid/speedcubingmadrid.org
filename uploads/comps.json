@@ -38,5 +38,13 @@
         "year":"2016",
         "country":"France",
         "name":"Belfort Open 2016"
+    },
+    {
+        "city":"Hem",
+        "month":"6",
+        "day":"4",
+        "year":"2016",
+        "country":"France",
+        "name":"HEM MariCubik Open 2016"
     }
 ]
