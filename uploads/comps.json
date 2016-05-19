@@ -45,7 +45,23 @@
         "day":"9",
         "year":"2016",
         "country":"France",
-        "name":"FLIP Open 2016"
+        "name":"FLIP 2016"
+    },
+    {
+        "city":"Chambéry",
+        "month":"11",
+        "day":"11",
+        "year":"2016",
+        "country":"France",
+        "name":"Chambéry Open 2016"
+    },
+    {
+        "city":"TBD",
+        "month":"12",
+        "day":"17",
+        "year":"2016",
+        "country":"France",
+        "name":"Finale Coupe de France"
     },
     {
         "city":"Hem",
