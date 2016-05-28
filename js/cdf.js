@@ -66,6 +66,10 @@ function prettyName(fullName) {
   retName = retName.replace(" Open", "");
   retName = retName.replace(" MariCubik", "");
   retName = retName.replace(" Megaminx", "");
+  retName = retName.replace(" Summer", "");
+  retName = retName.replace(" Winter", "");
+  retName = retName.replace(" Rubik", "");
+  retName = retName.replace("French Championship", "France");
   retName = retName.replace("Chambéry Cube", "Chambéry");
   retName = retName.replace("Open Cube Project", "OCP");
   retName = retName.replace(" Jeu et Jouet", "");
