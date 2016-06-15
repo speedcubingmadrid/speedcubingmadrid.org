@@ -10,4 +10,4 @@ L'Association Française de Speedcubing a été créée dans le but de promouvoi
 
 ### Bureau
 
-Le bureau est actuellement constitué de Philippe Virouleau, président, Hippolyte Moreau, trésorier, et Gaël Dusser, secrétaire.
+Le bureau est actuellement constitué de Philippe Virouleau, président, Émilien Fabre, trésorier, et Lina Tissier, secrétaire.
