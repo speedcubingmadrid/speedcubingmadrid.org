@@ -70,5 +70,13 @@
         "year":"2016",
         "country":"France",
         "name":"Hem MariCubik Open 2016"
+    },
+    {
+        "city":"Annecy",
+        "month":"1",
+        "day":"21",
+        "year":"2017",
+        "country":"France",
+        "name":"Annecy Open 2017"
     }
 ]
