@@ -74,9 +74,9 @@ Si vous connaissez une association locale active qui n'est pas dans cette liste,
 
 Enfin je voudrais de nouveau terminer par un rappel des différentes informations utiles qu'on rappelle souvent de vive voix mais qui mérite sans doute d'être plus diffusées :
 
-* Si vous êtes organisateur de compétitions et qu'une salle vous demande une assurance, il est possible de la faire couvrir gratuitement par l'assurance de l'AFS pour la durée de la compétition. Merci de [nous contacter](contact@speedcubingfrance.org) suffisamment à l'avance si vous souhaiteriez en bénéficier.
+* Si vous êtes organisateur de compétitions et qu'une salle vous demande une assurance, il est possible de la faire couvrir gratuitement par l'assurance de l'AFS pour la durée de la compétition. Merci de [nous contacter](mailto:contact@speedcubingfrance.org) suffisamment à l'avance si vous souhaiteriez en bénéficier.
 * Les délégués français ont une adresse commune : [delegates](mailto:delegates@speedcubingfrance.org). Merci de l'utiliser pour nous contacter et pour vos futures demandes d'officialisation ;)
-* Vous avez la possibilité d'obtenir une salle assez facilement, vous êtes un cubeur, et vous souhaiteriez donc organiser une compétition, mais vous n'avez aucune expérience ? Je vous invite à contacter la [liste des organisateurs français](orga@speedcubingfrance.org), en fonction des disponibilités de chacun et du sérieux de votre projet, vous pourrez éventuellement envisager un partenariat avec un organisateur expérimenté !
+* Vous avez la possibilité d'obtenir une salle assez facilement, vous êtes un cubeur, et vous souhaiteriez donc organiser une compétition, mais vous n'avez aucune expérience ? Je vous invite à contacter la [liste des organisateurs français](mailto:orga@speedcubingfrance.org), en fonction des disponibilités de chacun et du sérieux de votre projet, vous pourrez éventuellement envisager un partenariat avec un organisateur expérimenté !
 
 À bientôt,    
 Philippe Virouleau
