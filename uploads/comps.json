@@ -72,11 +72,27 @@
         "name":"Hem MariCubik Open 2016"
     },
     {
+        "city":"Montbéliard",
+        "month":"11",
+        "day":"1",
+        "year":"2016",
+        "country":"France",
+        "name":"Montbéliard Open 2016"
+    },
+    {
+        "city":"Annecy",
+        "month":"10",
+        "day":"29",
+        "year":"2016",
+        "country":"France",
+        "name":"Annecy Open 2016"
+    },
+    {
         "city":"Annecy",
         "month":"1",
         "day":"21",
         "year":"2017",
         "country":"France",
-        "name":"Annecy Open 2017"
+        "name":"Annecy Cube Day 2017"
     }
 ]
