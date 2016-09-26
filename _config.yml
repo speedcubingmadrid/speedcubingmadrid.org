@@ -23,4 +23,6 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+future: true
+
 exlude: ['README.md', "LICENSE", "Session.vim"]
