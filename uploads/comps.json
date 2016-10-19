@@ -5,7 +5,7 @@
         "day":"3",
         "year":"2016",
         "country":"France",
-        "name":"Ugine Jeux et Jouet 2016"
+        "name":"Ugine Jeu et Jouet 2016"
     },
     {
         "city":"Cannes",
@@ -53,7 +53,7 @@
         "day":"11",
         "year":"2016",
         "country":"France",
-        "name":"Chambéry Open 2016"
+        "name":"Chambéry Cube 2016"
     },
     {
         "city":"Calais",
@@ -88,11 +88,35 @@
         "name":"Annecy Open 2016"
     },
     {
-        "city":"Annecy",
-        "month":"1",
-        "day":"21",
+        "city":"Chelles",
+        "month":"2",
+        "day":"11",
         "year":"2017",
         "country":"France",
-        "name":"Annecy Cube Day 2017"
+        "name":"Chelles Open 2017"
+    },
+    {
+        "city":"Lille",
+        "month":"4",
+        "day":"8",
+        "year":"2017",
+        "country":"France",
+        "name":"France 2017"
+    },
+    {
+        "city":"Angoulême",
+        "month":"1",
+        "day":"7",
+        "year":"2017",
+        "country":"France",
+        "name":"Angoulême Open 2017"
+    },
+    {
+        "city":"Ecully",
+        "month":"3",
+        "day":"4",
+        "year":"2017",
+        "country":"France",
+        "name":"Lyon Open 2017"
     }
 ]
