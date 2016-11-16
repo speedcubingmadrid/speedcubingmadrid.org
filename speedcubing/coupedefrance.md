@@ -19,6 +19,8 @@ Le [présent règlement]({{site.baseurl}}/uploads/reglementCDFDC_2016.pdf) défi
 
 ### Classement
 
+Note : le nombre de compétitions en France étant cette année très important, vous pouvez faire défiler horizontalement le classement. Un moyen simple et pratique est de placer le curseur de la souris sur le tableau, et d'utiliser MAJ+la molette de la souris pour faire défiler horizontalement.
+
 <span style="color:red">Attention : le malus de 10pts pour les non-adhérents n'est pas encore pris en compte.</span>
 
 
@@ -49,10 +51,12 @@ $.getJSON("{{site.baseurl}}/uploads/rankings.json", cdf_load_json);
 
 
 
+<div style="width:900px;height:100%;overflow-x:auto">
 <table class="planning" style="width:100%;font-size: 0.8em;">
 <tbody id="tbody-score">
 </tbody>
 </table>
+</div>
 
 **Légende** : S = Score, V = Victoires. Compétitions <span class='opensize0'>mineures</span>, <span class='opensize1'>intermédiaires</span> et <span class='opensize2'>majeures</span>.
 
