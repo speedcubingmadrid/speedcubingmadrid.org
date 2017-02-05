@@ -5,6 +5,18 @@ section: speedcubing
 permalink: /speedcubing/cdf_historique/
 ---
 
+### Édition 2017
+
+Comme pour l'édition précédente, la commission vous fournit des informations relatives aux dépôts de dossier, ainsi qu'aux critères d'évaluation : vous pouvez retrouver ces informations [ici]({{site.baseurl}}/uploads/CommissionCDF2017.pdf).
+
+Toutes les informations importantes sont normalement dans ce fichier. Si vous avez une question précise, n'hésitez à la poser sur le forum de l'AFS ou en contactant la commission.
+
+#### Projet retenu 
+
+Après délibération de la commission, c’est le projet déposé par l'association The Cube Project qui a été retenu pour organiser les Championnats de France 2017 !
+
+La prochaine édition aura donc lieu à Lille, les 8 et 9 Avril. Toutes les informations se trouvent sur [le site de la compétition](http://cdf.thecubeproject.fr/) ainsi que sur [la WCA](https://www.worldcubeassociation.org/competitions/France2017).
+
 ### Édition 2016
 
 Comme pour l'édition précédente, la commission vous fournit des informations relatives aux dépôts de dossier, ainsi qu'aux critères d'évaluation : vous pouvez retrouver ces informations [ici]({{site.baseurl}}/uploads/CommissionCDF2016.pdf).
