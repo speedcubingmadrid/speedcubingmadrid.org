@@ -104,19 +104,43 @@
         "name":"France 2017"
     },
     {
-        "city":"Angoulême",
-        "month":"1",
-        "day":"7",
+        "city":"Parthenay",
+        "month":"7",
+        "day":"21",
         "year":"2017",
         "country":"France",
-        "name":"Angoulême Open 2017"
+        "name":"FLIP Open 2017"
     },
     {
-        "city":"Ecully",
-        "month":"3",
-        "day":"4",
+        "city":"Paris",
+        "month":"7",
+        "day":"14",
         "year":"2017",
         "country":"France",
-        "name":"Lyon Open 2017"
+        "name":"World Rubik's Cube Championship 2017"
+    },
+    {
+        "city":"Aix en provence",
+        "month":"5",
+        "day":"28",
+        "year":"2017",
+        "country":"France",
+        "name":"Aix en provence 2017"
+    },
+    {
+        "city":"Ugine",
+        "month":"12",
+        "day":"2",
+        "year":"2017",
+        "country":"France",
+        "name":"Ugine Jeu et Jouet 2017"
+    },
+    {
+        "city":"Grenoble",
+        "month":"4",
+        "day":"22",
+        "year":"2017",
+        "country":"France",
+        "name":"Grenoble Open 2017"
     }
 ]
