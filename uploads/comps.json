@@ -117,7 +117,7 @@
         "day":"14",
         "year":"2017",
         "country":"France",
-        "name":"World Rubik's Cube Championship 2017"
+        "name":"World Championship 2017"
     },
     {
         "city":"Aix en provence",
@@ -134,6 +134,14 @@
         "year":"2017",
         "country":"France",
         "name":"Ugine Jeu et Jouet 2017"
+    },
+    {
+        "city":"Toulon",
+        "month":"10",
+        "day":"28",
+        "year":"2017",
+        "country":"France",
+        "name":"Toulon 2017"
     },
     {
         "city":"Grenoble",
