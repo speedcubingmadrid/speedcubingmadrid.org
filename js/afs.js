@@ -30,6 +30,10 @@ function menu_list(fullYear, region, data) {
 function mondayInWeek(year, week) {
   var first_date = new Date(year, 0, 4, 0, 0, 0);
   var weekday = first_date.getDay();
+  if (weekday == 4 && week == 0) {
+    first_date.setTime(first_date.getTime() - 86400000 * 3);
+    return first_date;
+  }
   first_date.setTime(first_date.getTime() - 86400000 * (weekday - 1) + 604800000 * (week - 1));
   first_date.setHours(0);
   first_date.setMinutes(0);

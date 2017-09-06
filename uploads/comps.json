@@ -104,28 +104,12 @@
         "name":"France 2017"
     },
     {
-        "city":"Parthenay",
-        "month":"7",
-        "day":"21",
-        "year":"2017",
-        "country":"France",
-        "name":"FLIP Open 2017"
-    },
-    {
         "city":"Paris",
         "month":"7",
         "day":"14",
         "year":"2017",
         "country":"France",
         "name":"World Championship 2017"
-    },
-    {
-        "city":"Aix en provence",
-        "month":"5",
-        "day":"28",
-        "year":"2017",
-        "country":"France",
-        "name":"Aix en provence 2017"
     },
     {
         "city":"Ugine",
@@ -136,12 +120,12 @@
         "name":"Ugine Jeu et Jouet 2017"
     },
     {
-        "city":"Hem",
-        "month":"6",
-        "day":"4",
-        "year":"2017",
+        "city":"Belfort",
+        "month":"1",
+        "day":"26",
+        "year":"2018",
         "country":"France",
-        "name":"HEM MariCubik Open 2017"
+        "name":"Belfort Open 2018"
     },
     {
         "city":"Toulon",

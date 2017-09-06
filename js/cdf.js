@@ -63,6 +63,7 @@ function prettyName(fullName) {
   var retName = fullName.replace(" Open Rubik", "");
   retName = retName.replace(" 2015", "");
   retName = retName.replace(" 2016", "");
+  retName = retName.replace(" 2017", "");
   retName = retName.replace(" Open", "");
   retName = retName.replace(" MariCubik", "");
   retName = retName.replace(" Megaminx", "");
@@ -71,9 +72,12 @@ function prettyName(fullName) {
   retName = retName.replace(" Rubik", "");
   retName = retName.replace("French Championship", "France");
   retName = retName.replace("Chambéry Cube", "Chambéry");
+  retName = retName.replace(" 73", "");
+  retName = retName.replace("Barby Cube", "Barby");
   retName = retName.replace("Open Cube Project", "OCP");
   retName = retName.replace(" Jeu et Jouet", "");
   retName = retName.replace("Galeries Dorian", "GD");
+  retName = retName.replace("Aix-en-Provence", "Aix");
   retName = retName.replace("La Montagne", "LM");
   retName = retName.replace("V-CUBE ", "");
   retName = retName.replace("Galeries Lafayette", "GL");
