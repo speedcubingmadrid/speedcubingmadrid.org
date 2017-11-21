@@ -11,7 +11,7 @@ L’Assemblée Générale de l’association aura lieu à l’occasion du Chouch
 {{post_excerpt}}
 
 Cette Assemblée Générale sera plus dense que celle d'avril car nous souhaitons aborder et avancer sur beaucoup de sujets pour compenser le fait que la précédente était presque purement administrative. Il est prévu une durée d'environ 3h.
-En prévision de cette Assemblée Générale, le bureau actuel (Philippe Virouleau, Lina Tissier et Émilien Fabre) ainsi que Jules Desjardin et Antoine Piau ont discuté samedi 18 novembre afin de définir l'ordre du jour suivant :
+En prévision de cette Assemblée Générale, le bureau actuel (Philippe Virouleau, Lina Tissier et Émilien Fabre) ainsi que Jules Desjardin et Antoine Piau ont discuté samedi 18 novembre afin de définir l'ordre du jour suivant (le temps alloué pour discuter d'un point est indiqué entre parenthèses) :
 
 - Bilan de l'année (10 min)
 - Présentation des comptes (10 min)
@@ -29,5 +29,7 @@ En prévision de cette Assemblée Générale, le bureau actuel (Philippe Viroule
 - Proposition d'un service pour les entreprises (20 min)
 - Encouragement à la création de clubs et d'associations (10 min)
 - Point sur les éléments nécessaires pour pouvoir devenir une fédération (temps restant)
+
+Vous pouvez trouver plus de détails sur le contenu de chacun des points sur francocube : https://forum.francocube.com/viewtopic.php?f=33&t=14613
 
 Nous avons déjà pensé à des éléments précis pour chaque point. Néanmoins, si vous avez en tête des éléments précis qui vous semblent primordiaux ou que vous souhaitez ajouter un point à aborder, n'hésitez pas à nous contacter. Nous vous invitons également à venir vers nous si vous souhaitez vous exprimer sur certains sujets sans pouvoir assister à la réunion.
