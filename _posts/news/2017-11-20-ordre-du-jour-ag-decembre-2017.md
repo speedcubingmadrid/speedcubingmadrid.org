@@ -16,7 +16,7 @@ En prévision de cette Assemblée Générale, le bureau actuel (Philippe Viroule
 - Bilan de l'année (10 min)
 - Présentation des comptes (10 min)
 - Élection du bureau (15 min)
-	- Le Bureau démissionne : contactez-nous (contact@speedcubingfrance.org) si vous voulez être candidat
+	- Le Bureau démissionne : [contactez-nous](mailto:contact@speedcubingfrance.org) si vous voulez être candidat
 - Élection de la nouvelle commission pour l'attribution des championnats de France 2019 (20 min)
 	- Contactez-nous également si vous souhaitez en faire partie
 - Amélioration de la communication interne (5 min)
@@ -30,6 +30,6 @@ En prévision de cette Assemblée Générale, le bureau actuel (Philippe Viroule
 - Encouragement à la création de clubs et d'associations (10 min)
 - Point sur les éléments nécessaires pour pouvoir devenir une fédération (temps restant)
 
-Vous pouvez trouver plus de détails sur le contenu de chacun des points sur francocube : https://forum.francocube.com/viewtopic.php?f=33&t=14613
+Vous pouvez trouver plus de détails sur le contenu de chacun des points sur [francocube](https://forum.francocube.com/viewtopic.php?f=33&t=14613).
 
 Nous avons déjà pensé à des éléments précis pour chaque point. Néanmoins, si vous avez en tête des éléments précis qui vous semblent primordiaux ou que vous souhaitez ajouter un point à aborder, n'hésitez pas à nous contacter. Nous vous invitons également à venir vers nous si vous souhaitez vous exprimer sur certains sujets sans pouvoir assister à la réunion.
