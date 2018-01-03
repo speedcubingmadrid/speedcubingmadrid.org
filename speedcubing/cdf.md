@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Championnats de France"
 section: speedcubing
@@ -8,7 +8,7 @@ Depuis 2013, les championnats de France sont organisés par la communauté fran�
 
 ### Édition 2019
 
-Comme pour l'édition précédente, la commission vous fournit des informations relatives aux dépôts de dossier, ainsi qu'aux critères d'évaluation : vous pouvez retrouver ces informations [ici]({{site.baseurl}}/uploads/CommissionCDF2019.pdf). Par rapport aux éditions précédentes, notez que la Commission doit respecter la Charte en annexe de ce fichier. Merci d'en prendre également connaissance si vous souhaitez déposer un dossier.
+Comme pour l'édition précédente, la commission vous fournit des informations relatives aux dépôts de dossier, ainsi qu'aux critères d'évaluation : vous pouvez retrouver ces informations [ici]({{site.baseurl}}/uploads/CommissionCDF2019.pdf). La Commission doit respecter la Charte en annexe de ce fichier. Merci d'en prendre également connaissance si vous souhaitez déposer un dossier.
 
 Toutes les informations importantes sont normalement dans ce fichier. Si vous avez une question précise, n'hésitez à la poser sur le forum de l'AFS ou en contactant la commission.
 
