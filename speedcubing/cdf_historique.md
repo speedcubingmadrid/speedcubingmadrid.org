@@ -5,6 +5,18 @@ section: speedcubing
 permalink: /speedcubing/cdf_historique/
 ---
 
+### Édition 2018
+
+Comme pour l'édition précédente, la commission vous fournit des informations relatives aux dépôts de dossier, ainsi qu'aux critères d'évaluation : vous pouvez retrouver ces informations [ici]({{site.baseurl}}/uploads/CommissionCDF2018.pdf). Par rapport aux éditions précédentes, notez que la Commission doit respecter la Charte en annexe de ce fichier. Merci d'en prendre également connaissance si vous souhaitez déposer un dossier.
+
+Toutes les informations importantes sont normalement dans ce fichier. Si vous avez une question précise, n'hésitez à la poser sur le forum de l'AFS ou en contactant la commission.
+
+#### Projet retenu 
+
+Après délibération de la commission, c’est le projet déposé par l'association Only Cube qui a été retenu pour organiser les Championnats de France 2018 !
+
+La prochaine édition aura donc lieu à Lyon, du 31 Mars au 2 Avril.
+
 ### Édition 2017
 
 Comme pour l'édition précédente, la commission vous fournit des informations relatives aux dépôts de dossier, ainsi qu'aux critères d'évaluation : vous pouvez retrouver ces informations [ici]({{site.baseurl}}/uploads/CommissionCDF2017.pdf).
