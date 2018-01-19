@@ -6,6 +6,7 @@ permalink: /association/documents/
 ---
 ### Compte-rendus
 
+* [Assemblée Générale du 16 décembre 2017]({{site.baseurl}}/uploads/AG_16-12-17.pdf)
 * [Assemblée Générale du 8 avril 2017]({{site.baseurl}}/uploads/AG_08-04-17.pdf)
 * [Assemblée Générale du 30 avril 2016]({{site.baseurl}}/uploads/AG_30-04-16.pdf)
 * [Assemblée Générale du 17 avril 2015]({{site.baseurl}}/uploads/AG_17-04-15.pdf)
