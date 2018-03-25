@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    # NOTE: we import user data from registrations with admin rights, we don't
-    # actually need these scopes.
     scopes = "public email dob"
     redirect_to wca_login_url(scopes)
   end
