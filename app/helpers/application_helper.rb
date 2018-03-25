@@ -26,4 +26,13 @@ module ApplicationHelper
   def fixed_wca_callback_url
     wca_callback_url.sub("localhost", "127.0.0.1")
   end
+
+  def page_title(page_title = "")
+    base_title = "Association Française de Speedcubing"
+    if page_title.blank?
+      base_title
+    else
+      page_title + " | " + base_title
+    end
+  end
 end
