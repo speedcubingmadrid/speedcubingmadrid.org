@@ -1,0 +1,10 @@
+Hi there,
+
+<br/>
+
+<% if current_user %>
+  You're logged in as <%= current_user.name %>.<br/>
+  <%= link_to "Sign out", signout_path %>
+<% else %>
+  Please <%= link_to "sign in", signin_path %>!
+<% end %>
