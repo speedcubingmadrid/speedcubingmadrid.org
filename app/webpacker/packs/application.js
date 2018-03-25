@@ -11,7 +11,5 @@ import 'bootstrap/dist/js/bootstrap';
 import Turbolinks from 'turbolinks';
 Turbolinks.start();
 
-$(function () {
-  console.log('Hello World from Webpacker')
-  //$('[data-toggle="popover"]').popover()
-});
+// Expose $ to our local script tags
+require("expose-loader?$!jquery");

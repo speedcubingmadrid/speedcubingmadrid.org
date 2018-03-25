@@ -2,6 +2,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.4.1",
     "bootstrap": "4.0.0",
+    "expose-loader": "^0.7.5",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.1",
     "turbolinks": "^5.1.1"

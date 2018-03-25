@@ -1,0 +1,5 @@
+/*@import '../src/stylesheets/shared/variables';*/
+@import '~bootstrap/scss/bootstrap';
+.someclass {
+  @extend .text-danger;
+}

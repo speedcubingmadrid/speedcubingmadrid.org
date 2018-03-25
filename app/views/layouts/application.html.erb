@@ -2,11 +2,9 @@
 <html>
 <head>
   <title><%= page_title(yield(:title)) %></title>
-  <%# Rails assets %>
-  <%# stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%# javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%# Webpacker %>
-  <%# stylesheet_pack_tag 'application' %>
+  <%# Followed this to get rid of sprockets: https://medium.com/@coorasse/goodbye-sprockets-welcome-webpacker-3-0-ff877fb8fa79 %>
+  <%= stylesheet_pack_tag 'stylesheets', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
 </head>

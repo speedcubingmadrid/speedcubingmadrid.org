@@ -15,3 +15,9 @@ Hi there,
 <span class="someclass">test text</span>
 <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 </div>
+<script>
+$(function () {
+  console.log('Hello World from Webpacker')
+  $('[data-toggle="popover"]').popover()
+});
+</script>
