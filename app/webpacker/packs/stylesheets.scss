@@ -3,7 +3,7 @@
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
 
-$green: #1bdb1b;
+$green: #28a745;
 $blue: #3639ed; $orange: #ffa00e;
 $red: #ef1f1c;
 $yellow: #ffe300;
@@ -15,6 +15,9 @@ $main-link-color-hover: #0a0cd9;
 /*$border-color: $main-link-color;*/
 $border-color: #ccc;
 $offset: 30px;
+
+$wca-logo-size: 32px;
+
 
 .navbar {
   padding-bottom: 0;
@@ -67,11 +70,15 @@ $offset: 30px;
     #navbar-afs {
       background-color: #fff;
       position: relative;
-      margin-left: 200px;
-      margin-right: 50px;
       margin-bottom: -$offset;
       padding-bottom: 10px;
       border: 2px solid $border-color;
+      @include media-breakpoint-up(md) {
+        margin-right: 50px;
+      }
+      @include media-breakpoint-up(sm) {
+        margin-left: 200px;
+      }
       .dropdown:hover > .dropdown-menu {
         display: block;
       }
@@ -84,13 +91,12 @@ $offset: 30px;
         vertical-align: middle;
         background-size: cover;
       }
-      .nav-item > a {
+      .nav-item > a, .nav-item > .signin-elem > a {
         @extend .mx-1;
         &:not(.nav-user) {
           border-bottom: 4px solid;
         }
         margin-bottom: -4px;
-        /*color: #212529;*/
         &.nav-association {
           &:hover, &:active, i {
             color: $blue;
@@ -115,36 +121,64 @@ $offset: 30px;
           }
           border-color: $green;
         }
-        &.nav-login {
+        &.nav-signin {
+          &::before {
+            content: '';
+            background-image: url("../images/wca_logo.svg");
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+
+            width: $wca-logo-size;
+            height: $wca-logo-size;
+            top: 5px;
+            left: 5px;
+          }
           &:hover, &:active, i {
             color: $darker-yellow;
           }
           border-color: $darker-yellow;
+
+          padding-left: $wca-logo-size + 10px;
+          overflow: hidden;
+          position: relative;
         }
       }
     }
   }
 }
 
+.card-text {
+  text-align: justify;
+}
+
+.card-img-right {
+  height: 100px;
+  width: 100px;
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
 $footer-height: 50px;
 
 #main-container {
-  padding-top: $offset;
+  padding-top: 2*$offset;
   .container {
-    border-left: 2px solid black;
     flex-direction: column;
   }
-  a {
-    color: $main-link-color;
-    &:hover, &:active {
-      color: $main-link-color-hover;
-    }
-  }
-
 }
 
 #foo {
   display:none;
+}
+
+#bar {
+  display:block;
+}
+
+.title-comp-card {
+  margin-top: 5px;
+  margin-bottom: -5px;
 }
 
 html {
@@ -153,7 +187,7 @@ html {
 }
 
 body {
-  margin-bottom: $footer-height;
+  margin-bottom: $footer-height+15;
 }
 
 .footer {

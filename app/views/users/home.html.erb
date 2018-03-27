@@ -1,628 +1,119 @@
 <div class="container">
-  <div>
-    Hi there,
-
-    <br/>
-
-    <% if current_user %>
-      You're logged in as <%= current_user.name %>.<br/>
-      <%= link_to "Sign out", signout_path %>
-    <% else %>
-      Please <%= link_to "sign in", signin_path %>!
-    <% end %>
-
-    <br/>
-
-    <span class="someclass">test text</span>
-    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+  <div id="bar">
+    <div class="row mb-2">
+      <div class="col-md-6 mb-4">
+        <div class="card flex-md-row box-shadow h-100">
+          <div class="card-body d-flex flex-column align-items-start">
+            <div class="d-flex flex-row w-100 mb-2">
+              <div>
+                <strong class="d-inline-block mb-2 badge badge-primary">WCA</strong>
+                <h3 class="mb-0">
+                  <a class="text-dark" href="#">WCA Dues System</a>
+                </h3>
+                <div class="mb-1 text-muted">5 Mars 2018</div>
+              </div>
+              <div class="card-img-right ml-auto flex-auto d-none d-md-block">thumbnail</div>
+            </div>
+            <p class="card-text mb-auto">
+            Bonjour à tous, Comme vous le savez peut-être, la WCA demande désormais une petite participation pour chaque compétiteur lors d’une compétition.
+            Cette participation dépend du pays dans lequel se tient la compétition, et s’élève à $0.50 pour la France. (Plus de détails ici).
+            </p>
+            <a href="#">Lire la suite...</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card flex-md-row box-shadow h-100">
+          <div class="card-body d-flex flex-column align-items-start">
+            <div class="d-flex flex-row w-100 mb-2">
+              <div>
+                <strong class="d-inline-block mb-2 badge badge-primary">AFS</strong>
+                <strong class="d-inline-block mb-2 badge badge-success">Vêtements</strong>
+                <h3 class="mb-0">
+                  <a class="text-dark" href="#">Commande de vêtements AFS</a>
+                </h3>
+                <div class="mb-1 text-muted">5 Février 2018</div>
+              </div>
+              <div class="card-img-right ml-auto flex-auto d-none d-md-block">thumbnail</div>
+            </div>
+            <p class="card-text mb-auto">
+            Bonjour à tous, Après le succès de la commande de vêtements de l’année dernière, l’AFS relance une nouvelle commande pour 2018 !
+            </p>
+            <a href="#">Lire la suite...</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card text-center border-secondary">
+      <div class="card-header">
+        <div class="float-md-left title-comp-card text-dark">Compétitions à venir</div>
+        <ul class="nav nav-tabs card-header-tabs flex-column flex-md-row ml-0 justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="#">En france</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Championnats Internationaux</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body text-left row">
+        <div class="col-md-4">
+          <h5 class="card-title">Championnats de France 2018</h5>
+          <p class="card-text">Texte qui dit où c'est</p>
+          <a href="#" class="btn btn-primary">Visiter le site</a>
+        </div>
+        <div class="col-md-4">
+          <h5 class="card-title">Championnats d'Europe 2018</h5>
+          <p class="card-text">Texte qui dit où c'est</p>
+          <a href="#" class="btn btn-primary">Visiter le site</a>
+        </div>
+        <div class="col-md-4">
+          <h5 class="card-title">Championnats du Monde 2019</h5>
+          <p class="card-text">On sait pas où c'est</p>
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <h2 class="my-4 text-center">Dernières publications</h2>
+    <div class="regular-post card mb-4">
+      <div class="card-body d-flex flex-column align-items-start">
+        <h4 class="post-title">
+          <a href="#" class="text-dark">Compte rendu de l'AG du 16 décembre 2017</a>
+        </h4>
+        <div class="post-meta text-muted">
+          19 janv 2018
+        </div>
+        <div class="post-excerpt">
+          Le compte rendu de l’AG ayant eu lieu lors du Chouchenn Open (finale de la Coupe de France 2017) est disponible ici.
+        </div>
+      </div>
+    </div>
+    <div class="regular-post card mb-4">
+      <div class="card-body d-flex flex-column align-items-start">
+        <h4 class="post-title">
+          <a href="#" class="text-dark">Ordre du jour de l'Assemblée Générale de l'AFS du 16 décembre 2017</a>
+        </h4>
+        <div class="post-meta text-muted">
+          20 nov 2017
+        </div>
+        <div class="post-excerpt">
+          L’Assemblée Générale de l’association aura lieu à l’occasion du Chouchenn Open 2017, le samedi 16 décembre, à partir de 9h, au 123 Boulevard de Verdun, 35000 Rennes.
+        </div>
+        <a href="#">Lire la suite...</a>
+      </div>
+    </div>
   </div>
+
+
   <div id="foo">
-  <div class="panel panel-info panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/asian-championship-2018-on-august-17-19-2018-in-taipei-taiwan">Asian Championship 2018 on August 17 - 19, 2018 in Taipei, Taiwan</a>
-        <span class="pull-right">
-          <a href="/posts/asian-championship-2018-on-august-17-19-2018-in-taipei-taiwan/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/asian-championship-2018-on-august-17-19-2018-in-taipei-taiwan">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Bob Burton le <span class="wca-local-time" data-utc-time="2018-03-22T00:26:18Z" data-locale="fr">jeudi 22 mars 2018 à 01:26 UTC+1</span></em>
-      </div>
+    <h2>Association</h2>
+    <h3>Présentation</h3>
 
-      <p>The <a href="https://www.worldcubeassociation.org/competitions/AsianChampionship2018">Asian Championship 2018</a> will take place on August 17 - 19, 2018 in Taipei, Taiwan. Check out the <a href="https://cubing-tw.net/event/2018AsianChampionship/">Asian Championship 2018 website</a> for more information and registration.</p>
+    <p class="text-justify">L’Association Française de Speedcubing a été créée dans le but de promouvoir le développement de la pratique du cube au niveau national. Une partie de son activité est consacrée à supporter l’organisation de compétitions officielles sur le sol français. Cela peut inclure le prêt de materiel, la participation aux frais de location de salle, etc.</p>
 
-    </div>
-  </div>
-  <div class="panel panel-info panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/information-about-south-american-championship">Information about South American Championship</a>
-        <span class="pull-right">
-          <a href="/posts/information-about-south-american-championship/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/information-about-south-american-championship">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Lauren Clement le <span class="wca-local-time" data-utc-time="2018-03-02T05:25:14Z" data-locale="fr">vendredi 2 mars 2018 à 06:25 UTC+1</span></em>
-      </div>
+    <h3>Bureau</h3>
 
-      <p>We are happy to announce that South American Championship will be held in the city of Poá-São Paulo, Brazil on December 15-16!</p>
-
-      <p>Applications were received from Poá-SP and for an idea to hold the championship across multiple cities in South America. Both described the details for hosting the competition in their own unique ways and had a lot of thought put into them. In the end, Poá-São Paulo was chosen as the host city.</p>
-
-      <p>Both applications can be found <a href="https://drive.google.com/drive/folders/19jgWuE4_fOU1MMAePp2clrOucyKl0ylf?usp=sharing">here</a>.</p>
-
-      <p>Thank you to those who put together both applications for their time and effort in planning for this competition! It is exciting to see enthusiasm for our larger competitions from those who take the time to apply to host them and their planning is appreciated.</p>
-
-      <p>We look forward to another South American Championship in December and hope you can join us!</p>
-
-    </div>
-  </div>
-  <div class="panel panel-info panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/cubingusa-nationals-2018-on-july-27-29-2018-in-salt-lake-city-utah-united-states">CubingUSA Nationals 2018 on July 27 - 29, 2018 in Salt Lake City, Utah, United States</a>
-        <span class="pull-right">
-          <a href="/posts/cubingusa-nationals-2018-on-july-27-29-2018-in-salt-lake-city-utah-united-states/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/cubingusa-nationals-2018-on-july-27-29-2018-in-salt-lake-city-utah-united-states">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Alberto Pérez de Rada Fiol le <span class="wca-local-time" data-utc-time="2017-12-23T09:24:12Z" data-locale="fr">samedi 23 décembre 2017 à 10:24 UTC+1</span></em>
-      </div>
-
-      <p>The <a href="https://www.worldcubeassociation.org/competitions/CubingUSANationals2018">CubingUSA Nationals 2018</a> will take place on July 27 - 29, 2018 in Salt Lake City, Utah, United States. Check out the <a href="https://cubingusa.org/nationals/2018">CubingUSA Nationals 2018 website</a> for more information and registration.</p>
-
-    </div>
-  </div>
-  <div class="panel panel-info panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/wca-european-championship-2018-on-july-19-22-2018-in-madrid-spain">WCA European Championship 2018 on July 19 - 22, 2018 in Madrid, Spain</a>
-        <span class="pull-right">
-          <a href="/posts/wca-european-championship-2018-on-july-19-22-2018-in-madrid-spain/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/wca-european-championship-2018-on-july-19-22-2018-in-madrid-spain">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Pedro Santos Guimarães le <span class="wca-local-time" data-utc-time="2017-12-14T16:19:10Z" data-locale="fr">jeudi 14 décembre 2017 à 17:19 UTC+1</span></em>
-      </div>
-
-      <p>The <a href="https://www.worldcubeassociation.org/competitions/Euro2018">WCA European Championship 2018</a> will take place on July 19 - 22, 2018 in Madrid, Spain. Check out the <a href="https://euro2018.cubecomps.com">WCA European Championship 2018 website</a> for more information and registration.</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/sahan-m-mm-dova-wins-lagom-ar-bast-2018-in-balakan-azerbaijan">Şahanə Məmmədova wins Lagom är Bäst 2018, in Balakan, Azerbaijan</a>
-        <span class="pull-right">
-          <a href="/posts/sahan-m-mm-dova-wins-lagom-ar-bast-2018-in-balakan-azerbaijan/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/sahan-m-mm-dova-wins-lagom-ar-bast-2018-in-balakan-azerbaijan">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Jacob Ambrose le <span class="wca-local-time" data-utc-time="2018-03-26T20:53:53Z" data-locale="fr">lundi 26 mars 2018 à 22:53 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2018MAMM03">Şahanə Məmmədova</a> won the <a href="https://www.worldcubeassociation.org/competitions/LagomarBast2018">Lagom är Bäst 2018</a> with an average of 1:02.48. <a href="https://www.worldcubeassociation.org/persons/2018QARA01">Maxsud Qarayev</a> finished second (1:07.81) and <a href="https://www.worldcubeassociation.org/persons/2018XALI01">Məhəmməd Xəlilov</a> finished third (1:43.80).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/jiayu-wang-wins-gdsy-open-2018-in-guangzhou-guangdong-china">Jiayu Wang (王佳宇) wins GDSY Open 2018, in Guangzhou, Guangdong, China</a>
-        <span class="pull-right">
-          <a href="/posts/jiayu-wang-wins-gdsy-open-2018-in-guangzhou-guangdong-china/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/jiayu-wang-wins-gdsy-open-2018-in-guangzhou-guangdong-china">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Jacob Ambrose le <span class="wca-local-time" data-utc-time="2018-03-26T20:53:43Z" data-locale="fr">lundi 26 mars 2018 à 22:53 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2010WANG53">Jiayu Wang (王佳宇)</a> won the <a href="https://www.worldcubeassociation.org/competitions/GDSYOpen2018">GDSY Open 2018</a> with an average of 8.27 seconds. <a href="https://www.worldcubeassociation.org/persons/2013LINK01">Kaijun Lin (林恺俊)</a> finished second (8.32) and <a href="https://www.worldcubeassociation.org/persons/2014LOKW01">Wong Kin Lok (黃健樂)</a> finished third (9.11).</p>
-
-      <p>Asian records: Wong Kin Lok (黃健樂)‎ 7x7x7 Cube 2:21.45 (average).  </p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/max-hilliard-wins-keep-portland-quiet-2018-in-portland-oregon-united-states">Max Hilliard wins Keep Portland Quiet 2018, in Portland, Oregon, United States</a>
-        <span class="pull-right">
-          <a href="/posts/max-hilliard-wins-keep-portland-quiet-2018-in-portland-oregon-united-states/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/max-hilliard-wins-keep-portland-quiet-2018-in-portland-oregon-united-states">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Sébastien Auroux le <span class="wca-local-time" data-utc-time="2018-03-26T09:30:46Z" data-locale="fr">lundi 26 mars 2018 à 11:30 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2015HILL09">Max Hilliard</a> won the <a href="https://www.worldcubeassociation.org/competitions/KeepPortlandQuiet2018">Keep Portland Quiet 2018</a> with a single solve of 21.45 seconds in the 3x3x3 Blindfolded event. <a href="https://www.worldcubeassociation.org/persons/2016GORE02">Neel Gore</a> finished second (27.27) and <a href="https://www.worldcubeassociation.org/persons/2014BOYA01">Mark Boyanowski</a> finished third (31.52).</p>
-
-      <p>World records: Mark Boyanowski‎ 3x3x3 Multi-Blind 43/44 1:00:00 (single).  </p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/nicolas-sanchez-wins-classic-city-closer-2018-in-athens-georgia-united-states">Nicolás Sánchez wins Classic City Closer 2018, in Athens, Georgia, United States</a>
-        <span class="pull-right">
-          <a href="/posts/nicolas-sanchez-wins-classic-city-closer-2018-in-athens-georgia-united-states/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/nicolas-sanchez-wins-classic-city-closer-2018-in-athens-georgia-united-states">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Jacob Ambrose le <span class="wca-local-time" data-utc-time="2018-03-26T03:05:30Z" data-locale="fr">lundi 26 mars 2018 à 05:05 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2015SANC11">Nicolás Sánchez</a> won the <a href="https://www.worldcubeassociation.org/competitions/ClassicCityCloser2018">Classic City Closer 2018</a> with an average of 8.24 seconds. <a href="https://www.worldcubeassociation.org/persons/2010HULL01">Katie Hull</a> finished second (8.71) and <a href="https://www.worldcubeassociation.org/persons/2015DIZO02">Kieran Dizon</a> finished third (9.56).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/linus-lauren-wins-finnish-open-2018-in-vantaa-finland">Linus Laurén wins Finnish Open 2018, in Vantaa, Finland</a>
-        <span class="pull-right">
-          <a href="/posts/linus-lauren-wins-finnish-open-2018-in-vantaa-finland/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/linus-lauren-wins-finnish-open-2018-in-vantaa-finland">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Jacob Ambrose le <span class="wca-local-time" data-utc-time="2018-03-26T03:05:16Z" data-locale="fr">lundi 26 mars 2018 à 05:05 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2016LAUR01">Linus Laurén</a> won the <a href="https://www.worldcubeassociation.org/competitions/FinnishOpen2018">Finnish Open 2018</a> with an average of 8.54 seconds. <a href="https://www.worldcubeassociation.org/persons/2016HYTT01">Kari Hyttinen</a> finished second (8.65) and <a href="https://www.worldcubeassociation.org/persons/2014NORD02">Amos Nordman</a> finished third (9.15).</p>
-
-      <p>European records: Amos Nordman‎ Megaminx 35.70 (single), Megaminx 40.11 (average).  </p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/hassen-kallala-wins-tunisia-winter-open-2018-in-sousse-tunisia">Hassen Kallala wins Tunisia Winter Open 2018, in Sousse, Tunisia</a>
-        <span class="pull-right">
-          <a href="/posts/hassen-kallala-wins-tunisia-winter-open-2018-in-sousse-tunisia/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/hassen-kallala-wins-tunisia-winter-open-2018-in-sousse-tunisia">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Jacob Ambrose le <span class="wca-local-time" data-utc-time="2018-03-26T03:05:07Z" data-locale="fr">lundi 26 mars 2018 à 05:05 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2016KALL01">Hassen Kallala</a> won the <a href="https://www.worldcubeassociation.org/competitions/TunisiaWinterOpen2018">Tunisia Winter Open 2018</a> with an average of 9.90 seconds. <a href="https://www.worldcubeassociation.org/persons/2015BOUS02">Moez Boussarsar</a> finished second (10.89) and <a href="https://www.worldcubeassociation.org/persons/2015BOUG02">Emna Boughizane</a> finished third (11.75).</p>
-
-      <p>African records: Emna Boughizane‎ Megaminx 49.21 (single), Megaminx 1:05.56 (average), Moez Boussarsar‎ 2x2x2 Cube 1.42 (single), 5x5x5 Cube 1:12.46 (single), Square-1 12.97 (single), Square-1 18.27 (average), Taha Ben Salah‎ 3x3x3 Blindfolded 1:14.12 (single).  </p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/kian-mansour-wins-pickering-spring-2018-in-pickering-ontario-canada">Kian Mansour wins Pickering Spring 2018, in Pickering, Ontario, Canada</a>
-        <span class="pull-right">
-          <a href="/posts/kian-mansour-wins-pickering-spring-2018-in-pickering-ontario-canada/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/kian-mansour-wins-pickering-spring-2018-in-pickering-ontario-canada">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Jacob Ambrose le <span class="wca-local-time" data-utc-time="2018-03-26T03:04:59Z" data-locale="fr">lundi 26 mars 2018 à 05:04 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2015MANS03">Kian Mansour</a> won the <a href="https://www.worldcubeassociation.org/competitions/PickeringSpring2018">Pickering Spring 2018</a> with an average of 6.52 seconds. <a href="https://www.worldcubeassociation.org/persons/2010WANG68">Bill Wang</a> finished second (7.09) and <a href="https://www.worldcubeassociation.org/persons/2007LIME01">Eric Limeback</a> finished third (8.16).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/philipp-weyer-wins-cube-weekend-st-michielsgestel-2018-in-st-michielsgestel-netherlands">Philipp Weyer wins Cube Weekend St. Michielsgestel 2018, in St. Michielsgestel, Netherlands</a>
-        <span class="pull-right">
-          <a href="/posts/philipp-weyer-wins-cube-weekend-st-michielsgestel-2018-in-st-michielsgestel-netherlands/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/philipp-weyer-wins-cube-weekend-st-michielsgestel-2018-in-st-michielsgestel-netherlands">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Jacob Ambrose le <span class="wca-local-time" data-utc-time="2018-03-26T03:04:49Z" data-locale="fr">lundi 26 mars 2018 à 05:04 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2010WEYE01">Philipp Weyer</a> won the <a href="https://www.worldcubeassociation.org/competitions/CubeWeekendStMichielsgestel2018">Cube Weekend St. Michielsgestel 2018</a> with an average of 7.31 seconds. <a href="https://www.worldcubeassociation.org/persons/2010WEYE02">Sebastian Weyer</a> finished second (8.47) and <a href="https://www.worldcubeassociation.org/persons/2016SMUL01">Mika Smulders</a> finished third (9.10).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/breda-open-2018-on-may-19-20-2018-in-ulvenhout-netherlands">Breda Open 2018 on May 19 - 20, 2018 in Ulvenhout, Netherlands</a>
-        <span class="pull-right">
-          <a href="/posts/breda-open-2018-on-may-19-20-2018-in-ulvenhout-netherlands/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/breda-open-2018-on-may-19-20-2018-in-ulvenhout-netherlands">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Olivér Perge le <span class="wca-local-time" data-utc-time="2018-03-25T20:51:00Z" data-locale="fr">dimanche 25 mars 2018 à 22:51 UTC+2</span></em>
-      </div>
-
-      <p>The <a href="https://www.worldcubeassociation.org/competitions/BredaOpen2018">Breda Open 2018</a> will take place on May 19 - 20, 2018 in Ulvenhout, Netherlands. Check out the <a href="http://www.kubuswedstrijden.nl/breda-open-2018/">Breda Open 2018 website</a> for more information and registration.</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/lorenzo-mauro-wins-fiorano-open-2018-in-fiorano-modenese-italy">Lorenzo Mauro wins Fiorano Open 2018, in Fiorano Modenese, Italy</a>
-        <span class="pull-right">
-          <a href="/posts/lorenzo-mauro-wins-fiorano-open-2018-in-fiorano-modenese-italy/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/lorenzo-mauro-wins-fiorano-open-2018-in-fiorano-modenese-italy">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Pedro Santos Guimarães le <span class="wca-local-time" data-utc-time="2018-03-25T18:08:50Z" data-locale="fr">dimanche 25 mars 2018 à 20:08 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2014MAUR06">Lorenzo Mauro</a> won the <a href="https://www.worldcubeassociation.org/competitions/FioranoOpen2018">Fiorano Open 2018</a> with an average of 10.31 seconds. <a href="https://www.worldcubeassociation.org/persons/2012NICO02">Alessandro Nicolì</a> finished second (10.65) and <a href="https://www.worldcubeassociation.org/persons/2017BRAS01">Luca Brasini</a> finished third (10.92).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/tribox-open-spring-2018-on-may-5-2018-in-itabashi-tokyo-japan">Tribox Open Spring 2018 on May 5, 2018 in Itabashi, Tokyo, Japan</a>
-        <span class="pull-right">
-          <a href="/posts/tribox-open-spring-2018-on-may-5-2018-in-itabashi-tokyo-japan/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/tribox-open-spring-2018-on-may-5-2018-in-itabashi-tokyo-japan">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Luis J. Iáñez le <span class="wca-local-time" data-utc-time="2018-03-25T16:12:12Z" data-locale="fr">dimanche 25 mars 2018 à 18:12 UTC+2</span></em>
-      </div>
-
-      <p>The <a href="https://www.worldcubeassociation.org/competitions/TriboxOpenSpring2018">Tribox Open Spring 2018</a> will take place on May 5, 2018 in Itabashi, Tokyo, Japan. Check out the <a href="http://tribox.com/open/2018spring/">Tribox Open Spring 2018 website</a> for more information and registration.</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/antipolo-city-cube-open-2018-on-may-12-2018-in-antipolo-city-rizal-philippines">Antipolo City Cube Open 2018 on May 12, 2018 in Antipolo City, Rizal, Philippines</a>
-        <span class="pull-right">
-          <a href="/posts/antipolo-city-cube-open-2018-on-may-12-2018-in-antipolo-city-rizal-philippines/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/antipolo-city-cube-open-2018-on-may-12-2018-in-antipolo-city-rizal-philippines">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Luis J. Iáñez le <span class="wca-local-time" data-utc-time="2018-03-25T15:44:07Z" data-locale="fr">dimanche 25 mars 2018 à 17:44 UTC+2</span></em>
-      </div>
-
-      <p>The <a href="https://www.worldcubeassociation.org/competitions/AntipoloCityCubeOpen2018">Antipolo City Cube Open 2018</a> will take place on May 12, 2018 in Antipolo City, Rizal, Philippines. Check out the <a href="https://www.worldcubeassociation.org/competitions/AntipoloCityCubeOpen2018">Antipolo City Cube Open 2018 website</a> for more information and registration.</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/matej-grohmann-wins-slovakian-spring-2018-in-bratislava-slovakia">Matěj Grohmann wins Slovakian Spring 2018, in Bratislava, Slovakia</a>
-        <span class="pull-right">
-          <a href="/posts/matej-grohmann-wins-slovakian-spring-2018-in-bratislava-slovakia/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/matej-grohmann-wins-slovakian-spring-2018-in-bratislava-slovakia">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Baiqiang Dong (董百强) le <span class="wca-local-time" data-utc-time="2018-03-25T11:43:52Z" data-locale="fr">dimanche 25 mars 2018 à 13:43 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2015GROH02">Matěj Grohmann</a> won the <a href="https://www.worldcubeassociation.org/competitions/SlovakianSpring2018">Slovakian Spring 2018</a> with an average of 9.28 seconds. <a href="https://www.worldcubeassociation.org/persons/2014QUYN02">Tomáš Nguyen</a> finished second (9.63) and <a href="https://www.worldcubeassociation.org/persons/2015KUND04">Vojtěch Kundera</a> finished third (9.83).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/stanley-chapel-wins-please-be-as-quiet-as-a-cat-2018-in-oregon-wisconsin-united-states">Stanley Chapel wins Please Be As Quiet As A Cat 2018, in Oregon, Wisconsin, United States</a>
-        <span class="pull-right">
-          <a href="/posts/stanley-chapel-wins-please-be-as-quiet-as-a-cat-2018-in-oregon-wisconsin-united-states/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/stanley-chapel-wins-please-be-as-quiet-as-a-cat-2018-in-oregon-wisconsin-united-states">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Baiqiang Dong (董百强) le <span class="wca-local-time" data-utc-time="2018-03-25T11:43:17Z" data-locale="fr">dimanche 25 mars 2018 à 13:43 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2016CHAP04">Stanley Chapel</a> won the <a href="https://www.worldcubeassociation.org/competitions/PleaseBeAsQuietAsACat2018">Please Be As Quiet As A Cat 2018</a> with a single solve of 23.95 seconds in the 3x3x3 Blindfolded event. <a href="https://www.worldcubeassociation.org/persons/2014SATT01">Brandon Satterstrom</a> finished second (1:10.94) and <a href="https://www.worldcubeassociation.org/persons/2015KUCA01">Carter Kucala</a> finished third (1:27.39).</p>
-
-      <p>North American records: Stanley Chapel‎ 5x5x5 Blindfolded 4:39.32 (single).  </p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/zibo-xu-wins-hubei-university-shahu-spring-2018-in-wuhan-hubei-china">Zibo Xu (徐子博) wins Hubei University Shahu Spring 2018, in Wuhan, Hubei, China</a>
-        <span class="pull-right">
-          <a href="/posts/zibo-xu-wins-hubei-university-shahu-spring-2018-in-wuhan-hubei-china/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/zibo-xu-wins-hubei-university-shahu-spring-2018-in-wuhan-hubei-china">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Baiqiang Dong (董百强) le <span class="wca-local-time" data-utc-time="2018-03-25T11:42:45Z" data-locale="fr">dimanche 25 mars 2018 à 13:42 UTC+2</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2014XUZI01">Zibo Xu (徐子博)</a> won the <a href="https://www.worldcubeassociation.org/competitions/HubeiUniversityShahuSpring2018">Hubei University Shahu Spring 2018</a> with an average of 7.98 seconds. <a href="https://www.worldcubeassociation.org/persons/2015DUYU01">Yusheng Du (杜宇生)</a> finished second (9.05) and <a href="https://www.worldcubeassociation.org/persons/2016ZHAO28">Junze Zhao (赵俊泽)</a> finished third (9.54).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/martin-fronescu-wins-bacau-easter-open-2018-in-bacau-romania">Martin Fronescu wins Bacau Easter Open 2018, in Bacau, Romania</a>
-        <span class="pull-right">
-          <a href="/posts/martin-fronescu-wins-bacau-easter-open-2018-in-bacau-romania/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/martin-fronescu-wins-bacau-easter-open-2018-in-bacau-romania">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Rafael Werneck de Andrade Cinoto le <span class="wca-local-time" data-utc-time="2018-03-25T00:37:04Z" data-locale="fr">dimanche 25 mars 2018 à 01:37 UTC+1</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2013FRON01">Martin Fronescu</a> won the <a href="https://www.worldcubeassociation.org/competitions/BacauEasterOpen2018">Bacau Easter Open 2018</a> with an average of 8.42 seconds. <a href="https://www.worldcubeassociation.org/persons/2016ULKU01">Haluk Ulkusal</a> finished second (9.29) and <a href="https://www.worldcubeassociation.org/persons/2017TURC02">Sorin Turculeț</a> finished third (10.50).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/three-seconds-snakes-2018-on-april-28-2018-in-lake-villa-illinois-united-states">Three Seconds Snakes 2018 on April 28, 2018 in Lake Villa, Illinois, United States</a>
-        <span class="pull-right">
-          <a href="/posts/three-seconds-snakes-2018-on-april-28-2018-in-lake-villa-illinois-united-states/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/three-seconds-snakes-2018-on-april-28-2018-in-lake-villa-illinois-united-states">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Luis J. Iáñez le <span class="wca-local-time" data-utc-time="2018-03-24T23:37:16Z" data-locale="fr">dimanche 25 mars 2018 à 00:37 UTC+1</span></em>
-      </div>
-
-      <p>The <a href="https://www.worldcubeassociation.org/competitions/ThreeSecondsSnakes2018">Three Seconds Snakes 2018</a> will take place on April 28, 2018 in Lake Villa, Illinois, United States. Check out the <a href="https://www.worldcubeassociation.org/competitions/ThreeSecondsSnakes2018">Three Seconds Snakes 2018 website</a> for more information and registration.</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/shivaan-harichander-wins-gauteng-autumn-2018-in-pretoria-gauteng-south-africa">Shivaan Harichander wins Gauteng Autumn 2018, in Pretoria, Gauteng, South Africa</a>
-        <span class="pull-right">
-          <a href="/posts/shivaan-harichander-wins-gauteng-autumn-2018-in-pretoria-gauteng-south-africa/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/shivaan-harichander-wins-gauteng-autumn-2018-in-pretoria-gauteng-south-africa">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Rafael Werneck de Andrade Cinoto le <span class="wca-local-time" data-utc-time="2018-03-24T19:04:30Z" data-locale="fr">samedi 24 mars 2018 à 20:04 UTC+1</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2016HARI06">Shivaan Harichander</a> won the <a href="https://www.worldcubeassociation.org/competitions/GautengAutumn2018">Gauteng Autumn 2018</a> with an average of 10.68 seconds. <a href="https://www.worldcubeassociation.org/persons/2016BLUM01">Cameron Blumenow</a> finished second (11.27) and <a href="https://www.worldcubeassociation.org/persons/2015GROB02">Ruben Grobler</a> finished third (11.51).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/fmental-breakdown-2018-on-april-28-2018-in-barcelona-spain">FMEntal Breakdown 2018 on April 28, 2018 in Barcelona, Spain</a>
-        <span class="pull-right">
-          <a href="/posts/fmental-breakdown-2018-on-april-28-2018-in-barcelona-spain/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/fmental-breakdown-2018-on-april-28-2018-in-barcelona-spain">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Luis J. Iáñez le <span class="wca-local-time" data-utc-time="2018-03-24T18:11:08Z" data-locale="fr">samedi 24 mars 2018 à 19:11 UTC+1</span></em>
-      </div>
-
-      <p>The <a href="https://www.worldcubeassociation.org/competitions/FMEntalBreakdown2018">FMEntal Breakdown 2018</a> will take place on April 28, 2018 in Barcelona, Spain. Check out the <a href="http://asociacionrubik.es/c/FMEntalBreakdown2018">FMEntal Breakdown 2018 website</a> for more information and registration.</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/daniel-gutierrez-wins-wpi-winter-cube-day-2018-in-worcester-massachusetts-united-states">Daniel Gutierrez wins WPI Winter Cube Day 2018, in Worcester, Massachusetts, United States</a>
-        <span class="pull-right">
-          <a href="/posts/daniel-gutierrez-wins-wpi-winter-cube-day-2018-in-worcester-massachusetts-united-states/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/daniel-gutierrez-wins-wpi-winter-cube-day-2018-in-worcester-massachusetts-united-states">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Rafael Werneck de Andrade Cinoto le <span class="wca-local-time" data-utc-time="2018-03-24T18:10:32Z" data-locale="fr">samedi 24 mars 2018 à 19:10 UTC+1</span></em>
-      </div>
-
-      <p><a href="https://www.worldcubeassociation.org/persons/2016GUTI23">Daniel Gutierrez</a> won the <a href="https://www.worldcubeassociation.org/competitions/WPIWinterCubeDay2018">WPI Winter Cube Day 2018</a> with an average of 8.54 seconds. <a href="https://www.worldcubeassociation.org/persons/2014BREN02">Samuel Brenner</a> finished second (8.69) and <a href="https://www.worldcubeassociation.org/persons/2016LIGH01">Roger Lightbody III</a> finished third (9.01).</p>
-
-    </div>
-  </div>
-  <div class="panel panel-default panel-wca-post">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <a href="/posts/mongolia-2018-on-april-21-2018-in-ulaanbaatar-mongolia">Mongolia 2018 on April 21, 2018 in Ulaanbaatar, Mongolia</a>
-        <span class="pull-right">
-          <a href="/posts/mongolia-2018-on-april-21-2018-in-ulaanbaatar-mongolia/edit">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </a>            <a data-confirm="Êtes-vous sûr de vouloir supprimer ce post ? Cette action n'est pas réversible." rel="nofollow" data-method="delete" href="/posts/mongolia-2018-on-april-21-2018-in-ulaanbaatar-mongolia">
-            <span class="glyphicon glyphicon-trash"></span>
-          </a>        </span>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div>
-        <em>Annoncé par Luis J. Iáñez le <span class="wca-local-time" data-utc-time="2018-03-24T17:55:37Z" data-locale="fr">samedi 24 mars 2018 à 18:55 UTC+1</span></em>
-      </div>
-
-      <p>The <a href="https://www.worldcubeassociation.org/competitions/Mongolia2018">Mongolia 2018</a> will take place on April 21, 2018 in Ulaanbaatar, Mongolia. Check out the <a href="https://www.worldcubeassociation.org/competitions/Mongolia2018">Mongolia 2018 website</a> for more information and registration.</p>
-
-    </div>
-  </div>
-
-  <div class="pagination">
-    <ul class="pagination">
-
-
-      <li class="active">
-        <a remote="false">1</a>
-      </li>
-
-      <li>
-        <a rel="next" href="/?page=2">2</a>
-      </li>
-
-      <li>
-        <a href="/?page=3">3</a>
-      </li>
-
-      <li>
-        <a href="/?page=4">4</a>
-      </li>
-
-      <li>
-        <a href="/?page=5">5</a>
-      </li>
-
-      <li>
-        <a href="/?page=6">6</a>
-      </li>
-
-      <li>
-        <a href="/?page=7">7</a>
-      </li>
-
-      <li>
-        <a href="/?page=8">8</a>
-      </li>
-
-      <li class="disabled">
-        <a>…</a>
-      </li>
-
-      <li>
-        <a href="/?page=360">360</a>
-      </li>
-
-      <li>
-        <a href="/?page=361">361</a>
-      </li>
-
-      <li>
-        <a href="/?page=362">362</a>
-      </li>
-
-      <li>
-        <a rel="next" href="/?page=2">Suivant ›</a>
-      </li>
-
-      <li>
-        <a href="/?page=362">Dernier »</a>
-      </li>
-
-    </ul>
-  </div>
+    <p>Le bureau est actuellement constitué de Lina Tissier, présidente, Émilien Fabre, trésorier, et Jules Desjardin, secrétaire.</p>
   </div>
 
 </div>
