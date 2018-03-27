@@ -16,7 +16,7 @@ module ApplicationHelper
   end
 
   def wca_base_url
-    ENV['WCA_BASE_URL'] || "http://www.worldcubeassociation.org"
+    ENV['WCA_BASE_URL'] || "https://www.worldcubeassociation.org"
   end
 
   def wca_token_url
