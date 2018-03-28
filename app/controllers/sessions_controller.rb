@@ -32,24 +32,24 @@ class SessionsController < ApplicationController
 
     status, user = User.create_or_update(me_data)
     unless status
-      return fail_and_redirect("Could not create or update user! (That's a pretty bad error!)")
+      return fail_and_redirect("Impossible de créer l'utilisateur! (C'est une erreur sérieuse :( !)")
     end
     session[:user_id] = user.id
     session[:access_token] = access_token
 
     Rails.logger.info "WCA Logged in as '#{me_data['name']}'."
-    redirect_to root_url, flash: { success: 'Signed in !' }
+    redirect_to root_url, flash: { success: 'Vous êtes connecté !' }
   end
 
   def destroy
     reset_session
-    redirect_to root_url, flash: { success: 'Signed out!' }
+    redirect_to root_url, flash: { success: 'Vous avez été déconnecté !' }
   end
 
   private
   def fail_and_redirect(message)
       reset_session
       Rails.logger.info "WCA Login failed."
-      redirect_to(root_url, alert: "Signed in failed! Error: #{message}")
+      redirect_to(root_url, alert: "Impossible de se connecter ! Erreur : #{message}")
   end
 end

@@ -1,0 +1,23 @@
+$footer-height: 50px;
+
+html {
+  // for a fixed footer
+  position: relative;
+}
+
+body {
+  margin-bottom: $footer-height+15;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: $footer-height;
+  line-height: $footer-height;
+  background-color: $bg-header;
+  border-top: 2px solid $border-color;
+  .container {
+    text-align: center;
+  }
+}

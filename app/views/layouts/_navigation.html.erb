@@ -8,14 +8,18 @@
             <%= link_to root_path do %>
               <span class="blue d-none d-md-block">Association Française de Speedcubing</span>
               <span class="blue d-md-none">AFS</span>
-              <%#<span class="white">Française</span>%>
-              <%#<span class="red">de Speedcubing</span>%>
             <% end %>
           </div>
           <div class="brand-social">
-            <a href="#"><i class="fa fa-facebook-official"></i></a>
-            <a href="#"><i class="fa fa-twitch"></i></a>
-            <a href="#"><i class="fa fa-github"></i></a>
+            <a href="https://www.facebook.com/AFspeedcubing/" target="_blank">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+            <a href="https://www.twitch.tv/afspeedcubing" target="_blank">
+              <i class="fa fa-twitch"></i>
+            </a>
+            <a href="https://github.com/speedcubingfrance/speedcubingfrance.org" target="_blank">
+              <i class="fa fa-github"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -24,26 +28,34 @@
       </button>
 
       <div class="navbar-container w-100">
-        <div class="collapse navbar-collapse justify-content-sm-center rounded" id="navbar-afs">
+        <div id="navbar-afs" class="collapse navbar-collapse justify-content-sm-center rounded">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link nav-home active" href="#">
+              <%= link_to root_url, class: "nav-link nav-home active" do %>
                 <i class="fa fa-home"></i> <span class="d-sm-none d-lg-inline">Accueil</span><span class="sr-only">(current)</span>
-              </a>
+              <% end %>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-association" href="#">
-                <i class="fa fa-info-circle" title="Association"></i> <span class="d-sm-none d-lg-inline">Association</span>
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-association dropdown-toggle cancel-link" id="dropdown-speedcubing" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                <i class="fa fa-info-circle"></i> <span class="d-sm-none d-lg-inline">Association</span>
               </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-speedcubing">
+                <a class="dropdown-item" href="#">Présentation</a>
+                <a class="dropdown-item" href="#">Adhésions</a>
+                <a class="dropdown-item" href="#">Documents</a>
+                <a class="dropdown-item" href="#">Logo</a>
+              </div>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link nav-speedcubing dropdown-toggle" href="#" id="dropdown-speedcubing" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-cubes"></i> <span class="d-sm-none d-lg-inline">Speedcubing</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdown-speedcubing">
-                <a class="dropdown-item" href="#">Info</a>
-                <a class="dropdown-item" href="#">Compétition</a>
-                <a class="dropdown-item" href="#">Sites persos</a>
+                <a class="dropdown-item" href="#">Présentation de la discipline</a>
+                <a class="dropdown-item" href="#">Compétitions</a>
+                <a class="dropdown-item" href="#">Règlement</a>
+                <a class="dropdown-item" href="#">Turoriels</a>
+                <a class="dropdown-item" href="#">Ressources externes</a>
               </div>
             </li>
             <li class="nav-item">
@@ -57,8 +69,6 @@
                   <div class="avatar-thumbnail "
                        style="background-image: url(<%= current_user.avatar_thumb_url %>);"
                        ></div>
-
-                  <%#<span class="badge badge-pill badge-secondary">3</span>%>
                   <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu" role="menu">
@@ -68,22 +78,34 @@
                   <a class="dropdown-item" href="#">
                     Votre profil
                   </a>
+                  <%# FIXME: scope this to admins %>
                   <div class="dropdown-divider"></div>
-                  <a role="presentation" class="dropdown-header">
-                    Gérer des trucs
+                  <h6 role="presentation" class="dropdown-header">
+                    Administration
+                  </h6>
+                  <a class="dropdown-item" href="#">
+                    Adhésions
                   </a>
                   <a class="dropdown-item" href="#">
-                    Bannir des utilisateurs
+                    Utilisateurs
                   </a>
                   <a class="dropdown-item" href="#">
-                    Réclamer de l'argent
+                    Posts
+                  </a>
+                  <%# FIXME: scope this to french delegates/admins %>
+                  <div class="dropdown-divider"></div>
+                  <h6 role="presentation" class="dropdown-header">
+                    Délégués
+                  </h6>
+                  <a class="dropdown-item" href="#">
+                    Matériel
                   </a>
                   <a class="dropdown-item" href="#">
-                    Où ils sont les timers ?
+                    Compétitions
                   </a>
 
                   <div class="dropdown-divider"></div>
-                  <%= link_to "Casse toi !", signout_path, class: "dropdown-item" %>
+                  <%= link_to "Déconnexion", signout_path, class: "dropdown-item" %>
                 </div>
               </li>
             <% else %>
