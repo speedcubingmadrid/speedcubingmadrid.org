@@ -1,0 +1,8 @@
+<div class="container">
+  <h1><%= @user.name %></h1>
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :name, disabled: true %>
+    <%= f.input :wca_id, disabled: true %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

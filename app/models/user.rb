@@ -3,6 +3,12 @@ class User < ApplicationRecord
   # List of fields we accept in the db
   @@obj_info = %w(id name email wca_id country_iso2 avatar_url avatar_thumb_url gender birthdate)
 
+  def can_edit_user?(user)
+    #FIXME
+    #admin?
+    true
+  end
+
   def self.process_json(json_user)
     # if such field exists, we are importing the WCIF,
     # else it's just a regular user login
