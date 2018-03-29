@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   include WCAModel
   # List of fields we accept in the db
-  @@obj_info = %w(id name email wca_id country_iso2 avatar_url avatar_thumb_url gender birthdate)
+  @@obj_info = %w(id name email wca_id country_iso2 avatar_url avatar_thumb_url gender birthdate delegate_status)
 
   def can_edit_user?(user)
     #FIXME
