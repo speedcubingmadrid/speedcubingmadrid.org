@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     User.find(params[:id] || current_user.id)
   end
 
+  def index
+    @users = User.all.order(:name)
+  end
+
   def set_user!
     @user = user_to_edit
   end

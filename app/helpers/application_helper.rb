@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def bootstrap_class_for(flash_type)
     {
       success: "alert-success",
@@ -27,6 +26,10 @@ module ApplicationHelper
     "#{wca_base_url}/api/v0#{resource}"
   end
 
+  def wca_profile_url(wca_id)
+    "#{wca_base_url}/persons/#{wca_id}"
+  end
+
   def wca_client_id
     ENV['WCA_CLIENT_ID']
   end
@@ -50,5 +53,12 @@ module ApplicationHelper
     else
       page_title + " | " + base_title
     end
+  end
+
+  # https://github.com/thewca/worldcubeassociation.org/blob/c05b272fc0c8cef14d465df12c7b6c6a0da3779f/WcaOnRails/app/helpers/application_helper.rb#L202
+  def flag_icon(iso2, html_options = {})
+    html_options[:class] ||= ""
+    html_options[:class] += " flag-icon flag-icon-#{iso2.downcase}"
+    content_tag :span, "", html_options
   end
 end

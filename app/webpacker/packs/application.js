@@ -9,6 +9,9 @@
 
 import 'bootstrap/dist/js/bootstrap';
 import Turbolinks from 'turbolinks';
+
+import "afs";
+
 Turbolinks.start();
 
 // Expose $ to our local script tags

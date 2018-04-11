@@ -1,6 +1,6 @@
 <% is_admin = current_user.admin? %>
 <div class="container">
-  <h1><%= @user.name %></h1>
+  <h1><%= @user.name %> <%= flag_icon(@user.country_iso2) %></h1>
   <%= simple_form_for @user, wrapper: :horizontal_form do |f| %>
     <%= f.input :friendly_delegate_status, as: :display, label: false %>
 

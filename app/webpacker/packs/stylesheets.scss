@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
-
-$fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
+
+@import '~flag-icon-css/sass/flag-icon';
 
 @import '../src/variables';
 @import '../src/navigation';
@@ -37,5 +37,11 @@ body {
   .form-check-input {
     position: relative;
     margin-left: 0;
+  }
+}
+
+.table-bordered {
+  th, td {
+    border-color: #212529;
   }
 }
