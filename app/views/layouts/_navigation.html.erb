@@ -76,31 +76,35 @@
                     <%= current_user.name %>
                   </h6>
                   <%= link_to "Votre profil", profile_path, class: "dropdown-item" %>
-                  <%# FIXME: scope this to admins %>
-                  <div class="dropdown-divider"></div>
-                  <h6 role="presentation" class="dropdown-header">
-                    Administration
-                  </h6>
-                  <a class="dropdown-item" href="#">
-                    Adhésions
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    Utilisateurs
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    Posts
-                  </a>
-                  <%# FIXME: scope this to french delegates/admins %>
-                  <div class="dropdown-divider"></div>
-                  <h6 role="presentation" class="dropdown-header">
-                    Délégués
-                  </h6>
-                  <a class="dropdown-item" href="#">
-                    Matériel
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    Compétitions
-                  </a>
+                  <% if current_user.admin? || current_user.comm? %>
+                    <div class="dropdown-divider"></div>
+                    <h6 role="presentation" class="dropdown-header">
+                      Administration
+                    </h6>
+                    <% if current_user.admin? %>
+                      <a class="dropdown-item" href="#">
+                        Adhésions
+                      </a>
+                      <a class="dropdown-item" href="#">
+                        Utilisateurs
+                      </a>
+                    <% end %>
+                    <a class="dropdown-item" href="#">
+                      Posts
+                    </a>
+                  <% end %>
+                  <% if current_user.admin? || current_user.french_delegate? %>
+                    <div class="dropdown-divider"></div>
+                    <h6 role="presentation" class="dropdown-header">
+                      Délégués
+                    </h6>
+                    <a class="dropdown-item" href="#">
+                      Matériel
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      Mes compétitions
+                    </a>
+                  <% end %>
 
                   <div class="dropdown-divider"></div>
                   <%= link_to "Déconnexion", signout_path, class: "dropdown-item" %>

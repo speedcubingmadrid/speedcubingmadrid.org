@@ -3,6 +3,7 @@ SimpleForm.setup do |config|
   config.error_notification_class = 'alert alert-danger'
   config.button_class = 'btn btn-primary'
   config.boolean_label_class = nil
+  config.boolean_style = :inline
 
   config.wrappers :vertical_form, tag: 'div', class: 'form-group' do |b|
     b.use :html5
@@ -102,13 +103,13 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :horizontal_radio_and_checkboxes, tag: 'div', class: 'form-group row' do |b|
+  config.wrappers :horizontal_radio_and_checkboxes, tag: 'div', class: 'form-group row horizontal-checkbox' do |b|
     b.use :html5
     b.optional :readonly
 
-    b.use :label, class: 'col-md-3 col-form-label'
-    b.wrapper tag: 'div', class: 'col-md-9' do |ba|
-      ba.use :input
+    b.use :label, class: 'col-md-3 form-check-label'
+    b.wrapper tag: 'div', class: 'col-md-9 form-check' do |ba|
+      ba.use :input, class: 'form-check-input'
       ba.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
       ba.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
     end

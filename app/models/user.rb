@@ -3,10 +3,48 @@ class User < ApplicationRecord
   # List of fields we accept in the db
   @@obj_info = %w(id name email wca_id country_iso2 avatar_url avatar_thumb_url gender birthdate delegate_status)
 
+  validate :cannot_demote_themselves
+  def cannot_demote_themselves
+    if admin_was == true && admin == false
+      errors.add(:admin, "impossible de vous enlever le statut d'aministrateur, demandez à un autre administrateur de le faire.")
+    end
+  end
+
   def can_edit_user?(user)
-    #FIXME
-    #admin?
-    true
+    admin? || user.id == self.id
+  end
+
+  def admin?
+    admin
+  end
+
+  def comm?
+    communication
+  end
+
+  def delegate?
+    !delegate_status.blank?
+  end
+
+  def french_delegate?
+    delegate? && french_delegate
+  end
+
+  def friendly_delegate_status
+    case delegate_status
+    when "candidate_delegate"
+      "Candidat Délégué WCA"
+    when "senior_delegate"
+      "Délégué WCA Sénior"
+    when "delegate"
+      "Délégué WCA"
+    else
+      ""
+    end
+  end
+
+  def friendly_birthdate
+    birthdate&.strftime("%d-%m-%Y")
   end
 
   def self.process_json(json_user)
@@ -26,6 +64,8 @@ class User < ApplicationRecord
     end
     if json_user.include?("birthdate")
       json_user["birthdate"] = json_user["birthdate"].to_date
+    elsif json_user.include?("dob")
+      json_user["birthdate"] = json_user["dob"].to_date
     end
     json_user
   end

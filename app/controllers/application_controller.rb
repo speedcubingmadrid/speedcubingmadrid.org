@@ -23,9 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_unless_admin!
-    #FIXME
-    unless true
-      #unless current_user.admin?
+    unless current_user&.admin?
       redirect_to root_url, :alert => 'Seuls les administrateurs ont accès à cette page.'
     end
   end

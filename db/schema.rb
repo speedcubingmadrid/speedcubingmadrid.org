@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20180329212839) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "delegate_status"
+    t.boolean "admin", default: false
+    t.boolean "communication", default: false
+    t.boolean "french_delegate", default: false
   end
 
 end

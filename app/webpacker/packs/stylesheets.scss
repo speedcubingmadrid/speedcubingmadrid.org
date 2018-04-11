@@ -3,17 +3,10 @@
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
 
-$green: #28a745;
-$blue: #3639ed;
-$orange: #ffa00e;
-$red: #ef1f1c;
-$yellow: #ffe300;
-$darker-yellow: #ddc500;
-
-$bg-header: #ddd;
-$bg-nav: #fff;
-$bg-body: #eee;
-$border-color: #aaa;
+@import '../src/variables';
+@import '../src/navigation';
+@import '../src/homepage';
+@import '../src/footer';
 
 html {
   min-height: 100%;
@@ -23,9 +16,6 @@ body {
   background-color: $bg-body;
 }
 
-@import 'navigation';
-@import 'homepage';
-@import 'footer';
 
 
 #main-container {
@@ -43,3 +33,9 @@ body {
   display:block;
 }
 
+.horizontal-checkbox {
+  .form-check-input {
+    position: relative;
+    margin-left: 0;
+  }
+}

@@ -1,9 +1,21 @@
+<% is_admin = current_user.admin? %>
 <div class="container">
   <h1><%= @user.name %></h1>
-  <%= simple_form_for @user do |f| %>
-    <%= f.input :name, disabled: true %>
-    <%= f.input :wca_id, disabled: true %>
-    <%= f.input :delegate_status, disabled: true %>
-    <%= f.button :submit %>
+  <%= simple_form_for @user, wrapper: :horizontal_form do |f| %>
+    <%= f.input :friendly_delegate_status, as: :display, label: false %>
+
+    <% if f.object.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        Il y a une ou plusieurs erreurs dans le formulaire.
+      </div>
+    <% end %>
+    <%= f.input :wca_id, as: :display, label: "WCA ID" %>
+    <%= f.input :friendly_birthdate, as: :display, label: "Date de naissance" %>
+    <%= f.input :admin, disabled: !is_admin, label: "Administrateur", wrapper: :horizontal_radio_and_checkboxes %>
+    <%= f.input :communication, disabled: !is_admin, label: "Équipe Communication", wrapper: :horizontal_radio_and_checkboxes %>
+    <%= f.input :french_delegate, disabled: !is_admin, label: "Délégué Français", wrapper: :horizontal_radio_and_checkboxes %>
+    <% if is_admin %>
+      <%= f.button :submit, value: "Sauvegarder" %>
+    <% end %>
   <% end %>
 </div>
