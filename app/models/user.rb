@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_many :subscriptions
 
+  after_save :try_associate_subscriptions
+
   validate :cannot_demote_themselves
   def cannot_demote_themselves
     if admin_was == true && admin == false
@@ -81,4 +83,13 @@ class User < ApplicationRecord
     json_user = process_json(json_user)
     wca_create_or_update(json_user)
   end
+
+  def try_associate_subscriptions
+    unless wca_id.blank?
+      Subscription.userless.where(wca_id: wca_id).update(user_id: id)
+    end
+    Subscription.userless.where("concat(lower(firstname), ' ', lower(name)) = ?", name.downcase).update(user_id: id)
+  end
+
+  private :try_associate_subscriptions
 end

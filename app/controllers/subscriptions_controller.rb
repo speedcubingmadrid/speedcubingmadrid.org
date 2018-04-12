@@ -5,7 +5,7 @@ class SubscriptionsController < ApplicationController
   before_action :redirect_unless_admin!
 
   def index
-    @subscribers = Subscription.active.order(:firstname, payed_at: :desc).group_by do |s|
+    @subscribers = Subscription.active.includes(:user).order(:firstname, :name).group_by do |s|
       "#{s.firstname.downcase} #{s.name.downcase}"
     end.values.map(&:first)
   end
@@ -27,10 +27,12 @@ class SubscriptionsController < ApplicationController
       sub_params = sub.permit(:name, :firstname, :wca_id, :email, :payed_at, :receipt_url)
       # We may add/change it later, so we cannot use it for the find
       wca_id = sub_params.delete(:wca_id)
-      new_subscription = Subscription.find_or_create_by!(sub_params)
+      new_subscription = Subscription.find_or_initialize_by(sub_params)
       unless wca_id.blank?
-        new_subscription.update(wca_id: wca_id)
+        new_subscription.wca_id = wca_id
       end
+      # We separate the find and the save so that any possible WCA ID is set when entering after_create callbacks
+      new_subscription.save!
     end
     redirect_to subscriptions_list_url
   end
