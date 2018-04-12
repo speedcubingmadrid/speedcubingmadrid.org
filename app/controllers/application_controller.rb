@@ -29,9 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_unless_authorized_delegate!
-    #FIXME
-    unless true
-      #unless current_user.delegate?
+    unless current_user&.delegate?
       redirect_to root_url, :alert => 'Seuls les délégués ont accès à cette page.'
     end
   end

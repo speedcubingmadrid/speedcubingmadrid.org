@@ -1,0 +1,4 @@
+<nav class="nav nav-pills nav-fill mb-4">
+  <%= link_to "Adhérents", subscriptions_path, class: "nav-item nav-link #{active == "subscribers" ? "active" : ""}" %>
+  <%= link_to "Adhésions", subscriptions_list_path, class: "nav-item nav-link #{active == "subscriptions" ? "active" : ""}" %>
+</nav>

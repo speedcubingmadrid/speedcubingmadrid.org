@@ -29,10 +29,12 @@ SimpleForm.setup do |config|
     b.optional :minlength
     b.optional :readonly
 
-    b.use :label, class: 'col-form-label'
-    b.use :input
-    b.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-    b.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+    b.wrapper tag: 'div', class: 'custom-file' do |ba|
+      ba.use :input, class: 'custom-file-input'
+      ba.use :label, class: 'custom-file-label'
+      ba.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
+      ba.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+    end
   end
 
   config.wrappers :vertical_boolean, tag: 'div', class: 'form-group' do |b|
@@ -107,11 +109,11 @@ SimpleForm.setup do |config|
     b.use :html5
     b.optional :readonly
 
-    b.use :label, class: 'col-md-3 form-check-label'
-    b.wrapper tag: 'div', class: 'col-md-9 form-check' do |ba|
-      ba.use :input, class: 'form-check-input'
-      ba.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
-      ba.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
+    b.wrapper tag: 'div', class: 'custom-control custom-checkbox p-0 w-100' do |c|
+      c.use :input, class: 'custom-control-input'
+      c.use :label, class: 'col-sm-4 custom-control-label'
+      c.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
+      c.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
     end
   end
 

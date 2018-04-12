@@ -30,6 +30,10 @@ module ApplicationHelper
     "#{wca_base_url}/persons/#{wca_id}"
   end
 
+  def wca_api_user_url(wca_id)
+    wca_api_url("/users/#{wca_id}")
+  end
+
   def wca_client_id
     ENV['WCA_CLIENT_ID']
   end
@@ -60,5 +64,24 @@ module ApplicationHelper
     html_options[:class] ||= ""
     html_options[:class] += " flag-icon flag-icon-#{iso2.downcase}"
     content_tag :span, "", html_options
+  end
+
+  def fa_icon(id)
+    content_tag :i, "", class: "fa fa-#{id}"
+  end
+
+  def link_to_wca_profile(wca_id)
+    unless wca_id.blank?
+      link_to(wca_id,
+              wca_profile_url(wca_id),
+              target: "_blank",
+              title: "Aller au profil WCA",
+              data: {
+                toggle: "tooltip",
+                placement: "top",
+              })
+    else
+      ""
+    end
   end
 end

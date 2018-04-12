@@ -82,9 +82,7 @@
                       Administration
                     </h6>
                     <% if current_user.admin? %>
-                      <a class="dropdown-item" href="#">
-                        Adhésions
-                      </a>
+                      <%= link_to "Adhésions", subscriptions_path, class: "dropdown-item" %>
                       <%= link_to "Utilisateurs", users_path, class: "dropdown-item" %>
                     <% end %>
                     <a class="dropdown-item" href="#">

@@ -3,12 +3,19 @@ class User < ApplicationRecord
   # List of fields we accept in the db
   @@obj_info = %w(id name email wca_id country_iso2 avatar_url avatar_thumb_url gender birthdate delegate_status)
 
+  has_many :subscriptions
+
   validate :cannot_demote_themselves
   def cannot_demote_themselves
     if admin_was == true && admin == false
       errors.add(:admin, "impossible de vous enlever le statut d'aministrateur, demandez à un autre administrateur de le faire.")
     end
   end
+
+  def subscriptions_join
+    Subscription.where("(wca_id <> '' and wca_id = ?) or lower(concat(firstname, ' ', name)) = ?", wca_id, name.downcase)
+  end
+
 
   def can_edit_user?(user)
     admin? || user.id == self.id

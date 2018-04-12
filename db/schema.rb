@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329212839) do
+ActiveRecord::Schema.define(version: 20180412123649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "firstname"
+    t.string "wca_id"
+    t.string "email"
+    t.datetime "payed_at"
+    t.string "receipt_url"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+    t.index ["wca_id"], name: "index_subscriptions_on_wca_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

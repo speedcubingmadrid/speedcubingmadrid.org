@@ -45,3 +45,16 @@ body {
     border-color: #212529;
   }
 }
+
+.custom-control-label {
+  &::before {
+    right: 0;
+    left: auto;
+    border: 1px solid #aaa;
+  }
+  &::after {
+    right: 0;
+    left: auto;
+  }
+  overflow: hidden;
+}

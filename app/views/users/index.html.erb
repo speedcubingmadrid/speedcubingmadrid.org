@@ -1,39 +1,28 @@
-<div class="container">
-  <h1>Liste des utilisateurs</h1>
-  <table class="table table-striped table-bordered table-hover">
-    <thead class="thead-dark">
+<h1>Liste des utilisateurs</h1>
+<table class="table table-striped table-bordered table-hover table-sm">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID WCA</th>
+      <th scope="col">Nom complet</th>
+      <th scope="col">Pays</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
       <tr>
-        <th scope="col">ID WCA</th>
-        <th scope="col">Nom complet</th>
-        <th scope="col">Pays</th>
-        <th scope="col">Email</th>
+        <th scope="row">
+          <%= link_to_wca_profile(user.wca_id) %>
+        </th>
+        <td>
+          <%= link_to user.name, edit_user_path(user) %>
+          <%= render "icons_for_user", user: user %>
+        </td>
+        <td>
+          <%= flag_icon(user.country_iso2) %>
+        </td>
+        <td><%= user.email %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <th scope="row">
-            <%=
-              link_to user.wca_id,
-                      wca_profile_url(user.wca_id),
-                      target: "_blank",
-                      title: "Aller au profil WCA",
-                      data: {
-                        toggle: "tooltip",
-                        placement: "top",
-                      }
-            %>
-          </th>
-          <td>
-            <%= link_to user.name, edit_user_path(user) %>
-            <%= render "icons_for_user", user: user %>
-          </td>
-          <td>
-            <%= flag_icon(user.country_iso2) %>
-          </td>
-          <td><%= user.email %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    <% end %>
+  </tbody>
+</table>

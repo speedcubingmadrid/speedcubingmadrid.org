@@ -1,0 +1,38 @@
+<%= render "nav", active: "subscriptions" %>
+
+<div class="card text-white bg-secondary mb-3">
+  <div class="card-header">
+    Importer un CSV de HelloAsso.
+  </div>
+  <div class="card-body">
+    <%= simple_form_for :import_form, url: subscriptions_review_csv_path, html: { class: "row" } do |f| %>
+      <div class="col-12 col-md-10">
+        <%= f.input :csvfile, as: :file, input_html: { accept: ".csv" }, label: "Sélectionner un fichier", required: false %>
+      </div>
+      <div class="col-12 col-md-2">
+        <%= f.button :submit, class: "submit-button", value: "Importer le CSV", disabled: true %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "subscriptions_table" do %>
+  <% @subscriptions.each do |subscription| %>
+    <tr>
+      <td><%= subscription.firstname %></td>
+      <td><%= subscription.name %></td>
+      <td><%= subscription.wca_id %></td>
+      <td><%= subscription.email %></td>
+      <td><%= subscription.payed_at %></td>
+      <td><%= link_to "Reçu", subscription.receipt_url %></td>
+      <td><%= link_to fa_icon("trash"), subscription, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: "btn btn-danger btn-sm" %></td>
+    </tr>
+  <% end %>
+<% end %>
+</div>
+<script>
+  $(".custom-file-input").change(function (e) {
+    $(".custom-file-label").text(e.target.value.replace("C:\\fakepath\\", ""));
+    $(".submit-button").prop("disabled", false);
+  });
+</script>

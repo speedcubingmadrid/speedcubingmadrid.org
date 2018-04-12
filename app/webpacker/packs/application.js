@@ -10,7 +10,8 @@
 import 'bootstrap/dist/js/bootstrap';
 import Turbolinks from 'turbolinks';
 
-import "afs";
+import 'afs';
+import 'jquery-ujs';
 
 Turbolinks.start();
 
