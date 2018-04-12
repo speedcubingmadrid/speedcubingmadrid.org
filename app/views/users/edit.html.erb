@@ -1,6 +1,20 @@
 <% is_admin = current_user.admin? %>
 <h1><%= @user.name %> <%= flag_icon(@user.country_iso2) %></h1>
-<%= simple_form_for @user, wrapper: :horizontal_form do |f| %>
+<% last_sub = @user.last_subscription %>
+<% if last_sub&.active? %>
+  <div class="alert alert-success">
+    Vous êtes membre de l'AFS jusqu'au <%= l(last_sub.until) %>.
+  </div>
+<% elsif last_sub %>
+  <div class="alert alert-warning">
+    Vous n'êtes plus membre de l'AFS depuis le <%= l(last_sub.until) %>.
+  </div>
+<% else %>
+  <div class="alert alert-danger">
+    Vous n'êtes pas membre de l'AFS.
+  </div>
+<% end %>
+<%= simple_form_for @user, wrapper: :horizontal_form, html: { class: "mb-4" } do |f| %>
   <%= f.input :friendly_delegate_status, as: :display, label: false %>
 
   <% if f.object.errors.any? %>
@@ -16,4 +30,37 @@
   <% if is_admin %>
     <%= f.button :submit, value: "Sauvegarder" %>
   <% end %>
+<% end %>
+
+<h2>Cotisations</h2>
+<div class="alert alert-info">
+  Les cotisations sont importées manuellement et périodiquement par les membres du bureau.
+  <br/>
+  Si vous pensez que les informations ci-dessous sont erronées, merci de les contacter à <%= mail_to "bureau@speedcubingfrance.org" %>.
+</div>
+<% if @user.subscriptions.empty? %>
+  <div class="alert alert-warning">
+    <p>
+      Vous n'avez aucune cotisation enregistrée.
+      Rendez vous sur <%= link_to "HelloAsso", "https://www.helloasso.com/associations/association-francaise-de-speedcubing", target: "_blank" %> pour adhérer !.
+    </p>
+  </div>
+<% else %>
+  <table class="table table-bordered table-hover">
+    <tbody>
+      <% @user.subscriptions.each do |s| %>
+        <% tr_class = s.over? ? "warning" : "success" %>
+        <tr class="table-<%= tr_class %>">
+          <td>
+            Payée le <%= l(s.payed_at.to_date) %>, cette cotisation
+            <% if s.over? %>
+              n'est plus active.
+            <% else %>
+              est toujours active.
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>

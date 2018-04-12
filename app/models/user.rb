@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # List of fields we accept in the db
   @@obj_info = %w(id name email wca_id country_iso2 avatar_url avatar_thumb_url gender birthdate delegate_status)
 
-  has_many :subscriptions
+  has_many :subscriptions, -> { order(:payed_at) }
 
   after_save :try_associate_subscriptions
 
@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
   def can_edit_user?(user)
     admin? || user.id == self.id
+  end
+
+  def last_subscription
+    subscriptions.last
   end
 
   def admin?

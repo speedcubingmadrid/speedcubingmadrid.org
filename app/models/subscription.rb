@@ -12,6 +12,14 @@ class Subscription < ApplicationRecord
     (payed_at + 1.year).to_date
   end
 
+  def over?
+    payed_at < 1.year.ago
+  end
+
+  def active?
+    !over?
+  end
+
   def try_associate_user
     unless user_id.blank?
       return

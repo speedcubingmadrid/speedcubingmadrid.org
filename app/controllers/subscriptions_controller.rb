@@ -45,10 +45,10 @@ class SubscriptionsController < ApplicationController
       CSV.foreach(csvfile.path, :headers => true, :col_sep => ';') do |row|
         # Row follows this format:
         # ;;;;;name;firstname;;date;;;;;email;;receipt_url;;;;buyer name;buyer firstname;;;;;wca_id
-        subscription = Subscription.find_or_initialize_by(name: row[5],
-                                                          firstname: row[6],
+        subscription = Subscription.find_or_initialize_by(name: row[5].strip,
+                                                          firstname: row[6].strip,
                                                           payed_at: row[8],
-                                                          email: row[13],
+                                                          email: row[13].strip,
                                                           receipt_url: row[15])
         subscription.wca_id = row[25]
         if subscription.new_record?
