@@ -37,7 +37,7 @@
             </li>
             <li class="nav-item dropdown">
               <% association_active = params[:controller] == "users" || params[:controller] == "subscriptions" ? "active" : nil %>
-              <a class="nav-link nav-association dropdown-toggle cancel-link <%= association_active %>" id="dropdown-association" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+              <a class="nav-link nav-association dropdown-toggle <%= association_active %>" id="dropdown-association" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                 <i class="fa fa-info-circle"></i> <span class="d-sm-none d-lg-inline">Association</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdown-association">
@@ -48,7 +48,8 @@
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link nav-speedcubing dropdown-toggle" href="#" id="dropdown-speedcubing" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% association_active = params[:controller] == "delegates" ? "active" : nil %>
+              <a class="nav-link nav-speedcubing dropdown-toggle <%= association_active %>" href="#" id="dropdown-speedcubing" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-cubes"></i> <span class="d-sm-none d-lg-inline">Speedcubing</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdown-speedcubing">
@@ -98,9 +99,7 @@
                     <a class="dropdown-item" href="#">
                       Matériel
                     </a>
-                    <a class="dropdown-item" href="#">
-                      Mes compétitions
-                    </a>
+                    <%= link_to "Mes compétitions", my_competitions_path, class: "dropdown-item" %>
                   <% end %>
 
                   <div class="dropdown-divider"></div>

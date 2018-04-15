@@ -1,0 +1,15 @@
+<h1>Mes compétitions</h1>
+<div class="alert alert-info">
+  Cette page est là pour faciliter la vérification des inscriptions des compétiteurs aux compétitions AFS.
+  Sélectionnez une compétition pour afficher quelles inscriptions sont valides et quelles sont celles nécessitant un paiement avant de pouvoir être acceptées.
+</div>
+
+<% if @error %>
+  <div class="alert alert-danger">
+    Une erreur est survenue : <%= @error %>
+  </div>
+<% end %>
+
+<% @my_competitions.each do |comp| %>
+  <%= comp["name"] %><br/>
+<% end %>

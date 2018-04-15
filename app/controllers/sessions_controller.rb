@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
-    scopes = "public email dob"
+    # FIXME: make the last scope be an option, + register the last scopes for login and the access token
+    scopes = "public email dob manage_competitions"
     redirect_to wca_login_url(scopes)
   end
 
@@ -35,6 +36,7 @@ class SessionsController < ApplicationController
       return fail_and_redirect("Impossible de créer l'utilisateur! (C'est une erreur sérieuse :( !)")
     end
     session[:user_id] = user.id
+    #FIXME: improve the use of access token, set an expiration
     session[:access_token] = access_token
 
     Rails.logger.info "WCA Logged in as '#{me_data['name']}'."

@@ -34,6 +34,10 @@ module ApplicationHelper
     wca_api_url("/users/#{wca_id}")
   end
 
+  def wca_api_competitions_url
+    wca_api_url("/competitions")
+  end
+
   def wca_client_id
     ENV['WCA_CLIENT_ID']
   end

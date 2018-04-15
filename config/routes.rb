@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/subscriptions/import' => 'subscriptions#import'
   get '/subscriptions/list' => 'subscriptions#subscriptions_list'
 
+  get '/my_competitions' => 'delegates#my_competitions'
+
   get '/profile' => 'users#edit'
 
   get '/wca_callback' => 'sessions#create'
