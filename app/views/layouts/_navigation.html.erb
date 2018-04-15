@@ -31,15 +31,16 @@
         <div id="navbar-afs" class="collapse navbar-collapse justify-content-sm-center rounded">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <%= link_to root_url, class: "nav-link nav-home active" do %>
+              <%= link_to root_url, class: "nav-link nav-home" do %>
                 <i class="fa fa-home"></i> <span class="d-sm-none d-lg-inline">Accueil</span><span class="sr-only">(current)</span>
               <% end %>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link nav-association dropdown-toggle cancel-link" id="dropdown-speedcubing" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+              <% association_active = params[:controller] == "users" || params[:controller] == "subscriptions" ? "active" : nil %>
+              <a class="nav-link nav-association dropdown-toggle cancel-link <%= association_active %>" id="dropdown-association" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                 <i class="fa fa-info-circle"></i> <span class="d-sm-none d-lg-inline">Association</span>
               </a>
-              <div class="dropdown-menu" aria-labelledby="dropdown-speedcubing">
+              <div class="dropdown-menu" aria-labelledby="dropdown-association">
                 <a class="dropdown-item" href="#">Présentation</a>
                 <a class="dropdown-item" href="#">Adhésions</a>
                 <a class="dropdown-item" href="#">Documents</a>

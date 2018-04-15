@@ -80,7 +80,7 @@
           }
           margin-bottom: -4px;
           &.nav-association {
-            &:hover, &:active, i {
+            &:hover, &:active, &.active, i {
               color: $blue;
             }
             border-color: $blue;
@@ -92,13 +92,13 @@
             border-color: $red;
           }
           &.nav-speedcubing {
-            &:hover, &:active, i {
+            &:hover, &:active, &.active, i {
               color: $orange;
             }
             border-color: $orange;
           }
           &.nav-contact {
-            &:hover, &:active, i {
+            &:hover, &:active, &.active, i {
               color: $green;
             }
             border-color: $green;
