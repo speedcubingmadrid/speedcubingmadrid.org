@@ -14,7 +14,7 @@
     Vous n'êtes pas membre de l'AFS.
   </div>
 <% end %>
-<%= simple_form_for @user, wrapper: :horizontal_form, html: { class: "mb-4" } do |f| %>
+<%= simple_form_for @user, wrapper: :horizontal_form, html: { class: "mb-4 user-edit-form" } do |f| %>
   <%= f.input :friendly_delegate_status, as: :display, label: false %>
 
   <% if f.object.errors.any? %>

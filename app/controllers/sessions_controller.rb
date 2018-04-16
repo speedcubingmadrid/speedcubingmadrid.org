@@ -1,8 +1,19 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_connected!, only: [:new]
+
   def new
+  end
+
+  def signin_with_wca
     # FIXME: make the last scope be an option, + register the last scopes for login and the access token
-    scopes = "public email dob manage_competitions"
-    redirect_to wca_login_url(scopes)
+    scopes = %w(public email dob)
+    can_manage = params.require(:signin).require(:can_manage)
+    if can_manage == "1"
+      scopes << "manage_competitions"
+    end
+    session[:scopes] = scopes
+
+    redirect_to wca_login_url(scopes.join(" "))
   end
 
   # The WCA.org OAuth code redirects to here after user logs in
@@ -53,5 +64,12 @@ class SessionsController < ApplicationController
       reset_session
       Rails.logger.info "WCA Login failed."
       redirect_to(root_url, alert: "Impossible de se connecter ! Erreur : #{message}")
+  end
+
+  def redirect_if_connected!
+    if current_user
+      flash[:warning] = "Vous êtes déjà connecté."
+      redirect_to root_url
+    end
   end
 end

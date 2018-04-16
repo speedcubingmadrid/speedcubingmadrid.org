@@ -33,28 +33,23 @@ body {
   display:block;
 }
 
-.horizontal-checkbox {
-  .form-check-input {
-    position: relative;
-    margin-left: 0;
-  }
-}
-
 .table-bordered {
   th, td {
     border-color: #212529;
   }
 }
 
-.custom-control-label {
-  &::before {
-    right: 0;
-    left: auto;
-    border: 1px solid #aaa;
+.user-edit-form {
+  .custom-control-label {
+    &::before {
+      right: 5px;
+      left: auto;
+      border: 1px solid #aaa;
+    }
+    &::after {
+      right: 5px;
+      left: auto;
+    }
+    overflow: hidden;
   }
-  &::after {
-    right: 0;
-    left: auto;
-  }
-  overflow: hidden;
 }

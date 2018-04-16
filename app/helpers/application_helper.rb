@@ -104,4 +104,8 @@ module ApplicationHelper
       ""
     end
   end
+
+  def has_manage_competitions_scope
+    session[:scopes]&.include?("manage_competitions")
+  end
 end

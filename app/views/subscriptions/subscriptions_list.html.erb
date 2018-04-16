@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<%= render "subscriptions_table" do %>
+<%= render "shared/compact_table", headers: ["Prénom", "Nom", "ID WCA", "Email", "Payé le", "", ""] do %>
   <% @subscriptions.each do |subscription| %>
     <tr>
       <td><%= subscription.firstname %></td>

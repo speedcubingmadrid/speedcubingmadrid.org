@@ -5,7 +5,6 @@
 </div>
 
 <% if @error %>
-  <%# FIXME: if missing the manage_competitions scope, this is why %>
   <div class="alert alert-danger">
     Une erreur est survenue : <%= @error %>
   </div>
@@ -25,5 +24,5 @@
     <% end %>
   </div>
 <% else %>
-  Vous n'avez aucune compétition à venir en tant que Délégué.
+  Vous n'avez aucune compétition à venir en tant que Délégué ou organisateur.
 <% end %>

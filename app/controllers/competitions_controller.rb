@@ -1,7 +1,6 @@
 class CompetitionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :redirect_unless_authorized_delegate!
-  #TODO: require scope!
+  before_action :redirect_unless_has_manage_competition_scope!
 
   def show_registrations
     comp_id = params.require(:competition_id)
@@ -43,4 +42,12 @@ class CompetitionsController < ApplicationController
       @error = err
     end
   end
+
+  def redirect_unless_has_manage_competition_scope!
+    unless has_manage_competitions_scope
+      redirect_to root_url, flash: { warning: "Vous n'avez pas autorisé l'AFS à gérer vos compétitions." }
+    end
+  end
+
+  private :redirect_unless_authorized_delegate!
 end

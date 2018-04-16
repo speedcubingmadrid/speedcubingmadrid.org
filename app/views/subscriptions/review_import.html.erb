@@ -12,7 +12,7 @@ Les contributions ci dessous ont été détectées, merci de les relire et de ne
   <% headers = ["Prénom", "Nom", "ID WCA", "Email", "Payé le", "Lien du reçu"] %>
   <% if @new_subscriptions.any? %>
     <%= simple_form_for :subscriptions, url: subscriptions_import_path do |f| %>
-      <%= render "subscriptions_table", headers: headers  do %>
+      <%= render "shared/compact_table", headers: headers  do %>
         <% @new_subscriptions.each_with_index do |subscription, i| %>
           <%= f.simple_fields_for subscription do |fa| %>
             <%# Specifying the name for each subscription is dirty but I couldn't find better %>
@@ -40,7 +40,7 @@ Les contributions ci dessous ont été détectées, merci de les relire et de ne
     <p>
     Les contributions ci dessous sont déjà présentes dans la base de données et seront ignorées.
     </p>
-    <%= render "subscriptions_table" do %>
+    <%= render "shared/compact_table", headers: ["Prénom", "Nom", "ID WCA", "Email", "Payé le", "", ""] do %>
       <% @subscriptions.each do |subscription| %>
         <tr class="table-info">
           <td><%= subscription.firstname %></td>

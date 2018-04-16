@@ -1,0 +1,16 @@
+<h1 class="text-center">Connexion avec un compte WCA</h1>
+
+<div class="card">
+<div class="card-body">
+<p class="text-center">
+  Pour vous connecter au site de notre association, vous devez avoir un compte sur le site de la <%= link_to "World Cube Association", wca_base_url, target: "_blank" %>.
+  <br/>
+  En cliquant sur "Se connecter avec la WCA", vous serez rediriger vers le site de la WCA pour vous identifier, qui vous redirigera ensuite vers le site de l'AFS où vous serez alors connecté.
+</p>
+<%= simple_form_for :signin, url: signin_with_wca_path, html: { class: "text-center" }, wrapper: :horizontal_form do |f| %>
+  <%= f.button :submit, value: "Se connecter avec la WCA", class: "mb-4" %>
+  <%= f.input :can_manage, as: :boolean, label: "Je suis un organisateur ou Délégué WCA, et j'autorise l'AFS à gérer mes compétitions.", wrapper: :horizontal_radio_and_checkboxes %>
+<% end %>
+</div>
+</div>
+

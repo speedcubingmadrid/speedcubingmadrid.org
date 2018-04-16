@@ -5,7 +5,7 @@
 </p>
 <div class="table-responsive">
   <% headers = ["Nom complet", "ID WCA", "Fin d'adhésion"] %>
-  <%= render "subscriptions_table", headers: headers do %>
+  <%= render "shared/compact_table", headers: headers do %>
     <% @subscribers.each do |s| %>
       <tr>
         <td>
