@@ -17,11 +17,6 @@ class CompetitionsController < ApplicationController
       subscribers = Subscription.active.includes(:user)
       @subscribers_by_name = subscribers.map { |s| "#{s.firstname.downcase} #{s.name.downcase}" }
       @subscribers_by_id = subscribers.map { |s| s.wca_id }.reject!(&:blank?)
-      @competition["persons"].each do |p|
-        if p["name"] == "Vincent Colin"
-          p["wcaId"] = nil
-        end
-      end
       @persons.merge!(@competition["persons"].group_by do |p|
         if p["registration"]
           p["registration"]["status"].to_sym
