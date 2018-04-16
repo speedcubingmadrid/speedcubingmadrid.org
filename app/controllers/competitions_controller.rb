@@ -1,4 +1,4 @@
-class DelegatesController < ApplicationController
+class CompetitionsController < ApplicationController
   before_action :authenticate_user!
   before_action :redirect_unless_authorized_delegate!
 

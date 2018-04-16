@@ -1,0 +1,30 @@
+<h1>Mes compétitions</h1>
+<div class="alert alert-info">
+  Cette page est là pour faciliter la vérification des inscriptions des compétiteurs aux compétitions AFS.
+  Sélectionnez une compétition pour afficher quelles inscriptions sont valides et quelles sont celles nécessitant un paiement avant de pouvoir être acceptées.
+</div>
+
+<% puts @my_competitions %>
+<% if @error %>
+  <%# FIXME: if missing the manage_competitions scope, this is why %>
+  <div class="alert alert-danger">
+    Une erreur est survenue : <%= @error %>
+  </div>
+<% elsif @my_competitions.any? %>
+  <div class="list-group">
+    <% @my_competitions.each do |comp| %>
+      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-<%= comp["announced_at"] ? "success" : "danger" %>">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= comp["name"] %></h5>
+          <small><%= flag_icon(comp["country_iso2"]) %></small>
+        </div>
+        <p class="mb-1">
+          <%= "Du #{comp["start_date"]} au #{comp["end_date"]} à #{comp["city"]} (#{comp["country_iso2"]})" %>
+        </p>
+        <small><%= comp["announced_at"] ? "Compétition annoncée le #{comp["announced_at"]}" : "Cette compétition n'est pas encore annoncée." %></small>
+      </a>
+    <% end %>
+  </div>
+<% else %>
+  Vous n'avez aucune compétition à venir en tant que Délégué.
+<% end %>
