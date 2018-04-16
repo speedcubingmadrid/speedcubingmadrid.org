@@ -1,6 +1,5 @@
 <%= javascript_pack_tag 'competitions', 'data-turbolinks-track': 'reload' %>
 <% if @error %>
-  <%# FIXME: if missing the manage_competitions scope, this is why %>
   <div class="alert alert-danger">
     Une erreur est survenue : <%= @error %>
   </div>
