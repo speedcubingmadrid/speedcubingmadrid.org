@@ -12,6 +12,10 @@ class Subscription < ApplicationRecord
 
   after_save :try_associate_user
 
+  def wca_id
+    self.user&.wca_id || self[:wca_id]
+  end
+
   def until
     (payed_at + 1.year).to_date
   end

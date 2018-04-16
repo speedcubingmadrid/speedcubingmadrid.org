@@ -1,0 +1,16 @@
+<% headers ||= ["Prénom", "Nom", "ID WCA", "Email", "Payé le", "", ""] %>
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-hover table-sm">
+  <thead class="thead-dark">
+    <tr>
+      <% headers.each do |h| %>
+        <th><%= h %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= yield %>
+  </tbody>
+</table>
+</div>

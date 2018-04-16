@@ -4,7 +4,6 @@
   Sélectionnez une compétition pour afficher quelles inscriptions sont valides et quelles sont celles nécessitant un paiement avant de pouvoir être acceptées.
 </div>
 
-<% puts @my_competitions %>
 <% if @error %>
   <%# FIXME: if missing the manage_competitions scope, this is why %>
   <div class="alert alert-danger">
@@ -13,7 +12,7 @@
 <% elsif @my_competitions.any? %>
   <div class="list-group">
     <% @my_competitions.each do |comp| %>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-<%= comp["announced_at"] ? "success" : "danger" %>">
+      <a href="<%= competition_registrations_path(comp["id"]) %>" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-<%= comp["announced_at"] ? "success" : "danger" %>">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1"><%= comp["name"] %></h5>
           <small><%= flag_icon(comp["country_iso2"]) %></small>

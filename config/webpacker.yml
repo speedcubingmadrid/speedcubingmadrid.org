@@ -14,8 +14,10 @@ default: &default
   cache_manifest: false
 
   extensions:
+    - .erb
     - .jsx
     - .js
+    - .js.erb
     - .sass
     - .scss
     - .css

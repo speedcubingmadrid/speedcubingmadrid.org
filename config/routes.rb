@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/subscriptions/list' => 'subscriptions#subscriptions_list'
 
   get '/my_competitions' => 'competitions#my_competitions'
+  resources :competitions, only: [] do
+    get 'registrations' => 'competitions#show_registrations'
+  end
 
   get '/profile' => 'users#edit'
 

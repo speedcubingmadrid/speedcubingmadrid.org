@@ -26,16 +26,32 @@ module ApplicationHelper
     "#{wca_base_url}/api/v0#{resource}"
   end
 
+  def wca_registration_url(registration_id)
+    "#{wca_base_url}/registrations/#{registration_id}/edit"
+  end
+
   def wca_profile_url(wca_id)
     "#{wca_base_url}/persons/#{wca_id}"
+  end
+
+  def wca_persons_search_url
+    "#{wca_base_url}/persons/?page=1&region=all&only_with_wca_ids=true&search="
   end
 
   def wca_api_user_url(wca_id)
     wca_api_url("/users/#{wca_id}")
   end
 
+  def wca_api_users_search_url(query)
+    wca_api_url("/search/users/?q=#{query}")
+  end
+
   def wca_api_competitions_url
     wca_api_url("/competitions")
+  end
+
+  def wca_api_competition_wcif_url(competition_id)
+    wca_api_url("/competitions/#{competition_id}/wcif")
   end
 
   def wca_client_id

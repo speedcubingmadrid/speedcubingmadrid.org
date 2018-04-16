@@ -1,0 +1,61 @@
+<% include ApplicationHelper %>
+
+let api_url = "<%= wca_api_users_search_url('') %>";
+let person_profile_url = "<%= wca_profile_url('') %>";
+let person_search_url = "<%= wca_persons_search_url %>";
+let checkAll = false;
+
+$(function() {
+  $(".activate-or-stop-check").click(toggleCheckNext);
+  $(".link-check").click(checkRegistration);
+});
+
+function checkRegistration(e) {
+  e.preventDefault();
+  $elem = $("#registration-"+$(e.target).data("id"));
+  let name = $elem.find(".person-name").text();
+  $(e.target).hide();
+  $elem.find(".membership-status").append("<span class='pending-query'>Requête en cours...</span>");
+  $.get(api_url+name+"&only_with_wca_ids=true")
+    .done(function(data) {
+      if (data.result.length == 1) {
+        $elem.removeClass("table-warning");
+        $elem.addClass("table-danger");
+        let wca_id = data.result[0].wca_id;
+        $elem.find(".membership-status").html("Detecté comme <a href='"+person_profile_url+wca_id+"' target='_blank'>"+wca_id+"</a>");
+      } else if (data.result.length == 0) {
+        $elem.removeClass("table-warning");
+        $elem.addClass("table-success");
+        $elem.find(".membership-status").html("<a href='"+person_search_url+name+"' target='_blank'>Nouveau compétiteur</a>");
+      } else {
+        $elem.find(".membership-status").html("<a href='"+person_search_url+name+"' target='_blank'>Plusieurs correspondances</a>");
+      }
+      if (checkAll) {
+        checkNext();
+      }
+    })
+  .fail(function(handle) {
+    alert("Erreur lors de la requête : \""+handle.statusText+"\"");
+    $elem.find(".pending-query").remove();
+    $(e.target).show();
+  })
+}
+
+function checkNext() {
+  if ($(".link-check").length > 0)
+    $(".link-check").first().click();
+  else
+    toggleCheckNext(null);
+}
+
+function toggleCheckNext(e) {
+  if (e)
+    e.preventDefault();
+  $(".activate-or-stop-check").toggle();
+  if (checkAll) {
+    checkAll = false;
+  } else {
+    checkAll = true;
+    checkNext();
+  }
+}
