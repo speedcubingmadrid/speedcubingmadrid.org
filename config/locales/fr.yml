@@ -3,3 +3,11 @@ fr:
     formats:
       short: "%d/%m/%Y"
       default: "%e %B %Y"
+  countries:
+    XA: Pays multiple (Asie)
+    XE: Pays multiple (Europe)
+    XS: Pays multiple (Amérique du Sud)
+    XM: Pays multiple (Amériques)
+    MO: Macau
+    HK: Hong Kong
+    KR: République de Corée

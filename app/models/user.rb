@@ -43,6 +43,10 @@ class User < ApplicationRecord
     delegate? && french_delegate
   end
 
+  def country_name
+    Country.find_by_iso2(country_iso2).name
+  end
+
   def friendly_delegate_status
     case delegate_status
     when "candidate_delegate"

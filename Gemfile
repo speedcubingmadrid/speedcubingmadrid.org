@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.5'
 gem 'rails-i18n', '~> 5.1'
+gem 'i18n-country-translations'
 gem 'webpacker', '~> 3.4'
 # Use postgresql as the database for Active Record
 gem 'pg'

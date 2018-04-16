@@ -11,7 +11,7 @@
         <%= link_to_wca_profile(user.wca_id) %>
       </td>
       <td>
-        <%= flag_icon(user.country_iso2) %>
+        <%= flag_icon(user.country_iso2) %> <span class="pull-right"><%= user.country_name %></span>
       </td>
       <td><%= user.email %></td>
     </tr>
