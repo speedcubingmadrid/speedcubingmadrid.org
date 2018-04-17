@@ -7,10 +7,10 @@
   <div class="card-body">
     <%= simple_form_for :import_form, url: subscriptions_review_csv_path, html: { class: "row" } do |f| %>
       <div class="col-12 col-md-10">
-        <%= f.input :csvfile, as: :file, input_html: { accept: ".csv" }, label: "Sélectionner un fichier", required: false %>
+        <%= f.input :csvfile, as: :file, input_html: { accept: ".csv" }, label: "Sélectionner un fichier" %>
       </div>
       <div class="col-12 col-md-2">
-        <%= f.button :submit, class: "submit-button", value: "Importer le CSV", disabled: true %>
+        <%= f.button :submit, class: "submit-button", disabled: true %>
       </div>
     <% end %>
   </div>

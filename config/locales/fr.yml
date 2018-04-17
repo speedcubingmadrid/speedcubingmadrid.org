@@ -35,3 +35,5 @@ fr:
       post:
         create: 'Créer le post'
         update: 'Sauvegarder'
+      import_form:
+        submit: "Importer le CSV"
