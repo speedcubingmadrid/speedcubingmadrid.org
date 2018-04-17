@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification message: "Le formulaire est invalide. Merci de corriger les erreurs ci dessous." %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :body %>
+    <%= f.input :slug %>
+    <%= f.input :draft %>
+    <%= f.input :feature %>
+    <%= f.input :competition_page %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

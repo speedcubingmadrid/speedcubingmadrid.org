@@ -7,6 +7,7 @@
 @import '../src/navigation';
 @import '../src/homepage';
 @import '../src/footer';
+@import '../src/sessions';
 
 html {
   min-height: 100%;
@@ -39,17 +40,31 @@ body {
   }
 }
 
-.user-edit-form {
+.custom-checkbox {
+  padding-left: 15px;
   .custom-control-label {
     &::before {
-      right: 5px;
-      left: auto;
+      left: 15px;
       border: 1px solid #aaa;
     }
     &::after {
-      right: 5px;
-      left: auto;
+      left: 15px;
     }
-    overflow: hidden;
+    margin-left: 25px;
   }
 }
+
+.user-edit-form {
+  .custom-checkbox {
+    padding-left: 0;
+    .custom-control-label {
+      &::before, &::after {
+        right: 5px;
+        left: auto;
+      }
+      @extend .col-4;
+      margin-left: 0;
+    }
+  }
+}
+

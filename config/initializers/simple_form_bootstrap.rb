@@ -4,6 +4,7 @@ SimpleForm.setup do |config|
   config.button_class = 'btn btn-primary'
   config.boolean_label_class = nil
   config.boolean_style = :inline
+  config.label_text = lambda { |label, _, _| "#{label}" }
 
   config.wrappers :vertical_form, tag: 'div', class: 'form-group' do |b|
     b.use :html5
@@ -109,9 +110,9 @@ SimpleForm.setup do |config|
     b.use :html5
     b.optional :readonly
 
-    b.wrapper tag: 'div', class: 'custom-control custom-checkbox p-0 w-100' do |c|
+    b.wrapper tag: 'div', class: 'custom-control custom-checkbox w-100' do |c|
       c.use :input, class: 'custom-control-input'
-      c.use :label, class: 'col-sm-4 custom-control-label'
+      c.use :label, class: 'custom-control-label'
       c.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
       c.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
     end
@@ -147,10 +148,10 @@ SimpleForm.setup do |config|
 
   config.default_wrapper = :vertical_form
   config.wrapper_mappings = {
-      check_boxes: :vertical_radio_and_checkboxes,
-      radio_buttons: :vertical_radio_and_checkboxes,
+      check_boxes: :horizontal_radio_and_checkboxes,
+      radio_buttons: :horizontal_radio_and_checkboxes,
       file: :vertical_file_input,
-      boolean: :vertical_boolean,
+      boolean: :horizontal_radio_and_checkboxes,
       datetime: :multi_select,
       date: :multi_select,
       time: :multi_select

@@ -1,5 +1,6 @@
 class CompetitionsController < ApplicationController
   before_action :authenticate_user!
+  # For now this controller is accessible to anyone with the scope, as the actual check is done on the WCA part.
   before_action :redirect_unless_has_manage_competition_scope!
 
   def show_registrations

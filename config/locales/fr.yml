@@ -11,3 +11,27 @@ fr:
     MO: Macau
     HK: Hong Kong
     KR: République de Corée
+  simple_form:
+    labels:
+      post:
+        title: 'Titre'
+        body: 'Contenu'
+        slug: 'Permalien'
+        draft: 'Ce post est un brouillon'
+        feature: "Mettre en valeur sur la page d'accueil"
+        competition_page: "Ce post est une page de compétition"
+      signin:
+        can_manage: "Je suis un organisateur ou Délégué WCA, et j'autorise l'AFS à gérer mes compétitions."
+    hints:
+      post:
+        draft: "Si cette case est cochée, le post ne sera pas visible par le public"
+        competition_page: "Si cette case est cochée, le post ne sera pas affiché sur la page d'accueil."
+  helpers:
+    submit:
+      signin:
+        submit: "Se connecter avec la WCA"
+      user:
+        update: 'Sauvegarder'
+      post:
+        create: 'Créer le post'
+        update: 'Sauvegarder'

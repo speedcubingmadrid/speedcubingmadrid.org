@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'users#home'
 
   resources :users, only: [:index, :edit, :update]
+  resources :posts
   resources :subscriptions, only: [:index, :destroy]
 
   post '/subscriptions/review_csv' => 'subscriptions#review_csv'

@@ -90,9 +90,7 @@
                       <%= link_to "Adhésions", subscriptions_path, class: "dropdown-item" %>
                       <%= link_to "Utilisateurs", users_path, class: "dropdown-item" %>
                     <% end %>
-                    <a class="dropdown-item" href="#">
-                      Posts
-                    </a>
+                    <%= link_to "Posts", posts_path, class: "dropdown-item" %>
                   <% end %>
                   <% if current_user.admin? || current_user.french_delegate? %>
                     <div class="dropdown-divider"></div>

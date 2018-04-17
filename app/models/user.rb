@@ -23,6 +23,14 @@ class User < ApplicationRecord
     admin? || user.id == self.id
   end
 
+  def can_manage_delegate_matters?
+    admin? || french_delegate?
+  end
+
+  def can_manage_communication_matters?
+    admin? || comm?
+  end
+
   def last_subscription
     subscriptions.last
   end
