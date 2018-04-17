@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to @post, flash: { success: 'Post was successfully created.' }
     else
@@ -59,6 +60,6 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:title, :body, :slug, :feature, :user_id, :draft, :competition_page)
+    params.require(:post).permit(:title, :body, :slug, :feature, :draft, :competition_page)
   end
 end

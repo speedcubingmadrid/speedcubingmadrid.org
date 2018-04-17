@@ -1,4 +1,3 @@
-
 <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification message: "Le formulaire est invalide. Merci de corriger les erreurs ci dessous." %>
 
@@ -15,3 +14,8 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+<%= javascript_pack_tag "simple_mde", 'data-turbolinks-track': 'reload'  %>
+<script>
+  // By default SimpleMDE loads itself on the first textarea, which is what we want.
+  new SimpleMDE({ spellChecker: false });
+</script>

@@ -137,6 +137,7 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdoc (6.0.2)
+    redcarpet (3.4.0)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -206,6 +207,7 @@ DEPENDENCIES
   rails (= 5.1.5)
   rails-i18n (~> 5.1)
   rails_layout
+  redcarpet
   rest-client
   sass-rails
   sdoc

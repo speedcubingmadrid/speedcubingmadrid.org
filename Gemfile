@@ -18,7 +18,11 @@ gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Form helper
 gem 'simple_form'
+
+# Markdown renderer
+gem 'redcarpet'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
