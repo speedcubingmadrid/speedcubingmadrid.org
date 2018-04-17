@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :body %>
+    <%= f.input :body, input_html: { class: "enable-simplemde" } %>
     <%= f.input :slug %>
     <%= f.input :draft %>
     <%= f.input :feature %>
@@ -15,7 +15,3 @@
   </div>
 <% end %>
 <%= javascript_pack_tag "simple_mde", 'data-turbolinks-track': 'reload'  %>
-<script>
-  // By default SimpleMDE loads itself on the first textarea, which is what we want.
-  new SimpleMDE({ spellChecker: false });
-</script>
