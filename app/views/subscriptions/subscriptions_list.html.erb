@@ -21,7 +21,7 @@
     <tr>
       <td><%= subscription.firstname %></td>
       <td><%= subscription.name %></td>
-      <td><%= subscription.wca_id %></td>
+      <td><%= link_to_wca_profile(subscription.wca_id) %></td>
       <td><%= subscription.email %></td>
       <td><%= subscription.payed_at %></td>
       <td><%= link_to "Reçu", subscription.receipt_url %></td>

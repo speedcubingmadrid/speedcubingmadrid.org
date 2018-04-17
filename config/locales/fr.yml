@@ -26,6 +26,7 @@ fr:
       post:
         draft: "Si cette case est cochée, le post ne sera pas visible par le public"
         competition_page: "Si cette case est cochée, le post ne sera pas affiché sur la page d'accueil."
+        body: "Ajoutez \"{{post_excerpt}}\" pour séparer l'introduction d'un post de son contenu principal."
   helpers:
     submit:
       signin:

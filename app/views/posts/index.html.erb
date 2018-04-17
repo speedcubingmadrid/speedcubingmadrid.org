@@ -1,39 +1,23 @@
-<p id="notice"><%= notice %></p>
+<h1>Liste des posts et pages de compétition</h1>
 
-<h1>Posts</h1>
+<%= link_to fa_icon("plus-circle"), new_post_path, class: "btn btn-success my-4" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Slug</th>
-      <th>Feature</th>
-      <th>User</th>
-      <th>Draft</th>
-      <th>Competition page</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="list-group">
+  <% @posts.each do |post| %>
+    <div class="list-group-item flex-column align-items-start list-group-item-<%= contextual_class(post) %>">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= link_to(post.title, edit_post_path(post), class: "text-#{contextual_class(post)}") %></h5>
+        <small>Le <%= l(post.created_at) %> par <%= post.user.name %></small>
+      </div>
+      <div class="d-flex w-100 justify-content-between">
+        <small><%= legend(post) %></small>
+        <div>
+          <%= link_to(fa_icon("eye"), post, class: "btn btn-sm btn-info") %>
+          <%= link_to(fa_icon("pencil"), edit_post_path(post), class: "btn btn-sm btn-primary") %>
+          <%= link_to(fa_icon("trash"), post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger") %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= post.slug %></td>
-        <td><%= post.feature %></td>
-        <td><%= post.user %></td>
-        <td><%= post.draft %></td>
-        <td><%= post.competition_page %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
