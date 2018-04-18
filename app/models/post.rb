@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  include Taggable
+
   belongs_to :user
 
   validates_presence_of :title, allow_blank: false

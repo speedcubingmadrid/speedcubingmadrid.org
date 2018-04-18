@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # To not ruin our pagerank, we need a "/news" routes with slugs, so that old links keep working
   resources :news, :controller => "posts"
   resources :subscriptions, only: [:index, :destroy]
+  resources :tags
 
   post '/subscriptions/review_csv' => 'subscriptions#review_csv'
   post '/subscriptions/import' => 'subscriptions#import'

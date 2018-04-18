@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417084530) do
+ActiveRecord::Schema.define(version: 20180418141143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "post_tags", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.string "tag_name", null: false
+    t.index ["post_id"], name: "index_post_tags_on_post_id"
+    t.index ["tag_name", "post_id"], name: "index_post_tags_on_tag_name_and_post_id", unique: true
+    t.index ["tag_name"], name: "index_post_tags_on_tag_name"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title", default: "", null: false
@@ -39,6 +47,13 @@ ActiveRecord::Schema.define(version: 20180417084530) do
     t.string "receipt_url"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
     t.index ["wca_id"], name: "index_subscriptions_on_wca_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "color"
+    t.string "fullname"
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
