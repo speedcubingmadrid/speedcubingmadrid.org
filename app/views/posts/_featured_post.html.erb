@@ -6,7 +6,7 @@
           <strong class="d-inline-block mb-2 badge badge-primary">WCA</strong>
           <strong class="d-inline-block mb-2 badge badge-primary">un autre tag</strong>
           <h3 class="mb-0 w-100">
-            <%= link_to post.title, post, class: "text-dark" %>
+            <%= link_to post.title, news_path(post.slug), class: "text-dark" %>
           </h3>
           <div class="mb-1 text-muted"><%= l(post.created_at, format: :post_datetime) %></div>
         </div>
@@ -16,11 +16,11 @@
         <%= md post.body_teaser %>
       </div>
       <% if post.fullpost? %>
-        <%= link_to "Lire la suite...", post %>
+        <%= link_to "Lire la suite...", news_path(post.slug) %>
       <% end %>
       <% if current_user&.can_manage_communication_matters? %>
         <div class="mt-2">
-          <%= link_to(fa_icon("pencil"), edit_post_path(post), class: "btn btn-sm btn-primary") %>
+          <%= link_to(fa_icon("pencil"), edit_news_path(post), class: "btn btn-sm btn-primary") %>
         </div>
       <% end %>
     </div>

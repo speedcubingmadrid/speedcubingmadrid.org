@@ -1,4 +1,4 @@
-<%= simple_form_for(@post) do |f| %>
+<%= simple_form_for(@post, url: @post.new_record? ? news_index_path : news_path(@post)) do |f| %>
   <%= f.error_notification message: "Le formulaire est invalide. Merci de corriger les erreurs ci dessous." %>
 
   <div class="form-inputs">

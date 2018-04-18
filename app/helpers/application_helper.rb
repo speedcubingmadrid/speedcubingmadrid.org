@@ -90,18 +90,24 @@ module ApplicationHelper
     content_tag :i, "", class: "fa fa-#{id}"
   end
 
-  def link_to_wca_profile(wca_id)
+  def link_to_wca_profile(wca_id, tooltip=true, text=nil)
+    data = if tooltip
+             {
+               toggle: "tooltip",
+               placement: "top",
+             }
+           else
+             nil
+           end
     unless wca_id.blank?
-      link_to(wca_id,
+      link_to(text || wca_id,
               wca_profile_url(wca_id),
               target: "_blank",
               title: "Aller au profil WCA",
-              data: {
-                toggle: "tooltip",
-                placement: "top",
-              })
+              data: data,
+             )
     else
-      ""
+      text
     end
   end
 

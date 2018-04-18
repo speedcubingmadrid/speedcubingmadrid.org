@@ -1,20 +1,20 @@
 <h1>Liste des posts et pages de compétition</h1>
 
-<%= link_to fa_icon("plus-circle"), new_post_path, class: "btn btn-success my-4" %>
+<%= link_to fa_icon("plus-circle"), new_news_path, class: "btn btn-success my-4" %>
 
 <div class="list-group">
   <% @posts.each do |post| %>
     <div class="list-group-item flex-column align-items-start list-group-item-<%= contextual_class(post) %>">
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1"><%= link_to(post.title, edit_post_path(post), class: "text-#{contextual_class(post)}") %></h5>
+        <h5 class="mb-1"><%= link_to(post.title, edit_news_path(post), class: "text-#{contextual_class(post)}") %></h5>
         <small>Le <%= l(post.created_at) %> par <%= post.user.name %></small>
       </div>
       <div class="d-flex w-100 justify-content-between">
         <small><%= legend(post) %></small>
         <div>
-          <%= link_to(fa_icon("eye"), post, class: "btn btn-sm btn-info") %>
-          <%= link_to(fa_icon("pencil"), edit_post_path(post), class: "btn btn-sm btn-primary") %>
-          <%= link_to(fa_icon("trash"), post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger") %>
+          <%= link_to(fa_icon("eye"), news_path(post.slug), class: "btn btn-sm btn-info") %>
+          <%= link_to(fa_icon("pencil"), edit_news_path(post), class: "btn btn-sm btn-primary") %>
+          <%= link_to(fa_icon("trash"), news_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger") %>
         </div>
       </div>
     </div>

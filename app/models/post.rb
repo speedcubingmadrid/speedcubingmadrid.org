@@ -8,12 +8,15 @@ class Post < ApplicationRecord
   validates_inclusion_of :draft, in: [true, false]
   validates_inclusion_of :competition_page, in: [true, false]
 
+  default_scope { order(created_at: :desc) }
   scope :visible, -> { where(draft: false) }
   scope :featured, -> { where(feature: true) }
   scope :all_posts, -> { where(competition_page: false) }
   scope :competition_pages, -> { where(competition_page: true) }
 
   BREAK_TAG_RE = /{{post_excerpt}}/
+
+  #TODO posted at, which change when it's created, or when it goes from draft to not draft
 
   def body_full
     body.sub(BREAK_TAG_RE, "")

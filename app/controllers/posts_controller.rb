@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to @post, flash: { success: 'Post was successfully created.' }
+      redirect_to news_path(@post), flash: { success: 'Post was successfully created.' }
     else
       render :new
     end
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     if @post.update(post_params)
-      redirect_to @post, flash: { success: 'Post was successfully updated.' }
+      redirect_to news_path(@post), flash: { success: 'Post was successfully updated.' }
     else
       render :edit
     end
@@ -54,14 +54,14 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
-    redirect_to posts_url, flash: { success: 'Post was successfully destroyed.' }
+    redirect_to news_index_path, flash: { success: 'Post was successfully destroyed.' }
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_post
-    @post = Post.find(params[:id])
-    unless @post.user_can_view?(current_user)
+    @post = Post.find_by_slug(params[:id]) || Post.find_by_id(params[:id])
+    unless @post&.user_can_view?(current_user)
       raise ActiveRecord::RecordNotFound.new("Not Found")
     end
   end

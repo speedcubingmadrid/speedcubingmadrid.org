@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'posts#home'
 
   resources :users, only: [:index, :edit, :update]
-  resources :posts
+  # To not ruin our pagerank, we need a "/news" routes with slugs, so that old links keep working
+  resources :news, :controller => "posts"
   resources :subscriptions, only: [:index, :destroy]
 
   post '/subscriptions/review_csv' => 'subscriptions#review_csv'

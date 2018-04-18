@@ -1,39 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% if @post.draft %>
+  <div class="alert alert-warning">
+    Ce post est un brouillon.
+  </div>
+<% end %>
+<div class="card afs-post">
+  <div class="card-body">
+    <h2><%= @post.title %></h2>
+    <h5 class="card-subtitle mt-2 mb-1 text-muted">
+      Publié le <%= l(@post.created_at, format: :post_datetime) %> par <%= link_to_wca_profile(@post.user.wca_id, false, @post.user.name) %>.
+    </h5>
+    <div class="mb-4">
+      <strong class="d-inline-block mb-2 badge badge-primary">WCA</strong>
+      <strong class="d-inline-block mb-2 badge badge-primary">un autre tag</strong>
+    </div>
+    <div class="card-text mb-4">
+      <%= md @post.body_full %>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%=md @post.body %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @post.slug %>
-</p>
-
-<p>
-  <strong>Feature:</strong>
-  <%= @post.feature %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user.name %>
-</p>
-
-<p>
-  <strong>Draft:</strong>
-  <%= @post.draft %>
-</p>
-
-<p>
-  <strong>Competition page:</strong>
-  <%= @post.competition_page %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <%= link_to "Permalien", news_path(@post.slug) %>
+    <% if current_user&.can_manage_communication_matters? %>
+      <%= link_to(fa_icon("pencil"), edit_news_path(@post), class: "btn btn-sm btn-primary") %>
+      <%= link_to(fa_icon("trash"), news_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger") %>
+    <% end %>
+  </div>
+</div>
