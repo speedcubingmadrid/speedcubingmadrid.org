@@ -25,6 +25,12 @@ fr:
         competition_page: "Ce post est une page de compétition"
       signin:
         can_manage: "Je suis un organisateur ou Délégué WCA, et j'autorise l'AFS à gérer mes compétitions."
+      user:
+        wca_id: "ID WCA"
+        friendly_birthdate: "Date de naissance"
+        admin: "Administrateur"
+        communication: "Équipe Communication"
+        french_delegate: "Délégué Français"
     hints:
       post:
         draft: "Si cette case est cochée, le post ne sera pas visible par le public"

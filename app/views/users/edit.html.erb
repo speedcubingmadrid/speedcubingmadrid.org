@@ -17,16 +17,13 @@
 <%= simple_form_for @user, wrapper: :horizontal_form, html: { class: "mb-4 user-edit-form" } do |f| %>
   <%= f.input :friendly_delegate_status, as: :display, label: false %>
 
-  <% if f.object.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      Il y a une ou plusieurs erreurs dans le formulaire.
-    </div>
-  <% end %>
-  <%= f.input :wca_id, as: :display, label: "WCA ID" %>
-  <%= f.input :friendly_birthdate, as: :display, label: "Date de naissance" %>
-  <%= f.input :admin, disabled: !is_admin, label: "Administrateur", wrapper: :horizontal_radio_and_checkboxes %>
-  <%= f.input :communication, disabled: !is_admin, label: "Équipe Communication", wrapper: :horizontal_radio_and_checkboxes %>
-  <%= f.input :french_delegate, disabled: !is_admin, label: "Délégué Français", wrapper: :horizontal_radio_and_checkboxes %>
+  <%= f.error_notification message: "Le formulaire est invalide. Merci de corriger les erreurs ci dessous." %>
+
+  <%= f.input :wca_id, as: :display %>
+  <%= f.input :friendly_birthdate, as: :display %>
+  <%= f.input :admin, disabled: !is_admin %>
+  <%= f.input :communication, disabled: !is_admin %>
+  <%= f.input :french_delegate, disabled: !is_admin %>
   <%# FIXME: if at some point we want them to edit stuff, this should be changed to can_edit_user? %>
   <% if is_admin %>
     <%= f.button :submit %>
