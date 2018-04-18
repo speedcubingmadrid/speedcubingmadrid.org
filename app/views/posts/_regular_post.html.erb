@@ -1,0 +1,21 @@
+<div class="regular-post card mb-4">
+  <div class="card-body d-flex flex-column align-items-start">
+    <h4 class="post-title w-100">
+      <%= link_to post.title, post, class: "text-dark" %>
+      <% if current_user&.can_manage_communication_matters? %>
+        <span class="pull-right">
+          <%= link_to(fa_icon("pencil"), edit_post_path(post), class: "btn btn-sm btn-primary") %>
+        </span>
+      <% end %>
+    </h4>
+    <div class="post-meta text-muted">
+      <%= l(post.created_at, format: :post_datetime) %>
+    </div>
+    <div class="post-excerpt">
+      <%= md post.body_teaser %>
+    </div>
+    <% if post.fullpost? %>
+      <%= link_to "Lire la suite...", post %>
+    <% end %>
+  </div>
+</div>

@@ -3,6 +3,9 @@ fr:
     formats:
       short: "%d/%m/%Y"
       default: "%e %B %Y"
+  time:
+    formats:
+      post_datetime: "%e %B %Y"
   countries:
     XA: Pays multiple (Asie)
     XE: Pays multiple (Europe)

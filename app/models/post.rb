@@ -8,6 +8,11 @@ class Post < ApplicationRecord
   validates_inclusion_of :draft, in: [true, false]
   validates_inclusion_of :competition_page, in: [true, false]
 
+  scope :visible, -> { where(draft: false) }
+  scope :featured, -> { where(feature: true) }
+  scope :all_posts, -> { where(competition_page: false) }
+  scope :competition_pages, -> { where(competition_page: true) }
+
   BREAK_TAG_RE = /{{post_excerpt}}/
 
   def body_full
@@ -21,5 +26,9 @@ class Post < ApplicationRecord
   def body_teaser
     split = body.split(BREAK_TAG_RE)
     split.first
+  end
+
+  def user_can_view?(user)
+    !draft || user&.can_manage_communication_matters?
   end
 end

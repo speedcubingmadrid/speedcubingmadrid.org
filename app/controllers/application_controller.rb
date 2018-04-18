@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  rescue_from ActiveRecord::RecordNotFound, with: -> { raise ActionController::RoutingError.new('Not Found') }
+
   def current_user
     begin
       @current_user ||= User.find(session[:user_id]) if session[:user_id]

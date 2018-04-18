@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :redirect_unless_comm!
+  before_action :authenticate_user!, except: [:home, :show]
+  before_action :redirect_unless_comm!, except: [:home, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+
+  def home
+    @featured_posts = Post.all_posts.visible.featured.limit(2)
+    @other_posts = Post.all_posts.visible.where.not(id: [@featured_posts.map(&:id)])
+  end
 
   # GET /posts
   # GET /posts.json
@@ -56,6 +61,9 @@ class PostsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
+    unless @post.user_can_view?(current_user)
+      raise ActiveRecord::RecordNotFound.new("Not Found")
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

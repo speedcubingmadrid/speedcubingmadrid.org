@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  # FIXME: home should be in a different controller
-  before_action :authenticate_user!, except: [:home]
-  before_action :redirect_unless_admin!, except: [:home, :edit, :update]
+  before_action :authenticate_user!
+  before_action :redirect_unless_admin!, except: [:edit, :update]
   before_action :set_and_redirect_if_cannot_edit_user, only: [:edit, :update]
 
   def edit
@@ -14,9 +13,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def home
   end
 
   def user_to_edit

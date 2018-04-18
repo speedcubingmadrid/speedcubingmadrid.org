@@ -27,6 +27,7 @@
   <%= f.input :admin, disabled: !is_admin, label: "Administrateur", wrapper: :horizontal_radio_and_checkboxes %>
   <%= f.input :communication, disabled: !is_admin, label: "Équipe Communication", wrapper: :horizontal_radio_and_checkboxes %>
   <%= f.input :french_delegate, disabled: !is_admin, label: "Délégué Français", wrapper: :horizontal_radio_and_checkboxes %>
+  <%# FIXME: if at some point we want them to edit stuff, this should be changed to can_edit_user? %>
   <% if is_admin %>
     <%= f.button :submit %>
   <% end %>

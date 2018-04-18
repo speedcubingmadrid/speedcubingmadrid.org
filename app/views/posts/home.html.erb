@@ -1,0 +1,45 @@
+<div class="row mb-2">
+  <% @featured_posts.each do |post| %>
+    <%= render "featured_post", post: post %>
+  <% end %>
+</div>
+<div class="card text-center border-secondary">
+  <div class="card-header">
+    <div class="float-md-left title-comp-card text-dark">Compétitions à venir</div>
+    <ul class="nav nav-tabs card-header-tabs flex-column flex-md-row ml-0 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" href="#">En france</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Championnats Internationaux</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body text-left row">
+    <div class="col-md-4">
+      <h5 class="card-title">Championnats de France 2018</h5>
+      <p class="card-text">Texte qui dit où c'est</p>
+      <a href="#" class="btn btn-primary">Visiter le site</a>
+    </div>
+    <div class="col-md-4">
+      <h5 class="card-title">Championnats d'Europe 2018</h5>
+      <p class="card-text">Texte qui dit où c'est</p>
+      <a href="#" class="btn btn-primary">Visiter le site</a>
+    </div>
+    <div class="col-md-4">
+      <h5 class="card-title">Championnats du Monde 2019</h5>
+      <p class="card-text">On sait pas où c'est</p>
+    </div>
+  </div>
+</div>
+<hr/>
+<h2 class="my-4 text-center">Dernières publications</h2>
+<% if @other_posts.empty? %>
+  <div class="alert alert-info">
+    Aucune autre publication.
+  </div>
+<% else %>
+  <% @other_posts.each do |post| %>
+    <%= render "regular_post", post: post %>
+  <% end %>
+<% end %>
