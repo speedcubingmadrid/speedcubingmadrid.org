@@ -19,6 +19,7 @@ fr:
       post:
         title: 'Titre'
         body: 'Contenu'
+        tags_string: 'Tags'
         slug: 'Permalien'
         draft: 'Ce post est un brouillon'
         feature: "Mettre en valeur sur la page d'accueil"
@@ -31,11 +32,18 @@ fr:
         admin: "Administrateur"
         communication: "Équipe Communication"
         french_delegate: "Délégué Français"
+      tag:
+        name: "Alias du tag"
+        color: "Couleur"
+        fullname: "Texte affiché"
     hints:
       post:
+        tags_string: "Pour personnaliser le texte affiché et la couleur de chaque tag, allez <a href='/tags' target='_blank'>là</a>."
         draft: "Si cette case est cochée, le post ne sera pas visible par le public"
         competition_page: "Si cette case est cochée, le post ne sera pas affiché sur la page d'accueil."
         body: "Ajoutez \"{{post_excerpt}}\" pour séparer l'introduction d'un post de son contenu principal."
+      tag:
+        name: "L'alias permet d'identifier le tag et n'est pas modifiable"
   helpers:
     submit:
       signin:
@@ -47,3 +55,5 @@ fr:
         update: 'Sauvegarder'
       import_form:
         submit: "Importer le CSV"
+      tag:
+        update: "Sauvegarder"

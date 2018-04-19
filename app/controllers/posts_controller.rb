@@ -4,14 +4,15 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def home
-    @featured_posts = Post.all_posts.visible.featured.limit(2)
-    @other_posts = Post.all_posts.visible.where.not(id: [@featured_posts.map(&:id)])
+    base_query = Post.includes(:tags).all_posts.visible
+    @featured_posts = base_query.featured.limit(2)
+    @other_posts = base_query.where.not(id: [@featured_posts.map(&:id)])
   end
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(id: :desc)
+    @posts = Post.includes(:tags).all.order(id: :desc)
   end
 
   # GET /posts/1
@@ -68,6 +69,6 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:title, :body, :slug, :feature, :draft, :competition_page)
+    params.require(:post).permit(:title, :body, :slug, :feature, :draft, :competition_page, :tags_string)
   end
 end

@@ -6,6 +6,7 @@
     <%# Followed this to get rid of sprockets: https://medium.com/@coorasse/goodbye-sprockets-welcome-webpacker-3-0-ff877fb8fa79 %>
     <%= stylesheet_pack_tag 'stylesheets', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :additional_scripts %>
     <%= csrf_meta_tags %>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

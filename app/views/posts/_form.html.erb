@@ -3,6 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :title, input_html: { class: "compute-slug" } %>
+    <%= f.input :tags_string, input_html: { class: "enable-selectize" } %>
     <%= f.input :body, input_html: { class: "enable-simplemde" } %>
     <%= f.input :slug, input_html: { class: "slug" } %>
     <%= f.input :draft %>
@@ -14,7 +15,10 @@
     <%= f.button :submit %>
   </div>
 <% end %>
-<%= javascript_pack_tag "simple_mde", 'data-turbolinks-track': 'reload'  %>
+<% content_for :additional_scripts do %>
+  <%= javascript_pack_tag "simple_mde", 'data-turbolinks-track': 'reload'  %>
+  <%= javascript_pack_tag "selectize", 'data-turbolinks-track': 'reload'  %>
+<% end %>
 <script>
 $(function() {
   $(".compute-slug").each(function() {
@@ -32,5 +36,6 @@ $(function() {
     });
     $(this).removeClass("slug");
   });
+  window.wca.enableSelectize(<%= post_tags_to_options %>);
 });
 </script>

@@ -24,4 +24,8 @@ module PostsHelper
     end
     legends.join(" | ")
   end
+
+  def post_tags_to_options
+    Tag.distinct.pluck(:name).map { |tag| { value: tag, text: tag } }.to_json.html_safe
+  end
 end

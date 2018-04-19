@@ -39,5 +39,12 @@ module Taggable
         item_tag.mark_for_destruction unless tags_array.include?(item_tag.tag_name)
       end
     end
+
+    after_validation do
+      # Fix display of error messages, as we show the tags as "tags_string" in the form
+      if @errors&.messages.has_key?(:"#{self.class.name.underscore}_tags.tag_name")
+        @errors.messages[:tags_string] = @errors.messages[:"#{self.class.name.underscore}_tags.tag_name"]
+      end
+    end
   end
 end

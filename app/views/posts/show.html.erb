@@ -10,14 +10,15 @@
       Publié le <%= l(@post.created_at, format: :post_datetime) %> par <%= link_to_wca_profile(@post.user.wca_id, false, @post.user.name) %>.
     </h5>
     <div class="mb-4">
-      <strong class="d-inline-block mb-2 badge badge-primary">WCA</strong>
-      <strong class="d-inline-block mb-2 badge badge-primary">un autre tag</strong>
+      <% @post.tags.each do |tag| %>
+        <%= render("shared/tag", tag: tag) %>
+      <% end %>
     </div>
     <div class="card-text mb-4">
       <%= md @post.body_full %>
     </div>
 
-    <%= link_to "Permalien", news_path(@post.slug) %>
+    <%= link_to "Permalien", news_path(@post.slug), class: "mr-2" %>
     <% if current_user&.can_manage_communication_matters? %>
       <%= link_to(fa_icon("pencil"), edit_news_path(@post), class: "btn btn-sm btn-primary") %>
       <%= link_to(fa_icon("trash"), news_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger") %>
