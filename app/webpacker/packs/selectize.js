@@ -1,8 +1,8 @@
 import {} from "selectize";
 
-window.wca = window.wca || {};
+window.afs = window.afs || {};
 
-wca.enableSelectize = function(tag_options) {
+window.afs.enableSelectize = function(tag_options) {
   $(".enable-selectize").each(function() {
     $(this).selectize({
       plugins: ['remove_button'],

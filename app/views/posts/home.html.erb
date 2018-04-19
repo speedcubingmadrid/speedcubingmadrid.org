@@ -1,3 +1,6 @@
+<% content_for :additional_scripts do %>
+  <%= javascript_pack_tag "homepage", 'data-turbolinks-track': 'reload'  %>
+<% end %>
 <div class="row mb-2">
   <% @featured_posts.each do |post| %>
     <%= render "featured_post", post: post %>
@@ -15,7 +18,7 @@
       </li>
     </ul>
   </div>
-  <div class="card-body text-left row">
+  <div id="test-div" class="card-body text-left row">
     <div class="col-md-4">
       <h5 class="card-title">Championnats de France 2018</h5>
       <p class="card-text">Texte qui dit où c'est</p>
@@ -23,7 +26,8 @@
     </div>
     <div class="col-md-4">
       <h5 class="card-title">Championnats d'Europe 2018</h5>
-      <p class="card-text">Texte qui dit où c'est</p>
+      <div class="card-meta text-muted">Nantes</div>
+      <div class="card-text my-1">Du 18 janvier au 25 février 2018</div>
       <a href="#" class="btn btn-primary">Visiter le site</a>
     </div>
     <div class="col-md-4">
@@ -31,6 +35,9 @@
       <p class="card-text">On sait pas où c'est</p>
     </div>
   </div>
+  <script>
+    window.afs.getRecentCompetitions($("#test-div"));
+  </script>
 </div>
 <hr/>
 <h2 class="my-4 text-center">Dernières publications</h2>

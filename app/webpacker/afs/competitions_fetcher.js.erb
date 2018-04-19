@@ -1,0 +1,36 @@
+<% include ApplicationHelper %>
+
+let apiCompetitionsUrl = "<%= wca_api_competitions_url %>";
+
+export { getRecentCompetitions };
+
+function getRecentCompetitions($elem) {
+  let startDate = new Date();
+  startDate.setDate(startDate.getDate() - 2);
+  let dateAsString = `${startDate.getFullYear()}-${startDate.getMonth()+1}-${startDate.getDate()}`;
+  let queryUrl = apiCompetitionsUrl + "?sort=-start_date&country_iso2=FR&start=" + dateAsString;
+  $elem.html("<p>Récupérations des compétitions depuis le site de la WCA...</p>");
+  $.get(queryUrl)
+    .done(function(data) {
+      $elem.empty();
+      let competitions = data.slice(0, 3);
+      competitions.forEach(function(comp) {
+        $elem.append(renderCompetition(comp));
+      });
+    })
+  .fail(function(handle) {
+    $elem.html("<p>Impossible de contacter le site de la WCA.</p>");
+  })
+}
+
+function renderCompetition(competitionData) {
+  console.log(competitionData);
+  return (`
+    <div class="col-12 col-md-4">
+      <h5 class="card-title">${competitionData.name}</h5>
+      <p class="card-meta text-muted">${competitionData.city}</p>
+      <p class="card-text">${competitionData.start_date} - ${competitionData.end_date}</p>
+      <a href="${competitionData.website}" class="btn btn-primary" target="_blank">Visiter le site</a>
+    </div>
+  `);
+}
