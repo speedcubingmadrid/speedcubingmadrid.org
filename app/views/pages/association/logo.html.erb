@@ -1,0 +1,15 @@
+<% provide(:active_section, "association") %>
+<%= render "layouts/page_wrapper", title: "Logos" do %>
+  <p>Le logo de l'AFS est utilisable par tous les organisateurs et Délégués WCA dans les outils de communication (tels que le site internet, les affiches, les vêtements), mis en oeuvre dans le cadre d'une compétition en partenariat avec l'AFS.</p>
+  <p>Pour une utilisation dans un cadre différent, merci de contacter le <%= mail_to("bureau@speedcubingfrance.org", "bureau de l'AFS") %> pour en négocier son usage.</p>
+  <p>
+    Le logo existe dans les versions suivantes :
+    <ul>
+      <li><a href="/uploads/logos/logoafs.png">Logo en version matricielle (png)</a></li>
+      <li><a href="/uploads/logos/logoafs.svg">Logo en version vectorielle (svg)</a></li>
+      <li><a href="/uploads/logos/logoafsletters.png">Logo avec texte en version matricielle (png)</a></li>
+      <li><a href="/uploads/logos/logoafsletters.svg">Logo avec texte en version vectorielle (svg)</a></li>
+    </ul>
+    Il nous a été créé et offert par François Grassard.
+  </p>
+<% end %>

@@ -1,0 +1,19 @@
+<% provide(:active_section, "association") %>
+<%= render "layouts/page_wrapper", title: "Documents" do %>
+
+  <h3 id="compte-rendus">Compte-rendus</h3>
+
+  <ul>
+    <li><a href="/uploads/AG_16-12-17.pdf">Assemblée Générale du 16 décembre 2017</a></li>
+    <li><a href="/uploads/AG_08-04-17.pdf">Assemblée Générale du 8 avril 2017</a></li>
+    <li><a href="/uploads/AG_30-04-16.pdf">Assemblée Générale du 30 avril 2016</a></li>
+    <li><a href="/uploads/AG_17-04-15.pdf">Assemblée Générale du 17 avril 2015</a></li>
+    <li><a href="/uploads/AG_27-12-14.pdf">Assemblée Générale du 27 décembre 2014</a></li>
+    <li><a href="/uploads/AG_27-04-13.pdf">Assemblée Générale du 27 avril 2013</a></li>
+    <li><a href="/uploads/AG_20-04-12.pdf">Assemblée Générale du 20 avril 2012</a></li>
+    <li><a href="/uploads/AG_22-04-11.pdf">Assemblée Générale du 22 avril 2011</a></li>
+    <li><a href="/uploads/StatutsAFS.pdf">Statuts de l'association</a></li>
+  </ul>
+
+  Le logo de l'association dans ces différentes versions est disponible <%= link_to "ici", page_path("association/logo") %>.
+<% end %>

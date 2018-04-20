@@ -29,6 +29,9 @@ gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc'
 
+# Static pages
+gem 'high_voltage', '~> 3.0.0'
+
 gem 'rest-client'
 
 # Use ActiveModel has_secure_password

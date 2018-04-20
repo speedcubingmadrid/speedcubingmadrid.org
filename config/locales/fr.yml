@@ -71,3 +71,5 @@ fr:
         submit: "Importer le CSV"
       tag:
         update: "Sauvegarder"
+      big_champs:
+        submit: "Sauvegarder"

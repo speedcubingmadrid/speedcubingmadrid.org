@@ -67,6 +67,7 @@ GEM
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    high_voltage (3.0.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.5)
@@ -199,6 +200,7 @@ DEPENDENCIES
   byebug
   coffee-rails
   dotenv-rails
+  high_voltage (~> 3.0.0)
   i18n-country-translations
   jbuilder
   listen
