@@ -2,6 +2,7 @@ fr:
   date:
     formats:
       short: "%d/%m/%Y"
+      day_month: "%e %B"
       default: "%e %B %Y"
   time:
     formats:

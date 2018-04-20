@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180418141143) do
+ActiveRecord::Schema.define(version: 20180420082739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "competitions", id: false, force: :cascade do |t|
+    t.string "id", null: false
+    t.string "name"
+    t.string "city"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "country_iso2"
+    t.string "website"
+    t.string "delegates"
+    t.string "organizers"
+    t.index ["id"], name: "index_competitions_on_id", unique: true
+  end
+
+  create_table "competitions_requests", force: :cascade do |t|
+    t.datetime "succeed_at"
+    t.integer "user_id"
+  end
 
   create_table "post_tags", force: :cascade do |t|
     t.bigint "post_id", null: false

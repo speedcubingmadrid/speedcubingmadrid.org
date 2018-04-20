@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: MyString
+  name: MyString
+  start_date: 2018-04-20
+  end_date: 2018-04-20
+  country_iso2: MyString
+  website: MyString
+  delegates: MyString
+  organizers: MyString
+
+two:
+  id: MyString
+  name: MyString
+  start_date: 2018-04-20
+  end_date: 2018-04-20
+  country_iso2: MyString
+  website: MyString
+  delegates: MyString
+  organizers: MyString

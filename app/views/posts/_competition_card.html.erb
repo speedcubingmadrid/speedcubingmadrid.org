@@ -1,0 +1,8 @@
+<div class="col-12 col-md-4">
+  <h5 class="card-title"><%= competition.name %></h5>
+  <p class="card-meta text-muted"><%= competition.city %></p>
+  <p class="card-text">
+    <%= "Du #{l(competition.start_date, format: :day_month)} au #{l(competition.end_date)}." %>
+  </p>
+  <a href="<%= competition.website %>" class="btn btn-primary" target="_blank">Visiter le site</a>
+</div>
