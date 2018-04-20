@@ -1,7 +1,32 @@
 class CompetitionsController < ApplicationController
   before_action :authenticate_user!
   # For now this controller is accessible to anyone with the scope, as the actual check is done on the WCA part.
-  before_action :redirect_unless_has_manage_competition_scope!
+  before_action :redirect_unless_has_manage_competition_scope!, only: [:show_registrations, :my_competitions]
+  before_action :redirect_unless_comm!, except: [:show_registrations, :my_competitions]
+
+  def manage_big_champs
+    @champs = MajorComp.all.order(:role)
+  end
+
+  def update_big_champs
+    @champs = MajorComp.all.order(:role)
+    big_champs = big_champs_params
+    roles = big_champs.keys
+    status = true
+    roles.each do |r|
+      puts "doing #{r}"
+      mc = @champs.find { |c| c.role == r }
+      raise ActiveRecord::RecordNotFound unless mc
+      attributes = big_champs[r]
+      success = mc.update(attributes)
+      status = status && success
+    end
+    if status
+      redirect_to root_path
+    else
+      render :manage_big_champs
+    end
+  end
 
   def show_registrations
     comp_id = params.require(:competition_id)
@@ -46,5 +71,10 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  private :redirect_unless_authorized_delegate!
+  def big_champs_params
+    champ_params = [:competition_id, :name, :alt_text]
+    params.require(:big_champs).permit(euro: champ_params, french: champ_params, world: champ_params)
+  end
+
+  private :redirect_unless_authorized_delegate!, :big_champs_params
 end

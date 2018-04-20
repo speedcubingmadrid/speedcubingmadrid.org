@@ -17,6 +17,19 @@ fr:
     KR: République de Corée
   simple_form:
     labels:
+      big_champs:
+        euro:
+          competition_id: "ID de la compétition"
+          name: "Nom de la compétition"
+          alt_text: "Texte alternatif"
+        french:
+          competition_id: "ID de la compétition"
+          name: "Nom de la compétition"
+          alt_text: "Texte alternatif"
+        world:
+          competition_id: "ID de la compétition"
+          name: "Nom de la compétition"
+          alt_text: "Texte alternatif"
       post:
         title: 'Titre'
         body: 'Contenu'

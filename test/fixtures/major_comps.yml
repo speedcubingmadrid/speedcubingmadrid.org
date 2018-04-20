@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  competition_id: MyString
+  role: MyString
+  name: MyString
+  alt_text: MyText
+
+two:
+  competition_id: MyString
+  role: MyString
+  name: MyString
+  alt_text: MyText

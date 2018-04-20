@@ -29,6 +29,7 @@ class PostsController < ApplicationController
     @featured_posts = base_query.featured.limit(2)
     @other_posts = base_query.where.not(id: [@featured_posts.map(&:id)])
     @upcoming_in_france = Competition.upcoming(3).in_france
+    @major_champs = MajorComp.includes(:competition).all.order(:role)
   end
 
   # GET /posts

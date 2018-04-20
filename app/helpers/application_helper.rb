@@ -46,12 +46,12 @@ module ApplicationHelper
     wca_api_url("/search/users/?q=#{query}")
   end
 
-  def wca_api_competitions_url
-    wca_api_url("/competitions")
+  def wca_api_competitions_url(competition_id="")
+    wca_api_url("/competitions/#{competition_id}")
   end
 
   def wca_api_competition_wcif_url(competition_id)
-    wca_api_url("/competitions/#{competition_id}/wcif")
+    "#{wca_api_competitions_url(competition_id)}/wcif"
   end
 
   def wca_client_id
