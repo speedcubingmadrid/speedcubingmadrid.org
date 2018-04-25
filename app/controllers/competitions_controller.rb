@@ -4,6 +4,9 @@ class CompetitionsController < ApplicationController
   before_action :redirect_unless_has_manage_competition_scope!, only: [:show_registrations, :my_competitions]
   before_action :redirect_unless_comm!, except: [:show_registrations, :my_competitions]
 
+  def upcoming_comps
+  end
+
   def manage_big_champs
     @champs = MajorComp.all.order(:role)
   end

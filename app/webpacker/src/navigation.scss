@@ -130,3 +130,12 @@
     }
   }
 }
+
+.nav {
+  &.sticky-nav {
+    position: sticky;
+    z-index: 2;
+    top: 0px;
+    background-color: $bg-body;
+  }
+}

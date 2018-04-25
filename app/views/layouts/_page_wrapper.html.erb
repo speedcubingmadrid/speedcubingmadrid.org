@@ -1,3 +1,7 @@
+<% menu ||= {} %>
+<% active ||= "" %>
+<%= render "layouts/subnav", elements: menu, active: active %>
+
 <h2 class="page-title text-center"><%= title %></h2>
 
 <div class="card">

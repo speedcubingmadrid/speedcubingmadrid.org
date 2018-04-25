@@ -1,0 +1,19 @@
+<%
+  menu = {
+    home: {
+      name: "Compétitions",
+      link: page_path("competitions"),
+    },
+    calendrier: {
+      name: "Calendrier",
+      link: page_path("competitions"),
+    },
+    cdf: {
+      name: "Championnats de France",
+      link: page_path("speedcubing/cdf"),
+    },
+  }
+%>
+<%= render "layouts/page_wrapper", menu: menu, active: current_page, title: title do %>
+  <% yield %>
+<% end %>

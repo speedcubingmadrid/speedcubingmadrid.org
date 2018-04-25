@@ -1,18 +1,20 @@
-<h1>Compétitions majeures à venir</h1>
-<% names = { french: "Championnats de France", euro: "Championnats d'Europe", world: "Championnats du Monde" } %>
+<%= render "nav_competitions", current_page: :big_champs do %>
+  <h1>Compétitions majeures à venir</h1>
+  <% names = { french: "Championnats de France", euro: "Championnats d'Europe", world: "Championnats du Monde" } %>
 
-<div class="alert alert-info my-3">
-  Ce formulaire contrôle les informations affichées sur la page d'accueil concernant les compétitions majeures à venir.
-  Si un ID de compétition est présent, alors les informations à propos de la compétition seront récupérées sur le site de la WCA et affichées, sinon le nom et le texte alternatif seront utilisés.
-</div>
-<%= simple_form_for :big_champs, url: update_champs_path, wrapper: :horizontal_form do |f| %>
-  <% @champs.each do |champ| %>
-    <h3 class="my-3"><%= names[champ.role.to_sym] %></h3>
-    <%= f.simple_fields_for champ.role, champ do |fr| %>
-      <%= fr.input :competition_id %>
-      <%= fr.input :name %>
-      <%= fr.input :alt_text, as: :text %>
+  <div class="alert alert-info my-3">
+    Ce formulaire contrôle les informations affichées sur la page d'accueil concernant les compétitions majeures à venir.
+    Si un ID de compétition est présent, alors les informations à propos de la compétition seront récupérées sur le site de la WCA et affichées, sinon le nom et le texte alternatif seront utilisés.
+  </div>
+  <%= simple_form_for :big_champs, url: update_champs_path, wrapper: :horizontal_form do |f| %>
+    <% @champs.each do |champ| %>
+      <h3 class="my-3"><%= names[champ.role.to_sym] %></h3>
+      <%= f.simple_fields_for champ.role, champ do |fr| %>
+        <%= fr.input :competition_id %>
+        <%= fr.input :name %>
+        <%= fr.input :alt_text, as: :text %>
+      <% end %>
     <% end %>
+    <%= f.button :submit %>
   <% end %>
-  <%= f.button :submit %>
 <% end %>

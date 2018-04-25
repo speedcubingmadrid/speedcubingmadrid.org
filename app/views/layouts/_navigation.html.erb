@@ -106,7 +106,7 @@
                       <%= link_to "Utilisateurs", users_path, class: "dropdown-item" %>
                     <% end %>
                     <%= link_to "Posts", news_index_path, class: "dropdown-item" %>
-                    <%= link_to "Championnats à venir", upcoming_champs_path, class: "dropdown-item" %>
+                    <%= link_to "Compétitions", upcoming_champs_path, class: "dropdown-item" %>
                   <% end %>
                   <% if current_user.admin? || current_user.french_delegate? %>
                     <div class="dropdown-divider"></div>

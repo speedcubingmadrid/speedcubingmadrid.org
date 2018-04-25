@@ -1,4 +1,14 @@
-<nav class="nav nav-pills nav-fill mb-4">
-  <%= link_to "Adhérents", subscriptions_path, class: "nav-item nav-link #{active == "subscribers" ? "active" : ""}" %>
-  <%= link_to "Adhésions", subscriptions_list_path, class: "nav-item nav-link #{active == "subscriptions" ? "active" : ""}" %>
-</nav>
+<%
+  menu = {
+    subscribers: {
+      name: "Adhérents",
+      link: subscriptions_path,
+    },
+    subscriptions: {
+      name: "Adhésions",
+      link: subscriptions_list_path,
+    },
+  }
+%>
+
+<%= render "layouts/subnav", elements: menu, active: current_page %>

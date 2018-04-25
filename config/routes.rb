@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/subscriptions/list' => 'subscriptions#subscriptions_list'
 
   get '/my_competitions' => 'competitions#my_competitions'
+  get '/upcoming_comps' => 'competitions#upcoming_comps'
   get '/upcoming_champs' => 'competitions#manage_big_champs'
   post '/update_champs' => 'competitions#update_big_champs'
   resources :competitions, only: [] do
