@@ -53,7 +53,6 @@ module MarkdownHelper
     end
 
     options = {
-      escape_html: true,
       hard_wrap: true,
     }
 

@@ -19,7 +19,7 @@
       <div class="d-flex w-100 justify-content-between">
         <small><%= legend(post) %></small>
         <div>
-          <%= link_to(fa_icon("eye"), news_path(post.slug), class: "btn btn-sm btn-info") %>
+          <%= link_to(fa_icon("eye"), view_post_path(post), class: "btn btn-sm btn-info") %>
           <%= link_to(fa_icon("pencil"), edit_news_path(post), class: "btn btn-sm btn-primary") %>
           <%= link_to(fa_icon("trash"), news_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger") %>
         </div>

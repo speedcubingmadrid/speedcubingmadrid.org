@@ -1,8 +1,22 @@
 class CompetitionsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:calendar, :old_competitions_list, :show_competition_page]
   # For now this controller is accessible to anyone with the scope, as the actual check is done on the WCA part.
   before_action :redirect_unless_has_manage_competition_scope!, only: [:show_registrations, :my_competitions]
-  before_action :redirect_unless_comm!, except: [:show_registrations, :my_competitions]
+  before_action :redirect_unless_comm!, except: [:show_registrations, :my_competitions, :calendar, :old_competitions_list, :show_competition_page]
+
+  def old_competitions_list
+    @competition_pages = Post.competition_pages.visible
+  end
+
+  def show_competition_page
+    @competition = Post.find_by_slug(params[:slug])
+    unless @competition&.user_can_view?(current_user) && @competition&.competition_page
+      raise ActiveRecord::RecordNotFound.new("Not Found")
+    end
+  end
+
+  def calendar
+  end
 
   def upcoming_comps
   end

@@ -36,6 +36,9 @@ body {
   background-color: $bg-body;
 }
 
+blockquote {
+  @extend .blockquote;
+}
 
 
 #main-container {

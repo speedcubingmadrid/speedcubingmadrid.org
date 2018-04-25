@@ -47,7 +47,7 @@
             <li class="nav-item">
               <% active = section == "home" ? "active" : nil %>
               <%= link_to root_url, class: "nav-link nav-home #{active}" do %>
-                <i class="fa fa-home"></i> <span class="d-sm-none d-lg-inline">Accueil</span><span class="sr-only">(current)</span>
+                <i class="fa fa-home"></i> <span class="d-sm-none d-lg-inline">Accueil</span>
               <% end %>
             </li>
             <li class="nav-item dropdown">
@@ -72,13 +72,14 @@
                 <%= link_to "Compétitions", page_path("competitions"), class: "dropdown-item" %>
                 <%= link_to "Règlement", page_path("reglement"), class: "dropdown-item" %>
                 <%= link_to "Tutoriels", page_path("speedcubing/tutos"), class: "dropdown-item" %>
-                <a class="dropdown-item" href="#">Ressources externes</a>
+                <%= link_to "Ressources externes", page_path("ressources"), class: "dropdown-item" %>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-contact" href="#">
+              <% active = section == "contact" ? "active" : nil %>
+              <%= link_to page_path("contact"), class: "nav-link nav-contact #{active}" do %>
                 <i class="fa fa-envelope"></i> <span class="d-sm-none d-lg-inline">Contact</span>
-              </a>
+              <% end %>
             </li>
             <% if current_user %>
               <li class="nav-item dropdown">
@@ -113,9 +114,7 @@
                     <h6 role="presentation" class="dropdown-header">
                       Délégués
                     </h6>
-                    <a class="dropdown-item" href="#">
-                      Matériel
-                    </a>
+                    <%= link_to "(TODO)Matériel", "#", class: "dropdown-item" %>
                   <% end %>
 
                   <div class="dropdown-divider"></div>

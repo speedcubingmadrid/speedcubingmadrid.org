@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  include PostsHelper
   before_action :authenticate_user!, except: [:home, :show]
   before_action :redirect_unless_comm!, except: [:home, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :enforce_real_post, only: [:show]
 
   before_action :try_get_competitions, only: [:home]
   def try_get_competitions
@@ -58,7 +60,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to news_path(@post), flash: { success: 'Post was successfully created.' }
+      redirect_to view_post_path(@post), flash: { success: 'Post was successfully created.' }
     else
       render :new
     end
@@ -68,7 +70,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     if @post.update(post_params)
-      redirect_to news_path(@post), flash: { success: 'Post was successfully updated.' }
+      redirect_to view_post_path(@post), flash: { success: 'Post was successfully updated.' }
     else
       render :edit
     end
@@ -86,6 +88,12 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find_by_slug(params[:id]) || Post.find_by_id(params[:id])
     unless @post&.user_can_view?(current_user)
+      raise ActiveRecord::RecordNotFound.new("Not Found")
+    end
+  end
+
+  def enforce_real_post
+    unless @post.real_post
       raise ActiveRecord::RecordNotFound.new("Not Found")
     end
   end

@@ -15,9 +15,11 @@ Rails.application.routes.draw do
   get '/upcoming_comps' => 'competitions#upcoming_comps'
   get '/upcoming_champs' => 'competitions#manage_big_champs'
   post '/update_champs' => 'competitions#update_big_champs'
-  resources :competitions, only: [] do
-    get 'registrations' => 'competitions#show_registrations'
-  end
+
+  get 'competitions/official/:competition_id/registrations' => 'competitions#show_registrations', :as => :competition_registrations
+  get 'competitions/calendrier' => 'competitions#calendar'
+  get 'competitions/historique' => 'competitions#old_competitions_list'
+  get 'competitions/:slug' => 'competitions#show_competition_page', :as => 'old_competitions'
 
   get '/profile' => 'users#edit'
 

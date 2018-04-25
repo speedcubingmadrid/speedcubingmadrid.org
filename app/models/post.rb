@@ -20,6 +20,10 @@ class Post < ApplicationRecord
 
   #TODO posted at, which change when it's created, or when it goes from draft to not draft
 
+  def real_post
+    !competition_page
+  end
+
   def body_full
     body.sub(BREAK_TAG_RE, "")
   end
