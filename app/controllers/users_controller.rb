@@ -49,6 +49,7 @@ class UsersController < ApplicationController
       when 0
         flash[:warning] = "Aucun résultat pour la requête"
       when 1
+        User.create_or_update(@matches.first)
         flash[:success] = "Utilisateur #{@matches.first["name"]} importé avec succès"
         return redirect_to users_path
       end
