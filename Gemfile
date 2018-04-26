@@ -20,6 +20,8 @@ gem 'coffee-rails'
 
 # Form helper
 gem 'simple_form'
+# Nested association helper
+gem 'cocoon'
 
 # Markdown renderer
 gem 'redcarpet'
