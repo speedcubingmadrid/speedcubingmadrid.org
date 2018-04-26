@@ -43,14 +43,14 @@ class SubscriptionsController < ApplicationController
     @subscriptions = []
     if csvfile.methods.include?(:path)
       CSV.foreach(csvfile.path, :headers => true, :col_sep => ';') do |row|
-        # Row follows this format:
-        # ;;;;;name;firstname;;date;;;;;email;;receipt_url;;;;buyer name;buyer firstname;;;;;wca_id
-        subscription = Subscription.find_or_initialize_by(name: row[5].strip,
-                                                          firstname: row[6].strip,
-                                                          payed_at: row[8],
-                                                          email: row[13].strip,
-                                                          receipt_url: row[15])
-        subscription.wca_id = row[25]
+        # Row may not follow a specific format, however we should have the following headers:
+        # Nom;Prénom;Date;Email;Attestation;Champ additionnel: ID WCA (si connu)
+        subscription = Subscription.find_or_initialize_by(name: row["Nom"].strip,
+                                                          firstname: row["Prénom"].strip,
+                                                          payed_at: row["Date"],
+                                                          email: row["Email"]&.strip,
+                                                          receipt_url: row["Attestation"])
+        subscription.wca_id = row["Champ additionnel: ID WCA (si connu)"]
         if subscription.new_record?
           @new_subscriptions << subscription
         else
