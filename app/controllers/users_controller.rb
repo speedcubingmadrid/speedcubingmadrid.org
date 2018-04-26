@@ -1,9 +1,61 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :redirect_unless_admin!, except: [:edit, :update]
+  before_action :redirect_unless_admin!, except: [:edit, :update, :import, :import_from_wca]
+  before_action :redirect_unless_authorized_delegate!, only: [:import, :import_from_wca]
   before_action :set_and_redirect_if_cannot_edit_user, only: [:edit, :update]
 
   def edit
+  end
+
+  def import
+    @matches = []
+  end
+
+  def import_from_wca
+    request_params = params.require(:import_user).permit(:query, :id)
+    @matches = []
+    success = false
+    request_id = request_params[:id].to_i
+    if request_id > 0
+      # FIXME DRY this with a request taking a "if success" block
+      success = RestClient.get(wca_api_user_url(request_id)) do |response, request, result, &block|
+        case response.code
+        when 200
+          result_json = JSON.parse(response.body)
+          user_json = result_json["user"]
+          if user_json
+            @matches << user_json
+            User.create_or_update(user_json)
+          end
+          true
+        else
+          false
+        end
+      end
+    else
+      success = RestClient.get(wca_api_users_search_url(request_params[:query])) do |response, request, result, &block|
+        case response.code
+        when 200
+          results_json = JSON.parse(response.body)
+          @matches = results_json["result"]
+          true
+        else
+          false
+        end
+      end
+    end
+    if success
+      case @matches.size
+      when 0
+        flash[:warning] = "Aucun résultat pour la requête"
+      when 1
+        flash[:success] = "Utilisateur #{@matches.first["name"]} importé avec succès"
+        return redirect_to users_path
+      end
+    else
+      flash[:danger] = "Erreur lors de la requête au site de la WCA"
+    end
+    render :import
   end
 
   def update

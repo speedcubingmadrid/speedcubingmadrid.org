@@ -38,6 +38,9 @@ fr:
         draft: 'Ce post est un brouillon'
         feature: "Mettre en valeur sur la page d'accueil"
         competition_page: "Ce post est une page de compétition"
+      import_user:
+        query: "Recherche"
+        user_id: "ID d'utilisateur"
       signin:
         can_manage: "Je suis un organisateur ou Délégué WCA, et j'autorise l'AFS à gérer mes compétitions."
       user:
@@ -50,6 +53,16 @@ fr:
         name: "Alias du tag"
         color: "Couleur"
         fullname: "Texte affiché"
+      bag:
+        owners:
+          user: "Utilisateur"
+          start: "Du"
+          end: "Au"
+      hardware:
+        owners:
+          user: "Utilisateur"
+          start: "Du"
+          end: "Au"
     hints:
       post:
         tags_string: "Pour personnaliser le texte affiché et la couleur de chaque tag, allez <a href='/tags' target='_blank'>là</a>."
@@ -67,6 +80,8 @@ fr:
       post:
         create: 'Créer le post'
         update: 'Sauvegarder'
+      import_user:
+        submit: "Envoyer la requête"
       import_form:
         submit: "Importer le CSV"
       tag:

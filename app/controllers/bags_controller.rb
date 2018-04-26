@@ -6,7 +6,7 @@ class BagsController < ApplicationController
   # GET /bags
   # GET /bags.json
   def index
-    @bags = Bag.all
+    @bags = Bag.includes({ owners: :user, hardwares: [] }).all
   end
 
   # GET /bags/1

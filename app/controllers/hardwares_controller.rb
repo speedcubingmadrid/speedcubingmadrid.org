@@ -6,7 +6,7 @@ class HardwaresController < ApplicationController
   # GET /hardwares
   # GET /hardwares.json
   def index
-    @hardwares = Hardware.all
+    @hardwares = Hardware.includes({ owners: :user, bag: { owners: :user } }).all
   end
 
   # GET /hardwares/1

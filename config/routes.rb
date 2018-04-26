@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'posts#home'
 
   resources :users, only: [:index, :edit, :update]
+  get 'users/import' => 'users#import'
+  post 'users/import' => 'users#import_from_wca'
   # To not ruin our pagerank, we need a "/news" routes with slugs, so that old links keep working
   resources :news, :controller => "posts"
   resources :subscriptions, only: [:index, :destroy]

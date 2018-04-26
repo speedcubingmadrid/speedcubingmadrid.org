@@ -1,6 +1,10 @@
 <% content_for :additional_scripts do %>
   <%= javascript_pack_tag "cocoon", 'data-turbolinks-track': 'reload'  %>
 <% end %>
+<p class="form-text text-muted">
+  Vous ne trouvez pas l'utilisateur dans la liste ?
+  Rendez-vous <%= link_to "ici", users_import_path, target: "_blank" %> pour importer un utilisateur (n'oubliez pas de recharger cette page après).
+</p>
 <div class="owners">
   <%= f.simple_fields_for :owners do |f2| %>
     <%= render "shared/hardware_owner_fields", f: f2 %>
