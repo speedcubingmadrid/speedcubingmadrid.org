@@ -1,8 +1,8 @@
-class HardwareOwner < ApplicationRecord
-  belongs_to :hardware
+class Owner < ApplicationRecord
+  belongs_to :item, polymorphic: true
   belongs_to :user
 
-  validates_presence_of :hardware
+  validates_presence_of :item
   validates_presence_of :user
 
   validate :dates_must_be_valid

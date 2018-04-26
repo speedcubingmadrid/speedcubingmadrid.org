@@ -1,6 +1,3 @@
-<% content_for :additional_scripts do %>
-  <%= javascript_pack_tag "cocoon", 'data-turbolinks-track': 'reload'  %>
-<% end %>
 <%= simple_form_for(@hardware) do |f| %>
   <%= f.error_notification %>
 
@@ -11,20 +8,7 @@
     <%= f.association :bag, collection: Bag.order(:name) %>
     <%= f.input :comment %>
     <h3>Liste des personnes en possession du matériel</h3>
-    <div class="hardware_owners">
-      <%= f.simple_fields_for :hardware_owners do |f2| %>
-        <%= render "hardware_owner_fields", f: f2 %>
-      <% end %>
-    </div>
-    <%= link_to_add_association(
-      button_tag(raw("#{fa_icon("plus")} Ajouter une possession"), type: "button", class: "btn btn-success mb-3"),
-      f,
-      :hardware_owners,
-      data: {
-        association_insertion_node: '.hardware_owners',
-        association_insertion_method: 'append'
-      },
-    ) %>
+    <%= render "shared/nested_form_for_owners", f: f %>
   </div>
 
   <div class="form-actions">

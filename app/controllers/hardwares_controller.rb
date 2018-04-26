@@ -77,7 +77,7 @@ class HardwaresController < ApplicationController
         :bag_id,
         :state,
         :comment,
-        hardware_owners_attributes: [:id, :hardware_id, :user_id, :start, :end, :_destroy],
+        owners_attributes: [:id, :item_id, :item_type, :user_id, :start, :end, :_destroy],
       )
 
     end

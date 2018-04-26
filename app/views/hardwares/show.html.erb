@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Nom :</strong>
   <%= @hardware.name %> (<%= @hardware.hardware_type_string %>)
@@ -14,14 +12,14 @@
   <%= @hardware.comment %>
 </p>
 
-<p>
-  <strong>Chez :</strong>
-  <% owners = [] %>
-  <% @hardware.hardware_owners.each do |owner| %>
-    <% owners << "#{owner.user.name} (du #{l(owner.start)} au #{l(owner.end)})" %>
+<%= render "shared/show_owners_list", item: @hardware %>
+
+<% if @hardware.bag %>
+  <h3>Dans le sac <%= link_to @hardware.bag.name, @hardware.bag %></h3>
+  <% if @hardware.bag.owners.any? %>
+    <%= render "shared/show_owners_list", item: @hardware.bag %>
   <% end %>
-  <%= owners.join(", ") %>
-</p>
+<% end %>
 
 <%= link_to 'Edit', edit_hardware_path(@hardware) %> |
 <%= link_to 'Back', hardwares_path %>

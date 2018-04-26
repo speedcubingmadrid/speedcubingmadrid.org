@@ -39,13 +39,6 @@ ActiveRecord::Schema.define(version: 20180426114034) do
     t.integer "user_id"
   end
 
-  create_table "hardware_owners", force: :cascade do |t|
-    t.integer "hardware_id", null: false
-    t.integer "user_id", null: false
-    t.date "start", null: false
-    t.date "end", null: false
-  end
-
   create_table "hardwares", force: :cascade do |t|
     t.string "name", null: false
     t.string "hardware_type", null: false
@@ -63,6 +56,15 @@ ActiveRecord::Schema.define(version: 20180426114034) do
     t.string "name"
     t.text "alt_text"
     t.index ["role"], name: "index_major_comps_on_role", unique: true
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.bigint "item_id", null: false
+    t.integer "user_id", null: false
+    t.date "start", null: false
+    t.date "end", null: false
+    t.index ["item_type", "item_id"], name: "index_owners_on_item_type_and_item_id"
   end
 
   create_table "post_tags", force: :cascade do |t|

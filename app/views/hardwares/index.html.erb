@@ -22,7 +22,7 @@
         <td><%= hardware.hardware_type_string %></td>
         <td><%= hardware.state_string %></td>
         <td><%= hardware.comment %></td>
-        <td><%= hardware.current_owner&.name %></td>
+        <td><%= hardware.real_owner&.name %></td>
         <td><%= hardware.bag&.name %></td>
         <td><%= link_to 'Show', hardware %></td>
         <td><%= link_to 'Edit', edit_hardware_path(hardware) %></td>

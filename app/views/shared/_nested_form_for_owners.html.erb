@@ -1,0 +1,18 @@
+<% content_for :additional_scripts do %>
+  <%= javascript_pack_tag "cocoon", 'data-turbolinks-track': 'reload'  %>
+<% end %>
+<div class="owners">
+  <%= f.simple_fields_for :owners do |f2| %>
+    <%= render "shared/hardware_owner_fields", f: f2 %>
+  <% end %>
+</div>
+<%= link_to_add_association(
+  button_tag(raw("#{fa_icon("plus")} Ajouter une possession"), type: "button", class: "btn btn-success mb-3"),
+  f,
+  :owners,
+  data: {
+    association_insertion_node: '.owners',
+    association_insertion_method: 'append'
+  },
+  partial: "shared/hardware_owner_fields"
+) %>

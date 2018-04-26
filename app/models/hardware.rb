@@ -1,4 +1,5 @@
 class Hardware < ApplicationRecord
+  include HasOwners
   TYPES = {
     "g2_mat" => "Tapis (Gen2)",
     "g2_stackmat" => "Timer+Tapis (Gen2)",
@@ -25,13 +26,10 @@ class Hardware < ApplicationRecord
   }.freeze
 
   belongs_to :bag, optional: true
-  has_many :hardware_owners, -> { order(:start) }, dependent: :destroy, inverse_of: :hardware
 
   validates_presence_of :name
   validates_inclusion_of :hardware_type, in: TYPES.keys
   validates_inclusion_of :state, in: STATES.keys
-
-  accepts_nested_attributes_for :hardware_owners, allow_destroy: true
 
   def hardware_type_string
     TYPES[hardware_type]
@@ -41,14 +39,7 @@ class Hardware < ApplicationRecord
     STATES[state]
   end
 
-  def current_owner
-    last_current_owner = nil
-    today = Date.today
-    hardware_owners.select do |owner|
-      if owner.start <= today and owner.end > today
-        last_current_owner = owner.user
-      end
-    end
-    last_current_owner
+  def real_owner
+    bag&.current_owner || current_owner
   end
 end

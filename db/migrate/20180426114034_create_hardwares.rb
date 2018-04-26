@@ -16,8 +16,8 @@ class CreateHardwares < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    create_table :hardware_owners do |t|
-      t.integer :hardware_id, null: false
+    create_table :owners do |t|
+      t.references :item, polymorphic: true, index: true, null: false
       t.integer :user_id, null: false
       t.date :start, null: false
       t.date :end, null: false
