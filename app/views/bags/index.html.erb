@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bags.each do |bag| %>
+      <tr>
+        <td><%= bag.name %></td>
+        <td><%= link_to 'Show', bag %></td>
+        <td><%= link_to 'Edit', edit_bag_path(bag) %></td>
+        <td><%= link_to 'Destroy', bag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bag', new_bag_path %>

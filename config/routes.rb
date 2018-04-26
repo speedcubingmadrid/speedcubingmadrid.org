@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bags
   root 'posts#home'
 
   resources :users, only: [:index, :edit, :update]
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   resources :news, :controller => "posts"
   resources :subscriptions, only: [:index, :destroy]
   resources :tags, only: [:index, :edit, :update]
+  resources :hardwares
 
   post '/subscriptions/review_csv' => 'subscriptions#review_csv'
   post '/subscriptions/import' => 'subscriptions#import'

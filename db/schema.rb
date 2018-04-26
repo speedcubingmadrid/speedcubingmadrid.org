@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420120256) do
+ActiveRecord::Schema.define(version: 20180426114034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "competitions", id: false, force: :cascade do |t|
     t.string "id", null: false
@@ -31,6 +37,24 @@ ActiveRecord::Schema.define(version: 20180420120256) do
   create_table "competitions_requests", force: :cascade do |t|
     t.datetime "succeed_at"
     t.integer "user_id"
+  end
+
+  create_table "hardware_owners", force: :cascade do |t|
+    t.integer "hardware_id", null: false
+    t.integer "user_id", null: false
+    t.date "start", null: false
+    t.date "end", null: false
+  end
+
+  create_table "hardwares", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "hardware_type", null: false
+    t.string "comment"
+    t.string "state", null: false
+    t.bigint "bag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bag_id"], name: "index_hardwares_on_bag_id"
   end
 
   create_table "major_comps", force: :cascade do |t|

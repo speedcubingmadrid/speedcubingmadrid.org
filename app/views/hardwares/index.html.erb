@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hardwares</h1>
+
+<%= link_to "Gérer les sacs", bags_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Etat</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hardwares.each do |hardware| %>
+      <tr>
+        <td><%= hardware.name %></td>
+        <td><%= hardware.hardware_type %></td>
+        <td><%= hardware.state %></td>
+        <td><%= hardware.comment %></td>
+        <td><%= link_to 'Show', hardware %></td>
+        <td><%= link_to 'Edit', edit_hardware_path(hardware) %></td>
+        <td><%= link_to 'Destroy', hardware, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hardware', new_hardware_path %>
