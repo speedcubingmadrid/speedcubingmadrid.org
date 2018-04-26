@@ -1,23 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @hardware.name %>
+  <strong>Nom :</strong>
+  <%= @hardware.name %> (<%= @hardware.hardware_type_string %>)
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @hardware.hardware_type %>
+  <%= @hardware.state_string %>
 </p>
 
 <p>
-  <strong>Etat:</strong>
-  <%= @hardware.state %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
+  <strong>Commentaire :</strong>
   <%= @hardware.comment %>
+</p>
+
+<p>
+  <strong>Chez :</strong>
+  <% owners = [] %>
+  <% @hardware.hardware_owners.each do |owner| %>
+    <% owners << "#{owner.user.name} (du #{l(owner.start)} au #{l(owner.end)})" %>
+  <% end %>
+  <%= owners.join(", ") %>
 </p>
 
 <%= link_to 'Edit', edit_hardware_path(@hardware) %> |

@@ -11,7 +11,7 @@ class HardwareOwner < ApplicationRecord
     return errors.add(:end, "Date de fin invalide") unless self[:end].present?
 
     if self[:end] < start
-      errors.add(:end_date, "Date de fin avant la date de début")
+      errors.add(:end, "Date de fin avant la date de début")
     end
   end
 end

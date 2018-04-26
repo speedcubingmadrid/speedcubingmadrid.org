@@ -4,6 +4,14 @@
   <strong>Name:</strong>
   <%= @bag.name %>
 </p>
+<% if @bag.hardwares.any? %>
+  <ul>
+    <% @bag.hardwares.each do |h| %>
+      <li><%= "#{h.name} (#{h.hardware_type_string})" %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 
 <%= link_to 'Edit', edit_bag_path(@bag) %> |
 <%= link_to 'Back', bags_path %>
