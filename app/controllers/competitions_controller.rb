@@ -74,8 +74,7 @@ class CompetitionsController < ApplicationController
     @my_competitions = []
     @error = nil
     begin
-      #FIXME: restore correct start date
-      comps_response = RestClient.get(wca_api_competitions_url, { Authorization: "Bearer #{session[:access_token]}", params: { managed_by_me: true, start: 1.month.ago} })
+      comps_response = RestClient.get(wca_api_competitions_url, { Authorization: "Bearer #{session[:access_token]}", params: { managed_by_me: true, start: 2.days.ago} })
       @my_competitions = JSON.parse(comps_response.body)
     rescue RestClient::ExceptionWithResponse => err
       @error = err
