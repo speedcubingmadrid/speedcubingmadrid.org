@@ -1,5 +1,7 @@
 class Competition < ApplicationRecord
   include WCAModel
+  self.primary_key = :id
+
   # List of fields we accept in the db
   @@obj_info = %w(id city name country_iso2 start_date end_date country_iso2 website delegates organizers)
 
