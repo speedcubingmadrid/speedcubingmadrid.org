@@ -10,6 +10,7 @@ class Hardware < ApplicationRecord
     "g3_fullset" => "Timer+Tapis+Display (Gen3 Pro)",
     "g3_display" => "Display (Gen3 Pro)",
     "g4_stackmat" => "Timer+Tapis (Gen4)",
+    "g4_fullset" => "Timer+Tapis (Gen4) + Display (Gen3 Pro)",
     "battery_cr2032" => "Pile CR2032",
     "battery_aa" => "Pile AA",
     "battery_aaa" => "Pile AAA",
