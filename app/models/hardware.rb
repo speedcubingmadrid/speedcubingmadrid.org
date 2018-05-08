@@ -19,6 +19,7 @@ class Hardware < ApplicationRecord
     "cube_cover" => "Cache cube",
     "stopwatch" => "Chrono à main",
     "blindfold_sheets" => "Feuilles blind",
+    "other" => "Divers",
   }.freeze
 
   STATES = {
