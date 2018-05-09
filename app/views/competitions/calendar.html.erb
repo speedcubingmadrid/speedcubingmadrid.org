@@ -1,6 +1,18 @@
 <% provide(:active_section, "speedcubing") %>
+<% content_for :additional_scripts do %>
+  <%= javascript_pack_tag "calendar", 'data-turbolinks-track': 'reload'  %>
+<% end %>
 <%= render "shared/nav_competitions", current_page: :calendrier, title: "Calendrier des compétitions" do %>
-  <div class="alert alert-info">
-    En reconstruction.
-  </div>
+  Le calendrier regroupe les éléments suivants :
+  <ul class="mb-4">
+    <li class="color-green">Les compétitions officielles de la WCA</li>
+    <li>Les compétitions en projet</li>
+    <li>Les évènements AFS hors compétitions</li>
+  </ul>
+  <div id="calendar" class="enable-calendar"></div>
+  <script>
+$(function() {
+  window.afs.initCalendar();
+});
+  </script>
 <% end %>

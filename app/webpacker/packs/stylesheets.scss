@@ -3,6 +3,7 @@
 
 @import '~flag-icon-css/sass/flag-icon';
 @import 'simplemde/dist/simplemde.min.css';
+@import 'fullcalendar/dist/fullcalendar.min.css';
 
 @import 'selectize/dist/css/selectize.bootstrap3.css';
 
@@ -46,14 +47,6 @@ blockquote {
   .container {
     flex-direction: column;
   }
-}
-
-#foo {
-  display:none;
-}
-
-#bar {
-  display:block;
 }
 
 .table-bordered {
@@ -111,6 +104,10 @@ blockquote {
   .afs-post &, .regular-post &, .featured-post & {
     font-size: 1rem;
   }
+}
+
+.color-green {
+  color: $green;
 }
 
 input[type=color].form-control {

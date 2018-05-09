@@ -26,6 +26,10 @@ module ApplicationHelper
     "#{wca_base_url}/api/v0#{resource}"
   end
 
+  def wca_api_competitions_url
+    wca_api_url("/competitions")
+  end
+
   def wca_registration_url(registration_id)
     "#{wca_base_url}/registrations/#{registration_id}/edit"
   end
