@@ -1,5 +1,5 @@
 import 'fullcalendar';
-import { API_COMP_URL } from 'afs/url_utils';
+import { API_COMP_URL, CALENDAR_EVENTS_URL } from 'afs/url_utils';
 
 var moment = require("moment");
 
@@ -26,12 +26,18 @@ window.afs.initCalendar = function() {
         {
           events: getWcaCompetitions,
           color: "#28a745",
-        }
+        },
+        {
+          events: getAFSEvents,
+          color: "#ffa00e",
+        },
       ],
       eventClick: function(event) {
-        if (event.url) {
+        if (event.class === "competition" && event.url) {
           window.open(event.url);
           return false;
+        } else {
+          $.getScript(event.edit_url, function() {});
         }
       },
     });
@@ -45,6 +51,16 @@ function getWcaCompetitions(start, end, timezone, callback) {
   let requestUrl = API_COMP_URL;
   let dateFormat = "YYYY-MM-DD";
   requestUrl += `?country_iso2=FR&start=${start.format(dateFormat)}&end=${end.format(dateFormat)}`;
+  $.get(requestUrl, function(data) {
+    callback(data);
+  })
+  .fail(function() {
+    console.error("Could not fetch data from url '"+requestUrl+"'");
+  });
+}
+
+function getAFSEvents(start, end, timezone, callback) {
+  let requestUrl = CALENDAR_EVENTS_URL;
   $.get(requestUrl, function(data) {
     callback(data);
   })
