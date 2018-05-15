@@ -41,7 +41,7 @@ module PostsHelper
     if post.competition_page
       old_competitions_path(post.slug)
     else
-      news_path(post.slug)
+      news_slug_path(post.slug)
     end
   end
 end
