@@ -6,6 +6,7 @@
 @import 'fullcalendar/dist/fullcalendar.min.css';
 
 @import 'selectize/dist/css/selectize.bootstrap3.css';
+@import 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
 
 .selectize-input {
   &.focus {
@@ -116,6 +117,12 @@ blockquote {
 
 .color-orange {
   color: $orange;
+}
+
+.datepicker {
+  table {
+    margin: 4px;
+  }
 }
 
 input[type=color].form-control {
