@@ -1,4 +1,12 @@
 module PostsHelper
+  def slug_classes(post)
+    classes = ["slug"]
+    unless post.new_record?
+      classes << "manually-changed"
+    end
+    classes.join(" ")
+  end
+
   def contextual_class(post)
     if post.draft
       "warning"
