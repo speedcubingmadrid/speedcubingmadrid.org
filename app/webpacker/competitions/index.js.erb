@@ -16,7 +16,7 @@ function checkRegistration(e) {
   let name = $elem.find(".person-name").text();
   $(e.target).hide();
   $elem.find(".membership-status").append("<span class='pending-query'>Requête en cours...</span>");
-  $.get(api_url+name+"&only_with_wca_ids=true")
+  $.get(api_url+name+"&only_with_wca_ids=true&persons_table=true")
     .done(function(data) {
       if (data.result.length == 1) {
         $elem.removeClass("table-warning");
