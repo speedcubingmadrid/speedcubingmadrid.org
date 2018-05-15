@@ -93,7 +93,7 @@ window.afs.updateEvent = function(eventId, newEventData) {
 }
 
 window.afs.createEvent = function(newEventData) {
-  $('#calendar').fullCalendar('renderEvent', newEventData, true);
+  $('#calendar').fullCalendar('renderEvent', newEventData);
 }
 
 window.afs.removeEvent = function(eventId) {
