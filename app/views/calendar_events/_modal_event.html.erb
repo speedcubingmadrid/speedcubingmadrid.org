@@ -1,5 +1,11 @@
 <% event ||= CalendarEvent.new %>
-<% title ||= "Undefined" %>
+<%
+  title = if event.new_record?
+            "Créer un évènement"
+          else
+            "Mettre à jour #{event.name}"
+          end
+%>
 <div class="modal" id="modal_event" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -10,11 +16,30 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= render "form", event: event %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= simple_form_for(event, remote: true, format: "js") do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name %>
+            <%= f.input :start_time, as: :hidden %>
+            <%= f.input :end_time, as: :hidden %>
+            Du <%= l(event.start_time, format: :short) %> au <%= l(event.last_day, format: :short) %>.
+            <%= f.input :kind, collection: CalendarEvent::KINDS, label_method: :second, value_method: :first %>
+            <%= f.input :public %>
+          </div>
+
+          <div class="modal-footer">
+            <% unless event.new_record? %>
+                <%= link_to fa_icon("trash"),
+                  @calendar_event,
+                  method: :delete,
+                  class: 'btn btn-danger mr-auto',
+                  data: { confirm: 'Êtes-vous sûr ?' },
+                  remote: true,
+                  format: "js" %>
+            <% end %>
+            <%= f.button :submit %>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

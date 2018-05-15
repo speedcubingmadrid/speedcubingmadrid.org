@@ -31,6 +31,10 @@ class User < ApplicationRecord
     admin? || comm?
   end
 
+  def can_manage_calendar?
+    can_manage_delegate_matters? || can_manage_communication_matters?
+  end
+
   def last_subscription
     subscriptions.last
   end

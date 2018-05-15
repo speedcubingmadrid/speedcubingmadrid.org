@@ -1,22 +1,23 @@
 class CalendarEventsController < ApplicationController
-  before_action :set_calendar_event, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_unless_comm_or_delegate!, except: [:index]
+  before_action :set_calendar_event, only: [:edit, :update, :destroy]
+  before_action :redirect_unless_can_manage_calendar!, except: [:index]
 
   #TODO remove non-json endpoint
   # GET /calendar_events
   # GET /calendar_events.json
   def index
-    @calendar_events = CalendarEvent.all
-  end
-
-  # GET /calendar_events/1
-  # GET /calendar_events/1.json
-  def show
+    @calendar_events = if current_user&.can_manage_calendar?
+                         CalendarEvent.all
+                       else
+                         CalendarEvent.visible
+                       end
   end
 
   # GET /calendar_events/new
   def new
     @calendar_event = CalendarEvent.new
+    @calendar_event.start_time = params.require(:start)
+    @calendar_event.end_time = params.require(:end)
   end
 
   # GET /calendar_events/1/edit
@@ -27,29 +28,16 @@ class CalendarEventsController < ApplicationController
   # POST /calendar_events.json
   def create
     @calendar_event = CalendarEvent.new(calendar_event_params)
-
-    respond_to do |format|
-      if @calendar_event.save
-        format.html { redirect_to @calendar_event, notice: 'Calendar event was successfully created.' }
-        format.json { render :show, status: :created, location: @calendar_event }
-      else
-        format.html { render :new }
-        format.json { render json: @calendar_event.errors, status: :unprocessable_entity }
-      end
+    if !@calendar_event.save
+      render :edit
     end
   end
 
   # PATCH/PUT /calendar_events/1
   # PATCH/PUT /calendar_events/1.json
   def update
-    respond_to do |format|
-      if @calendar_event.update(calendar_event_params)
-        format.html { redirect_to @calendar_event, notice: 'Calendar event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @calendar_event }
-      else
-        format.html { render :edit }
-        format.json { render json: @calendar_event.errors, status: :unprocessable_entity }
-      end
+    if !@calendar_event.update(calendar_event_params)
+      render :edit
     end
   end
 
@@ -57,10 +45,6 @@ class CalendarEventsController < ApplicationController
   # DELETE /calendar_events/1.json
   def destroy
     @calendar_event.destroy
-    respond_to do |format|
-      format.html { redirect_to calendar_events_url, notice: 'Calendar event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -72,5 +56,11 @@ class CalendarEventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def calendar_event_params
       params.require(:calendar_event).permit(:name, :public, :start_time, :end_time, :kind)
+    end
+
+    def redirect_unless_can_manage_calendar!
+      unless current_user&.can_manage_calendar?
+        redirect_to root_url, :alert => 'Vous ne pouvez pas gérer le calendrier.'
+      end
     end
 end

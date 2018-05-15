@@ -6,6 +6,7 @@ fr:
       default: "%e %B %Y"
   time:
     formats:
+      short: "%d/%m/%Y"
       post_datetime: "%e %B %Y"
   countries:
     XA: Pays multiple (Asie)
@@ -30,6 +31,10 @@ fr:
           competition_id: "ID de la compétition"
           name: "Nom de la compétition"
           alt_text: "Texte alternatif"
+      calendar_event:
+        name: "Nom"
+        public: "cet évènement est visible"
+        kind: "Type d'évènement"
       post:
         title: 'Titre'
         body: 'Contenu'
@@ -76,6 +81,9 @@ fr:
       signin:
         submit: "Se connecter avec la WCA"
       user:
+        update: 'Sauvegarder'
+      calendar_event:
+        create: "Créer l'évènement"
         update: 'Sauvegarder'
       post:
         create: 'Créer le post'
