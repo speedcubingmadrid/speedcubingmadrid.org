@@ -1,7 +1,7 @@
 <div class="regular-post card mb-4">
   <div class="card-body d-flex flex-column align-items-start">
     <h4 class="post-title w-100">
-      <%= link_to post.title, news_path(post.slug), class: "text-dark" %>
+      <%= link_to post.title, news_slug_path(post.slug), class: "text-dark" %>
       <span class="pull-right">
         <% post.tags.each do |tag| %>
           <%= render("shared/tag", tag: tag) %>
@@ -18,7 +18,7 @@
       <%= md post.body_teaser %>
     </div>
     <% if post.fullpost? %>
-      <%= link_to "Lire la suite...", news_path(post.slug) %>
+      <%= link_to "Lire la suite...", news_slug_path(post.slug) %>
     <% end %>
   </div>
 </div>

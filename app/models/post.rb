@@ -17,6 +17,11 @@ class Post < ApplicationRecord
   scope :all_posts, -> { where(competition_page: false) }
   scope :competition_pages, -> { where(competition_page: true) }
 
+  after_initialize :default_values
+  def default_values
+    self.posted_at ||= Date.today
+  end
+
   BREAK_TAG_RE = /{{post_excerpt}}/
 
   #TODO posted at, which change when it's created, or when it goes from draft to not draft

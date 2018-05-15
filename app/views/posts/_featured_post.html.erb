@@ -4,7 +4,7 @@
       <div class="d-flex flex-row w-100 mb-2">
         <div>
           <h3 class="mb-0 w-100">
-            <%= link_to post.title, news_path(post.slug), class: "text-dark" %>
+            <%= link_to post.title, news_slug_path(post.slug), class: "text-dark" %>
           </h3>
           <div class="mb-1 text-muted"><%= l(post.posted_at, format: :post_datetime) %></div>
         </div>
@@ -14,7 +14,7 @@
         <%= md post.body_teaser %>
       </div>
       <% if post.fullpost? %>
-        <%= link_to "Lire la suite...", news_path(post.slug) %>
+        <%= link_to "Lire la suite...", news_slug_path(post.slug) %>
       <% end %>
       <div class="mt-2 w-100">
         <% post.tags.each do |tag| %>
