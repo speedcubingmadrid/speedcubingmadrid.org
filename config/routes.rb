@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # To not ruin our pagerank, we need a "/news" routes with slugs, so that old links keep working
   resources :news, :controller => "posts"
   # Some slug have slashes, we need a globbing routes (and an appropriate path helper too)
-  get '/news/*id' => 'posts#show', :as => 'news_slug'
+  get '/news/*id' => 'posts#show', :as => 'news_slug', :format => false
   resources :subscriptions, only: [:index, :destroy]
   resources :tags, only: [:index, :edit, :update]
   resources :hardwares
