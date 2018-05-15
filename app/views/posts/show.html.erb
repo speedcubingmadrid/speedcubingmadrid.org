@@ -7,7 +7,7 @@
   <div class="card-body">
     <h2><%= @post.title %></h2>
     <h5 class="card-subtitle mt-2 mb-1 text-muted">
-      Publié le <%= l(@post.created_at, format: :post_datetime) %> par <%= link_to_wca_profile(@post.user.wca_id, false, @post.user.name) %>.
+      Publié le <%= l(@post.posted_at, format: :post_datetime) %> par <%= link_to_wca_profile(@post.user.wca_id, false, @post.user.name) %>.
     </h5>
     <div class="mb-4">
       <% @post.tags.each do |tag| %>

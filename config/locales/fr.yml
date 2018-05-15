@@ -4,6 +4,7 @@ fr:
       short: "%d/%m/%Y"
       day_month: "%e %B"
       default: "%e %B %Y"
+      post_datetime: "%e %B %Y"
   time:
     formats:
       short: "%d/%m/%Y"
@@ -39,6 +40,7 @@ fr:
         title: 'Titre'
         body: 'Contenu'
         tags_string: 'Tags'
+        posted_at: 'Date de publication'
         slug: 'Permalien'
         draft: 'Ce post est un brouillon'
         feature: "Mettre en valeur sur la page d'accueil"

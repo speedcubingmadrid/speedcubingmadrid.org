@@ -6,7 +6,7 @@
           <h3 class="mb-0 w-100">
             <%= link_to post.title, news_path(post.slug), class: "text-dark" %>
           </h3>
-          <div class="mb-1 text-muted"><%= l(post.created_at, format: :post_datetime) %></div>
+          <div class="mb-1 text-muted"><%= l(post.posted_at, format: :post_datetime) %></div>
         </div>
         <!--<div class="card-img-right ml-auto flex-auto d-none d-md-block">thumbnail</div>-->
       </div>

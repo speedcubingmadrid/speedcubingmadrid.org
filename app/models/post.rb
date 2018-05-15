@@ -7,10 +7,11 @@ class Post < ApplicationRecord
   validates_presence_of :body, allow_blank: false
   validates :slug, presence: true, uniqueness: true, allow_blank: false
   validates_presence_of :user, allow_blank: false
+  validates_presence_of :posted_at, allow_blank: false
   validates_inclusion_of :draft, in: [true, false]
   validates_inclusion_of :competition_page, in: [true, false]
 
-  default_scope { order(created_at: :desc) }
+  default_scope { order(posted_at: :desc) }
   scope :visible, -> { where(draft: false) }
   scope :featured, -> { where(feature: true) }
   scope :all_posts, -> { where(competition_page: false) }

@@ -6,9 +6,11 @@
     <%= f.input :tags_string, input_html: { class: "enable-selectize" } %>
     <%= f.input :body, input_html: { class: "enable-simplemde" } %>
     <%= f.input :slug, input_html: { class: "slug" } %>
+    <%= f.input :posted_at %>
     <%= f.input :draft %>
     <%= f.input :feature %>
     <%= f.input :competition_page %>
+    <%#https://github.com/uxsolutions/bootstrap-datepicker/issues/2343 %>
   </div>
 
   <div class="form-actions">
