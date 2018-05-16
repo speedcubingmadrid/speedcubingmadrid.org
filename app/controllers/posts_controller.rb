@@ -5,27 +5,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :enforce_real_post, only: [:show]
 
-  before_action :try_get_competitions, only: [:home]
-  def try_get_competitions
-    # Once every week, a user will have a slower query than usual
-    return unless (CompetitionsRequest.last&.succeed_at || 1.week.ago) <= 1.week.ago
-    url_params = {
-      sort: "-start_date",
-      country_iso2: "FR",
-      start: "#{2.days.ago.to_date}",
-    }
-    begin
-      comps_response = RestClient.get(wca_api_competitions_url, params: url_params)
-      competitions = JSON.parse(comps_response.body)
-      competitions.map { |c| Competition.create_or_update(c) }
-      CompetitionsRequest.create(succeed_at: Time.now, user_id: current_user&.id)
-    rescue => err
-      if current_user&.admin?
-        flash[:danger] = "Impossible de récupérer les compétitions sur le site de la WCA."
-      end
-    end
-  end
-
   def home
     base_query = Post.includes(:tags).all_posts.visible
     @featured_posts = base_query.featured.limit(2)

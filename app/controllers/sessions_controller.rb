@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def signin_with_wca
-    # FIXME: register the last scopes for login and the access token
     scopes = %w(public email dob)
     can_manage = params.require(:signin).require(:can_manage)
     if can_manage == "1"
