@@ -32,8 +32,6 @@ namespace :scheduler do
     users_to_notify = User.subscription_notification_enabled.select(&:last_subscription).select do |u|
       u.last_subscription.until == 2.days.from_now.to_date
     end
-    # FIXME: remove after test
-    users_to_notify = User.subscription_notification_enabled
     puts "#{users_to_notify.size} users to notify."
     users_to_notify.each do |u|
       puts u.name
