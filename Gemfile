@@ -34,6 +34,9 @@ gem 'sdoc'
 # Static pages
 gem 'high_voltage', '~> 3.0.0'
 
+# mails
+gem 'sendgrid-ruby'
+
 gem 'rest-client'
 
 # Use ActiveModel has_secure_password

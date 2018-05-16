@@ -78,7 +78,8 @@ blockquote {
         right: 5px;
         left: auto;
       }
-      @extend .col-4;
+      @extend .col-md-6;
+      @extend .col-lg-5;
       margin-left: 0;
     }
   }

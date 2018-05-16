@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_many :subscriptions, -> { order(:payed_at) }
 
+  scope :subscription_notification_enabled, -> { where(notify_subscription: true).where.not(email: nil) }
+
   after_save :try_associate_subscriptions
 
   validate :cannot_demote_themselves

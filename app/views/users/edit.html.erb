@@ -24,8 +24,8 @@
   <%= f.input :admin, disabled: !is_admin %>
   <%= f.input :communication, disabled: !is_admin %>
   <%= f.input :french_delegate, disabled: !is_admin %>
-  <%# FIXME: if at some point we want them to edit stuff, this should be changed to can_edit_user? %>
-  <% if is_admin %>
+  <%= f.input :notify_subscription %>
+  <% if current_user&.can_edit_user?(@user) %>
     <%= f.button :submit %>
   <% end %>
 <% end %>
@@ -46,7 +46,7 @@
 <% else %>
   <table class="table table-bordered table-hover">
     <tbody>
-      <% @user.subscriptions.each do |s| %>
+      <% @user.subscriptions.reverse_each do |s| %>
         <% tr_class = s.over? ? "warning" : "success" %>
         <tr class="table-<%= tr_class %>">
           <td>

@@ -69,8 +69,8 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
 
-    b.use :label, class: 'col-md-3 col-form-label'
-    b.wrapper tag: 'div', class: 'col-md-9' do |ba|
+    b.use :label, class: 'col-md-4 col-form-label'
+    b.wrapper tag: 'div', class: 'col-md-8' do |ba|
       ba.use :input, class: 'form-control'
       ba.use :error, wrap_with: {tag: 'span', class: 'invalid-feedback'}
       ba.use :hint, wrap_with: {tag: 'p', class: 'form-text text-muted'}
