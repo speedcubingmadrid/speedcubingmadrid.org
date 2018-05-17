@@ -7,6 +7,12 @@ class NotificationMailer < ApplicationMailer
   def notify_team_of_failed_job
     @task_name = params[:task_name]
     @error = params[:error]
-    mail(to: "admin@speedcubingfrance.org", subject: "[cron.afs] Une tâche a échouée")
+    mail(to: "admin@speedcubingfrance.org", subject: "[cron.afs][error] Une tâche a échouée")
+  end
+
+  def notify_team_of_job_done
+    @task_name = params[:task_name]
+    @message = params[:message]
+    mail(to: "admin@speedcubingfrance.org", subject: "[cron.afs][info] #{@task_name}")
   end
 end
