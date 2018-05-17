@@ -18,9 +18,6 @@ class CompetitionsController < ApplicationController
   def calendar
   end
 
-  def upcoming_comps
-  end
-
   def manage_big_champs
     @champs = MajorComp.all.order(:role)
   end
