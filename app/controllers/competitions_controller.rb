@@ -15,7 +15,7 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  def calendar
+  def index
   end
 
   def manage_big_champs

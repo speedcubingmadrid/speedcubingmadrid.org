@@ -9,8 +9,12 @@
     <li class="color-orange">Les compétitions en projet</li>
     <li class="color-blue">Les événements AFS hors compétitions</li>
   </ul>
-  <div id="calendar" class="enable-calendar"></div>
   <div id="modal-container"></div>
+  <div id="calendar" class="enable-calendar mb-5"></div>
+
+  <h3>Anciennes pages de compétitions</h3>
+
+  Avant que le site de la World Cube Association ne propose d'héberger les pages de compétitions, l'AFS hébergeait certaines pages de compétitions françaises : elles sont disponibles <%= link_to "ici", competitions_historique_path %>.
   <script>
 $(function() {
   window.afs.initCalendar(<%= current_user&.can_manage_calendar? %>);

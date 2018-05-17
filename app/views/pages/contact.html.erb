@@ -2,7 +2,7 @@
 
 <%= render "layouts/page_wrapper", title: "Contact" do %>
 
-  <p>Pour toute question, remarque, ou suggestion concernant l’AFS : merci d’envoyer un mail à contact@speedcubingfrance.org.</p>
+  <p>Pour toute question, remarque, ou suggestion concernant l’AFS : merci d’envoyer un mail à <%= mail_to "contact@speedcubingfrance.org" %>.</p>
 
-  <p>Si vous constatez un problème avec le site internet, vous pouvez directement ouvrir un bug ("Issue") sur <a href="https://github.com/speedcubingfrance/speedcubingfrance.org/issues">github</a>.</p>
+  <p>Si vous constatez un problème avec le site internet, vous pouvez directement ouvrir un bug ("Issue") sur <a href="https://github.com/speedcubingfrance/speedcubingfrance.org/issues">github</a>, ou contacter les administrateurs à <%= mail_to "admin@speedcubingfrance.org" %>.</p>
 <% end %>

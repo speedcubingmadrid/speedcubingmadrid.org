@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/upcoming_champs' => 'competitions#manage_big_champs'
   post '/update_champs' => 'competitions#update_big_champs'
 
+  resources :competitions, only: [:index]
   get 'competitions/official/:competition_id/registrations' => 'competitions#show_registrations', :as => :competition_registrations
   get 'competitions/calendrier' => 'competitions#calendar'
   get 'competitions/historique' => 'competitions#old_competitions_list'
