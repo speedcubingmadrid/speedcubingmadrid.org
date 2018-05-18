@@ -53,7 +53,11 @@ class CalendarEvent < ApplicationRecord
     start_time.to_date
   end
 
+  def end_date
+    end_time.to_date
+  end
+
   def inclusive_end_date
-    (end_time.to_date - 1.day)
+    (end_date - 1.day)
   end
 end

@@ -3,7 +3,7 @@ cal = Icalendar::Calendar.new
 @events.each do |event|
   cal.event do |e|
     e.dtstart     = Icalendar::Values::Date.new(event.start_date)
-    e.dtend       = Icalendar::Values::Date.new(event.inclusive_end_date)
+    e.dtend       = Icalendar::Values::Date.new(event.end_date)
     e.summary     = event.name
   end
 end
