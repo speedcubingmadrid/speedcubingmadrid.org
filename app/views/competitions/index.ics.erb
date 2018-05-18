@@ -7,5 +7,14 @@ cal = Icalendar::Calendar.new
     e.summary     = event.name
   end
 end
+@competitions.each do |competition|
+  cal.event do |e|
+    e.dtstart     = Icalendar::Values::Date.new(Date.parse(competition["start_date"]))
+    # Exclusive end date
+    e.dtend       = Icalendar::Values::Date.new(Date.parse(competition["end_date"]) + 1.day)
+    e.summary     = competition["name"]
+    e.description = competition["url"]
+  end
+end
 %>
 <%= cal.to_ical %>

@@ -20,6 +20,14 @@ class CompetitionsController < ApplicationController
       format.html
       format.ics do
         @events = CalendarEvent.visible
+        @competitions = []
+        begin
+          # Only show future competitions
+          comps_response = RestClient.get(wca_api_competitions_url, params: { country_iso2: "FR", start: 2.days.ago})
+          @competitions = JSON.parse(comps_response.body)
+        rescue => err
+          # We actually don't care about the error
+        end
       end
     end
   end
