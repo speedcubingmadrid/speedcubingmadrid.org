@@ -3,12 +3,16 @@
   <%= javascript_pack_tag "calendar", 'data-turbolinks-track': 'reload'  %>
 <% end %>
 <%= render "shared/nav_competitions", current_page: :calendrier, title: "Calendrier des compétitions" do %>
-  Le calendrier regroupe les éléments suivants :
-  <ul class="mb-4">
+  Le calendrier ci dessous regroupe les éléments suivants :
+  <ul class="mb-2">
     <li class="color-green">Les compétitions officielles de la WCA en France</li>
     <li class="color-orange">Les compétitions en projet</li>
     <li class="color-blue">Les événements AFS hors compétitions</li>
   </ul>
+  <p class="mb-3">
+    Vous pouvez également utiliser la version iCal pour ajouter ce calendrier comme un calendrier externe à votre agenda.
+    <br/>L'url à utiliser est <code><%= competitions_url(format: "ics") %></code>
+  </p>
   <div id="modal-container"></div>
   <div id="calendar" class="enable-calendar mb-5"></div>
 

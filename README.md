@@ -138,6 +138,7 @@ Pour tester l'envoi de mail en local, il suffit de démarrer `mailcatcher` (en l
 ## Pour tous
 
   - Calendrier des compétitions officielles, en préparation, événements AFS.
+  - Export du calendrier au format iCal, pour l'ajouter comme calendrier externe à votre agenda (`/competitions.ics`).
   - Prochaines compétitions en France
 
 ## Pour les membres et compétiteurs

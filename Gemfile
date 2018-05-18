@@ -40,6 +40,9 @@ gem 'sendgrid-ruby'
 # pagination
 gem 'kaminari'
 
+# export to ical
+gem 'icalendar'
+
 gem 'rest-client'
 
 # Use ActiveModel has_secure_password

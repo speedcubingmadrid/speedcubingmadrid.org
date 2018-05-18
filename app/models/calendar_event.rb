@@ -48,4 +48,12 @@ class CalendarEvent < ApplicationRecord
     # For fullcalendar an event on day d goes up to day d+1 at midnight, so the last day is actually end_time-1
     end_time - 1.day
   end
+
+  def start_date
+    start_time.to_date
+  end
+
+  def inclusive_end_date
+    (end_time.to_date - 1.day)
+  end
 end

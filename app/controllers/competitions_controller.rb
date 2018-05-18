@@ -16,6 +16,12 @@ class CompetitionsController < ApplicationController
   end
 
   def index
+    respond_to do |format|
+      format.html
+      format.ics do
+        @events = CalendarEvent.visible
+      end
+    end
   end
 
   def manage_big_champs
