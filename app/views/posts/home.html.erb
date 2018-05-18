@@ -38,7 +38,8 @@
   </div>
 </div>
 <hr/>
-<h2 class="my-4 text-center">Dernières publications</h2>
+<h2 class="my-4 text-center"><a name="news">Publications</a></h2>
+<%= paginate @other_posts, params: { anchor: "news" } %>
 <% if @other_posts.empty? %>
   <div class="alert alert-info">
     Aucune autre publication.
@@ -48,3 +49,4 @@
     <%= render "regular_post", post: post %>
   <% end %>
 <% end %>
+<%= paginate @other_posts, params: { anchor: "news" } %>

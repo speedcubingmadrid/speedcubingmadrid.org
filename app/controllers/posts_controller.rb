@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def home
     base_query = Post.includes(:tags).all_posts.visible
     @featured_posts = base_query.featured.limit(2)
-    @other_posts = base_query.where.not(id: [@featured_posts.map(&:id)])
+    @other_posts = base_query.where.not(id: [@featured_posts.map(&:id)]).page(params[:page])
     @upcoming_in_france = Competition.upcoming(3).in_france
     @major_champs = MajorComp.includes(:competition).all.order(:role)
   end

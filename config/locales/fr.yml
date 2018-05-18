@@ -99,3 +99,18 @@ fr:
         update: "Sauvegarder"
       big_champs:
         submit: "Sauvegarder"
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Pas de %{entry_name} trouvé."
+          one: "Affichage d'un %{entry_name}"
+          other: "Affichage de <b>tous les %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Affichage des %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> sur <b>%{total}</b> au total"
+  views:
+    pagination:
+      first: "&laquo; Première"
+      last: "Dernière &raquo;"
+      previous: "&lsaquo; Préc."
+      next: "Suiv. &rsaquo;"
+      truncate: "&hellip;"

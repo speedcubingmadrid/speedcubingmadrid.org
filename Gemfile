@@ -37,6 +37,9 @@ gem 'high_voltage', '~> 3.0.0'
 # mails
 gem 'sendgrid-ruby'
 
+# pagination
+gem 'kaminari'
+
 gem 'rest-client'
 
 # Use ActiveModel has_secure_password
