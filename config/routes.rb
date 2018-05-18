@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'users/import' => 'users#import_from_wca'
   # To not ruin our pagerank, we need a "/news" routes with slugs, so that old links keep working
   resources :news, :controller => "posts"
+  get '/news/tag/:tag' => 'posts#tag_index', :as => :posts_by_tag
   # Some slug have slashes, we need a globbing routes (and an appropriate path helper too)
   get '/news/*id' => 'posts#show', :as => 'news_slug', :format => false
   resources :subscriptions, only: [:index, :destroy]

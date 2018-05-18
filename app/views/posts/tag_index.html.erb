@@ -1,0 +1,17 @@
+<h2 class="my-4 text-center">
+  <a name="news">Publications pour le tag <%= render "shared/tag", tag: @tag %></a>
+  <% if current_user&.can_manage_communication_matters? %>
+    <%= link_to(fa_icon("pencil"), edit_tag_path(@tag), class: "btn btn-sm btn-primary") %>
+  <% end %>
+</h2>
+<%= paginate @posts %>
+<% if @posts.empty? %>
+  <div class="alert alert-info">
+    Aucune publication correspondante à ce tag.
+  </div>
+<% else %>
+  <% @posts.each do |post| %>
+    <%= render "regular_post", post: post %>
+  <% end %>
+<% end %>
+<%= paginate @posts %>

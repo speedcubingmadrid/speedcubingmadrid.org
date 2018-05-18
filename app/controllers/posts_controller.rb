@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include PostsHelper
-  before_action :authenticate_user!, except: [:home, :show]
-  before_action :redirect_unless_comm!, except: [:home, :show]
+  before_action :authenticate_user!, except: [:home, :show, :tag_index]
+  before_action :redirect_unless_comm!, except: [:home, :show, :tag_index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :enforce_real_post, only: [:show]
 
@@ -11,6 +11,14 @@ class PostsController < ApplicationController
     @other_posts = base_query.where.not(id: [@featured_posts.map(&:id)]).page(params[:page])
     @upcoming_in_france = Competition.upcoming(3).in_france
     @major_champs = MajorComp.includes(:competition).all.order(:role)
+  end
+
+  def tag_index
+    @tag = Tag.find_by_name(params[:tag])
+    unless @tag
+      raise ActiveRecord::RecordNotFound.new("Not Found")
+    end
+    @posts = Post.includes({ post_tags: [:tag], tags: [] }).all_posts.visible.joins(:post_tags).where('post_tags.tag_name': @tag.name).page(params[:page]).per(10)
   end
 
   # GET /posts
