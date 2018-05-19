@@ -26,7 +26,6 @@ Rails.application.routes.draw do
 
   resources :competitions, only: [:index]
   get 'competitions/official/:competition_id/registrations' => 'competitions#show_registrations', :as => :competition_registrations
-  get 'competitions/calendrier' => 'competitions#calendar'
   get 'competitions/historique' => 'competitions#old_competitions_list'
   get 'competitions/:slug' => 'competitions#show_competition_page', :as => 'old_competitions'
 
