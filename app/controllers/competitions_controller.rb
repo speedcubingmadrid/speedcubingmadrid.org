@@ -19,6 +19,10 @@ class CompetitionsController < ApplicationController
     respond_to do |format|
       format.html
       format.ics do
+        # Try prevent caching for this page
+        response.headers["Cache-Control"] = "no-cache, no-store"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
         @events = CalendarEvent.visible
         @competitions = []
         begin
