@@ -10,7 +10,10 @@ threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-port        80
+bind 'unix:///tmp/puma.afs.sock'
+
+# pid file
+pidfile '/tmp/puma.pid'
 
 # Specifies the `environment` that Puma will run in.
 #
