@@ -18,7 +18,8 @@
     "resolve-url-loader": "^2.3.0",
     "selectize": "^0.12.4",
     "simplemde": "^1.11.2",
-    "turbolinks": "^5.1.1"
+    "turbolinks": "^5.1.1",
+    "upath": "1.1.0"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
