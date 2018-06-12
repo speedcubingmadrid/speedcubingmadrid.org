@@ -18,6 +18,7 @@ echo 'export LC_ALL=en_US.UTF-8' >> ~/.bash_aliases
 source ~/.bash_aliases
 
 echo '[[ -f ~/.bashrc ]] && . ~/.bashrc' > ~/.bash_profile
+cp ~/speedcubingfrance.org/prod_conf/bashrc ~/.bashrc
 
 if [ ! -d $HOME/.rbenv/plugins/ruby-build ]; then
 	git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
