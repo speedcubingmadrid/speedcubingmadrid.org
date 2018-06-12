@@ -2,7 +2,39 @@
 
 Ce dépôt contient les sources du site [speedcubingfrance.org](http://www.speedcubingfrance.org).
 
+# Fonctionnalités
+
+## Pour tous
+
+  - Calendrier des compétitions officielles, en préparation, événements AFS.
+  - Export du calendrier au format iCal, pour l'ajouter comme calendrier externe à votre agenda (`/competitions.ics`).
+  - Prochaines compétitions en France
+
+## Pour les membres et compétiteurs
+
+  - (TODO) Liste de ressources externes
+  - Liste des cotisations
+  - Notification 2 jours avant que l'adhésion n'expire
+
+## Pour les organisateurs (et Délégués WCA)
+
+  - Administration des compétitions pour afficher les membres exemptés de frais d'inscription, ou vérifier les nouveaux compétiteurs
+
+## Pour les Délégués et l'administration de l'AFS
+
+  - Gestion du matériel et calendrier prévisionnel
+  - Import des cotisations depuis HelloAsso
+
+## Pour l'équipe communication et l'administration de l'AFS
+
+  - Calendrier des événements
+  - Articles et tags
+  - Gestion des compétitions internationales à afficher en page d'accueil (CdF, Euro, WC)
+
+
 # Dépendances et installation
+
+Cette section et les suivantes sont à destination des personnes souhaitant contribuer au **développement** du site de l'AFS.
 
 Le site est basé sur Rails (et nécessite donc Ruby), et est déployé sur un VPS.
 La base de donnée utilisée est PostgreSQL, qu'il est nécessaire d'installer pour faire tourner le site en local.
@@ -74,80 +106,9 @@ Vous pouvez ensuite gérer les autres utilisateurs via l'interface du site.
 
 Via le standard `bin/rails db:migrate`.
 
-## Déployer en production
+## Production
 
-### Premier déploiement (bootstrap)
-
-Une fois le VPS d'OVH (ré)-installé, il faut récupérer le fichier `scripts/bootstrap.sh` et l'exécuter.
-
-`wget https://raw.githubusercontent.com/speedcubingfrance/speedcubingfrance.org/v2/scripts/bootstrap.sh`
-`./bootstrap.sh`
-
-FIXME: changer v2 quand la branche est fusionnée
-
-Il devrait :
-
-  - Installer les packages nécessaires
-  - Créer l'utilisateur afs
-  - Installer les clés publiques github des admins
-  - Cloner le dépôt speedcubingfrance.org
-  - Configurer l'utilisateur postgres
-  - Mettre en place le `DATABASE_PASSWORD` dans les variables d'environnements (dans le fichier `.env.production`).
-  - Éventuellement créer un certificat (il faut rentrer l'adresse email de l'AFS)
-  - Installer nginx et sa configuration
-  - Installer le cron pour le renouvellement du certificat
-  - Lancer le bootstrap AFS
-
-Le bootstrap AFS quand à lui devrait :
-
-  - Installer rbenv et la version de ruby nécessaire pour le site
-  - Installer le crontab des jobs rake
-  - Optionnellement mettre en place rails et une db vierge
-  - Optionnellement mettre en place les variables d'environnements (dans le fichier `.env.production`)
-
-#### Notes concernant nginx
-
-Lors du premier déploiement le certificat SSL n'est pas encore généré, il y a donc deux fichier de configuration pour `www.speedcubingfrance.org` :
-
-  - une pour *avant* la création du certificat (`prod_conf/pre_certif.conf`)
-  - une pour *après* la création du certificat (`prod_conf/post_certif.conf`)
-
-Lors du bootsrap le script devrait automatiquement retirer la première configuration et ajouter la deuxième.
-Néanmoins si la création du certificat échoue, il faudra remettre la configuration initiale en état (dans `/etc/nginx/conf.d`), retirer la configuration `post_certif.conf`, et vider le fichier `/etc/nginx/afs_https.conf` (il *doit* exister !).
-
-
-### Déploiement régulier
-
-Le script `deploy.sh` contient des commandes utiles pour le déploiement :
-
-  - `pull_latest` : récupère la dernière master.
-  - `restart_app` : (re)-démarre le serveur puma.
-  - `rebuild_rails` : installe les gems ruby, recompile les assets, et lance `restart_app`.
-
-Il suffit alors de lancer :
-
-`ssh afs@dev.speedcubingfrance.org speedcubingfrance.org/scripts/deploy.sh pull_latest rebuild_rails`
-
-Et de se logguer pour effectuer les éventuelles migrations (ne pas oublier de redémarrer de serveur après les migrations !).
-
-
-## Backup
-
-Pour récupérer un backup de la base de données de production :
-
-`pg_dump -Fc --no-acl --no-owner -h localhost -U speedcubingfrance speedcubingfrance-prod > prod.dump`
-
-## Restauration d'un backup
-
-### En production
-
-Mettre latest.dump sur le serveur, et lancer :
-`pg_restore --verbose --clean --no-acl --no-owner -h localhost -U speedcubingfrance -d speedcubingfrance-prod latest.dump`
-
-
-### En local
-
-`pg_restore --verbose --clean --no-acl --no-owner -h localhost -U speedcubingfrance -d speedcubingfrance-dev latest.dump`
+Voir la [page du wiki dédiée](https://github.com/speedcubingfrance/speedcubingfrance.org/wiki/Serveur-de-production-AFS).
 
 ## Sendgrid
 
@@ -162,31 +123,3 @@ Le dashboard est là : https://app.sendgrid.com/
 Pour tester l'envoi de mail en local, il suffit de démarrer `mailcatcher` (en local les emails sont envoyés au smtp localhost).
 
 
-# Fonctionnalités
-
-## Pour tous
-
-  - Calendrier des compétitions officielles, en préparation, événements AFS.
-  - Export du calendrier au format iCal, pour l'ajouter comme calendrier externe à votre agenda (`/competitions.ics`).
-  - Prochaines compétitions en France
-
-## Pour les membres et compétiteurs
-
-  - (TODO) Liste de ressources externes
-  - Liste des cotisations
-  - Notification 2 jours avant que l'adhésion n'expire
-
-## Pour les organisateurs (et Délégués WCA)
-
-  - Administration des compétitions pour afficher les membres exemptés de frais d'inscription, ou vérifier les nouveaux compétiteurs
-
-## Pour les Délégués et l'administration de l'AFS
-
-  - Gestion du matériel et calendrier prévisionnel
-  - Import des cotisations depuis HelloAsso
-
-## Pour l'équipe communication et l'administration de l'AFS
-
-  - Calendrier des événements
-  - Articles et tags
-  - Gestion des compétitions internationales à afficher en page d'accueil (CdF, Euro, WC)
