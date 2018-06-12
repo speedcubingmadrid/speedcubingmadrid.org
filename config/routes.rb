@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :update]
   get 'users/import' => 'users#import'
   post 'users/import' => 'users#import_from_wca'
-  # lets encrypt challenge page
-  get '/.well-known/acme-challenge/:id' => 'posts#letsencrypt'
 
   # To not ruin our pagerank, we need a "/news" routes with slugs, so that old links keep working
   resources :news, :controller => "posts"

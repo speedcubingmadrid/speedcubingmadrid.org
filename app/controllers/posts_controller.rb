@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   include PostsHelper
-  before_action :authenticate_user!, except: [:home, :show, :tag_index, :letsencrypt]
-  before_action :redirect_unless_comm!, except: [:home, :show, :tag_index, :letsencrypt]
+  before_action :authenticate_user!, except: [:home, :show, :tag_index]
+  before_action :redirect_unless_comm!, except: [:home, :show, :tag_index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :enforce_real_post, only: [:show]
 
@@ -11,11 +11,6 @@ class PostsController < ApplicationController
     @other_posts = base_query.where.not(id: [@featured_posts.map(&:id)]).page(params[:page])
     @upcoming_in_france = Competition.upcoming(3).in_france
     @major_champs = MajorComp.includes(:competition).all.order(:role)
-  end
-
-  def letsencrypt
-    # Challenge page for lets encrypt
-    render plain: "ciDP_WzLF-WZv0bjPPu0741pFIxmoL8FB6TbG76zJKM.SzNcp4S06efb6kyrkHwPRqEKa3OjquepkcRB4adhp1w"
   end
 
   def tag_index
