@@ -19,6 +19,10 @@ pidfile '/tmp/puma.pid'
 #
 environment "production"
 
+
+stdout_redirect "#{Rails.root}/log/puma.out", "#{Rails.root}/home/afs/log/puma.err", true
+
+# TODO: ssl
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
