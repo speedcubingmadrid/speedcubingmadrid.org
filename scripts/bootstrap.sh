@@ -63,8 +63,7 @@ apt-get install -y nodejs yarn libpq-dev
 apt-get install -y python-certbot-nginx -t stretch-backports
 
 if [ ! -d /home/afs/speedcubingfrance.org ]; then
-  # FIXME : change v2 to master
-  su afs -c "cd /home/afs && git clone -b v2 https://github.com/speedcubingfrance/speedcubingfrance.org.git /home/afs/speedcubingfrance.org"
+  su afs -c "cd /home/afs && git clone https://github.com/speedcubingfrance/speedcubingfrance.org.git /home/afs/speedcubingfrance.org"
 fi
 apt-get install -y nginx
 cp /home/afs/speedcubingfrance.org/prod_conf/afs.conf /etc/nginx/conf.d/
