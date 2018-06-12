@@ -17,6 +17,8 @@ echo 'export RACK_ENV=production' >> ~/.bash_aliases
 echo 'export LC_ALL=en_US.UTF-8' >> ~/.bash_aliases
 source ~/.bash_aliases
 
+echo '[[ -f ~/.bashrc ]] && . ~/.bashrc' > ~/.bash_profile
+
 if [ ! -d $HOME/.rbenv/plugins/ruby-build ]; then
 	git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 else
