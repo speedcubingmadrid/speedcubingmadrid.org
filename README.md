@@ -96,6 +96,7 @@ Il devrait :
   - Éventuellement créer un certificat
   - Installer nginx et sa configuration
   - Installer le cron pour le renouvellement du certificat
+  - TODO : éditer conf nginx pour https
   - Lancer le bootstrap AFS
 
 Le bootstrap AFS quand à lui devrait :
