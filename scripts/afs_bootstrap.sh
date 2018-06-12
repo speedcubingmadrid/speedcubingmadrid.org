@@ -27,6 +27,7 @@ fi
 # the repo is cloned by the root bootstrap
 rbenv install -v `cat ~/speedcubingfrance.org/.ruby-version` -s
 
+# Safe to be executed multiple times, as subsequent bootstrap will be ignored
 mv ~/.env.production ~/speedcubingfrance.org
 
 # setup crontabs

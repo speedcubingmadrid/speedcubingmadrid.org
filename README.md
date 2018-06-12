@@ -105,6 +105,17 @@ Le bootstrap AFS quand à lui devrait :
   - Optionnellement mettre en place rails et une db vierge
   - Optionnellement mettre en place les variables d'environnements (dans le fichier `.env.production`)
 
+#### Notes concernant nginx
+
+Lors du premier déploiement le certificat SSL n'est pas encore généré, il y a donc deux fichier de configuration pour `www.speedcubingfrance.org` :
+
+  - une pour *avant* la création du certificat (`prod_conf/pre_certif.conf`)
+  - une pour *après* la création du certificat (`prod_conf/post_certif.conf`)
+
+Lors du bootsrap le script devrait automatiquement retirer la première configuration et ajouter la deuxième.
+Néanmoins si la création du certificat échoue, il faudra remettre la configuration initiale en état (dans `/etc/nginx/conf.d`), retirer la configuration `post_certif.conf`, et vider le fichier `/etc/nginx/afs_https.conf` (il *doit* exister !).
+
+
 ### Déploiement régulier
 
 Le script `deploy.sh` contient des commandes utiles pour le déploiement :
