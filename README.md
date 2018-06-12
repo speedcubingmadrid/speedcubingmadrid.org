@@ -93,10 +93,10 @@ Il devrait :
   - Cloner le dépôt speedcubingfrance.org
   - Configurer l'utilisateur postgres
   - Mettre en place le `DATABASE_PASSWORD` dans les variables d'environnements (dans le fichier `.env.production`).
-  - Éventuellement créer un certificat
+  - Éventuellement créer un certificat (il faut rentrer l'adresse email de l'AFS)
+  - TODO : éditer conf nginx pour https
   - Installer nginx et sa configuration
   - Installer le cron pour le renouvellement du certificat
-  - TODO : éditer conf nginx pour https
   - Lancer le bootstrap AFS
 
 Le bootstrap AFS quand à lui devrait :

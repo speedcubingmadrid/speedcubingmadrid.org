@@ -81,4 +81,4 @@ echo "Installing cron scripts"
 cp /home/afs/speedcubingfrance.org/scripts/cron_weekly.sh /etc/cron.weekly
 
 echo "Bootstraping as AFS"
-su afs -c "/home/afs/speedcubingfrance.org/scripts/afs_bootstrap.sh"
+su afs -c "cd /home/afs && /home/afs/speedcubingfrance.org/scripts/afs_bootstrap.sh"
