@@ -4,8 +4,8 @@ Ce dépôt contient les sources du site [speedcubingfrance.org](http://www.speed
 
 # Dépendances et installation
 
-Le site est basé sur Rails (et nécessite donc Ruby), et est déployé sur Heroku.
-En conséquence la base de donnée utilisée est PostgreSQL, qu'il est nécessaire d'installer pour faire tourner le site en local.
+Le site est basé sur Rails (et nécessite donc Ruby), et est déployé sur un VPS.
+La base de donnée utilisée est PostgreSQL, qu'il est nécessaire d'installer pour faire tourner le site en local.
 
 ## Lancer le site en local
 
@@ -76,23 +76,49 @@ Via le standard `bin/rails db:migrate`.
 
 ## Déployer en production
 
-À la racine du dépôt il faut d'abord de logguer via `heroku login`.
-Il faut ensuite pousser la branche que l'on veut déployer sur heroku : `git push heroku master`.
-Le lancement de l'application se fait automatiquement.
+### Premier déploiement (bootstrap)
 
-Pour les opérations de maintenances standards (migrations, lancement manuel de tâches, console, etc) cela fonctionne comme dans la partie précédente, en utilisant `heroku run rails ...` à la place de `bin/rails ...`.
+Une fois le VPS d'OVH (ré)-installé, il faut récupérer le fichier `scripts/bootstrap.sh` et l'exécuter.
 
-### Configurer l'environnement
+`wget https://raw.githubusercontent.com/speedcubingfrance/speedcubingfrance.org/v2/scripts/bootstrap.sh`
+`./bootstrap.sh`
 
-Ici impossible d'utiliser un fichier `.env`, il faut directement passer par heroku pour ajouter des variables d'environnements.
+FIXME: changer v2 quand la branche est fusionnée
 
-```bash
-heroku config:set WCA_CLIENT_ID="xxxx"
-heroku config:set WCA_CLIENT_SECRET="xxxx"
-heroku config:set SENDGRID_API_KEY="xxxx"
-```
+Il devrait :
 
-Pour la clé sendgrid, il faut la récupérer via le dashboard sendgrid (cf la section sendgrid).
+  - Installer les packages nécessaires
+  - Créer l'utilisateur afs
+  - Installer les clés publiques github des admins
+  - Cloner le dépôt speedcubingfrance.org
+  - Configurer l'utilisateur postgres
+  - Mettre en place le `DATABASE_PASSWORD` dans les variables d'environnements (dans le fichier `.env.production`).
+  - Éventuellement créer un certificat
+  - Installer nginx et sa configuration
+  - Installer le cron pour le renouvellement du certificat
+  - Lancer le bootstrap AFS
+
+Le bootstrap AFS quand à lui devrait :
+
+  - Installer rbenv et la version de ruby nécessaire pour le site
+  - Installer le crontab des jobs rake
+  - Optionnellement mettre en place rails et une db vierge
+  - Optionnellement mettre en place les variables d'environnements (dans le fichier `.env.production`)
+
+### Déploiement régulier
+
+Le script `deploy.sh` contient des commandes utiles pour le déploiement :
+
+  - `pull_latest` : récupère la dernière master.
+  - `restart_app` : (re)-démarre le serveur puma.
+  - `rebuild_rails` : installe les gems ruby, recompile les assets, et lance `restart_app`.
+
+Il suffit alors de lancer :
+
+`ssh afs@dev.speedcubingfrance.org speedcubingfrance.org/scripts/deploy.sh pull_latest rebuild_rails`
+
+Et de se logguer pour effectuer les éventuelles migrations (ne pas oublier de redémarrer de serveur après les migrations !).
+
 
 ## Backup
 
@@ -112,27 +138,15 @@ Mettre latest.dump sur le serveur, et lancer :
 
 `pg_restore --verbose --clean --no-acl --no-owner -h localhost -U speedcubingfrance -d speedcubingfrance-dev latest.dump`
 
-## Addons Heroku
+## Sendgrid
 
-Il y a deux addons heroku utilisé par le site : Heroku Scheduler, et Sendgrid.
 
-### Scheduler
-
-Cet addon est utilisé pour deux tâches quotidiennes :
-  - la récupération des compétitions à venir sur le site de la WCA (`bin/rails scheduler:get_wca_competitions`).
-  - l'envoi des emails de notifications aux adhérents ayant leurs notifications activées, et dont l'adhésion arrive à son terme (`bin/rails scheduler:send_subscription_reminders`).
-
-Le dashboard est là : https://scheduler.heroku.com/dashboard
-(Accessible une fois connecté sur heroku)
-
-### Sendgrid
-
-Cet addon est utilisé pour envoyer des emails depuis la production.
+Sendgrid est utilisé pour envoyer des emails depuis la production.
 
 La seule chose à savoir est qu'il faut mettre en place l'API key pour que le système d'envoi de mail fonctionne.
 
 Le dashboard est là : https://app.sendgrid.com/
-(Accessible une fois connecté sur heroku)
+(cf les logins/mdp)
 
 Pour tester l'envoi de mail en local, il suffit de démarrer `mailcatcher` (en local les emails sont envoyés au smtp localhost).
 

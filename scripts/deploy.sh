@@ -25,6 +25,7 @@ setup_env() {
 rebuild_rails() {
   bundle install
   bundle exec rake assets:clean assets:precompile
+  restart_app
 }
 
 restart_app() {

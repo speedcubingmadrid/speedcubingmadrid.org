@@ -39,15 +39,7 @@ apt-get install -y postgresql-10
 user_exists=`sudo -u postgres psql -tAc "select 1 from pg_catalog.pg_roles where rolname='speedcubingfrance';"`
 
 if [ "x$user_exists" != "x1" ]; then
-  # Prompt the user for the db password
-  while true; do
-    read -s -p "Password for db user 'speedcubingfrance': " password
-    echo
-    read -s -p "Password (again): " password2
-    echo
-    [ "$password" = "$password2" ] && break
-    echo "Please try again"
-  done
+  password=`openssl rand -base64 16`
   sudo -u postgres psql -c "create role speedcubingfrance login password '$password' createdb;"
   su afs -c "echo 'DATABASE_PASSWORD=$password' >> /home/afs/.env.production"
 fi
@@ -71,6 +63,7 @@ apt-get install -y nodejs yarn libpq-dev
 apt-get install -y python-certbot-nginx -t stretch-backports
 
 if [ ! -d /home/afs/speedcubingfrance.org ]; then
+	# FIXME : change v2 to master
   su afs -c "git clone -b v2 https://github.com/speedcubingfrance/speedcubingfrance.org.git /home/afs/speedcubingfrance.org"
 fi
 apt-get install -y nginx

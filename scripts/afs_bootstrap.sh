@@ -36,3 +36,12 @@ EOF
 crontab -r
 crontab /tmp/cron.afs
 
+read -p "Do you want to setup the rails application? (N/y)" user_choice
+if [ "x$user_choice" == "xy" ]; then
+	/home/afs/speedcubingfrance.org/scripts/deploy.sh bootstrap_rails
+fi
+
+read -p "Do you want to setup the environment variables? (N/y)" user_choice
+if [ "x$user_choice" == "xy" ]; then
+	/home/afs/speedcubingfrance.org/scripts/deploy.sh setup_env
+fi
