@@ -1,4 +1,3 @@
-require 'config/environment'
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
@@ -21,7 +20,7 @@ pidfile '/tmp/puma.pid'
 environment "production"
 
 
-stdout_redirect "#{Rails.root}/log/puma.out", "#{Rails.root}/home/afs/log/puma.err", true
+stdout_redirect "/home/afs/speedcubingfrance.org/log/puma.out", "/home/afs/speedcubingfrance.org/log/puma.err", true
 
 # TODO: ssl
 # Specifies the number of `workers` to boot in clustered mode.
