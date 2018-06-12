@@ -96,13 +96,17 @@ Pour la clé sendgrid, il faut la récupérer via le dashboard sendgrid (cf la s
 
 ## Backup
 
-Pour récupérer un backup de la base de données de production : `heroku pg:backups:capture`, puis `heroku pg:backups:download`.
+Pour récupérer un backup de la base de données de production :
+
+`pg_dump -Fc --no-acl --no-owner -h localhost -U speedcubingfrance speedcubingfrance-prod > prod.dump`
 
 ## Restauration d'un backup
 
 ### En production
 
-`heroku pg:backups:restore 'url/vers/le/dump'`
+Mettre latest.dump sur le serveur, et lancer :
+`pg_restore --verbose --clean --no-acl --no-owner -h localhost -U speedcubingfrance -d speedcubingfrance-prod latest.dump`
+
 
 ### En local
 
