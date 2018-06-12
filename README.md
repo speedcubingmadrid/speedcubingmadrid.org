@@ -94,7 +94,6 @@ Il devrait :
   - Configurer l'utilisateur postgres
   - Mettre en place le `DATABASE_PASSWORD` dans les variables d'environnements (dans le fichier `.env.production`).
   - Éventuellement créer un certificat (il faut rentrer l'adresse email de l'AFS)
-  - TODO : éditer conf nginx pour https
   - Installer nginx et sa configuration
   - Installer le cron pour le renouvellement du certificat
   - Lancer le bootstrap AFS

@@ -68,13 +68,19 @@ if [ ! -d /home/afs/speedcubingfrance.org ]; then
 fi
 apt-get install -y nginx
 cp /home/afs/speedcubingfrance.org/prod_conf/afs.conf /etc/nginx/conf.d/
-cp /home/afs/speedcubingfrance.org/prod_conf/afs_https.conf /etc/nginx/
+cp /home/afs/speedcubingfrance.org/prod_conf/pre_certif.conf /etc/nginx/conf.d/
+# Create an empty https conf since we don't have a certificate yet
+touch /etc/nginx/afs_https.conf
 
 service nginx restart
 
 read -p "Do you want to create a new certificate for the server? (N/y)" user_choice
 if [ "x$user_choice" == "xy" ]; then
   /home/afs/speedcubingfrance.org/scripts/prod_cert.sh create_cert
+  cp /home/afs/speedcubingfrance.org/prod_conf/afs_https.conf /etc/nginx/
+  rm /etc/nginx/conf.d/pre_certif.conf
+  cp /home/afs/speedcubingfrance.org/prod_conf/post_certif.conf /etc/nginx/conf.d/
+  service nginx restart
 fi
 
 echo "Installing cron scripts"
