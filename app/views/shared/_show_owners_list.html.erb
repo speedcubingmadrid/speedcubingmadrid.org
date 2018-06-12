@@ -1,0 +1,8 @@
+<p>
+  <strong>Chez :</strong>
+  <% owners = [] %>
+  <% item.owners.each do |owner| %>
+    <% owners << "#{owner.user.name} (du #{l(owner.start)} au #{l(owner.end)})" %>
+  <% end %>
+  <%= owners.join(", ") %>
+</p>

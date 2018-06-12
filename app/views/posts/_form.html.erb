@@ -1,0 +1,43 @@
+<%= simple_form_for(@post, url: @post.new_record? ? news_index_path : news_path(@post)) do |f| %>
+  <%= f.error_notification message: "Le formulaire est invalide. Merci de corriger les erreurs ci dessous." %>
+
+  <div class="form-inputs">
+    <%= f.input :title, input_html: { class: "compute-slug" } %>
+    <%= f.input :tags_string, input_html: { class: "enable-selectize" } %>
+    <%= f.input :body, input_html: { class: "enable-simplemde" } %>
+    <%= f.input :slug, input_html: { class: slug_classes(@post) } %>
+    <%= f.input :posted_at, as: :date_picker %>
+    <%= f.input :draft %>
+    <%= f.input :feature %>
+    <%= f.input :competition_page %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<% content_for :additional_scripts do %>
+  <%= javascript_pack_tag "simple_mde", 'data-turbolinks-track': 'reload'  %>
+  <%= javascript_pack_tag "selectize", 'data-turbolinks-track': 'reload'  %>
+<% end %>
+<script>
+$(function() {
+  $(".compute-slug").each(function() {
+    $(this).change(function() {
+      let slugInput = $("#post_slug");
+      if (!slugInput.hasClass("manually-changed")) {
+        slugInput.val(window.afs.computeSlug($(this).val()));
+      }
+    });
+    $(this).removeClass("compute-slug");
+  });
+  $(".slug").each(function() {
+    $(this).change(function() {
+      $(this).addClass("manually-changed");
+    });
+    $(this).removeClass("slug");
+  });
+  window.afs.enableSelectize(<%= post_tags_to_options %>);
+  window.afs.enableSimpleMDE();
+});
+</script>

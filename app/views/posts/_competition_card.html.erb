@@ -1,0 +1,16 @@
+<div class="col-12 col-md-4">
+  <h5 class="card-title"><%= competition.name %></h5>
+  <% if competition.respond_to?(:city) %>
+    <p class="card-meta text-muted"><%= competition.city %></p>
+  <% end %>
+  <p class="card-text">
+    <% if competition.respond_to?(:alt_text) %>
+      <%= competition.alt_text %>
+    <% else %>
+      <%= "Du #{l(competition.start_date, format: :day_month)} au #{l(competition.end_date)}." %>
+    <% end %>
+  </p>
+  <% if competition.respond_to?(:website) %>
+    <a href="<%= competition.website %>" class="btn btn-primary" target="_blank">Visiter le site</a>
+  <% end %>
+</div>

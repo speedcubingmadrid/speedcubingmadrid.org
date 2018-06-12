@@ -1,0 +1,24 @@
+<div class="regular-post card mb-4">
+  <div class="card-body d-flex flex-column align-items-start">
+    <h4 class="post-title w-100">
+      <%= link_to post.title, news_slug_path(post.slug), class: "text-dark" %>
+      <span class="pull-right">
+        <% post.tags.each do |tag| %>
+          <%= render("shared/tag", tag: tag) %>
+        <% end %>
+        <% if current_user&.can_manage_communication_matters? %>
+          <%= link_to(fa_icon("pencil"), edit_news_path(post), class: "btn btn-sm btn-primary") %>
+        <% end %>
+      </span>
+    </h4>
+    <div class="post-meta text-muted">
+      <%= l(post.posted_at, format: :post_datetime) %>
+    </div>
+    <div class="post-excerpt">
+      <%= md post.body_teaser %>
+    </div>
+    <% if post.fullpost? %>
+      <%= link_to "Lire la suite...", news_slug_path(post.slug) %>
+    <% end %>
+  </div>
+</div>

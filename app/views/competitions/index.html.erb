@@ -1,0 +1,27 @@
+<% provide(:active_section, "speedcubing") %>
+<% content_for :additional_scripts do %>
+  <%= javascript_pack_tag "calendar", 'data-turbolinks-track': 'reload'  %>
+<% end %>
+<%= render "shared/nav_competitions", current_page: :calendrier, title: "Calendrier des compétitions" do %>
+  Le calendrier ci dessous regroupe les éléments suivants :
+  <ul class="mb-2">
+    <li class="color-green">Les compétitions officielles de la WCA en France</li>
+    <li class="color-orange">Les compétitions en projet</li>
+    <li class="color-blue">Les événements AFS hors compétitions</li>
+  </ul>
+  <p class="mb-3">
+    Vous pouvez également utiliser la version iCal pour ajouter ce calendrier comme un calendrier externe à votre agenda (note : seules les compétitions WCA à venir sont incluses dans le calendrier iCal).
+    <br/>L'url à utiliser est <code><%= competitions_url(format: "ics") %></code>
+  </p>
+  <div id="modal-container"></div>
+  <div id="calendar" class="enable-calendar mb-5"></div>
+
+  <h3>Anciennes pages de compétitions</h3>
+
+  Avant que le site de la World Cube Association ne propose d'héberger les pages de compétitions, l'AFS hébergeait certaines pages de compétitions françaises : elles sont disponibles <%= link_to "ici", competitions_historique_path %>.
+  <script>
+$(function() {
+  window.afs.initCalendar(<%= current_user&.can_manage_calendar? %>);
+});
+  </script>
+<% end %>

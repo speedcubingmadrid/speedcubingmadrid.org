@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  firstname: MyString
+  wca_id: MyString
+  email: MyString
+  payed_at: 2018-04-12 14:36:49
+  receipt_url: MyString
+
+two:
+  name: MyString
+  firstname: MyString
+  wca_id: MyString
+  email: MyString
+  payed_at: 2018-04-12 14:36:49
+  receipt_url: MyString

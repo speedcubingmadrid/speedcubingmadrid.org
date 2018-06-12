@@ -1,0 +1,116 @@
+fr:
+  date:
+    formats:
+      short: "%d/%m/%Y"
+      day_month: "%e %B"
+      default: "%e %B %Y"
+      post_datetime: "%e %B %Y"
+  time:
+    formats:
+      short: "%d/%m/%Y"
+      post_datetime: "%e %B %Y"
+  countries:
+    XA: Pays multiple (Asie)
+    XE: Pays multiple (Europe)
+    XS: Pays multiple (Amérique du Sud)
+    XM: Pays multiple (Amériques)
+    MO: Macau
+    HK: Hong Kong
+    KR: République de Corée
+  simple_form:
+    labels:
+      big_champs:
+        euro:
+          competition_id: "ID de la compétition"
+          name: "Nom de la compétition"
+          alt_text: "Texte alternatif"
+        french:
+          competition_id: "ID de la compétition"
+          name: "Nom de la compétition"
+          alt_text: "Texte alternatif"
+        world:
+          competition_id: "ID de la compétition"
+          name: "Nom de la compétition"
+          alt_text: "Texte alternatif"
+      calendar_event:
+        name: "Nom"
+        public: "cet événement est visible"
+        kind: "Type d'événement"
+      post:
+        title: 'Titre'
+        body: 'Contenu'
+        tags_string: 'Tags'
+        posted_at: 'Date de publication'
+        slug: 'Permalien'
+        draft: 'Ce post est un brouillon'
+        feature: "Mettre en valeur sur la page d'accueil"
+        competition_page: "Ce post est une page de compétition"
+      import_user:
+        query: "Recherche"
+        user_id: "ID d'utilisateur"
+      signin:
+        can_manage: "Je suis un organisateur ou Délégué WCA, et j'autorise l'AFS à gérer mes compétitions."
+      user:
+        wca_id: "ID WCA"
+        friendly_birthdate: "Date de naissance"
+        admin: "Administrateur"
+        communication: "Équipe Communication"
+        french_delegate: "Délégué Français"
+        notify_subscription: "M'avertir lorsque que mon adhésion se termine"
+      tag:
+        name: "Alias du tag"
+        color: "Couleur"
+        fullname: "Texte affiché"
+      bag:
+        owners:
+          user: "Utilisateur"
+          start: "Du"
+          end: "Au"
+      hardware:
+        owners:
+          user: "Utilisateur"
+          start: "Du"
+          end: "Au"
+    hints:
+      post:
+        tags_string: "Pour personnaliser le texte affiché et la couleur de chaque tag, allez <a href='/tags' target='_blank'>là</a>."
+        draft: "Si cette case est cochée, le post ne sera pas visible par le public"
+        competition_page: "Si cette case est cochée, le post ne sera pas affiché sur la page d'accueil."
+        body: "Ajoutez \"{{post_excerpt}}\" pour séparer l'introduction d'un post de son contenu principal."
+      tag:
+        name: "L'alias permet d'identifier le tag et n'est pas modifiable"
+  helpers:
+    submit:
+      signin:
+        submit: "Se connecter avec la WCA"
+      user:
+        update: 'Sauvegarder'
+      calendar_event:
+        create: "Créer l'évènement"
+        update: 'Sauvegarder'
+      post:
+        create: 'Créer le post'
+        update: 'Sauvegarder'
+      import_user:
+        submit: "Envoyer la requête"
+      import_form:
+        submit: "Importer le CSV"
+      tag:
+        update: "Sauvegarder"
+      big_champs:
+        submit: "Sauvegarder"
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Pas de %{entry_name} trouvé."
+          one: "Affichage d'un %{entry_name}"
+          other: "Affichage de <b>tous les %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Affichage des %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> sur <b>%{total}</b> au total"
+  views:
+    pagination:
+      first: "&laquo; Première"
+      last: "Dernière &raquo;"
+      previous: "&lsaquo; Préc."
+      next: "Suiv. &rsaquo;"
+      truncate: "&hellip;"

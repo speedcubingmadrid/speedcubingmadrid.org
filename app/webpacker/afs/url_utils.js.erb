@@ -1,0 +1,6 @@
+<% include ApplicationHelper %>
+<% include Rails.application.routes.url_helpers %>
+
+export const API_URL = "<%= wca_api_url('') %>";
+export const API_COMP_URL = "<%= wca_api_competitions_url %>";
+export const CALENDAR_EVENTS_URL = "<%= calendar_events_path(format: :json) %>";

@@ -1,0 +1,11 @@
+<%
+  options = { class: %w(d-inline-block badge badge-secondary tag) }
+  link ||= posts_by_tag_path(tag.name)
+  unless tag.color.blank?
+    options[:style] = "background-color: #{tag.color}"
+  end
+  options[:class] << "tag-action"
+  options[:href] = link
+  options[:class] = options[:class].join(" ")
+%>
+<%= content_tag(:a, tag.fullname, options) %>

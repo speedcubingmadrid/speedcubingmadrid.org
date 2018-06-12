@@ -1,0 +1,2 @@
+module BagsHelper
+end

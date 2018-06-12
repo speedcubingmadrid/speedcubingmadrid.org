@@ -1,0 +1,32 @@
+<%= render "nav", current_page: :subscribers %>
+
+<p>
+  <%= @subscribers.size %> adhérents au <%= l(Date.today) %>.
+</p>
+<div class="table-responsive">
+  <% headers = ["Nom complet", "ID WCA", "Fin d'adhésion"] %>
+  <%= render "shared/compact_table", headers: headers do %>
+    <% @subscribers.each do |s| %>
+      <tr>
+        <td>
+          <%=
+            if s.user
+              link_to(s.user.name, edit_user_path(s.user))
+            else
+              "#{s.firstname} #{s.name}"
+            end
+          %>
+        </td>
+        <td>
+          <%= link_to_wca_profile(s.wca_id) %>
+        </td>
+        <td><%= l(s.until) %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  <% if @subscribers.empty? %>
+    <div class="alert alert-info">
+      Pas d'adhérents, essayez d'importer des adhésions depuis HelloAsso.
+    </div>
+  <% end %>
+</div>

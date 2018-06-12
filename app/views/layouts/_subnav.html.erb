@@ -1,0 +1,9 @@
+<% elements ||= {} %>
+<% active ||= "" %>
+<% if elements.any? %>
+  <nav class="nav nav-pills nav-fill sticky-nav mb-4">
+    <% elements.each do |key, infos| %>
+      <%= link_to infos[:name], infos[:link], class: "nav-item nav-link #{active == key ? "active" : ""}" %>
+    <% end %>
+  </nav>
+<% end %>

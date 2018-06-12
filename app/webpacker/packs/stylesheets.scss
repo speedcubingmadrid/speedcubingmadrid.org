@@ -1,0 +1,131 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+
+@import '~flag-icon-css/sass/flag-icon';
+@import 'simplemde/dist/simplemde.min.css';
+@import 'fullcalendar/dist/fullcalendar.min.css';
+
+@import 'selectize/dist/css/selectize.bootstrap3.css';
+@import 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
+
+.selectize-input {
+  &.focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  .is-invalid > & {
+    border-color: #dc3545;
+    &.focus {
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+  }
+}
+
+@import '../src/variables';
+@import '../src/navigation';
+@import '../src/homepage';
+@import '../src/footer';
+@import '../src/sessions';
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background-color: $bg-body;
+}
+
+blockquote {
+  @extend .blockquote;
+}
+
+
+#main-container {
+  padding-top: 2*$offset;
+  .container {
+    flex-direction: column;
+  }
+}
+
+.table-bordered {
+  th, td {
+    border-color: #212529;
+  }
+}
+
+.custom-checkbox {
+  padding-left: 15px;
+  .custom-control-label {
+    &::before {
+      left: 15px;
+      border: 1px solid #aaa;
+    }
+    &::after {
+      left: 15px;
+    }
+    margin-left: 25px;
+  }
+}
+
+.user-edit-form {
+  .custom-checkbox {
+    padding-left: 0;
+    .custom-control-label {
+      &::before, &::after {
+        right: 5px;
+        left: auto;
+      }
+      @extend .col-md-6;
+      @extend .col-lg-5;
+      margin-left: 0;
+    }
+  }
+}
+
+.post-excerpt {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.tag {
+  &:not(.tag-action):hover {
+    cursor: default;
+  }
+  &.tag-action {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  .tag-index > & {
+    font-size: 1.25rem;
+  }
+  .afs-post &, .regular-post &, .featured-post & {
+    font-size: 1rem;
+  }
+}
+
+.color-green {
+  color: $green;
+}
+
+.color-blue {
+  color: $blue;
+}
+
+.color-orange {
+  color: $orange;
+}
+
+.datepicker {
+  table {
+    margin: 4px;
+  }
+}
+
+input[type=color].form-control {
+    height: 2.25rem;
+}

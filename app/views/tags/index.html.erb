@@ -1,0 +1,13 @@
+<h1>Tags</h1>
+
+<%= link_to 'Liste des posts', news_index_path %>
+
+<p>
+  Cliquez sur un tag pour modifier le texte affiché et sa couleur.
+</p>
+
+<div class="tag-index">
+  <% @tags.each do |tag| %>
+    <%= render("shared/tag", tag: tag, container: :a, link: edit_tag_path(tag)) %>
+  <% end %>
+</div>

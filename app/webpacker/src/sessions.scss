@@ -1,0 +1,10 @@
+.signin-form {
+  .custom-checkbox {
+    .custom-control-label {
+      &::before, &::after {
+        left: 0;
+      }
+      @extend .col-8, .col-sm-6, .col-md-4;
+    }
+  }
+}

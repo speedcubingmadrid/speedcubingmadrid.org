@@ -1,0 +1,16 @@
+<div class="nested-fields">
+  <div class="row">
+    <div class="col-3">
+      <%= f.association :user, collection: User.order(:name) %>
+    </div>
+    <div class="col-4">
+      <%= f.input :start %>
+    </div>
+    <div class="col-4">
+      <%= f.input :end %>
+    </div>
+    <div class="col-1">
+      <%= link_to_remove_association(button_tag(fa_icon("times"), type: "button", class: "btn btn-danger"), f) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+Bonjour <%= @user.name %>,
+
+<p>
+  Votre adhésion à l'Association Française de Speedcubing arrive bientôt à expiration (le <%= l(@user.last_subscription.until) %>).
+  <br />
+  Si vous souhaitez continuer à nous soutenir, vous pouvez renouveller votre adhésion sur <%= link_to "HelloAsso", "https://www.helloasso.com/associations/association-francaise-de-speedcubing" %>.
+</p>
+
+<p>
+  Vous recevez cette notification car vous l'avez choisi dans votre profil, pour la désactiver rendez-vous sur <%= link_to "votre profil", profile_url %> (ou vous pourrez également voir la liste de vos contributions).
+</p>
+
+À bientôt,
+<br />
+L'Association Française de Speedcubing.

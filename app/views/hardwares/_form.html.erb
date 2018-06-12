@@ -1,0 +1,17 @@
+<%= simple_form_for(@hardware) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :hardware_type, collection: Hardware::TYPES, label_method: :second, value_method: :first %>
+    <%= f.input :state, collection: Hardware::STATES, label_method: :second, value_method: :first %>
+    <%= f.association :bag, collection: Bag.order(:name) %>
+    <%= f.input :comment %>
+    <h3>Liste des personnes en possession du matériel</h3>
+    <%= render "shared/nested_form_for_owners", f: f %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

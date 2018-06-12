@@ -1,0 +1,21 @@
+<h1>Liste des utilisateurs</h1>
+
+<%= link_to "Importer un utilisateur depuis la WCA", users_import_path, class: "btn btn-success mb-3" %>
+
+<%= render "shared/compact_table", headers: ["Nom complet", "ID WCA", "Pays", "Email"] do %>
+  <% @users.each do |user| %>
+    <tr>
+      <th scope="row">
+        <%= link_to user.name, edit_user_path(user) %>
+        <%= render "icons_for_user", user: user %>
+      </th>
+      <td>
+        <%= link_to_wca_profile(user.wca_id) %>
+      </td>
+      <td>
+        <%= flag_icon(user.country_iso2) %> <span class="pull-right"><%= user.country_name %></span>
+      </td>
+      <td><%= user.email %></td>
+    </tr>
+  <% end %>
+<% end %>

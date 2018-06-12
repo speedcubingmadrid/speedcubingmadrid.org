@@ -1,0 +1,24 @@
+<h2>Importer un utilisateur</h2>
+
+<div class="alert alert-info">
+  Utilisez le champ "Recherche" pour importer un utilisateur depuis le site de la WCA.
+  <br/>
+  Si un seul résultat correspond, l'utilisateur sera importé, si plusieurs utilisateurs correspondent à la requête ils seront affichés.
+  <br/>
+  Vous pouvez cliquer sur un des utilisateurs de la recherche pour l'importer.
+</div>
+
+<%= simple_form_for :import_user, url: users_import_path do |f| %>
+  <%= f.input :query %>
+  <%= f.button :submit %>
+<% end %>
+
+<% if @matches.any? %>
+  <div class="list-group mt-4">
+    <% @matches.each do |user| %>
+      <%= link_to users_import_path(import_user: { id: user["id"] }), method: :post, class: "list-group-item list-group-item-action" do %>
+        <%= user["name"] %> <%= user["wca_id"] ? "(#{user["wca_id"]})" : "" %> <%= user["country_iso2"] ? flag_icon(user["country_iso2"]) : "" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

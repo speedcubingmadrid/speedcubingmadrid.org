@@ -1,0 +1,10 @@
+<% provide(:active_section, "speedcubing") %>
+
+<%= render "shared/nav_competitions", current_page: :home, title: @competition.title do %>
+  <% if current_user&.can_manage_communication_matters? %>
+    <%= link_to(fa_icon("pencil"), edit_news_path(@competition), class: "btn btn-sm btn-primary") %>
+  <% end %>
+  <p>
+    <%=md @competition.body_full %>
+  </p>
+<% end %>

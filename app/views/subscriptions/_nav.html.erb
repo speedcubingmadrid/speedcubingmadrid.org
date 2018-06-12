@@ -1,0 +1,14 @@
+<%
+  menu = {
+    subscribers: {
+      name: "Adhérents",
+      link: subscriptions_path,
+    },
+    subscriptions: {
+      name: "Adhésions",
+      link: subscriptions_list_path,
+    },
+  }
+%>
+
+<%= render "layouts/subnav", elements: menu, active: current_page %>

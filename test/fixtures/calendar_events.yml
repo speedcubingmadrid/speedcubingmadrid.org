@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  public: false
+  start_time: 2018-05-11 11:49:49
+  end_time: 2018-05-11 11:49:49
+  kind: MyString
+
+two:
+  name: MyString
+  public: false
+  start_time: 2018-05-11 11:49:49
+  end_time: 2018-05-11 11:49:49
+  kind: MyString

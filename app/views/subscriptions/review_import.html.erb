@@ -1,0 +1,61 @@
+<%= render "nav", current_page: :subscriptions %>
+
+<h1>Changements à soumettre</h1>
+
+<p>
+Les contributions ci dessous ont été détectées, merci de les relire et de ne soumettre le formulaire que si tout semble correct !
+</p>
+
+
+
+<div class="table-responsive">
+  <% headers = ["Prénom", "Nom", "ID WCA", "Email", "Payé le", "Lien du reçu"] %>
+  <% if @new_subscriptions.any? %>
+    <%= simple_form_for :subscriptions, url: subscriptions_import_path do |f| %>
+      <%= render "shared/compact_table", headers: headers  do %>
+        <% @new_subscriptions.each_with_index do |subscription, i| %>
+          <%= f.simple_fields_for subscription do |fa| %>
+            <%# Specifying the name for each subscription is dirty but I couldn't find better %>
+            <tr>
+              <td><%= fa.input :firstname, as: :display, label: false, input_html: { name: "subscriptions[][firstname]" } %></td>
+              <td><%= fa.input :name, as: :display, label: false, input_html: { name: "subscriptions[][name]" } %></td>
+              <td><%= fa.input :wca_id, as: :display, label: false, input_html: { name: "subscriptions[][wca_id]" } %></td>
+              <td data-toggle="tooltip" data-placement="top" title="<%= subscription.email %>"><%= fa.input :email, as: :display, label: false, input_html: { name: "subscriptions[][email]" } %></td>
+              <td><%= fa.input :payed_at, as: :display, label: false, input_html: { name: "subscriptions[][payed_at]" } %></td>
+              <td data-toggle="tooltip" data-placement="top" title="<%= subscription.receipt_url %>"><%= fa.input :receipt_url, as: :display, label: false, input_html: { name: "subscriptions[][receipt_url]" } %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= f.submit "Importer ces contributions", class: "btn btn-primary" %>
+    <% end %>
+  <% else %>
+    <div class="alert alert-info">
+      Pas de contributions à importer.
+    </div>
+  <% end %>
+
+  <% if @subscriptions.any? %>
+    <p>
+    Les contributions ci dessous sont déjà présentes dans la base de données et seront ignorées.
+    </p>
+    <%= render "shared/compact_table", headers: ["Prénom", "Nom", "ID WCA", "Email", "Payé le", "", ""] do %>
+      <% @subscriptions.each do |subscription| %>
+        <tr class="table-info">
+          <td><%= subscription.firstname %></td>
+          <td><%= subscription.name %></td>
+          <td><%= subscription.wca_id %></td>
+          <td><%= subscription.email %></td>
+          <td><%= subscription.payed_at %></td>
+          <td><%= subscription.receipt_url %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<script>
+$(".custom-file-input").change(function (e) {
+  $(".custom-file-label").text(e.target.value.replace("C:\\fakepath\\", ""));
+});
+</script>
