@@ -102,8 +102,10 @@
                     <h6 role="presentation" class="dropdown-header">
                       Administration
                     </h6>
-                    <% if current_user.admin? %>
+                    <% if current_user.can_manage_communication_matters? %>
                       <%= link_to "Adhésions", subscriptions_path, class: "dropdown-item" %>
+                    <% end %>
+                    <% if current_user.admin? %>
                       <%= link_to "Utilisateurs", users_path, class: "dropdown-item" %>
                     <% end %>
                     <%= link_to "Posts", news_index_path, class: "dropdown-item" %>

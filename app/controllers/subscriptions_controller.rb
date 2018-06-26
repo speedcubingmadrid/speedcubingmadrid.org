@@ -2,7 +2,8 @@ require 'csv'
 
 class SubscriptionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :redirect_unless_admin!
+  before_action :redirect_unless_admin!, except: [:index, :subscriptions_list]
+  before_action :redirect_unless_comm!
 
   def index
     @subscribers = Subscription.active.includes(:user).order(:firstname, :name).group_by do |s|
