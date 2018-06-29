@@ -12,6 +12,8 @@ import Turbolinks from 'turbolinks';
 
 import 'afs';
 import 'jquery-ujs';
+import 'tablesorter';
+import 'hardwares';
 
 Turbolinks.start();
 

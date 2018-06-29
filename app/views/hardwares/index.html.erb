@@ -21,7 +21,7 @@
       <tr>
         <td><%= hardware.name %></td>
         <td><%= hardware.hardware_type_string %></td>
-        <td><i class="fa fa-circle state-<%= hardware.state %>" aria-hidden="true"></i></td>
+	<td><i class="fa fa-circle state-<%= hardware.state %>" aria-hidden="true" title="<%= hardware.state_string %>"></i><div class="hide"><%= hardware.state_string %></div></td>
         <td><%= hardware.comment %></td>
         <td><%= hardware.real_owner&.name %></td>
         <td><%= hardware.bag&.name %></td>

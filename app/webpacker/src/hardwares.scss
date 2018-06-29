@@ -8,6 +8,17 @@
   .state-ko {
     color: red;
   }
+
+  th:hover {
+    cursor: pointer;
+  }
+  .sorter-false:hover {
+    cursor: default;
+  }
+
+  .hide {
+    display: none;
+  }
 }
 
 
