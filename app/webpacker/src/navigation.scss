@@ -61,6 +61,9 @@
       .dropdown:hover > .dropdown-menu {
         display: block;
       }
+      .dropdown-menu {
+	margin-top: inherit;
+      }
       ul {
         min-height: 55px;
         padding-bottom: 10px;
