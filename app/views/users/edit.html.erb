@@ -1,3 +1,4 @@
+<% provide(:title, "Mon profil") %>
 <% is_admin = current_user.admin? %>
 <h1><%= @user.name %> - <%= @user.country_name %> <%= flag_icon(@user.country_iso2) %></h1>
 <% last_sub = @user.last_subscription %>
