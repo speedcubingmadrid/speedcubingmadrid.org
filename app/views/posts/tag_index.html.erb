@@ -1,3 +1,4 @@
+<% provide(:title, "Publications pour le tag " + @tag.name) %>
 <h2 class="my-4 text-center">
   <a name="news">Publications pour le tag <%= render "shared/tag", tag: @tag %></a>
   <% if current_user&.can_manage_communication_matters? %>
