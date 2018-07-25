@@ -3,18 +3,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nom :</strong>
   <%= @bag.name %>
 </p>
 <% if @bag.hardwares.any? %>
   <ul>
     <% @bag.hardwares.each do |h| %>
-      <li><%= "#{h.name} (#{h.hardware_type_string})" %></li>
+      <li><%= link_to "#{h.name} (#{h.hardware_type_string})", h, title: 'Voir' %></li>
+      <ul>
+        <li><%= "#{h.state_string}"  %></li>
+        <% if h.comment? %>
+          <li><%= "Commentaire : #{h.comment}" %></li>
+        <% else %>
+          <li>Pas de commentaire</li>
+        <% end %>
+      </ul>
     <% end %>
   </ul>
 <% end %>
 
 <%= render "shared/show_owners_list", item: @bag %>
 
-<%= link_to 'Edit', edit_bag_path(@bag) %> |
-<%= link_to 'Back', bags_path %>
+<%= link_to 'Éditer', edit_bag_path(@bag) %> |
+<%= link_to 'Retour', bags_path %>

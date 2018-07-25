@@ -1,0 +1,20 @@
+#hardware-index-table {
+  text-align: center;
+
+  .state-ok i {
+    color: green;
+  }
+
+  .state-ko i {
+    color: red;
+  }
+
+  th:hover {
+    cursor: pointer;
+  }
+  .sorter-false:hover {
+    cursor: default;
+  }
+}
+
+
