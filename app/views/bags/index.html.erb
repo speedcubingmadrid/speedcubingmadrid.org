@@ -30,11 +30,11 @@
     <%= render "shared/show_owners_list", item: bag %>
     <br/>
 
-    <%= link_to raw('<i class="fa fa-eye alert-info"></i> Voir'), bag, title: 'Voir' %>
+    <%= link_to fa_icon('eye'), bag, title: 'Voir', class: 'text-info', data: { toggle: 'tooltip' } %>
     |
-    <%= link_to raw('<i class="fa fa-pencil-square-o"></i> Éditer'), edit_bag_path(bag), title: 'Éditer' %>
+    <%= link_to fa_icon('pencil-square-o'), edit_bag_path(bag), title: 'Éditer', class: 'text-primary', data: { toggle: 'tooltip' } %>
     |
-    <%= link_to raw('<i class="fa fa-trash-o alert-danger"></i> Détruire'), bag, method: :delete, data: { confirm: 'Êtes-vous sûr·e ?' }, title: 'Détruire' %>
+    <%= link_to fa_icon('trash-o'), bag, method: :delete, data: { confirm: 'Êtes-vous sûr·e ?' }, title: 'Détruire', class: 'text-danger', data: { toggle: 'tooltip' } %>
     <hr/>
   </div>
 <% end %>

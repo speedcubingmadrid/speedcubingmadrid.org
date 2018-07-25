@@ -1,11 +1,11 @@
 #hardware-index-table {
   text-align: center;
 
-  .state-ok {
+  .state-ok i {
     color: green;
   }
 
-  .state-ko {
+  .state-ko i {
     color: red;
   }
 
@@ -14,10 +14,6 @@
   }
   .sorter-false:hover {
     cursor: default;
-  }
-
-  .hide {
-    display: none;
   }
 }
 

@@ -12,10 +12,10 @@
       <li><%= link_to "#{h.name} (#{h.hardware_type_string})", h, title: 'Voir' %></li>
       <ul>
         <li><%= "#{h.state_string}"  %></li>
-	<% if h.comment? %>
+        <% if h.comment? %>
           <li><%= "Commentaire : #{h.comment}" %></li>
         <% else %>
-	  <li>Pas de commentaire</li>
+          <li>Pas de commentaire</li>
         <% end %>
       </ul>
     <% end %>

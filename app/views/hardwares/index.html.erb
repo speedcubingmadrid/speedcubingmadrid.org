@@ -21,13 +21,18 @@
       <tr>
         <td><%= hardware.name %></td>
         <td><%= hardware.hardware_type_string %></td>
-	<td><i class="fa fa-circle state-<%= hardware.state %>" aria-hidden="true" title="<%= hardware.state_string %>"></i><div class="hide"><%= hardware.state_string %></div></td>
+	<td class="state-<%= hardware.state %>">
+          <div title="<%= hardware.state_string %>" data-toggle="tooltip">
+            <%= fa_icon('circle') %>
+            <span class="d-none"><%= hardware.state_string %></span>
+          </div>
+        </td>
         <td><%= hardware.comment %></td>
         <td><%= hardware.real_owner&.name %></td>
         <td><%= hardware.bag&.name %></td>
-        <td><%= link_to raw('<i class="fa fa-eye alert-info"></i>'), hardware, title: 'Voir' %></td>
-        <td><%= link_to raw('<i class="fa fa-pencil-square-o"></i>'), edit_hardware_path(hardware), title: 'Éditer' %></td>
-	<td><%= link_to raw('<i class="fa fa-trash-o alert-danger"></i>'), hardware, method: :delete, data: { confirm: 'Êtes-vous sûr·e ?' }, title: 'Détruire' %></td>
+        <td><%= link_to fa_icon('eye'), hardware, title: 'Voir', class: 'text-info', data: { toggle: 'tooltip' } %></td>
+        <td><%= link_to fa_icon('pencil-square-o'), edit_hardware_path(hardware), title: 'Éditer', class: 'text-primary', data: { toggle: 'tooltip' } %></td>
+        <td><%= link_to fa_icon('trash-o'), hardware, method: :delete, data: { confirm: 'Êtes-vous sûr·e ?' }, title: 'Détruire', class: 'text-danger', data: { toggle: 'tooltip' } %></td>
       </tr>
     <% end %>
   </tbody>
