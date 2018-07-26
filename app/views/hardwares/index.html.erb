@@ -32,7 +32,7 @@
         <td><%= hardware.bag&.name %></td>
         <td><%= link_to fa_icon('eye'), hardware, title: 'Voir', class: 'text-info', data: { toggle: 'tooltip' } %></td>
         <td><%= link_to fa_icon('pencil-square-o'), edit_hardware_path(hardware), title: 'Éditer', class: 'text-primary', data: { toggle: 'tooltip' } %></td>
-        <td><%= link_to fa_icon('trash-o'), hardware, method: :delete, data: { confirm: 'Êtes-vous sûr·e ?' }, title: 'Détruire', class: 'text-danger', data: { toggle: 'tooltip' } %></td>
+        <td><%= link_to fa_icon('trash-o'), hardware, method: :delete, title: 'Détruire', class: 'text-danger', data: { toggle: 'tooltip', confirm: 'Êtes-vous sûr·e ?' } %></td>
       </tr>
     <% end %>
   </tbody>
