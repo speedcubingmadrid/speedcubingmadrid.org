@@ -63,15 +63,11 @@ module ApplicationHelper
   end
 
   def wca_login_url(scopes)
-    "#{wca_base_url}/oauth/authorize?response_type=code&client_id=#{wca_client_id}&scope=#{URI.encode(scopes)}&redirect_uri=#{fixed_wca_callback_url}"
+    "#{wca_base_url}/oauth/authorize?response_type=code&client_id=#{wca_client_id}&scope=#{URI.encode(scopes)}&redirect_uri=#{wca_callback_url}"
   end
 
   def wca_client_secret
     ENV['WCA_CLIENT_SECRET']
-  end
-
-  def fixed_wca_callback_url
-    wca_callback_url.sub("localhost", "127.0.0.1")
   end
 
   def page_title(page_title = "")
