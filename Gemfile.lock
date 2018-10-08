@@ -68,7 +68,7 @@ GEM
       railties (>= 3.2, < 5.2)
     erubi (1.7.1)
     execjs (2.7.0)
-    ffi (1.9.23)
+    ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     high_voltage (3.0.0)
@@ -257,4 +257,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.16.6
