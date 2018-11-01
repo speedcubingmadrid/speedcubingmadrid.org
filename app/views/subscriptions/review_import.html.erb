@@ -1,16 +1,16 @@
-<% provide(:title, "Changements à soumettre") %>
+<% provide(:title, "Cambios a realizar") %>
 <%= render "nav", current_page: :subscriptions %>
 
-<h1>Changements à soumettre</h1>
+<h1>Cambios a realizar</h1>
 
 <p>
-Les contributions ci dessous ont été détectées, merci de les relire et de ne soumettre le formulaire que si tout semble correct !
+Se han detectado las siguientes contribuciones, por favor léelas de nuevo antes de enviar el formulario para asegurarte de que todo está correcto.
 </p>
 
 
 
 <div class="table-responsive">
-  <% headers = ["Prénom", "Nom", "ID WCA", "Email", "Payé le", "Lien du reçu"] %>
+  <% headers = ["Apellido", "Nombre", "WCA ID", "Email", "Pagado el", "Enlace del recibo"] %>
   <% if @new_subscriptions.any? %>
     <%= simple_form_for :subscriptions, url: subscriptions_import_path do |f| %>
       <%= render "shared/compact_table", headers: headers  do %>
@@ -29,19 +29,19 @@ Les contributions ci dessous ont été détectées, merci de les relire et de ne
         <% end %>
       <% end %>
 
-      <%= f.submit "Importer ces contributions", class: "btn btn-primary" %>
+      <%= f.submit "Importar estas contribuciones", class: "btn btn-primary" %>
     <% end %>
   <% else %>
     <div class="alert alert-info">
-      Pas de contributions à importer.
+      No hay contribuciones a importar.
     </div>
   <% end %>
 
   <% if @subscriptions.any? %>
     <p>
-    Les contributions ci dessous sont déjà présentes dans la base de données et seront ignorées.
+    Las contribuciones a continuación ya están presentes en la base de datos y serán ignoradas.
     </p>
-    <%= render "shared/compact_table", headers: ["Prénom", "Nom", "ID WCA", "Email", "Payé le", "", ""] do %>
+    <%= render "shared/compact_table", headers: ["Apellido", "Nombre", "WCA ID", "Email", "Pagado el", "", ""] do %>
       <% @subscriptions.each do |subscription| %>
         <tr class="table-info">
           <td><%= subscription.firstname %></td>

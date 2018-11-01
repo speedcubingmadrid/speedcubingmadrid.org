@@ -10,107 +10,109 @@ fr:
       short: "%d/%m/%Y"
       post_datetime: "%e %B %Y"
   countries:
-    XA: Pays multiple (Asie)
-    XE: Pays multiple (Europe)
-    XS: Pays multiple (Amérique du Sud)
-    XM: Pays multiple (Amériques)
+    XA: Múltiples países (Asia)
+    XE: Múltiples países (Europa)
+    XS: Múltiples países (América del Sur)
+    XM: Múltiples países (Américas)
     MO: Macau
     HK: Hong Kong
-    KR: République de Corée
+    KR: República de Corea
   simple_form:
     labels:
       big_champs:
         euro:
-          competition_id: "ID de la compétition"
-          name: "Nom de la compétition"
-          alt_text: "Texte alternatif"
+          competition_id: "ID de la competición"
+          name: "Nombre de la competición"
+          alt_text: "Texto alternativo"
+        # TODO: Change to madrid.
         french:
-          competition_id: "ID de la compétition"
-          name: "Nom de la compétition"
-          alt_text: "Texte alternatif"
+          competition_id: "ID de la competición"
+          name: "Nombre de la competición"
+          alt_text: "Texto alternativo"
         world:
-          competition_id: "ID de la compétition"
-          name: "Nom de la compétition"
-          alt_text: "Texte alternatif"
+          competition_id: "ID de la competición"
+          name: "Nombre de la competición"
+          alt_text: "Texto alternativo"
       calendar_event:
-        name: "Nom"
-        public: "cet événement est visible"
-        kind: "Type d'événement"
+        name: "Nombre"
+        public: "Este evento es visible"
+        kind: "Tipo de evento"
       post:
-        title: 'Titre'
-        body: 'Contenu'
-        tags_string: 'Tags'
-        posted_at: 'Date de publication'
-        slug: 'Permalien'
-        draft: 'Ce post est un brouillon'
-        feature: "Mettre en valeur sur la page d'accueil"
-        competition_page: "Ce post est une page de compétition"
+        title: 'Título'
+        body: 'Contenido'
+        tags_string: 'Etiquetas'
+        posted_at: 'Fecha de publicación'
+        slug: 'Permalink'
+        draft: 'Esta publicación es un borrador'
+        feature: "Resaltar en la página de inicio"
+        competition_page: "Esta publicación es una página de competición"
       import_user:
-        query: "Recherche"
-        user_id: "ID d'utilisateur"
+        query: "Búsqueda"
+        user_id: "ID del usuario"
       signin:
-        can_manage: "Je suis un organisateur ou Délégué WCA, et j'autorise l'AFS à gérer mes compétitions."
+        can_manage: "Soy un organizador o un Delegado de la WCA, y autorizo a la AMS a gestionar mis competiciones."
       user:
-        wca_id: "ID WCA"
-        friendly_birthdate: "Date de naissance"
-        admin: "Administrateur"
-        communication: "Équipe Communication"
-        french_delegate: "Délégué Français"
-        notify_subscription: "M'avertir lorsque que mon adhésion se termine"
+        wca_id: "WCA ID"
+        friendly_birthdate: "Fecha de nacimiento"
+        admin: "Administrador"
+        communication: "Equipo de comunicación"
+        # TODO: Change to madrid.
+        french_delegate: "Delegado de la WCA"
+        notify_subscription: "Avisarme cuando termine mi membresía"
       tag:
-        name: "Alias du tag"
-        color: "Couleur"
-        fullname: "Texte affiché"
+        name: "Alias de la etiqueta"
+        color: "Color"
+        fullname: "Texto mostrado"
       bag:
         owners:
-          user: "Utilisateur"
-          start: "Du"
-          end: "Au"
+          user: "Usuario"
+          start: "Desde"
+          end: "Hasta"
       hardware:
         owners:
-          user: "Utilisateur"
-          start: "Du"
-          end: "Au"
+          user: "Usuario"
+          start: "Desde"
+          end: "Hasta"
     hints:
       post:
-        tags_string: "Pour personnaliser le texte affiché et la couleur de chaque tag, allez <a href='/tags' target='_blank'>là</a>."
-        draft: "Si cette case est cochée, le post ne sera pas visible par le public"
-        competition_page: "Si cette case est cochée, le post ne sera pas affiché sur la page d'accueil."
-        body: "Ajoutez \"{{post_excerpt}}\" pour séparer l'introduction d'un post de son contenu principal."
+        tags_string: "Para personalizar el texto que se muestra y el color de cada etiqueta, vaya <a href='/tags' target='_blank'>aquí</a>."
+        draft: "Si se selecciona esta casilla, la publicación no será visible al público"
+        competition_page: "Si se selecciona esta casilla, la publicación no se mostrará en la página de inicio."
+        body: "Agregue \"{{post_excerpt}}\" para separar la introducción de una publicación de su contenido principal."
       tag:
-        name: "L'alias permet d'identifier le tag et n'est pas modifiable"
+        name: "El alias permite identificar la etiqueta y no es editable"
   helpers:
     submit:
       signin:
-        submit: "Se connecter avec la WCA"
+        submit: "Conectarse a través de la WCA"
       user:
-        update: 'Sauvegarder'
+        update: 'Guardar'
       calendar_event:
-        create: "Créer l'évènement"
-        update: 'Sauvegarder'
+        create: "Crear el evento"
+        update: 'Guardar'
       post:
-        create: 'Créer le post'
-        update: 'Sauvegarder'
+        create: 'Crear la publicación'
+        update: 'Guardar'
       import_user:
-        submit: "Envoyer la requête"
+        submit: "Enviar la solicitud"
       import_form:
-        submit: "Importer le CSV"
+        submit: "Importar el CSV"
       tag:
-        update: "Sauvegarder"
+        update: "Guardar"
       big_champs:
-        submit: "Sauvegarder"
+        submit: "Guardar"
     page_entries_info:
       one_page:
         display_entries:
-          zero: "Pas de %{entry_name} trouvé."
-          one: "Affichage d'un %{entry_name}"
-          other: "Affichage de <b>tous les %{count}</b> %{entry_name}"
+          zero: "No se encontró %{entry_name}."
+          one: "Mostrando una %{entry_name}"
+          other: "Mostrando <b>todas las %{count}</b> %{entry_name}"
       more_pages:
-        display_entries: "Affichage des %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> sur <b>%{total}</b> au total"
+        display_entries: "Monstrando las %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> en total"
   views:
     pagination:
-      first: "&laquo; Première"
-      last: "Dernière &raquo;"
-      previous: "&lsaquo; Préc."
-      next: "Suiv. &rsaquo;"
+      first: "&laquo; Primera"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Ant."
+      next: "Sig. &rsaquo;"
       truncate: "&hellip;"

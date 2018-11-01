@@ -1,19 +1,19 @@
-<% provide(:title, "Infos sur le sac " + @bag.name) %>
+<% provide(:title, "Información de la bolsa " + @bag.name) %>
 
 <p>
-  <strong>Nom :</strong>
+  <strong>Nombre:</strong>
   <%= @bag.name %>
 </p>
 <% if @bag.hardwares.any? %>
   <ul>
     <% @bag.hardwares.each do |h| %>
-      <li><%= link_to "#{h.name} (#{h.hardware_type_string})", h, title: 'Voir' %></li>
+      <li><%= link_to "#{h.name} (#{h.hardware_type_string})", h, title: 'Ver' %></li>
       <ul>
         <li><%= "#{h.state_string}"  %></li>
         <% if h.comment? %>
-          <li><%= "Commentaire : #{h.comment}" %></li>
+          <li><%= "Comentario: #{h.comment}" %></li>
         <% else %>
-          <li>Pas de commentaire</li>
+          <li>Sin comentarios</li>
         <% end %>
       </ul>
     <% end %>
@@ -22,5 +22,5 @@
 
 <%= render "shared/show_owners_list", item: @bag %>
 
-<%= link_to 'Éditer', edit_bag_path(@bag) %> |
-<%= link_to 'Retour', bags_path %>
+<%= link_to 'Editar', edit_bag_path(@bag) %> |
+<%= link_to 'Volver', bags_path %>

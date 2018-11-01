@@ -15,27 +15,27 @@ function checkRegistration(e) {
   $elem = $("#registration-"+$(e.target).data("id"));
   let name = $elem.find(".person-name").text();
   $(e.target).hide();
-  $elem.find(".membership-status").append("<span class='pending-query'>Requête en cours...</span>");
+  $elem.find(".membership-status").append("<span class='pending-query'>Consulta en curso...</span>");
   $.get(api_url+name+"&only_with_wca_ids=true&persons_table=true")
     .done(function(data) {
       if (data.result.length == 1) {
         $elem.removeClass("table-warning");
         $elem.addClass("table-danger");
         let wca_id = data.result[0].wca_id;
-        $elem.find(".membership-status").html("Detecté comme <a href='"+person_profile_url+wca_id+"' target='_blank'>"+wca_id+"</a>");
+        $elem.find(".membership-status").html("Detectado como <a href='"+person_profile_url+wca_id+"' target='_blank'>"+wca_id+"</a>");
       } else if (data.result.length == 0) {
         $elem.removeClass("table-warning");
         $elem.addClass("table-success");
-        $elem.find(".membership-status").html("<a href='"+person_search_url+name+"' target='_blank'>Nouveau compétiteur</a>");
+        $elem.find(".membership-status").html("<a href='"+person_search_url+name+"' target='_blank'>Nuevo competidor</a>");
       } else {
-        $elem.find(".membership-status").html("<a href='"+person_search_url+name+"' target='_blank'>Plusieurs correspondances</a>");
+        $elem.find(".membership-status").html("<a href='"+person_search_url+name+"' target='_blank'>Varias correspondencias</a>");
       }
       if (checkAll) {
         checkNext();
       }
     })
   .fail(function(handle) {
-    alert("Erreur lors de la requête : \""+handle.statusText+"\"");
+    alert("Error en la consulta: \""+handle.statusText+"\"");
     $elem.find(".pending-query").remove();
     $(e.target).show();
   })

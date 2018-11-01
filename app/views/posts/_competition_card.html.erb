@@ -7,10 +7,10 @@
     <% if competition.respond_to?(:alt_text) %>
       <%= competition.alt_text %>
     <% else %>
-      <%= "Du #{l(competition.start_date, format: :day_month)} au #{l(competition.end_date)}." %>
+      <%= "Desde #{l(competition.start_date, format: :day_month)} hasta #{l(competition.end_date)}." %>
     <% end %>
   </p>
   <% if competition.respond_to?(:website) %>
-    <a href="<%= competition.website %>" class="btn btn-primary" target="_blank">Visiter le site</a>
+    <a href="<%= competition.website %>" class="btn btn-primary" target="_blank">Visitar la página</a>
   <% end %>
 </div>

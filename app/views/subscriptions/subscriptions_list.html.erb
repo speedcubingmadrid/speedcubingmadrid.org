@@ -1,15 +1,15 @@
-<% provide(:title, "Adhésions") %>
+<% provide(:title, "Nuevos socios") %>
 <%= render "nav", current_page: :subscriptions %>
 
 <% if current_user.admin? %>
   <div class="card text-white bg-secondary mb-3">
     <div class="card-header">
-      Importer un CSV de HelloAsso.
+      Importar un CSV de HelloAsso.
     </div>
     <div class="card-body">
       <%= simple_form_for :import_form, url: subscriptions_review_csv_path, html: { class: "row" } do |f| %>
         <div class="col-12 col-md-10">
-          <%= f.input :csvfile, as: :file, input_html: { accept: ".csv" }, label: "Sélectionner un fichier" %>
+          <%= f.input :csvfile, as: :file, input_html: { accept: ".csv" }, label: "Seleccionar un fichero" %>
         </div>
         <div class="col-12 col-md-2">
           <%= f.button :submit, class: "submit-button", disabled: true %>
@@ -19,7 +19,7 @@
   </div>
 <% end %>
 
-<%= render "shared/compact_table", headers: ["Prénom", "Nom", "ID WCA", "Email", "Payé le", "", ""] do %>
+<%= render "shared/compact_table", headers: ["Apellido", "Nombre", "WCA ID", "Email", "Pagado el", "", ""] do %>
   <% @subscriptions.each do |subscription| %>
     <tr>
       <td><%= subscription.firstname %></td>
@@ -27,10 +27,10 @@
       <td><%= link_to_wca_profile(subscription.wca_id) %></td>
       <td><%= subscription.email %></td>
       <td><%= subscription.payed_at %></td>
-      <td><%= link_to "Reçu", subscription.receipt_url %></td>
+      <td><%= link_to "Recibo", subscription.receipt_url %></td>
       <td>
         <% if current_user.admin? %>
-          <%= link_to fa_icon("trash"), subscription, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: "btn btn-danger btn-sm" %>
+          <%= link_to fa_icon("trash"), subscription, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-danger btn-sm" %>
         <% end %>
       </td>
     </tr>

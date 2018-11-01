@@ -1,16 +1,18 @@
-<% provide(:title, "Règlement WCA") %>
+<% provide(:title, "Reglamento WCA") %>
 <% provide(:active_section, "speedcubing") %>
-<%= render "layouts/page_wrapper", title: "Règlement WCA" do %>
+<%= render "layouts/page_wrapper", title: "Reglamento WCA" do %>
 
   <p>
-    Les compétitions officielles sont reconnues par la World Cube Association (WCA).
-    Le <%= link_to "Règlement WCA", "https://www.worldcubeassociation.org/regulations/", target: "_blank" %> contient l'ensemble des règles qui s'appliquent lors de toutes ces compétitions officielles.
-    Le Règlement WCA est également complémenté par les <%= link_to "Recommandations WCA", "https://www.worldcubeassociation.org/regulations/guidelines.html", target: "_blank" %>. Le Règlement devrait être considéré comme un document complet, mais les Recommandations contiennent des informations et explications additionnelles.
+    Las competiciones oficiales son reconocidas por la World Cube Association (WCA).
+    El <%= link_to "Reglamento WCA", "https://www.worldcubeassociation.org/regulations/", target: "_blank" %> contiene todas las reglas que se aplican en todas las competiciones oficiales.
+    El Reglamento WCA se complementa con las <%= link_to "Directrices WCA", "https://www.worldcubeassociation.org/regulations/guidelines.html", target: "_blank" %>. El Reglamento WCA debe considerarse como un documento completo, pero las Directrices WCA contienen información y explicaciones adicionales de gran utilidad.
+  </p>
+<!--
+  <p>
+    La versión oficial del Reglamento está en inglés, pero existe una traducción al español <%= link_to "aquí", "https://www.worldcubeassociation.org/regulations/translations/spanish/", target: "_blank" %>. Se proporciona esta versión a título informativo, pero en caso de diferencia, la versión que prevalece es la inglesa.
   </p>
   <p>
-    La version officielle du Règlement est en Anglais, mais une traduction en Français existe <%= link_to "ici", "https://www.worldcubeassociation.org/regulations/translations/french/", target: "_blank" %>. Elle est fournie à titre informatif, en cas de différence seule la version Anglaise fait foi.
+    El Reglamento WCA es muy preciso y es importante conocerlo, pero si eres nuevo y simplemente quieres saber cómo funcionan las competiciones, los <%= link_to "tutoriales", page_path("speedcubing/tutos") %> responderán tus preguntas.
   </p>
-  <p>
-    Le Règlement est très précis et c'est important de le connaître, mais si vous êtes débutant et vous demandez simplement comment se déroulent les compétitions, alors les <%= link_to "tutoriels", page_path("speedcubing/tutos") %> sauront sûrement mieux répondre à vos questions.
-  </p>
+-->
 <% end %>

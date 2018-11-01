@@ -1,9 +1,9 @@
-<% provide(:title, "Liste des utilisateurs") %>
-<h1>Liste des utilisateurs</h1>
+<% provide(:title, "Lista de usuarios") %>
+<h1>Lista de usuarios</h1>
 
-<%= link_to "Importer un utilisateur depuis la WCA", users_import_path, class: "btn btn-success mb-3" %>
+<%= link_to "Importar un usuario desde la WCA", users_import_path, class: "btn btn-success mb-3" %>
 
-<%= render "shared/compact_table", headers: ["Nom complet", "ID WCA", "Pays", "Email"] do %>
+<%= render "shared/compact_table", headers: ["Nombre completo", "WCA ID", "País", "Email"] do %>
   <% @users.each do |user| %>
     <tr>
       <th scope="row">

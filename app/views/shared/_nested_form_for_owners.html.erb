@@ -2,8 +2,8 @@
   <%= javascript_pack_tag "cocoon", 'data-turbolinks-track': 'reload'  %>
 <% end %>
 <p class="form-text text-muted">
-  Vous ne trouvez pas l'utilisateur dans la liste ?
-  Rendez-vous <%= link_to "ici", users_import_path, target: "_blank" %> pour importer un utilisateur (n'oubliez pas de recharger cette page après).
+  ¿No encuentras al usuario en la lista?
+  Haz clic <%= link_to "aquí", users_import_path, target: "_blank" %> para importar un usuario (no te olvides de recargar esta página después).
 </p>
 <div class="owners">
   <%= f.simple_fields_for :owners do |f2| %>
@@ -11,7 +11,7 @@
   <% end %>
 </div>
 <%= link_to_add_association(
-  button_tag(raw("#{fa_icon("plus")} Ajouter une possession"), type: "button", class: "btn btn-success mb-3"),
+  button_tag(raw("#{fa_icon("plus")} Añadir una posesión"), type: "button", class: "btn btn-success mb-3"),
   f,
   :owners,
   data: {

@@ -1,24 +1,24 @@
-<% provide(:title, "Mon profil") %>
+<% provide(:title, "Mi perfil") %>
 <% is_admin = current_user.admin? %>
 <h1><%= @user.name %> - <%= @user.country_name %> <%= flag_icon(@user.country_iso2) %></h1>
 <% last_sub = @user.last_subscription %>
 <% if last_sub&.active? %>
   <div class="alert alert-success">
-    Vous êtes membre de l'AFS jusqu'au <%= l(last_sub.until) %>.
+    Eres socio de la AMS hasta <%= l(last_sub.until) %>.
   </div>
 <% elsif last_sub %>
   <div class="alert alert-warning">
-    Vous n'êtes plus membre de l'AFS depuis le <%= l(last_sub.until) %>.
+    No eres socio de la AMS desde <%= l(last_sub.until) %>.
   </div>
 <% else %>
   <div class="alert alert-danger">
-    Vous n'êtes pas membre de l'AFS.
+    No eres socio de la AMS.
   </div>
 <% end %>
 <%= simple_form_for @user, wrapper: :horizontal_form, html: { class: "mb-4 user-edit-form" } do |f| %>
   <%= f.input :friendly_delegate_status, as: :display, label: false %>
 
-  <%= f.error_notification message: "Le formulaire est invalide. Merci de corriger les erreurs ci dessous." %>
+  <%= f.error_notification message: "El formulario no es válido. Por favor, corrige los errores a continuación." %>
 
   <%= f.input :wca_id, as: :display %>
   <%= f.input :friendly_birthdate, as: :display %>
@@ -31,17 +31,17 @@
   <% end %>
 <% end %>
 
-<h2>Cotisations</h2>
+<h2>Cuotas</h2>
 <div class="alert alert-info">
-  Les cotisations sont importées manuellement et périodiquement par les membres du bureau.
+  Las contribuciones se importan manualmente y periódicamente por los miembros de la Junta Directiva.
   <br/>
-  Si vous pensez que les informations ci-dessous sont erronées, merci de contacter l'ensemble du bureau via l'adresse <%= mail_to "bureau@speedcubingfrance.org" %>.
+  Si crees que la información a continuación es incorrecta, escribe un correo a <%= mail_to "bureau@speedcubingfrance.org" %>.
 </div>
 <% if @user.subscriptions.empty? %>
   <div class="alert alert-warning">
     <p>
-      Vous n'avez aucune cotisation enregistrée.
-      Rendez vous sur <%= link_to "HelloAsso", "https://www.helloasso.com/associations/association-francaise-de-speedcubing", target: "_blank" %> pour adhérer !.
+      No tienes contribuciones registradas.
+      ¡Puedes contribuir en <%= link_to "HelloAsso", "https://www.helloasso.com/associations/association-francaise-de-speedcubing", target: "_blank" %> para hacerte socio!.
     </p>
   </div>
 <% else %>
@@ -51,11 +51,11 @@
         <% tr_class = s.over? ? "warning" : "success" %>
         <tr class="table-<%= tr_class %>">
           <td>
-            Payée le <%= l(s.payed_at.to_date) %>, cette cotisation
+            Pagada el <%= l(s.payed_at.to_date) %>, esta cuota
             <% if s.over? %>
-              n'est plus active.
+              ya no está activa.
             <% else %>
-              est toujours active.
+              sigue activa.
             <% end %>
           </td>
         </tr>

@@ -1,22 +1,22 @@
 <%= javascript_pack_tag 'competitions', 'data-turbolinks-track': 'reload' %>
 <% if @error %>
   <div class="alert alert-danger">
-    Une erreur est survenue : <%= @error %>
+    Ha ocurrido un error: <%= @error %>
   </div>
 <% else %>
-  <% status = { pending: "En attente", accepted: "Acceptée", deleted: "Supprimée" } %>
-  <h1>Inscriptions pour <%= @competition["name"] %></h1>
+  <% status = { pending: "A la espera", accepted: "Aceptados", deleted: "Eliminados" } %>
+  <h1>Inscripciones para <%= @competition["name"] %></h1>
   <a href="#" class="activate-or-stop-check" style="display: block;">
-    Vérifier tous les potentiels nouveaux compétiteurs
+    Comprueba todos los nuevos competidores potenciales
   </a>
   <a href="#" class="activate-or-stop-check" style="display: none;">
-    Arrêter la vérification
+    Parar la verificación
   </a>
 
   <% status.keys.each do |s| %>
     <h2><%= status[s] %></h2>
     <% if @persons[s].any? %>
-      <%= render "shared/compact_table", headers: ["Nom complet", "ID WCA", "Statut", ""] do %>
+      <%= render "shared/compact_table", headers: ["Nombre completo", "WCA ID", "Estatus", ""] do %>
         <% @persons[s].each do |p| %>
           <% tr_class, membership = class_and_status_from_person(@subscribers_by_id, @subscribers_by_name, p) %>
           <tr id="registration-<%= p["registration"]["wcaRegistrationId"] %>" class="table-<%= tr_class %>">
@@ -28,7 +28,7 @@
         <% end %>
       <% end %>
     <% else %>
-      Aucune inscription <%= status[s].downcase %>.
+      Sin registros <%= status[s].downcase %>.
     <% end %>
   <% end %>
   <% puts @persons.keys %>

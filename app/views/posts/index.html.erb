@@ -1,7 +1,7 @@
-<% provide(:title, "Liste des posts et pages de compétition") %>
-<h1>Liste des posts et pages de compétition</h1>
+<% provide(:title, "Lista de publicaciones y páginas de competiciones") %>
+<h1>Lista de publicaciones y páginas de competiciones</h1>
 
-<%= link_to "Modifier les tags", tags_path, class: "d-block my-2" %>
+<%= link_to "Modificar las etiquetas", tags_path, class: "d-block my-2" %>
 
 <%= link_to fa_icon("plus-circle"), new_news_path, class: "btn btn-success mb-4" %>
 
@@ -22,10 +22,9 @@
         <div>
           <%= link_to(fa_icon("eye"), view_post_path(post), class: "btn btn-sm btn-info") %>
           <%= link_to(fa_icon("pencil"), edit_news_path(post), class: "btn btn-sm btn-primary") %>
-          <%= link_to(fa_icon("trash"), news_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger") %>
+          <%= link_to(fa_icon("trash"), news_path(post), method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-sm btn-danger") %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-

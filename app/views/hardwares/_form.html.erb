@@ -7,7 +7,7 @@
     <%= f.input :state, collection: Hardware::STATES, label_method: :second, value_method: :first %>
     <%= f.association :bag, collection: Bag.order(:name) %>
     <%= f.input :comment %>
-    <h3>Liste des personnes en possession du matériel</h3>
+    <h3>Lista de personas en posesión de material</h3>
     <%= render "shared/nested_form_for_owners", f: f %>
   </div>
 

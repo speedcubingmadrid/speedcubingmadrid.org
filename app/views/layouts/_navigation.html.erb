@@ -20,18 +20,21 @@
         <div class="brand-header">
           <div class="brand-name">
             <%= link_to root_path do %>
-              <span class="blue d-none d-md-block">Association Française de Speedcubing</span>
-              <span class="blue d-md-none">AFS</span>
+              <span class="blue d-none d-md-block">Asociación Madrileña de Speedcubing</span>
+              <span class="blue d-md-none">AMS</span>
             <% end %>
           </div>
           <div class="brand-social">
-            <a href="https://www.facebook.com/AFspeedcubing/" target="_blank">
+            <a href="https://www.instagram.com" target="_blank">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
               <i class="fa fa-facebook-official"></i>
             </a>
-            <a href="https://www.twitch.tv/afspeedcubing" target="_blank">
-              <i class="fa fa-twitch"></i>
-            </a>
-            <a href="https://github.com/speedcubingfrance/speedcubingfrance.org" target="_blank">
+            <a href="https://github.com/albertopdrf/ams" target="_blank">
               <i class="fa fa-github"></i>
             </a>
           </div>
@@ -47,18 +50,18 @@
             <li class="nav-item">
               <% active = section == "home" ? "active" : nil %>
               <%= link_to root_url, class: "nav-link nav-home #{active}" do %>
-                <i class="fa fa-home"></i> <span class="d-sm-none d-lg-inline">Accueil</span>
+                <i class="fa fa-home"></i> <span class="d-sm-none d-lg-inline">Portada</span>
               <% end %>
             </li>
             <li class="nav-item dropdown">
               <% active = section == "association" ? "active" : nil %>
               <a class="nav-link nav-association dropdown-toggle <%= active %>" id="dropdown-association" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                <i class="fa fa-info-circle"></i> <span class="d-sm-none d-lg-inline">Association</span>
+                <i class="fa fa-info-circle"></i> <span class="d-sm-none d-lg-inline">Asociación</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdown-association">
-                <%= link_to "Présentation", page_path("association"), class: "dropdown-item" %>
-                <%= link_to "Adhésions", page_path("association/adhesion"), class: "dropdown-item" %>
-                <%= link_to "Documents", page_path("association/documents"), class: "dropdown-item" %>
+                <%= link_to "Presentación", page_path("association"), class: "dropdown-item" %>
+                <%= link_to "¡Hazte socio!", page_path("association/adhesion"), class: "dropdown-item" %>
+                <%= link_to "Documentos", page_path("association/documents"), class: "dropdown-item" %>
                 <%= link_to "Logo", page_path("association/logo"), class: "dropdown-item" %>
               </div>
             </li>
@@ -68,17 +71,17 @@
                 <i class="fa fa-cubes"></i> <span class="d-sm-none d-lg-inline">Speedcubing</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdown-speedcubing">
-                <%= link_to "Présentation de la discipline", page_path("speedcubing"), class: "dropdown-item" %>
-                <%= link_to "Compétitions", page_path("competitions"), class: "dropdown-item" %>
-                <%= link_to "Règlement", page_path("speedcubing/reglement"), class: "dropdown-item" %>
-                <%= link_to "Tutoriels", page_path("speedcubing/tutos"), class: "dropdown-item" %>
-                <%= link_to "Ressources externes", page_path("ressources"), class: "dropdown-item" %>
+                <%= link_to "Speedcubing", page_path("speedcubing"), class: "dropdown-item" %>
+                <%= link_to "Competiciones", page_path("competitions"), class: "dropdown-item" %>
+                <%= link_to "Reglamento", page_path("speedcubing/reglement"), class: "dropdown-item" %>
+                <%#= link_to "Tutoriales", page_path("speedcubing/tutos"), class: "dropdown-item" %>
+                <%#= link_to "Recursos externos", page_path("ressources"), class: "dropdown-item" %>
               </div>
             </li>
             <li class="nav-item">
               <% active = section == "contact" ? "active" : nil %>
               <%= link_to page_path("contact"), class: "nav-link nav-contact #{active}" do %>
-                <i class="fa fa-envelope"></i> <span class="d-sm-none d-lg-inline">Contact</span>
+                <i class="fa fa-envelope"></i> <span class="d-sm-none d-lg-inline">Contacto</span>
               <% end %>
             </li>
             <% if current_user %>
@@ -93,34 +96,34 @@
                   <h6 role="presentation" class="dropdown-header">
                     <%= current_user.name %>
                   </h6>
-                  <%= link_to "Votre profil", profile_path, class: "dropdown-item" %>
+                  <%= link_to "Mi perfil", profile_path, class: "dropdown-item" %>
                   <% if has_manage_competitions_scope %>
-                    <%= link_to "Mes compétitions", my_competitions_path, class: "dropdown-item" %>
+                    <%= link_to "Mis competiciones", my_competitions_path, class: "dropdown-item" %>
                   <% end %>
                   <% if current_user.admin? || current_user.comm? %>
                     <div class="dropdown-divider"></div>
                     <h6 role="presentation" class="dropdown-header">
-                      Administration
+                      Administración
                     </h6>
                     <% if current_user.can_manage_communication_matters? %>
-                      <%= link_to "Adhésions", subscriptions_path, class: "dropdown-item" %>
+                      <%= link_to "Socios", subscriptions_path, class: "dropdown-item" %>
                     <% end %>
                     <% if current_user.admin? %>
-                      <%= link_to "Utilisateurs", users_path, class: "dropdown-item" %>
+                      <%= link_to "Usuarios", users_path, class: "dropdown-item" %>
                     <% end %>
-                    <%= link_to "Posts", news_index_path, class: "dropdown-item" %>
-                    <%= link_to "Compétitions", upcoming_champs_path, class: "dropdown-item" %>
+                    <%= link_to "Publicaciones", news_index_path, class: "dropdown-item" %>
+                    <%= link_to "Competiciones", upcoming_champs_path, class: "dropdown-item" %>
                   <% end %>
                   <% if current_user.admin? || current_user.french_delegate? %>
                     <div class="dropdown-divider"></div>
                     <h6 role="presentation" class="dropdown-header">
-                      Délégués
+                      Delegados WCA
                     </h6>
-                    <%= link_to "Matériel", hardwares_path, class: "dropdown-item" %>
+                    <%= link_to "Material", hardwares_path, class: "dropdown-item" %>
                   <% end %>
 
                   <div class="dropdown-divider"></div>
-                  <%= link_to "Déconnexion", signout_path, class: "dropdown-item" %>
+                  <%= link_to "Cerrar sesión", signout_path, class: "dropdown-item" %>
                 </div>
               </li>
             <% else %>

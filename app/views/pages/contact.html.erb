@@ -1,9 +1,9 @@
-<% provide(:title, "Contact") %>
+<% provide(:title, "Contacto") %>
 <% provide(:active_section, "contact") %>
 
-<%= render "layouts/page_wrapper", title: "Contact" do %>
+<%= render "layouts/page_wrapper", title: "Contacto" do %>
 
-  <p>Pour toute question, remarque, ou suggestion concernant l’AFS : merci d’envoyer un mail à <%= mail_to "contact@speedcubingfrance.org" %>.</p>
+  <p>Para cualquier cuestión, comentario o sugerencia relacionada con la AMS: envía un correo electrónico a <%= mail_to "contact@speedcubingfrance.org" %>.</p>
 
-  <p>Si vous constatez un problème avec le site internet, vous pouvez directement ouvrir un bug ("Issue") sur <a href="https://github.com/speedcubingfrance/speedcubingfrance.org/issues">github</a>, ou contacter les administrateurs à <%= mail_to "admin@speedcubingfrance.org" %>.</p>
+  <p>Si has encontrado algún fallo en la página, puedes abrir directamente una Issue en <a href="https://github.com/albertopdrf/ams/issues">GitHub</a>, o contactar con los administradores a través de <%= mail_to "admin@speedcubingfrance.org" %>.</p>
 <% end %>

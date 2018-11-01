@@ -1,8 +1,8 @@
-<% provide(:title, "Sacs") %>
+<% provide(:title, "Bolsas") %>
 
-<h1>Sacs</h1>
+<h1>Bolsas</h1>
 
-<%= link_to "Gérer le matériel", hardwares_path %>
+<%= link_to "Manejar el material", hardwares_path %>
 <hr>
 
 <% @bags.each do |bag| %>
@@ -12,31 +12,31 @@
     <% if bag.hardwares.any? %>
       <ul>
         <% bag.hardwares.each do |h| %>
-          <li><%= link_to "#{h.name} (#{h.hardware_type_string})", h, title: 'Voir' %></li>
+          <li><%= link_to "#{h.name} (#{h.hardware_type_string})", h, title: 'Ver' %></li>
           <ul>
             <li><%= "#{h.state_string}"  %></li>
             <% if h.comment? %>
-              <li><%= "Commentaire : #{h.comment}" %></li>
+              <li><%= "Comentario: #{h.comment}" %></li>
             <% else %>
-              <li>Pas de commentaire</li>
+              <li>Sin comentarios</li>
             <% end %>
           </ul>
         <% end %>
       </ul>
     <% else %>
-      rien pour l'instant.
+      nada por ahora.
     <% end %>
 
     <%= render "shared/show_owners_list", item: bag %>
     <br/>
 
-    <%= link_to fa_icon('eye'), bag, title: 'Voir', class: 'text-info', data: { toggle: 'tooltip' } %>
+    <%= link_to fa_icon('eye'), bag, title: 'Ver', class: 'text-info', data: { toggle: 'tooltip' } %>
     |
-    <%= link_to fa_icon('pencil-square-o'), edit_bag_path(bag), title: 'Éditer', class: 'text-primary', data: { toggle: 'tooltip' } %>
+    <%= link_to fa_icon('pencil-square-o'), edit_bag_path(bag), title: 'Editar', class: 'text-primary', data: { toggle: 'tooltip' } %>
     |
-    <%= link_to fa_icon('trash-o'), bag, method: :delete, title: 'Détruire', class: 'text-danger', data: { toggle: 'tooltip', confirm: 'Êtes-vous sûr·e ?' } %>
+    <%= link_to fa_icon('trash-o'), bag, method: :delete, title: 'Borrar', class: 'text-danger', data: { toggle: 'tooltip', confirm: '¿Estás seguro?' } %>
     <hr/>
   </div>
 <% end %>
 
-<%= link_to 'Nouveau sac', new_bag_path %>
+<%= link_to 'Nueva bolsa', new_bag_path %>

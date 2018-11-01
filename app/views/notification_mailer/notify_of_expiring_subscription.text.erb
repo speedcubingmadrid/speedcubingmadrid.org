@@ -1,9 +1,9 @@
-Bonjour <%= @user.name %>,
+Hola <%= @user.name %>,
 
-Votre adhésion à l'Association Française de Speedcubing arrive bientôt à expiration (le <%= l(@user.last_subscription.until) %>).
-Si vous souhaitez continuer à nous soutenir, vous pouvez renouveller votre adhésion sur HelloAsso (https://www.helloasso.com/associations/association-francaise-de-speedcubing).
+Tu condición de socio de la Asociación Madrileña de Speedcubing está a punto de expirar (expira el <%= l(@user.last_subscription.until) %>).
+Si deseas continuar apoyándonos, puedes renovar tu condición de socio en HelloAsso (https://www.helloasso.com/associations/association-francaise-de-speedcubing).
 
-Vous recevez cette notification car vous l'avez choisi dans votre profil, pour la désactiver rendez-vous sur votre profil (<%= profile_url %>, ou vous pourrez également voir la liste de vos contributions).
+Estás recibiendo esta notificación porque así lo seleccionaste en tu perfil. Para dejar de recibir notificaciones como ésta, desmarca la casilla en tu perfil (<%= profile_url %>, donde también puedes ver la lista de tus aportaciones).
 
-À bientôt,
-L'Association Française de Speedcubing.
+Hasta pronto,
+Asociación Madrileña de Speedcubing.

@@ -33,14 +33,14 @@ window.afs.initCalendar = function(can_manage_events = false) {
   if (!$("#calendar").hasClass("enable-calendar"))
     return;
   $("#calendar").fullCalendar({
-    locale: "fr",
+    locale: "es",
     eventDataTransform: externalEventToFcEvent,
     buttonText: {
-      today:    'aujourd\'hui',
-      month:    'mois',
-      week:     'semaine',
-      day:      'jour',
-      list:     'liste'
+      today:    'hoy',
+      month:    'mes',
+      week:     'semana',
+      day:      'día',
+      list:     'lista'
     },
     header: {
       left:   'today',

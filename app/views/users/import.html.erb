@@ -1,12 +1,12 @@
-<% provide(:title, "Importer un utilisateur") %>
-<h2>Importer un utilisateur</h2>
+<% provide(:title, "Importar un usuario") %>
+<h2>Importar un usuario</h2>
 
 <div class="alert alert-info">
-  Utilisez le champ "Recherche" pour importer un utilisateur depuis le site de la WCA.
+  Usa el campo "Buscar" para importar un usuario de la página de la WCA.
   <br/>
-  Si un seul résultat correspond, l'utilisateur sera importé, si plusieurs utilisateurs correspondent à la requête ils seront affichés.
+  Si sólo coincide un resultado, se importará al usuario; si varios usuarios coinciden con la consulta, se mostrarán.
   <br/>
-  Vous pouvez cliquer sur un des utilisateurs de la recherche pour l'importer.
+  Puedes hacer clic en uno de los usuarios de la búsqueda para importarlo.
 </div>
 
 <%= simple_form_for :import_user, url: users_import_path do |f| %>

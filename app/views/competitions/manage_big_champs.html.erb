@@ -1,15 +1,15 @@
-<% provide(:title, "Compétitions majeures à venir") %>
+<% provide(:title, "Próximos grandes campeonatos") %>
 
-<h1>Compétitions majeures à venir</h1>
-<% names = { french: "Championnats de France", euro: "Championnats d'Europe", world: "Championnats du Monde" } %>
+<h1>Próximos grandes campeonatos</h1>
+<% names = { french: "Campeonato de Francia", euro: "Campeonato de Europa", world: "Campeonato del Mundo" } %>
 
 <div class="alert alert-info my-3">
   <p>
-    Ce formulaire contrôle les informations affichées sur la page d'accueil concernant les compétitions majeures à venir.
-    Si un ID de compétition est présent, alors les informations à propos de la compétition seront récupérées sur le site de la WCA et affichées, sinon le nom et le texte alternatif seront utilisés.
+    Este formulario controla la información que se muestra en la página de inicio sobre los próximos grandes campeonatos.
+    Si se especifica el ID de la competición, la información mostrada sobre el mismo será la de la web de la WCA. De lo contrario, se mostrarán el nombre y el texto alternativos.
   </p>
   <p>
-    <b>Pour gérer les compétitions et évènements en préparation, direction le <%= link_to("calendrier", competitions_path) %> !</b>
+    <b>¡Para gestionar competiciones y eventos en preparación, diríjase al <%= link_to("calendario", competitions_path) %>!</b>
   </p>
 </div>
 <%= simple_form_for :big_champs, url: update_champs_path, wrapper: :horizontal_form do |f| %>

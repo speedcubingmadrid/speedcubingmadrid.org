@@ -1,9 +1,9 @@
 <% event ||= CalendarEvent.new %>
 <%
   title = if event.new_record?
-            "Créer un événement"
+            "Crear un evento"
           else
-            "Mettre à jour #{event.name}"
+            "Actualizar #{event.name}"
           end
 %>
 <div class="modal" id="modal_event" tabindex="-1" role="dialog">
@@ -32,12 +32,12 @@
                   @calendar_event,
                   method: :delete,
                   class: 'btn btn-danger mr-auto',
-                  data: { confirm: 'Êtes-vous sûr ?' },
+                  data: { confirm: '¿Estás seguro?' },
                   remote: true,
                   format: "js" %>
             <% end %>
             <%= f.button :submit %>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         <% end %>
       </div>

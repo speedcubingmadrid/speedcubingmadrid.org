@@ -1,8 +1,8 @@
 <p>
-  <strong>Chez :</strong>
+  <strong>En:</strong>
   <% owners = [] %>
   <% item.owners.each do |owner| %>
-    <% owners << "#{owner.user.name} (du #{l(owner.start)} au #{l(owner.end)})" %>
+    <% owners << "#{owner.user.name} (desde #{l(owner.start)} hasta #{l(owner.end)})" %>
   <% end %>
   <%= owners.join(", ") %>
 </p>

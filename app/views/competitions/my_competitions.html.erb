@@ -1,14 +1,14 @@
-<% provide(:title, "Mes compétitions") %>
+<% provide(:title, "Mis competiciones") %>
 
-<h1>Mes compétitions</h1>
+<h1>Mis competiciones</h1>
 <div class="alert alert-info">
-  Cette page est là pour faciliter la vérification des inscriptions des compétiteurs aux compétitions AFS.
-  Sélectionnez une compétition pour afficher quelles inscriptions sont valides et quelles sont celles nécessitant un paiement avant de pouvoir être acceptées.
+  Esta página sirve para facilitar la verificación de los registros de competidores de la AMS a competiciones oficiales.
+  Selecciona una competición para ver qué competidores tienen descuento por ser socios de la AMS.
 </div>
 
 <% if @error %>
   <div class="alert alert-danger">
-    Une erreur est survenue : <%= @error %>
+    Ha ocurrido un error: <%= @error %>
   </div>
 <% elsif @my_competitions.any? %>
   <div class="list-group">
@@ -21,10 +21,10 @@
         <p class="mb-1">
           <%= "Du #{l(Date.parse(comp["start_date"]))} au #{l(Date.parse(comp["end_date"]))} à #{comp["city"]} (#{Country.find_by_iso2(comp["country_iso2"]).name})" %>
         </p>
-        <small><%= comp["announced_at"] ? "Compétition annoncée le #{l(Time.parse(comp["announced_at"]))}" : "Cette compétition n'est pas encore annoncée." %></small>
+        <small><%= comp["announced_at"] ? "Fecha de anuncio de la competición: #{l(Time.parse(comp["announced_at"]))}" : "Esta competición aún no está anunciada." %></small>
       </a>
     <% end %>
   </div>
 <% else %>
-  Vous n'avez aucune compétition à venir en tant que Délégué ou organisateur.
+  No tienes competiciones próximas como Delegado WCA y/u organizador.
 <% end %>

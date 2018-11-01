@@ -1,11 +1,11 @@
-<% provide(:title, "Adhérents") %>
+<% provide(:title, "Socios") %>
 <%= render "nav", current_page: :subscribers %>
 
 <p>
-  <%= @subscribers.size %> adhérents au <%= l(Date.today) %>.
+  <%= @subscribers.size %> socios a <%= l(Date.today) %>.
 </p>
 <div class="table-responsive">
-  <% headers = ["Nom complet", "ID WCA", "Fin d'adhésion"] %>
+  <% headers = ["Nombre completo", "WCA ID", "Socio hasta"] %>
   <%= render "shared/compact_table", headers: headers do %>
     <% @subscribers.each do |s| %>
       <tr>
@@ -27,7 +27,7 @@
   <% end %>
   <% if @subscribers.empty? %>
     <div class="alert alert-info">
-      Pas d'adhérents, essayez d'importer des adhésions depuis HelloAsso.
+      Sin socios, intenta importar socios de HelloAsso.
     </div>
   <% end %>
 </div>

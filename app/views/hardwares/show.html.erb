@@ -1,7 +1,7 @@
-<% provide(:title, "Infos sur " + @hardware.name) %>
+<% provide(:title, "Información sobre " + @hardware.name) %>
 
 <p>
-  <strong>Nom :</strong>
+  <strong>Nombre:</strong>
   <%= @hardware.name %> (<%= @hardware.hardware_type_string %>)
 </p>
 
@@ -10,18 +10,18 @@
 </p>
 
 <p>
-  <strong>Commentaire :</strong>
+  <strong>Comentario:</strong>
   <%= @hardware.comment %>
 </p>
 
 <%= render "shared/show_owners_list", item: @hardware %>
 
 <% if @hardware.bag %>
-  <h3>Dans le sac <%= link_to @hardware.bag.name, @hardware.bag %></h3>
+  <h3>En la bolsa <%= link_to @hardware.bag.name, @hardware.bag %></h3>
   <% if @hardware.bag.owners.any? %>
     <%= render "shared/show_owners_list", item: @hardware.bag %>
   <% end %>
 <% end %>
 
-<%= link_to 'Éditer', edit_hardware_path(@hardware) %> |
-<%= link_to 'Retour', hardwares_path %>
+<%= link_to 'Editar', edit_hardware_path(@hardware) %> |
+<%= link_to 'Volver', hardwares_path %>

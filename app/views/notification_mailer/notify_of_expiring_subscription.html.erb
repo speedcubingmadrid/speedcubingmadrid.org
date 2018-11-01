@@ -1,15 +1,15 @@
-Bonjour <%= @user.name %>,
+Hola <%= @user.name %>,
 
 <p>
-  Votre adhésion à l'Association Française de Speedcubing arrive bientôt à expiration (le <%= l(@user.last_subscription.until) %>).
+  Tu condición de socio de la Asociación Madrileña de Speedcubing está a punto de expirar (expira el <%= l(@user.last_subscription.until) %>).
   <br />
-  Si vous souhaitez continuer à nous soutenir, vous pouvez renouveller votre adhésion sur <%= link_to "HelloAsso", "https://www.helloasso.com/associations/association-francaise-de-speedcubing" %>.
+  Si deseas continuar apoyándonos, puedes renovar tu condición de socio en <%= link_to "HelloAsso", "https://www.helloasso.com/associations/association-francaise-de-speedcubing" %>.
 </p>
 
 <p>
-  Vous recevez cette notification car vous l'avez choisi dans votre profil, pour la désactiver rendez-vous sur <%= link_to "votre profil", profile_url %> (ou vous pourrez également voir la liste de vos contributions).
+  Estás recibiendo esta notificación porque así lo seleccionaste en tu perfil. Para dejar de recibir notificaciones como ésta, desmarca la casilla en <%= link_to "tu perfil", profile_url %> (donde también puedes ver la lista de tus aportaciones).
 </p>
 
-À bientôt,
+Hasta pronto,
 <br />
-L'Association Française de Speedcubing.
+Asociación Madrileña de Speedcubing.

@@ -1,18 +1,18 @@
-<% provide(:title, "Matériel") %>
-<h1>Matériel</h1>
+<% provide(:title, "Material") %>
+<h1>Material</h1>
 
-<%= link_to "Gérer les sacs", bags_path %>
+<%= link_to "Manejar las bolsas", bags_path %>
 
 <table id="hardware-index-table" class="table table-striped">
   <thead>
     <tr>
-      <th>Nom</th>
-      <th>Type</th>
-      <th>État</th>
-      <th>Commentaire</th>
-      <th>Chez qui</th>
-      <th>Sac</th>
-      <th colspan="3">Actions</th>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Estado</th>
+      <th>Comentario</th>
+      <th>En casa de quien</th>
+      <th>Bolsa</th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
@@ -30,9 +30,9 @@
         <td><%= hardware.comment %></td>
         <td><%= hardware.real_owner&.name %></td>
         <td><%= hardware.bag&.name %></td>
-        <td><%= link_to fa_icon('eye'), hardware, title: 'Voir', class: 'text-info', data: { toggle: 'tooltip' } %></td>
-        <td><%= link_to fa_icon('pencil-square-o'), edit_hardware_path(hardware), title: 'Éditer', class: 'text-primary', data: { toggle: 'tooltip' } %></td>
-        <td><%= link_to fa_icon('trash-o'), hardware, method: :delete, title: 'Détruire', class: 'text-danger', data: { toggle: 'tooltip', confirm: 'Êtes-vous sûr·e ?' } %></td>
+        <td><%= link_to fa_icon('eye'), hardware, title: 'Ver', class: 'text-info', data: { toggle: 'tooltip' } %></td>
+        <td><%= link_to fa_icon('pencil-square-o'), edit_hardware_path(hardware), title: 'Editar', class: 'text-primary', data: { toggle: 'tooltip' } %></td>
+        <td><%= link_to fa_icon('trash-o'), hardware, method: :delete, title: 'Borrar', class: 'text-danger', data: { toggle: 'tooltip', confirm: '¿Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'Ajouter du nouveau matériel', new_hardware_path %>
+<%= link_to 'Añadir nuevo material', new_hardware_path %>
