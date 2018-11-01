@@ -14,10 +14,10 @@ class MajorComp < ApplicationRecord
   def id_and_name_not_null
     if competition_id.blank?
       if name.blank?
-        errors.add(:name, "ne doit pas être vide si l'id est vide")
+        errors.add(:name, "no debe estar vacío si no hay ID")
       end
     else
-      errors.add(:competition_id, "n'est pas dans la base") unless competition
+      errors.add(:competition_id, "no está en la base de datos") unless competition
     end
   end
 
@@ -35,7 +35,7 @@ class MajorComp < ApplicationRecord
         end
       end
       unless success
-        errors.add(:competition_id, "Impossible de récupérer la compétition sur le site de la WCA")
+        errors.add(:competition_id, "No se puede recuperar la competición de la página de la WCA")
       end
     end
   end

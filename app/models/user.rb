@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validate :cannot_demote_themselves
   def cannot_demote_themselves
     if admin_was == true && admin == false
-      errors.add(:admin, "impossible de vous enlever le statut d'aministrateur, demandez à un autre administrateur de le faire.")
+      errors.add(:admin, "no puedes eliminar tu propia condición de administrador,  debes pedirle a otro administrador que lo haga.")
     end
   end
 
@@ -64,11 +64,11 @@ class User < ApplicationRecord
   def friendly_delegate_status
     case delegate_status
     when "candidate_delegate"
-      "Candidat Délégué WCA"
+      "Delegado Candidato WCA"
     when "senior_delegate"
-      "Délégué WCA Sénior"
+      "Delegado Senior WCA"
     when "delegate"
-      "Délégué WCA"
+      "Delegado WCA"
     else
       ""
     end

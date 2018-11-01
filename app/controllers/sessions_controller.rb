@@ -43,19 +43,19 @@ class SessionsController < ApplicationController
 
     status, user = User.create_or_update(me_data)
     unless status
-      return fail_and_redirect("Impossible de créer l'utilisateur! (C'est une erreur sérieuse :( !)")
+      return fail_and_redirect("¡No se puede crear el usuario!")
     end
     session[:user_id] = user.id
     #FIXME: improve the use of access token, set an expiration
     session[:access_token] = access_token
 
-    Rails.logger.info "WCA Logged in as '#{me_data['name']}'."
-    redirect_to root_url, flash: { success: 'Vous êtes connecté !' }
+    Rails.logger.info "Sesión iniciada a través de la WCA como '#{me_data['name']}'."
+    redirect_to root_url, flash: { success: '¡Te has conectado!' }
   end
 
   def destroy
     reset_session
-    redirect_to root_url, flash: { success: 'Vous avez été déconnecté !' }
+    redirect_to root_url, flash: { success: '¡Te has desconectado!' }
   end
 
   private

@@ -18,7 +18,7 @@ class SubscriptionsController < ApplicationController
   def destroy
     @subscription = Subscription.find(params[:id])
     @subscription.destroy
-    flash[:success] = "Cotisation supprimée"
+    flash[:success] = "Cuota eliminada"
     redirect_to subscriptions_list_url
   end
 
@@ -46,12 +46,12 @@ class SubscriptionsController < ApplicationController
       CSV.foreach(csvfile.path, :headers => true, :col_sep => ';') do |row|
         # Row may not follow a specific format, however we should have the following headers:
         # Nom;Prénom;Date;Email;Attestation;Champ additionnel: ID WCA (si connu)
-        subscription = Subscription.find_or_initialize_by(name: row["Nom"].strip,
-                                                          firstname: row["Prénom"].strip,
-                                                          payed_at: DateTime.parse(row["Date"]),
+        subscription = Subscription.find_or_initialize_by(name: row["Nombre"].strip,
+                                                          firstname: row["Apellido"].strip,
+                                                          payed_at: DateTime.parse(row["Pagado el"]),
                                                           email: row["Email"]&.strip,
-                                                          receipt_url: row["Attestation"])
-        subscription.wca_id = row["Champ additionnel: ID WCA (si connu)"]
+                                                          receipt_url: row["Enlace del recibo"])
+        subscription.wca_id = row["Campo adicioanl: WCA ID (si se conoce)"]
         if subscription.new_record?
           @new_subscriptions << subscription
         else

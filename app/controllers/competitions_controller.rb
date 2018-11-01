@@ -27,7 +27,7 @@ class CompetitionsController < ApplicationController
         @competitions = []
         begin
           # Only show future competitions
-          comps_response = RestClient.get(wca_api_competitions_url, params: { country_iso2: "FR", start: 2.days.ago})
+          comps_response = RestClient.get(wca_api_competitions_url, params: { country_iso2: "ES", start: 2.days.ago})
           @competitions = JSON.parse(comps_response.body)
         rescue => err
           # We actually don't care about the error
@@ -98,7 +98,7 @@ class CompetitionsController < ApplicationController
 
   def redirect_unless_has_manage_competition_scope!
     unless has_manage_competitions_scope
-      redirect_to root_url, flash: { warning: "Vous n'avez pas autorisé l'AFS à gérer vos compétitions." }
+      redirect_to root_url, flash: { warning: "No has permitido que la AMS administre tus competiciones." }
     end
   end
 

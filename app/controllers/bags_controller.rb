@@ -29,7 +29,7 @@ class BagsController < ApplicationController
     @bag = Bag.new(bag_params)
 
     if @bag.save
-      redirect_to @bag, flash: { success: 'Bag was successfully created.' }
+      redirect_to @bag, flash: { success: 'La bolsa se ha creado con éxito.' }
     else
       render :new
     end
@@ -39,7 +39,7 @@ class BagsController < ApplicationController
   # PATCH/PUT /bags/1.json
   def update
     if @bag.update(bag_params)
-      redirect_to @bag, flash: { success: 'Bag was successfully updated.' }
+      redirect_to @bag, flash: { success: 'La bolsa se ha editado con éxito.' }
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class BagsController < ApplicationController
   # DELETE /bags/1.json
   def destroy
     @bag.destroy
-    redirect_to bags_url, flash: { success: 'Bag was successfully destroyed.' }
+    redirect_to bags_url, flash: { success: 'La bolsa se ha borrado con éxito.' }
   end
 
   private

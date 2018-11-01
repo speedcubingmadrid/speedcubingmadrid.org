@@ -71,7 +71,7 @@ module ApplicationHelper
   end
 
   def page_title(page_title = "")
-    base_title = "Association Française de Speedcubing"
+    base_title = "Asociación Madrileña de Speedcubing"
     if page_title.blank?
       base_title
     else
@@ -103,7 +103,7 @@ module ApplicationHelper
       link_to(text || wca_id,
               wca_profile_url(wca_id),
               target: "_blank",
-              title: "Aller au profil WCA",
+              title: "Ir al perfil WCA",
               data: data,
              )
     else

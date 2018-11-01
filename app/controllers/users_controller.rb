@@ -47,21 +47,21 @@ class UsersController < ApplicationController
     if success
       case @matches.size
       when 0
-        flash[:warning] = "Aucun résultat pour la requête"
+        flash[:warning] = "No hay resultados para esta consulta"
       when 1
         User.create_or_update(@matches.first)
-        flash[:success] = "Utilisateur #{@matches.first["name"]} importé avec succès"
+        flash[:success] = "Usuario #{@matches.first["name"]} importado con éxito"
         return redirect_to users_path
       end
     else
-      flash[:danger] = "Erreur lors de la requête au site de la WCA"
+      flash[:danger] = "Error al consultar la página de la WCA"
     end
     render :import
   end
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Utilisateur mis à jour avec succès"
+      flash[:success] = "Usuario actualizado con éxito"
       redirect_to edit_user_path(@user)
     else
       render :edit
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
   def set_and_redirect_if_cannot_edit_user
     set_user!
     unless current_user&.can_edit_user?(@user)
-      flash[:danger] = "Vous ne pouvez pas éditer cet utilisateur"
+      flash[:danger] = "No puedes editar este usuario"
       redirect_to root_url
     end
   end

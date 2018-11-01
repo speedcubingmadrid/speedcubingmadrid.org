@@ -60,7 +60,7 @@ class CalendarEventsController < ApplicationController
 
     def redirect_unless_can_manage_calendar!
       unless current_user&.can_manage_calendar?
-        redirect_to root_url, :alert => 'Vous ne pouvez pas gérer le calendrier.'
+        redirect_to root_url, :alert => 'No puedes gestionar el calendario.'
       end
     end
 end

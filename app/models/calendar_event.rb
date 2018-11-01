@@ -4,8 +4,8 @@ class CalendarEvent < ApplicationRecord
   validates_presence_of :end_time
 
   KINDS = {
-    "other_afs" => "Activité AFS",
-    "planned_competition" => "Compétition en projet",
+    "other_afs" => "Actividad AMS",
+    "planned_competition" => "Competición siendo planeada",
   }.freeze
 
   validates_inclusion_of :kind, in: KINDS.keys

@@ -1,30 +1,22 @@
 class Hardware < ApplicationRecord
   include HasOwners
   TYPES = {
-    "g2_mat" => "Tapis (Gen2)",
-    "g2_stackmat" => "Timer+Tapis (Gen2)",
-    "g2_display" => "Display (Gen2)",
-    "g2_fullset" => "Timer+Tapis+Display (Gen2)",
-    "g3_mat" => "Tapis (Gen3 Pro)",
-    "g3_stackmat" => "Timer+Tapis (Gen3 Pro)",
-    "g3_fullset" => "Timer+Tapis+Display (Gen3 Pro)",
     "g3_display" => "Display (Gen3 Pro)",
-    "g4_stackmat" => "Timer+Tapis (Gen4)",
-    "g4_fullset" => "Timer+Tapis (Gen4) + Display (Gen3 Pro)",
-    "battery_cr2032" => "Pile CR2032",
-    "battery_aa" => "Pile AA",
-    "battery_aaa" => "Pile AAA",
-    "big_battery" => "Grosse pile reloue",
-    "harmonica_holder" => "Porte harmonica",
-    "cube_cover" => "Cache cube",
-    "stopwatch" => "Chrono à main",
-    "blindfold_sheets" => "Feuilles blind",
-    "other" => "Divers",
+    "g4_stackmat" => "StackMat (Gen4)",
+    "g4_fullset" => "StackMat (Gen4) + Display (Gen3 Pro)",
+    "battery_aa" => "Pila AA",
+    "battery_aaa" => "Pila AAA",
+    "harmonica_holder" => "Soporte de armónica",
+    "cube_cover" => "Tapacubo",
+    "stopwatch" => "Cronómetro de mano",
+    "blindfold_sheets" => "Cartulinas para blind",
+    "cable" => "Cable",
+    "other" => "Otro",
   }.freeze
 
   STATES = {
-    "ok" => "Fonctionne",
-    "ko" => "Cassé",
+    "ok" => "Funciona",
+    "ko" => "Roto",
   }.freeze
 
   belongs_to :bag, optional: true

@@ -7,11 +7,11 @@ class Owner < ApplicationRecord
 
   validate :dates_must_be_valid
   private def dates_must_be_valid
-    return errors.add(:start, "Date de début invalide") unless start.present?
-    return errors.add(:end, "Date de fin invalide") unless self[:end].present?
+    return errors.add(:start, "Fecha de inicio no válida") unless start.present?
+    return errors.add(:end, "Fecha de finalización no válida") unless self[:end].present?
 
     if self[:end] < start
-      errors.add(:end, "Date de fin avant la date de début")
+      errors.add(:end, "La fecha de finalización no puede ser anterior a la fecha de inicio")
     end
   end
 end

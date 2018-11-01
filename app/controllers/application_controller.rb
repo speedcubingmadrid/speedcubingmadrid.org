@@ -26,19 +26,19 @@ class ApplicationController < ActionController::Base
 
   def redirect_unless_admin!
     unless current_user&.admin?
-      redirect_to root_url, :alert => 'Seuls les administrateurs ont accès à cette page.'
+      redirect_to root_url, :alert => 'Sólo los administradores tienen acceso a esta página.'
     end
   end
 
   def redirect_unless_authorized_delegate!
     unless current_user&.can_manage_delegate_matters?
-      redirect_to root_url, :alert => 'Seuls les délégués ont accès à cette page.'
+      redirect_to root_url, :alert => 'Sólo los Delegados WCA tienen acceso a esta página.'
     end
   end
 
   def redirect_unless_comm!
     unless current_user&.can_manage_communication_matters?
-      redirect_to root_url, :alert => 'Seuls les responsables communication ont accès à cette page.'
+      redirect_to root_url, :alert => 'Sólo los responsables de comunicación tienen acceso a esta página.'
     end
   end
 

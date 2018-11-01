@@ -20,15 +20,15 @@ module PostsHelper
   def legend(post)
     legends = []
     if post.competition_page
-      legends << "Compétition"
+      legends << "Competición"
     end
     if post.feature
-      legends << "Featured"
+      legends << "Destacado"
     end
     if post.draft
-      legends << "Brouillon"
+      legends << "Borrador"
     else
-      legends << "Public"
+      legends << "Público"
     end
     legends.join(" | ")
   end

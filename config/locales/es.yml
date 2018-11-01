@@ -50,14 +50,14 @@ fr:
         query: "Búsqueda"
         user_id: "ID del usuario"
       signin:
-        can_manage: "Soy un organizador o un Delegado de la WCA, y autorizo a la AMS a gestionar mis competiciones."
+        can_manage: "Soy un organizador o un Delegado WCA, y autorizo a la AMS a gestionar mis competiciones."
       user:
         wca_id: "WCA ID"
         friendly_birthdate: "Fecha de nacimiento"
         admin: "Administrador"
         communication: "Equipo de comunicación"
         # TODO: Change to madrid.
-        french_delegate: "Delegado de la WCA"
+        french_delegate: "Delegado WCA"
         notify_subscription: "Avisarme cuando termine mi membresía"
       tag:
         name: "Alias de la etiqueta"

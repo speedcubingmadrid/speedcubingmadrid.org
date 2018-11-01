@@ -15,7 +15,7 @@ class TagsController < ApplicationController
   # PATCH/PUT /tags/1
   def update
     if @tag.update(tag_params)
-      redirect_to tags_path, flash: { success: 'Tag mis à jour.' }
+      redirect_to tags_path, flash: { success: 'Etiqueta actualizada.' }
     else
       render :edit
     end
