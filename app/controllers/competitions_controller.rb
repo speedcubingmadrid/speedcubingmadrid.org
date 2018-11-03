@@ -37,11 +37,11 @@ class CompetitionsController < ApplicationController
   end
 
   def manage_big_champs
-    @champs = MajorComp.all.order(:role)
+    @champs = MajorComp.all
   end
 
   def update_big_champs
-    @champs = MajorComp.all.order(:role)
+    @champs = MajorComp.all
     big_champs = big_champs_params
     roles = big_champs.keys
     status = true
@@ -104,7 +104,7 @@ class CompetitionsController < ApplicationController
 
   def big_champs_params
     champ_params = [:competition_id, :name, :alt_text]
-    params.require(:big_champs).permit(euro: champ_params, french: champ_params, world: champ_params)
+    params.require(:big_champs).permit(spanish: champ_params, euro: champ_params, world: champ_params)
   end
 
   private :redirect_unless_authorized_delegate!, :big_champs_params

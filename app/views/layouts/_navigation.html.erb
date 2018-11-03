@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-sm navbar-light">
     <div class="container">
       <div class="navbar-brand">
-        <%= link_to(image_tag(asset_pack_path("images/Logo_AFS_Seul.svg"), class: "brand-logo"), root_path) %>
+        <%= link_to(image_tag(asset_pack_path("images/ams_logo.svg"), class: "brand-logo"), root_path) %>
         <div class="brand-header">
           <div class="brand-name">
             <%= link_to root_path do %>
@@ -34,7 +34,7 @@
             <a href="https://www.facebook.com" target="_blank">
               <i class="fa fa-facebook-official"></i>
             </a>
-            <a href="https://github.com/albertopdrf/ams" target="_blank">
+            <a href="https://github.com/speedcubingmadrid/ams" target="_blank">
               <i class="fa fa-github"></i>
             </a>
           </div>
@@ -73,9 +73,9 @@
               <div class="dropdown-menu" aria-labelledby="dropdown-speedcubing">
                 <%= link_to "Speedcubing", page_path("speedcubing"), class: "dropdown-item" %>
                 <%= link_to "Competiciones", page_path("competitions"), class: "dropdown-item" %>
-                <%= link_to "Reglamento", page_path("speedcubing/reglement"), class: "dropdown-item" %>
-                <%#= link_to "Tutoriales", page_path("speedcubing/tutos"), class: "dropdown-item" %>
-                <%#= link_to "Recursos externos", page_path("ressources"), class: "dropdown-item" %>
+                <%= link_to "Reglamento", page_path("speedcubing/regulations"), class: "dropdown-item" %>
+                <%#= link_to "Tutoriales", page_path("speedcubing/tutorials"), class: "dropdown-item" %>
+                <%#= link_to "Recursos externos", page_path("resources"), class: "dropdown-item" %>
               </div>
             </li>
             <li class="nav-item">
@@ -114,10 +114,10 @@
                     <%= link_to "Publicaciones", news_index_path, class: "dropdown-item" %>
                     <%= link_to "Competiciones", upcoming_champs_path, class: "dropdown-item" %>
                   <% end %>
-                  <% if current_user.admin? || current_user.french_delegate? %>
+                  <% if current_user.admin? || current_user.spanish_delegate? %>
                     <div class="dropdown-divider"></div>
                     <h6 role="presentation" class="dropdown-header">
-                      Delegados WCA
+                      Delegado WCA
                     </h6>
                     <%= link_to "Material", hardwares_path, class: "dropdown-item" %>
                   <% end %>
@@ -129,7 +129,7 @@
             <% else %>
               <li class="nav-item">
                 <%= link_to signin_path, class: "signin-elem nav-link nav-signin" do %>
-                  <span class="d-sm-none d-md-inline">Connexion</span>
+                  <span class="d-sm-none d-md-inline">Iniciar sesión</span>
                   <span class="d-none d-sm-inline d-md-none"><i class="fa fa-sign-in"></i></span>
                 <% end %>
               </li>

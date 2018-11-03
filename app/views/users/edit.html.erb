@@ -4,11 +4,11 @@
 <% last_sub = @user.last_subscription %>
 <% if last_sub&.active? %>
   <div class="alert alert-success">
-    Eres socio de la AMS hasta <%= l(last_sub.until) %>.
+    Eres socio de la AMS hasta el <%= l(last_sub.until) %>.
   </div>
 <% elsif last_sub %>
   <div class="alert alert-warning">
-    No eres socio de la AMS desde <%= l(last_sub.until) %>.
+    No eres socio de la AMS desde el <%= l(last_sub.until) %>.
   </div>
 <% else %>
   <div class="alert alert-danger">
@@ -24,7 +24,7 @@
   <%= f.input :friendly_birthdate, as: :display %>
   <%= f.input :admin, disabled: !is_admin %>
   <%= f.input :communication, disabled: !is_admin %>
-  <%= f.input :french_delegate, disabled: !is_admin %>
+  <%= f.input :spanish_delegate, disabled: !is_admin %>
   <%= f.input :notify_subscription %>
   <% if current_user&.can_edit_user?(@user) %>
     <%= f.button :submit %>

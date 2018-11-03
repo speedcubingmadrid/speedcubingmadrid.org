@@ -1,8 +1,8 @@
 import SimpleMDE from "simplemde";
 
-window.afs = window.afs || {};
+window.ams = window.ams || {};
 
-window.afs.enableSimpleMDE = function() {
+window.ams.enableSimpleMDE = function() {
   $(".enable-simplemde").each(function() {
     // By default SimpleMDE loads itself on the first textarea, which is what we want.
     new SimpleMDE({ element: this, spellChecker: false });

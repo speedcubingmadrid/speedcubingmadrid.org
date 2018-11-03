@@ -9,7 +9,6 @@
     <%= f.input :posted_at, as: :date_picker %>
     <%= f.input :draft %>
     <%= f.input :feature %>
-    <%= f.input :competition_page %>
   </div>
 
   <div class="form-actions">
@@ -26,7 +25,7 @@ $(function() {
     $(this).change(function() {
       let slugInput = $("#post_slug");
       if (!slugInput.hasClass("manually-changed")) {
-        slugInput.val(window.afs.computeSlug($(this).val()));
+        slugInput.val(window.ams.computeSlug($(this).val()));
       }
     });
     $(this).removeClass("compute-slug");
@@ -37,7 +36,7 @@ $(function() {
     });
     $(this).removeClass("slug");
   });
-  window.afs.enableSelectize(<%= post_tags_to_options %>);
-  window.afs.enableSimpleMDE();
+  window.ams.enableSelectize(<%= post_tags_to_options %>);
+  window.ams.enableSimpleMDE();
 });
 </script>

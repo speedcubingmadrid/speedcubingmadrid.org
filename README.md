@@ -85,7 +85,7 @@ Si vous ne connaissez pas votre user id WCA, vous pouvez l'obtenir en regardant 
 ```
 irb(main):001:0> User.last
   User Load (0.7ms)  SELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1  [["LIMIT", 1]]
-=> #<User id: 277, name: "Philippe Virouleau", wca_id: "2008VIRO01", country_iso2: "FR", email: "277@worldcubeassociation.org", avatar_url: "http://localhost:1234/uploads/user/avatar/2008VIRO...", avatar_thumb_url: "http://localhost:1234/uploads/user/avatar/2008VIRO...", gender: "m", birthdate: "1954-12-04", created_at: "2018-05-17 13:35:29", updated_at: "2018-05-17 13:35:29", delegate_status: "delegate", admin: false, communication: false, french_delegate: false, notify_subscription: false>
+=> #<User id: 277, name: "Philippe Virouleau", wca_id: "2008VIRO01", country_iso2: "FR", email: "277@worldcubeassociation.org", avatar_url: "http://localhost:1234/uploads/user/avatar/2008VIRO...", avatar_thumb_url: "http://localhost:1234/uploads/user/avatar/2008VIRO...", gender: "m", birthdate: "1954-12-04", created_at: "2018-05-17 13:35:29", updated_at: "2018-05-17 13:35:29", delegate_status: "delegate", admin: false, communication: false, spanish_delegate: false, notify_subscription: false>
 ```
 
 Il suffit alors de mettre le champ `admin` à `true` manuellement :

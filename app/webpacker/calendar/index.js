@@ -4,7 +4,7 @@ import { API_COMP_URL, CALENDAR_EVENTS_URL } from 'afs/url_utils';
 
 var moment = require("moment");
 
-window.afs = window.afs || {};
+window.ams = window.ams || {};
 
 function postEventUpdate(event, delta, revertFunc) {
   let eventData = {};
@@ -29,7 +29,7 @@ function postEventUpdate(event, delta, revertFunc) {
   });
 };
 
-window.afs.initCalendar = function(can_manage_events = false) {
+window.ams.initCalendar = function(can_manage_events = false) {
   if (!$("#calendar").hasClass("enable-calendar"))
     return;
   $("#calendar").fullCalendar({
@@ -50,10 +50,10 @@ window.afs.initCalendar = function(can_manage_events = false) {
     eventSources: [
       {
         events: getWcaCompetitions,
-        color: "#28a745",
+        color: "#ef1f1c",
       },
       {
-        events: getAFSEvents,
+        events: getAMSEvents,
       },
     ],
     forceEventDuration: true,
@@ -86,17 +86,17 @@ window.afs.initCalendar = function(can_manage_events = false) {
   $("#calendar").removeClass("enable-calendar");
 }
 
-window.afs.updateEvent = function(eventId, newEventData) {
+window.ams.updateEvent = function(eventId, newEventData) {
   let eventData = $('#calendar').fullCalendar('clientEvents', eventId)[0];
   _.merge(eventData, newEventData);
   $('#calendar').fullCalendar('updateEvent', eventData, true);
 }
 
-window.afs.createEvent = function(newEventData) {
+window.ams.createEvent = function(newEventData) {
   $('#calendar').fullCalendar('renderEvent', newEventData);
 }
 
-window.afs.removeEvent = function(eventId) {
+window.ams.removeEvent = function(eventId) {
   $('#calendar').fullCalendar('removeEvents', [eventId]);
 }
 
@@ -104,7 +104,7 @@ window.afs.removeEvent = function(eventId) {
 function getWcaCompetitions(start, end, timezone, callback) {
   let requestUrl = API_COMP_URL;
   let dateFormat = "YYYY-MM-DD";
-  requestUrl += `?country_iso2=FR&start=${start.format(dateFormat)}&end=${end.format(dateFormat)}`;
+  requestUrl += `?country_iso2=ES&start=${start.format(dateFormat)}&end=${end.format(dateFormat)}`;
   $.get(requestUrl, function(data) {
     callback(data);
   })
@@ -113,7 +113,7 @@ function getWcaCompetitions(start, end, timezone, callback) {
   });
 }
 
-function getAFSEvents(start, end, timezone, callback) {
+function getAMSEvents(start, end, timezone, callback) {
   let requestUrl = CALENDAR_EVENTS_URL;
   $.get(requestUrl, function(data) {
     callback(data);

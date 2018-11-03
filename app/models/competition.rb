@@ -6,7 +6,8 @@ class Competition < ApplicationRecord
   @@obj_info = %w(id city name country_iso2 start_date end_date country_iso2 website delegates organizers)
 
   scope :upcoming, -> (n=100) { where("start_date > ?", 2.days.ago).order(:start_date).limit(n) }
-  scope :in_france, -> { where(country_iso2: "FR") }
+  scope :in_spain, -> { where(country_iso2: "ES") }
+  scope :in_madrid, -> { where("city like ?", "%Madrid%") }
 
   def self.process_json(json_competition)
     json_competition["delegates"] = json_competition["delegates"].map do |d|

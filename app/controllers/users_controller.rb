@@ -94,7 +94,7 @@ class UsersController < ApplicationController
       permitted_params += [
         :admin,
         :communication,
-        :french_delegate,
+        :spanish_delegate,
       ]
     end
     params.require(:user).permit(*permitted_params)

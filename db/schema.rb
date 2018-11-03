@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 20180516204233) do
     t.string "delegate_status"
     t.boolean "admin", default: false
     t.boolean "communication", default: false
-    t.boolean "french_delegate", default: false
+    t.boolean "spanish_delegate", default: false
     t.boolean "notify_subscription", default: false
   end
 

@@ -8,7 +8,10 @@
     <div class="float-md-left title-comp-card text-dark">Próximas competiciones</div>
     <ul id="competitions_tabs" role="tablist" class="nav nav-tabs card-header-tabs flex-column flex-md-row ml-0 justify-content-end">
       <li class="nav-item">
-        <a class="nav-link active" id="france-tab" data-toggle="tab" role="tab" aria-controls="france" aria-selected="true" href="#france">En Francia</a>
+        <a class="nav-link active" id="madrid-tab" data-toggle="tab" role="tab" aria-controls="madrid" aria-selected="true" href="#madrid">En Madrid</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="spain-tab" data-toggle="tab" role="tab" aria-controls="spain" aria-selected="true" href="#spain">En España</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="champs-tab" data-toggle="tab" role="tab" aria-controls="champs" aria-selected="false" href="#champs">Grandes campeonatos</a>
@@ -16,13 +19,23 @@
     </ul>
   </div>
   <div class="card-body text-left tab-content">
-    <div class="tab-pane fade show active" id="france" role="tabpanel" aria-labelledby="france-tab">
-      <% if @upcoming_in_france.empty? %>
-        <!-- rajouter un lien vers le calendrier une fois implémenté -->
-        <p class="mx-2">No hay ninguna competición anunciada en Francia por el momento.</p>
+    <div class="tab-pane fade show active" id="madrid" role="tabpanel" aria-labelledby="madrid-tab">
+      <% if @upcoming_in_madrid.empty? %>
+        <p class="mx-2">No hay ninguna competición anunciada en Madrid por el momento.</p>
       <% else %>
         <div class="row">
-          <% @upcoming_in_france.each do |c| %>
+          <% @upcoming_in_madrid.each do |c| %>
+            <%= render "competition_card", competition: c %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="spain" role="tabpanel" aria-labelledby="spain-tab">
+      <% if @upcoming_in_spain.empty? %>
+        <p class="mx-2">No hay ninguna competición anunciada en España por el momento.</p>
+      <% else %>
+        <div class="row">
+          <% @upcoming_in_spain.each do |c| %>
             <%= render "competition_card", competition: c %>
           <% end %>
         </div>

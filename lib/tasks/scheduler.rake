@@ -7,7 +7,7 @@ namespace :scheduler do
     puts "Getting competitions"
     url_params = {
       sort: "-start_date",
-      country_iso2: "FR",
+      country_iso2: "ES",
       start: "#{2.days.ago.to_date}",
     }
     begin
@@ -20,14 +20,14 @@ namespace :scheduler do
       puts "Done."
       if competitions.any?
         names = competitions.map { |c| c["name"] }
-        message = "Succès de l'importation des compétitions suivantes : #{names.join(", ")}."
+        message = "Las competiciones siguientes se han importado con éxito: #{names.join(", ")}."
         NotificationMailer.with(task_name: "get_wca_competitions", message: message).notify_team_of_job_done.deliver_now
       end
     rescue => err
       puts "Could not get competitions from the WCA, error:"
       puts err
       puts "---"
-      puts "Trying to notify the software team."
+      puts "Trying to notify the administrators."
       NotificationMailer.with(task_name: "get_wca_competitions", error: err).notify_team_of_failed_job.deliver_now
     end
   end
@@ -37,7 +37,7 @@ namespace :scheduler do
     users_to_notify = User.subscription_notification_enabled.select(&:last_subscription).select do |u|
       u.last_subscription.until == 2.days.from_now.to_date
     end
-    puts "#{users_to_notify.size} utilisateur à notifier."
+    puts "#{users_to_notify.size} usuario a notificar."
     users_done = []
     users_to_notify.each do |u|
       puts u.name
@@ -49,7 +49,7 @@ namespace :scheduler do
         NotificationMailer.with(task_name: "send_subscription_reminders", error: err).notify_team_of_failed_job.deliver_now
       end
     end
-    message = "Nombre d'utilisateurs notifiés : #{users_done.size}/#{users_to_notify.size}"
+    message = "Nombre de usuarios notificados: #{users_done.size}/#{users_to_notify.size}"
     if users_done.any?
       message += " (#{users_done.map(&:name).join(", ")})"
     end

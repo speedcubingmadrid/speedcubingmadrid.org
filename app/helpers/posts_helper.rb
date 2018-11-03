@@ -23,12 +23,12 @@ module PostsHelper
       legends << "Competición"
     end
     if post.feature
-      legends << "Destacado"
+      legends << "Destacada"
     end
     if post.draft
       legends << "Borrador"
     else
-      legends << "Público"
+      legends << "Pública"
     end
     legends.join(" | ")
   end

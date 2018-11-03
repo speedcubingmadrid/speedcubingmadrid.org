@@ -29,19 +29,12 @@ class CalendarEvent < ApplicationRecord
     when "planned_competition"
       "#ffa00e"
     else
-      "#dddddd"
+      "#000000"
     end
   end
 
   def text_color
-    case kind
-    when "other_afs"
-      "white"
-    when "planned_competition"
-      "black"
-    else
-      "black"
-    end
+    "white"
   end
 
   def last_day

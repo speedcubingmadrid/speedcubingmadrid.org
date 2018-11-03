@@ -3,7 +3,7 @@
 
 <%= link_to "Modificar las etiquetas", tags_path, class: "d-block my-2" %>
 
-<%= link_to fa_icon("plus-circle"), new_news_path, class: "btn btn-success mb-4" %>
+<%= link_to ("<i class='fa fa-plus-circle'></i> Nueva publicación").html_safe, new_news_path, class: "btn btn-success mb-4" %>
 
 <div class="list-group">
   <% @posts.each do |post| %>
@@ -15,7 +15,7 @@
             <%= render("shared/tag", tag: tag) %>
           <% end %>
         </h5>
-        <small>Le <%= l(post.created_at) %> par <%= post.user.name %></small>
+        <small>El <%= l(post.created_at) %> por <%= post.user.name %></small>
       </div>
       <div class="d-flex w-100 justify-content-between">
         <small><%= legend(post) %></small>

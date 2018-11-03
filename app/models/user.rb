@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def can_manage_delegate_matters?
-    admin? || french_delegate?
+    admin? || spanish_delegate?
   end
 
   def can_manage_communication_matters?
@@ -53,8 +53,8 @@ class User < ApplicationRecord
     !delegate_status.blank?
   end
 
-  def french_delegate?
-    delegate? && french_delegate
+  def spanish_delegate?
+    delegate? && spanish_delegate
   end
 
   def country_name

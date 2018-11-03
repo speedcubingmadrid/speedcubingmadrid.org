@@ -1,7 +1,7 @@
 <% provide(:title, "Próximos grandes campeonatos") %>
 
 <h1>Próximos grandes campeonatos</h1>
-<% names = { french: "Campeonato de Francia", euro: "Campeonato de Europa", world: "Campeonato del Mundo" } %>
+<% names = { spanish: "Campeonato de España", euro: "Campeonato de Europa", world: "Campeonato del Mundo" } %>
 
 <div class="alert alert-info my-3">
   <p>
@@ -9,9 +9,10 @@
     Si se especifica el ID de la competición, la información mostrada sobre el mismo será la de la web de la WCA. De lo contrario, se mostrarán el nombre y el texto alternativos.
   </p>
   <p>
-    <b>¡Para gestionar competiciones y eventos en preparación, diríjase al <%= link_to("calendario", competitions_path) %>!</b>
+    <b>¡Para gestionar competiciones y eventos en preparación, dirígete al <%= link_to("calendario", competitions_path) %>!</b>
   </p>
 </div>
+
 <%= simple_form_for :big_champs, url: update_champs_path, wrapper: :horizontal_form do |f| %>
   <% @champs.each do |champ| %>
     <h3 class="my-3"><%= names[champ.role.to_sym] %></h3>

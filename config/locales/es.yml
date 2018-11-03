@@ -1,14 +1,14 @@
-fr:
+es:
   date:
     formats:
       short: "%d/%m/%Y"
-      day_month: "%e %B"
-      default: "%e %B %Y"
-      post_datetime: "%e %B %Y"
+      day_month: "%e de %B"
+      default: "%e de %B de %Y"
+      post_datetime: "%e de %B de %Y"
   time:
     formats:
       short: "%d/%m/%Y"
-      post_datetime: "%e %B %Y"
+      post_datetime: "%e de %B de %Y"
   countries:
     XA: Múltiples países (Asia)
     XE: Múltiples países (Europa)
@@ -20,12 +20,11 @@ fr:
   simple_form:
     labels:
       big_champs:
-        euro:
+        spanish:
           competition_id: "ID de la competición"
           name: "Nombre de la competición"
           alt_text: "Texto alternativo"
-        # TODO: Change to madrid.
-        french:
+        euro:
           competition_id: "ID de la competición"
           name: "Nombre de la competición"
           alt_text: "Texto alternativo"
@@ -56,8 +55,7 @@ fr:
         friendly_birthdate: "Fecha de nacimiento"
         admin: "Administrador"
         communication: "Equipo de comunicación"
-        # TODO: Change to madrid.
-        french_delegate: "Delegado WCA"
+        spanish_delegate: "Delegado WCA"
         notify_subscription: "Avisarme cuando termine mi membresía"
       tag:
         name: "Alias de la etiqueta"
@@ -66,19 +64,19 @@ fr:
       bag:
         owners:
           user: "Usuario"
-          start: "Desde"
-          end: "Hasta"
+          start: "Desde el"
+          end: "Hasta el"
       hardware:
         owners:
           user: "Usuario"
-          start: "Desde"
-          end: "Hasta"
+          start: "Desde el"
+          end: "Hasta el"
     hints:
       post:
-        tags_string: "Para personalizar el texto que se muestra y el color de cada etiqueta, vaya <a href='/tags' target='_blank'>aquí</a>."
+        tags_string: "Para personalizar el texto que se muestra y el color de cada etiqueta, haz clic <a href='/tags' target='_blank'>aquí</a>."
         draft: "Si se selecciona esta casilla, la publicación no será visible al público"
         competition_page: "Si se selecciona esta casilla, la publicación no se mostrará en la página de inicio."
-        body: "Agregue \"{{post_excerpt}}\" para separar la introducción de una publicación de su contenido principal."
+        body: "Agrega \"{{post_excerpt}}\" para separar la introducción de una publicación de su contenido principal."
       tag:
         name: "El alias permite identificar la etiqueta y no es editable"
   helpers:

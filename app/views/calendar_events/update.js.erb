@@ -1,2 +1,2 @@
-window.afs.updateEvent(<%= @calendar_event.id %>, $.parseJSON("<%=j render('calendar_event.json.jbuilder', calendar_event: @calendar_event).html_safe %>"));
+window.ams.updateEvent(<%= @calendar_event.id %>, $.parseJSON("<%=j render('calendar_event.json.jbuilder', calendar_event: @calendar_event).html_safe %>"));
 $('#modal_event').modal('hide');

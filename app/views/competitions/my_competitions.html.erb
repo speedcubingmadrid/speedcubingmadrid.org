@@ -19,12 +19,12 @@
           <small><%= flag_icon(comp["country_iso2"]) %></small>
         </div>
         <p class="mb-1">
-          <%= "Du #{l(Date.parse(comp["start_date"]))} au #{l(Date.parse(comp["end_date"]))} à #{comp["city"]} (#{Country.find_by_iso2(comp["country_iso2"]).name})" %>
+          <%= "Desde el #{l(Date.parse(comp["start_date"]))} hasta el #{l(Date.parse(comp["end_date"]))} en #{comp["city"]} (#{Country.find_by_iso2(comp["country_iso2"]).name})" %>
         </p>
-        <small><%= comp["announced_at"] ? "Fecha de anuncio de la competición: #{l(Time.parse(comp["announced_at"]))}" : "Esta competición aún no está anunciada." %></small>
+        <small><%= comp["announced_at"] ? "Competición anunciada el #{l(Time.parse(comp["announced_at"]))}" : "Esta competición aún no está anunciada." %></small>
       </a>
     <% end %>
   </div>
 <% else %>
-  No tienes competiciones próximas como Delegado WCA y/u organizador.
+  No tienes competiciones próximas como Delegado WCA o/y organizador.
 <% end %>

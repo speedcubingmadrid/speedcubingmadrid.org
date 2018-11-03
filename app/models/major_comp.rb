@@ -1,7 +1,7 @@
 class MajorComp < ApplicationRecord
   include ApplicationHelper
 
-  ALLOWED_ROLES = %w(french euro world).freeze
+  ALLOWED_ROLES = %w(spanish euro world).freeze
 
   belongs_to :competition, optional: true, primary_key: :id
 

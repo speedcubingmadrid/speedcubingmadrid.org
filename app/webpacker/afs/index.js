@@ -4,9 +4,9 @@ $(document).on('turbolinks:load', function() {
   $(".sort-me").tablesorter();
 })
 
-window.afs = window.afs || {};
+window.ams = window.ams || {};
 
-window.afs.computeSlug = function(title) {
+window.ams.computeSlug = function(title) {
   let normalized = title.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
   normalized = normalized.replace(/['"]/g, "");
   normalized = normalized.replace(/ /g, "-");
