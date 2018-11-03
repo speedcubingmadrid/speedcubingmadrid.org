@@ -1,16 +1,16 @@
 apt-get update
 apt-get install -y curl git vim htop apt-transport-https
 
-# Create afs user if does not exist.
-if ! id -u afs &>/dev/null; then
-  useradd -m -s /bin/bash afs
-  chown afs:afs /home/afs
+# Create ams user if does not exist.
+if ! id -u ams &>/dev/null; then
+  useradd -m -s /bin/bash ams
+  chown ams:ams /home/ams
 fi
 
 echo "Setting up ssh keys for members."
 
 tmp_authorized_keys_path="/tmp/authorized_keys"
-for user in viroulep zeecho; do
+for user in albertopdrf; do
   public_keys_url="https://github.com/$user.keys"
 
   echo "" >> $tmp_authorized_keys_path
@@ -18,11 +18,11 @@ for user in viroulep zeecho; do
   curl -s $public_keys_url >> $tmp_authorized_keys_path
 done
 
-su afs -c "mkdir -p /home/afs/.ssh"
-su afs -c "touch /home/afs/.ssh/authorized_keys"
-mv /home/afs/.ssh/authorized_keys /home/afs/.ssh/authorized_keys.bak
-chown afs:afs /tmp/authorized_keys
-mv /tmp/authorized_keys /home/afs/.ssh
+su ams -c "mkdir -p /home/ams/.ssh"
+su ams -c "touch /home/ams/.ssh/authorized_keys"
+mv /home/ams/.ssh/authorized_keys /home/ams/.ssh/authorized_keys.bak
+chown ams:ams /tmp/authorized_keys
+mv /tmp/authorized_keys /home/ams/.ssh
 
 
 # Setting up rails and db
@@ -36,12 +36,12 @@ apt-get update
 
 apt-get install -y postgresql-10
 
-user_exists=`sudo -u postgres psql -tAc "select 1 from pg_catalog.pg_roles where rolname='speedcubingfrance';"`
+user_exists=`sudo -u postgres psql -tAc "select 1 from pg_catalog.pg_roles where rolname='speedcubingmadrid';"`
 
 if [ "x$user_exists" != "x1" ]; then
   password=`openssl rand -base64 16`
-  sudo -u postgres psql -c "create role speedcubingfrance login password '$password' createdb;"
-  su afs -c "echo 'DATABASE_PASSWORD=$password' >> /home/afs/.env.production"
+  sudo -u postgres psql -c "create role speedcubingmadrid login password '$password' createdb;"
+  su ams -c "echo 'DATABASE_PASSWORD=$password' >> /home/ams/.env.production"
 fi
 
 # to build rbenv
@@ -62,28 +62,28 @@ apt-get install -y nodejs yarn libpq-dev
 # for certbot
 apt-get install -y python-certbot-nginx -t stretch-backports
 
-if [ ! -d /home/afs/speedcubingfrance.org ]; then
-  su afs -c "cd /home/afs && git clone https://github.com/speedcubingfrance/speedcubingfrance.org.git /home/afs/speedcubingfrance.org"
+if [ ! -d /home/ams/speedcubingmadrid.org ]; then
+  su ams -c "cd /home/ams && git clone https://github.com/speedcubingmadrid/speedcubingmadrid.org.git /home/ams/speedcubingmadrid.org"
 fi
 apt-get install -y nginx
-cp /home/afs/speedcubingfrance.org/prod_conf/afs.conf /etc/nginx/conf.d/
-cp /home/afs/speedcubingfrance.org/prod_conf/pre_certif.conf /etc/nginx/conf.d/
+cp /home/ams/speedcubingmadrid.org/prod_conf/ams.conf /etc/nginx/conf.d/
+cp /home/ams/speedcubingmadrid.org/prod_conf/pre_certif.conf /etc/nginx/conf.d/
 # Create an empty https conf since we don't have a certificate yet
-touch /etc/nginx/afs_https.conf
+touch /etc/nginx/ams_https.conf
 
 service nginx restart
 
 read -p "Do you want to create a new certificate for the server? (N/y)" user_choice
 if [ "x$user_choice" == "xy" ]; then
-  /home/afs/speedcubingfrance.org/scripts/prod_cert.sh create_cert
-  cp /home/afs/speedcubingfrance.org/prod_conf/afs_https.conf /etc/nginx/
+  /home/ams/speedcubingmadrid.org/scripts/prod_cert.sh create_cert
+  cp /home/ams/speedcubingmadrid.org/prod_conf/ams_https.conf /etc/nginx/
   rm /etc/nginx/conf.d/pre_certif.conf
-  cp /home/afs/speedcubingfrance.org/prod_conf/post_certif.conf /etc/nginx/conf.d/
+  cp /home/ams/speedcubingmadrid.org/prod_conf/post_certif.conf /etc/nginx/conf.d/
   service nginx restart
 fi
 
 echo "Installing cron scripts"
-cp /home/afs/speedcubingfrance.org/scripts/cron_weekly.sh /etc/cron.weekly
+cp /home/ams/speedcubingmadrid.org/scripts/cron_weekly.sh /etc/cron.weekly
 
-echo "Bootstraping as AFS"
-su afs -c "cd /home/afs && /home/afs/speedcubingfrance.org/scripts/afs_bootstrap.sh"
+echo "Bootstraping as ams"
+su ams -c "cd /home/ams && /home/ams/speedcubingmadrid.org/scripts/ams_bootstrap.sh"

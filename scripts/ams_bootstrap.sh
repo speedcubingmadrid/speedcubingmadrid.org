@@ -18,7 +18,7 @@ echo 'export LC_ALL=en_US.UTF-8' >> ~/.bash_aliases
 source ~/.bash_aliases
 
 echo '[[ -f ~/.bashrc ]] && . ~/.bashrc' > ~/.bash_profile
-cp ~/speedcubingfrance.org/prod_conf/bashrc ~/.bashrc
+cp ~/speedcubingmadrid.org/prod_conf/bashrc ~/.bashrc
 
 if [ ! -d $HOME/.rbenv/plugins/ruby-build ]; then
 	git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
@@ -28,24 +28,24 @@ fi
 
 
 # the repo is cloned by the root bootstrap
-rbenv install -v `cat ~/speedcubingfrance.org/.ruby-version` -s
+rbenv install -v `cat ~/speedcubingmadrid.org/.ruby-version` -s
 
 # Safe to be executed multiple times, as subsequent bootstrap will be ignored
-mv ~/.env.production ~/speedcubingfrance.org
+mv ~/.env.production ~/speedcubingmadrid.org
 
 # setup crontabs
-cat << EOF > /tmp/cron.afs
-@daily /home/afs/speedcubingfrance.org/scripts/deploy.sh scheduled_jobs
+cat << EOF > /tmp/cron.ams
+@daily /home/ams/speedcubingmadrid.org/scripts/deploy.sh scheduled_jobs
 EOF
 crontab -r
-crontab /tmp/cron.afs
+crontab /tmp/cron.ams
 
 read -p "Do you want to setup the rails application? (N/y)" user_choice
 if [ "x$user_choice" == "xy" ]; then
-	/home/afs/speedcubingfrance.org/scripts/deploy.sh bootstrap_rails
+	/home/ams/speedcubingmadrid.org/scripts/deploy.sh bootstrap_rails
 fi
 
 read -p "Do you want to setup the environment variables? (N/y)" user_choice
 if [ "x$user_choice" == "xy" ]; then
-	/home/afs/speedcubingfrance.org/scripts/deploy.sh setup_env
+	/home/ams/speedcubingmadrid.org/scripts/deploy.sh setup_env
 fi

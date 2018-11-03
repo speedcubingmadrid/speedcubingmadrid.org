@@ -10,7 +10,7 @@ threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-bind 'unix:///tmp/puma.afs.sock'
+bind 'unix:///tmp/puma.ams.sock'
 
 # pid file
 pidfile '/tmp/puma.pid'
@@ -20,7 +20,7 @@ pidfile '/tmp/puma.pid'
 environment "production"
 
 
-stdout_redirect "/home/afs/speedcubingfrance.org/log/puma.out", "/home/afs/speedcubingfrance.org/log/puma.err", true
+stdout_redirect "/home/ams/speedcubingmadrid.org/log/puma.out", "/home/ams/speedcubingmadrid.org/log/puma.err", true
 
 # TODO: ssl
 # Specifies the number of `workers` to boot in clustered mode.

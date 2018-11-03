@@ -43,7 +43,7 @@ scheduled_jobs() {
   if [ -z ${RAILS_ENV+x} ]; then
     source ~/.bashrc
   fi
-  # This function is added as a daily cron in afs_bootstrap.sh
+  # This function is added as a daily cron in ams_bootstrap.sh
   bin/rails scheduler:get_wca_competitions
   bin/rails scheduler:send_subscription_reminders
 }

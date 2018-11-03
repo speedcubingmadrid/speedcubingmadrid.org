@@ -1,6 +1,6 @@
-# speedcubingfrance.org
+# speedcubingmadrid.org
 
-Ce dépôt contient les sources du site [speedcubingfrance.org](http://www.speedcubingfrance.org).
+Ce dépôt contient les sources du site [speedcubingmadrid.org](http://www.speedcubingmadrid.org).
 
 # Fonctionnalités
 
@@ -45,7 +45,7 @@ Les dépendances sont gérées via `bundler`, la première chose à faire est do
 Le site gère ses dépendances javascript via Yarn, il faut donc les installer également via `bin/yarn`.
 
 Avant de lancer le site, il faut créer et initialiser la base de données.
-En local la configuration est disponible dans `config/database.yml`, et le site s'attend à pouvoir utiliser l'utilisateur `speedcubingfrance` avec le mot de passe `fas`.
+En local la configuration est disponible dans `config/database.yml`, et le site s'attend à pouvoir utiliser l'utilisateur `speedcubingmadrid` avec le mot de passe `fas`.
 Il faut donc le créer dans PostgreSQL et lui donner les droits de créer des bases de données.
 
 Une fois fait, la base de données s'initialise via `bin/rails db:setup`.
@@ -108,7 +108,7 @@ Via le standard `bin/rails db:migrate`.
 
 ## Production
 
-Voir la [page du wiki dédiée](https://github.com/speedcubingfrance/speedcubingfrance.org/wiki/Serveur-de-production-AFS).
+Voir la [page du wiki dédiée](https://github.com/speedcubingmadrid/speedcubingmadrid.org/wiki/Serveur-de-production-AFS).
 
 ## Sendgrid
 

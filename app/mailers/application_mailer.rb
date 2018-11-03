@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'notifications@speedcubingfrance.org'
+  default from: 'notifications@speedcubingmadrid.org'
   layout 'mailer'
 end
 
