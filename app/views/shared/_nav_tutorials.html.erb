@@ -1,0 +1,27 @@
+<%
+  menu = {
+    tutorials: {
+      name: "Tutoriales",
+      link: page_path("speedcubing/tutorials"),
+    },
+    competitors: {
+      name: "Competidores",
+      link: page_path("tutorial-competitors"),
+    },
+    resolution: {
+      name: "Resolución",
+      link: page_path("tutorial-resolution"),
+    },
+    judges: {
+      name: "Jueces",
+      link: page_path("tutorial-judges"),
+    },
+    organizers: {
+      name: "Organizadores",
+      link: page_path("tutorial-organizers"),
+    },
+  }
+%>
+<%= render "layouts/page_wrapper", menu: menu, active: current_page, title: title do %>
+  <% yield %>
+<% end %>

@@ -19,7 +19,7 @@
   </div>
 <% end %>
 
-<%= render "shared/compact_table", headers: ["Apellido", "Nombre", "WCA ID", "Email", "Pagado el", "", ""] do %>
+<%= render "shared/compact_table", headers: ["Nombre", "Apellido", "WCA ID", "Email", "Pagado el", "", ""] do %>
   <% @subscriptions.each do |subscription| %>
     <tr>
       <td><%= subscription.firstname %></td>

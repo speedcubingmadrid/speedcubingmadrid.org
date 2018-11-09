@@ -49,7 +49,7 @@ namespace :scheduler do
         NotificationMailer.with(task_name: "send_subscription_reminders", error: err).notify_team_of_failed_job.deliver_now
       end
     end
-    message = "Nombre de usuarios notificados: #{users_done.size}/#{users_to_notify.size}"
+    message = "Número de usuarios notificados: #{users_done.size}/#{users_to_notify.size}"
     if users_done.any?
       message += " (#{users_done.map(&:name).join(", ")})"
     end

@@ -132,6 +132,9 @@ function externalEventToFcEvent(eventData) {
     // 'end' is an *exclusive* end date, meaning we need to add one
     endDate.add(1, 'd');
     eventData.end = endDate.format("YYYY-MM-DD");
+    if (eventData.city.includes("Madrid")) {
+      eventData.color = "#28a745";
+    }
   }
   return eventData;
 }

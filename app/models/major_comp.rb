@@ -14,7 +14,7 @@ class MajorComp < ApplicationRecord
   def id_and_name_not_null
     if competition_id.blank?
       if name.blank?
-        errors.add(:name, "no debe estar vacío si no hay ID")
+        errors.add(:name, "no puede estar vacío si no hay ID")
       end
     else
       errors.add(:competition_id, "no está en la base de datos") unless competition

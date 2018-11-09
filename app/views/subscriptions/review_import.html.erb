@@ -10,7 +10,7 @@ Se han detectado las siguientes contribuciones, por favor léelas de nuevo antes
 
 
 <div class="table-responsive">
-  <% headers = ["Apellido", "Nombre", "WCA ID", "Email", "Pagado el", "Enlace del recibo"] %>
+  <% headers = ["Nombre", "Apellido", "WCA ID", "Email", "Pagado el", "Enlace del recibo"] %>
   <% if @new_subscriptions.any? %>
     <%= simple_form_for :subscriptions, url: subscriptions_import_path do |f| %>
       <%= render "shared/compact_table", headers: headers  do %>
@@ -41,7 +41,7 @@ Se han detectado las siguientes contribuciones, por favor léelas de nuevo antes
     <p>
     Las contribuciones a continuación ya están presentes en la base de datos y serán ignoradas.
     </p>
-    <%= render "shared/compact_table", headers: ["Apellido", "Nombre", "WCA ID", "Email", "Pagado el", "", ""] do %>
+    <%= render "shared/compact_table", headers: ["Nombre", "Apellido", "WCA ID", "Email", "Pagado el", "", ""] do %>
       <% @subscriptions.each do |subscription| %>
         <tr class="table-info">
           <td><%= subscription.firstname %></td>
