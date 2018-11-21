@@ -1,0 +1,28 @@
+<% provide(:title, "Pago de la cuota de socio anual") %>
+<% provide(:active_section, "association") %>
+<%= render "layouts/page_wrapper", title: "Pago de la cuota de socio anual" do %>
+  <%= form_tag subscriptions_path do %>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <div class="amount">
+      <p>El precio de la cuota de socio anual es de 10 €, que puedes pagar haciendo clic en el botón a continuación:</p>
+    </div>
+    <center>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-label="Pagar con tarjeta"
+        data-image="/stripe-ams_logo.png"
+        data-name="AMS"
+        data-description="Cuota de socio anual"
+        data-email="<%= @current_user.email %>"
+        data-amount="1000"
+        data-currency="eur"
+        data-locale="es"
+        data-zip-code="true">
+      </script>
+    </center>
+  <% end %>
+<% end %>

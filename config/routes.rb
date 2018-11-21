@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :calendar_events
   resources :bags
+  resources :subscriptions
   root 'posts#home'
 
   resources :users, only: [:index, :edit, :update]
@@ -16,9 +17,10 @@ Rails.application.routes.draw do
   resources :tags, only: [:index, :edit, :update]
   resources :hardwares
 
-  post '/subscriptions/review_csv' => 'subscriptions#review_csv'
-  post '/subscriptions/import' => 'subscriptions#import'
   get '/subscriptions/list' => 'subscriptions#subscriptions_list'
+  get '/association/subscribe' => 'subscriptions#subscribe'
+  get '/subscriptions/new' => 'subscriptions#new'
+  get '/subscriptions/create' => 'subscriptions#create'
 
   get '/my_competitions' => 'competitions#my_competitions'
   get '/upcoming_comps' => 'competitions#upcoming_comps'
@@ -27,7 +29,6 @@ Rails.application.routes.draw do
 
   resources :competitions, only: [:index]
   get 'competitions/official/:competition_id/registrations' => 'competitions#show_registrations', :as => :competition_registrations
-  get 'competitions/historique' => 'competitions#old_competitions_list'
   get 'competitions/:slug' => 'competitions#show_competition_page', :as => 'old_competitions'
 
   get '/profile' => 'users#edit'

@@ -3,11 +3,11 @@ Hola <%= @user.name %>,
 <p>
   Tu condición de socio de la Asociación Madrileña de Speedcubing está a punto de expirar (expira el <%= l(@user.last_subscription.until) %>).
   <br />
-  Si deseas continuar apoyándonos, puedes renovar tu condición de socio en <%= link_to "HelloAsso", "https://www.helloasso.com/associations/association-francaise-de-speedcubing" %>.
+  Si deseas continuar apoyándonos, puedes renovar tu condición de socio <%= link_to "aquí", new_subscription_url %>.
 </p>
 
 <p>
-  Estás recibiendo esta notificación porque así lo seleccionaste en tu perfil. Para dejar de recibir notificaciones como ésta, desmarca la casilla en <%= link_to "tu perfil", profile_url %> (donde también puedes ver la lista de tus aportaciones).
+  Estás recibiendo esta notificación porque así lo seleccionaste en tu perfil. Para dejar de recibir notificaciones como ésta, desmarca la casilla en <%= link_to "tu perfil", profile_url %> (donde también puedes ver la lista de tus cuotas de socio anuales pagadas).
 </p>
 
 Hasta pronto,

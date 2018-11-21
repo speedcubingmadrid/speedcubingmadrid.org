@@ -1,22 +1,16 @@
 <% provide(:title, "Socios") %>
-<%= render "nav", current_page: :subscribers %>
+<%= render "layouts/page_wrapper", title: "Socios" do %>
 
 <p>
   <%= @subscribers.size %> socios a <%= l(Date.today) %>.
 </p>
 <div class="table-responsive">
-  <% headers = ["Nombre completo", "WCA ID", "Socio hasta"] %>
+  <% headers = ["Nombre completo", "WCA ID", "Socio hasta el"] %>
   <%= render "shared/compact_table", headers: headers do %>
     <% @subscribers.each do |s| %>
       <tr>
         <td>
-          <%=
-            if s.user
-              link_to(s.user.name, edit_user_path(s.user))
-            else
-              "#{s.firstname} #{s.name}"
-            end
-          %>
+          <%= link_to(s.user.name, edit_user_path(s.user)) %>
         </td>
         <td>
           <%= link_to_wca_profile(s.wca_id) %>
@@ -27,7 +21,8 @@
   <% end %>
   <% if @subscribers.empty? %>
     <div class="alert alert-info">
-      Sin socios, intenta importar socios de HelloAsso.
+      No hay ningún socio.
     </div>
   <% end %>
 </div>
+<% end %>

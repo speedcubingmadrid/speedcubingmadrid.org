@@ -19,6 +19,10 @@ setup_env() {
   echo "WCA_CLIENT_SECRET=$client_secret" >> .env.production
   read -p "Please input the SENDGRID_API_KEY for the website: " sendgrid_key
   echo "SENDGRID_API_KEY=$sendgrid_key" >> .env.production
+  read -p "Please input the STRIPE_PUBLISHABLE_KEY for the website: " stripe_id
+  echo "STRIPE_PUBLISHABLE_KEY=$stripe_id" >> .env.production
+  read -p "Please input the STRIPE_SECRET_KEY for the website: " stripe_secret
+  echo "STRIPE_SECRET_KEY=$stripe_secret" >> .env.production
   echo "Bootstrap done, now please run rebuild_rails"
 }
 
