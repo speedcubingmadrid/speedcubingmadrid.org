@@ -73,7 +73,7 @@ class CompetitionsController < ApplicationController
     end
     if @competition
       subscribers = Subscription.active.includes(:user)
-      @subscribers_by_name = subscribers.map { |s| "#{s.firstname.downcase} #{s.name.downcase}" }
+      @subscribers_by_name = subscribers.map { |s| "#{s.name.downcase}" }
       @subscribers_by_id = subscribers.map { |s| s.wca_id }.reject(&:blank?)
       @persons.merge!(@competition["persons"].group_by do |p|
         if p["registration"]

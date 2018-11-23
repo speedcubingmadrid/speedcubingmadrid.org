@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516204233) do
+ActiveRecord::Schema.define(version: 20181122230709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,11 +98,12 @@ ActiveRecord::Schema.define(version: 20180516204233) do
   create_table "subscriptions", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.string "firstname"
     t.string "wca_id"
     t.string "email"
-    t.datetime "payed_at"
-    t.string "receipt_url"
+    t.string "stripe_charge_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
     t.index ["wca_id"], name: "index_subscriptions_on_wca_id"
   end
@@ -129,7 +130,7 @@ ActiveRecord::Schema.define(version: 20180516204233) do
     t.boolean "admin", default: false
     t.boolean "communication", default: false
     t.boolean "spanish_delegate", default: false
-    t.boolean "notify_subscription", default: false
+    t.boolean "notify_subscription", default: true
   end
 
 end

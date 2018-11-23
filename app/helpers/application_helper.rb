@@ -90,7 +90,7 @@ module ApplicationHelper
     content_tag :i, "", class: "fa fa-#{id}"
   end
 
-  def link_to_wca_profile(wca_id, tooltip=true, text=nil)
+  def link_to_wca_profile(wca_id, tooltip=false, text=nil)
     data = if tooltip
              {
                toggle: "tooltip",

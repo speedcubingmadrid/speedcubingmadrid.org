@@ -31,17 +31,14 @@
   <% end %>
 <% end %>
 
-<h2>Cuotas</h2>
+<h2>Cuotas de socio anuales</h2>
 <div class="alert alert-info">
-  Las contribuciones se importan manualmente y periódicamente por los miembros de la Junta Directiva.
-  <br/>
   Si crees que la información a continuación es incorrecta, escribe un correo a <%= mail_to "juntadirectiva@speedcubingmadrid.org" %>.
 </div>
 <% if @user.subscriptions.empty? %>
   <div class="alert alert-warning">
     <p>
-      No tienes contribuciones registradas.
-      ¡Puedes contribuir en <%= link_to "HelloAsso", "https://www.helloasso.com/associations/association-francaise-de-speedcubing", target: "_blank" %> para hacerte socio!.
+      No tienes ninguna cuota de socio anual registrada. ¡Haz clic <%= link_to 'aquí', new_subscription_path %> para hacerte socio!
     </p>
   </div>
 <% else %>
@@ -51,7 +48,7 @@
         <% tr_class = s.over? ? "warning" : "success" %>
         <tr class="table-<%= tr_class %>">
           <td>
-            Pagada el <%= l(s.payed_at.to_date) %>, esta cuota
+            Pagada el <%= l(s.created_at.to_date) %>, esta cuota de socio anual
             <% if s.over? %>
               ya no está activa.
             <% else %>

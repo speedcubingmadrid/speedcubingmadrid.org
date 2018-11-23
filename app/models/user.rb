@@ -3,11 +3,9 @@ class User < ApplicationRecord
   # List of fields we accept in the db
   @@obj_info = %w(id name email wca_id country_iso2 avatar_url avatar_thumb_url gender birthdate delegate_status)
 
-  has_many :subscriptions, -> { order(:payed_at) }
+  has_many :subscriptions, -> { order(:created_at) }
 
   scope :subscription_notification_enabled, -> { where(notify_subscription: true).where.not(email: nil) }
-
-  after_save :try_associate_subscriptions
 
   validate :cannot_demote_themselves
   def cannot_demote_themselves
@@ -17,7 +15,7 @@ class User < ApplicationRecord
   end
 
   def subscriptions_join
-    Subscription.where("(wca_id <> '' and wca_id = ?) or lower(concat(firstname, ' ', name)) = ?", wca_id, name.downcase)
+    Subscription.where("(wca_id <> '' and wca_id = ?) or lower(name)) = ?", wca_id, name.downcase)
   end
 
 
@@ -106,12 +104,8 @@ class User < ApplicationRecord
     wca_create_or_update(json_user)
   end
 
-  def try_associate_subscriptions
-    unless wca_id.blank?
-      Subscription.userless.where(wca_id: wca_id).update(user_id: id)
-    end
-    Subscription.userless.where("concat(lower(firstname), ' ', lower(name)) = ?", name.downcase).update(user_id: id)
+  def add_subscription(stripe_charge_id, amount)
+    new_subscription = Subscription.new(user_id: id, name: name, wca_id: wca_id, email: email, stripe_charge_id: stripe_charge_id, amount: amount)
+    new_subscription.save!
   end
-
-  private :try_associate_subscriptions
 end

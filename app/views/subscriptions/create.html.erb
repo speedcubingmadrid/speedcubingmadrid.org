@@ -1,0 +1,6 @@
+<% provide(:title, "¡Pago realizado con éxito!") %>
+<% provide(:active_section, "association") %>
+<%= render "layouts/page_wrapper", title: "¡Pago realizado con éxito!" do %>
+  <p>¡Gracias, has pagado 10 €!</p>
+  <p> Desde ahora, eres socio de la AMS hasta el <%= l(Date.today+1.year) %>.</p>
+<% end %>
