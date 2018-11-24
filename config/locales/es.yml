@@ -64,13 +64,13 @@ es:
       bag:
         owners:
           user: "Usuario"
-          start: "Desde el"
-          end: "Hasta el"
+          start: "Del"
+          end: "Al"
       hardware:
         owners:
           user: "Usuario"
-          start: "Desde el"
-          end: "Hasta el"
+          start: "Del"
+          end: "Al"
     hints:
       post:
         tags_string: "Para personalizar el texto que se muestra y el color de cada etiqueta, haz clic <a href='/tags' target='_blank'>aquí</a>."

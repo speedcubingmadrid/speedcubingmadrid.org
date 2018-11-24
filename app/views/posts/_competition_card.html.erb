@@ -7,7 +7,7 @@
     <% if competition.respond_to?(:alt_text) %>
       <%= competition.alt_text %>
     <% else %>
-      <%= "Desde el #{l(competition.start_date, format: :day_month)} hasta el #{l(competition.end_date)}." %>
+      <%= "Del #{l(competition.start_date, format: :day_month)} al #{l(competition.end_date)}." %>
     <% end %>
   </p>
   <% if competition.respond_to?(:website) %>

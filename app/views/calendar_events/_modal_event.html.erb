@@ -21,7 +21,7 @@
             <%= f.input :name %>
             <%= f.input :start_time, as: :hidden %>
             <%= f.input :end_time, as: :hidden %>
-            Desde el <%= l(event.start_time, format: :short) %> hasta el <%= l(event.last_day, format: :short) %>.
+            Del <%= l(event.start_time, format: :short) %> al <%= l(event.last_day, format: :short) %>.
             <%= f.input :kind, collection: CalendarEvent::KINDS, label_method: :second, value_method: :first %>
             <%= f.input :public %>
           </div>

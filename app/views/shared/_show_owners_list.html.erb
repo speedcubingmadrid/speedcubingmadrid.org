@@ -2,7 +2,7 @@
   <strong>En:</strong>
   <% owners = [] %>
   <% item.owners.each do |owner| %>
-    <% owners << "#{owner.user.name} (desde el #{l(owner.start)} hasta el #{l(owner.end)})" %>
+    <% owners << "#{owner.user.name} (del #{l(owner.start)} al #{l(owner.end)})" %>
   <% end %>
   <%= owners.join(", ") %>
 </p>
