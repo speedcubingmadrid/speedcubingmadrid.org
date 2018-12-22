@@ -1,0 +1,98 @@
+<% provide(:title, "Otras asociaciones") %>
+<% provide(:active_section, "speedcubing") %>
+<%= render "layouts/page_wrapper", title: "Otras asociaciones" do %>
+  <div class="container">
+
+    <h3 id="wca">Mundial</h3>
+
+    <div class="associations-list">
+      <div class="association-box">
+        <%= link_to wca_base_url, target: "_blank", class: "hide-new-window-icon" do %>
+          <%= image_tag "/associations/WCA.png" %>
+          <div class="association-info hide-until-hover">
+            <div class="acronym">
+              <%= "WCA" %>
+            </div>
+            <div class="name">
+              <%= "World Cube Association" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <br>
+
+    <h3 id="spanish">Españolas</h3>
+
+    <% associations_info = [
+      {
+        acronym: "AECR",
+        name: "Asociación Española del Cubo de Rubik",
+        url: "http://www.asociacionrubik.es",
+        logo: "AECR.png",
+      },
+      {
+        acronym: "AMCR",
+        name: "Asociación Malagueña del Cubo de Rubik",
+        url: "https://www.facebook.com/Asociacion-Malague%C3%B1a-Del-Cubo-De-Rubik-1175046455852155/",
+        logo: "AMCR.png",
+      },
+      {
+        acronym: "AVCR",
+        name: "Asociación Villanovense del Cubo de Rubik",
+        url: "https://avcrubik.wordpress.com/",
+        logo: "AVCR.png",
+      },
+      {
+        acronym: "CCA",
+        name: "Canary Cube Association",
+        url: "https://www.facebook.com/rubikcanarias/",
+        logo: "CCA.png",
+      },
+      {
+        acronym: "CVDB",
+        name: "Asociación de Cuberos de Villanueva y Don Benito",
+        url: "https://www.facebook.com/Asociaci%C3%B3n-CVDB-1733031540306834/",
+        logo: "CVDB.png",
+      },
+      {
+        acronym: "Euskal Rubik",
+        name: "Asociación Vasca del Cubo de Rubik",
+        url: "https://sites.google.com/site/asociacionvascadelcuboderubik/",
+        logo: "ER.png",
+      },
+      {
+        acronym: "RubikAstur",
+        name: "Asociación Asturiana del Cubo de Rubik",
+        url: "https://rubikastur.jimdo.com/",
+        logo: "RA.png",
+      },
+      {
+        acronym: "RubikCat",
+        name: "Club de Rubik de Catalunya",
+        url: "http://www.rubik.cat/",
+        logo: "RC.png",
+      },
+    ] %>
+
+    <div class="associations-list">
+      <% associations_info.each do |association_info| %>
+        <div class="association-box">
+          <%= link_to association_info[:url], target: "_blank", class: "hide-new-window-icon" do %>
+            <% if association_info[:logo] %>
+              <%= image_tag "/associations/#{association_info[:logo]}" %>
+            <% end %>
+            <div class="association-info <% if association_info[:logo] %>hide-until-hover<% end %>">
+              <div class="acronym">
+                <%= association_info[:acronym] %>
+              </div>
+              <div class="name">
+                <%= association_info[:name] %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
