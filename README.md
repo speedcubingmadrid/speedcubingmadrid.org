@@ -1,125 +1,123 @@
 # speedcubingmadrid.org
 
-Ce dépôt contient les sources du site [speedcubingmadrid.org](http://www.speedcubingmadrid.org).
+This repository contains the source code that runs on [speedcubingmadrid.org](http://www.speedcubingmadrid.org).
 
-# Fonctionnalités
+# Functionalities
 
-## Pour tous
+## For everyone
 
-  - Calendrier des compétitions officielles, en préparation, événements AFS.
-  - Export du calendrier au format iCal, pour l'ajouter comme calendrier externe à votre agenda (`/competitions.ics`).
-  - Prochaines compétitions en France
+  - Calendar of official competitions in Madrid, in Spain, being prepared, and AMS events.
+  - Calendar export on iCal format to add it as an external calendar to your calendar (`/competitions.ics`).
 
-## Pour les membres et compétiteurs
+## For members and competitors
 
-  - (TODO) Liste de ressources externes
-  - Liste des cotisations
-  - Notification 2 jours avant que l'adhésion n'expire
+  - List of subscriptions.
+  - Automatic notification 2 days before subscriptions expire.
 
-## Pour les organisateurs (et Délégués WCA)
+## For organizers
 
-  - Administration des compétitions pour afficher les membres exemptés de frais d'inscription, ou vérifier les nouveaux compétiteurs
+  - Administering competitions to view members with discounts on registration fees, or check new competitors.
 
-## Pour les Délégués et l'administration de l'AFS
+## For AMS administrators
 
-  - Gestion du matériel et calendrier prévisionnel
-  - Import des cotisations depuis HelloAsso
-
-## Pour l'équipe communication et l'administration de l'AFS
-
-  - Calendrier des événements
-  - Articles et tags
-  - Gestion des compétitions internationales à afficher en page d'accueil (CdF, Euro, WC)
+  - Material management and estimated schedule.
+  - Post and tags.
+  - Management of championships to display on home page (SC, WEC, WWC)
 
 
-# Dépendances et installation
+# Dependencies and installation
 
-Cette section et les suivantes sont à destination des personnes souhaitant contribuer au **développement** du site de l'AFS.
+This section and the following are for people wishing to contribute to the **development** of the AMS website.
 
-Le site est basé sur Rails (et nécessite donc Ruby), et est déployé sur un VPS.
-La base de donnée utilisée est PostgreSQL, qu'il est nécessaire d'installer pour faire tourner le site en local.
+The website is based on Rails (and therefore requires Ruby), and is deployed on a VPS.
+The database used is PostgreSQL, which must be installed to run the website locally.
 
-## Lancer le site en local
+## Launch the website locally
 
-Les dépendances sont gérées via `bundler`, la première chose à faire est donc de lancer `bundle install --path vendor/bundle`.
-Le site gère ses dépendances javascript via Yarn, il faut donc les installer également via `bin/yarn`.
+The dependencies are managed via `bundler`, so the first thing to do is to run `bundle install --path vendor/bundle`.
+The website manages its JavaScript dependencies via Yarn, so you have to install them via `bin/yarn` as well.
 
-Avant de lancer le site, il faut créer et initialiser la base de données.
-En local la configuration est disponible dans `config/database.yml`, et le site s'attend à pouvoir utiliser l'utilisateur `speedcubingmadrid` avec le mot de passe `fas`.
-Il faut donc le créer dans PostgreSQL et lui donner les droits de créer des bases de données.
+Before launching the website, you must create and initialize the database.
+Locally, the configuration is available in `config/database.yml`, and the website expects to be able to use the user `speedcubingmadrid` with the password `fas`.
+It must be created in PostgreSQL and given the rights to create databases.
 
-Une fois fait, la base de données s'initialise via `bin/rails db:setup`.
+Once done, the database is initialized via `bin/rails db:setup`.
 
-Le serveur peut se lancer via `bin/rails s`.
+Use `bin/rails s` to launch the server. To use it together with the WCA website server running locally, use `bin/rails s -p 1234` instead.
 
-### Authentification avec la WCA
+### Authentication via WCA
 
-L'authentification sur le site se fait via les comptes WCA.
-Le plus simple pour développer en local reste de faire tourner le site de la WCA en local (car vous pourrez vous logguer comme n'importe quel utilisateur).
-Dans tous les cas il faut créer une application Oauth sur l'instance du site de la WCA que vous ciblez (locale, ou la production), cela ce fait [ici](https://www.worldcubeassociation.org/oauth/applications) pour sur le site "production" de la WCA.
-L'URL de callback est la page gérant l'authentification sur le site de l'AFS, en local il s'agit de `http://127.0.0.1:3000/wca_callback` (par défaut le serveur tourne sur le port 3000, à adapter si besoin).
+The authentication on the website is handled using WCA accounts.
+The easiest way to develop locally is to run the WCA website locally (because you can log in like any user).
+In any case you need to create an Oauth application on the instance of the WCA website you are targeting (local, or production), this is [here](https://www.worldcubeassociation.org/oauth/applications) for on the "production" website of the WCA.
+The URL of callback is the page managing the authentication on the site of the AMS, locally it is `http://127.0.0.1:3000/wca_callback` (by default the server runs on the port 3000).
 
-Une fois cela fait, il faudra ajouter l'id de l'application et le secret à l'environnement local ; le site peut charger des variables d'environnement depuis un fichier `.env`, il suffit donc de créer un fichier `.env` à la racine de ce dépôt.
-Il contiendra par exemple ceci :
+Once this is done, it will be necessary to add the id of the application and the secret to the local environment; the website can load environment variables from a `.env` file, so just create a `.env` file at the root of the repository.
+It will contain for example this:
 
 ```bash
-WCA_CLIENT_ID="xxxxxx"
-WCA_CLIENT_SECRET="xxxxxxx"
-# Adresse du site de la WCA à utiliser
-# À commenter pour utiliser la version de production
-WCA_BASE_URL="http://localhost:1234"
+WCA_CLIENT_ID="xxx"
+WCA_CLIENT_SECRET="yyy"
+WCA_BASE_URL="http://localhost:3000"
+
+STRIPE_PUBLISHABLE_KEY="pk_test_zzz"
+STRIPE_SECRET_KEY="sk_test_ttt"
 ```
 
-Il suffit ensuite de redémarrer le serveur pour qu'il prenne en compte ces variables d'environnement.
+Then restart the server to take into account these environment variables.
 
-### Import des compétitions à venir
+### Import upcoming competitions
 
-Elle se fait via `bin/rails scheduler:get_wca_competitions`.
+It's done via `bin/rails scheduler:get_wca_competitions`.
 
-### Ajout d'un administrateur
+### Add an administrator
 
-Par défaut il n'y a aucun administrateur sur le site.
-Connectez vous au moins une fois sur le site, puis ouvrez une console Rails via `bin/rails c`.
-Si vous ne connaissez pas votre user id WCA, vous pouvez l'obtenir en regardant le dernier utilisateur ajouté (ici 277) :
+By default there is no administrator on the website.
+Log in at least once to the website, then open a Rails console via `bin/rails c`.
+If you don't know your WCA `user.id`, you can get it by looking at the last user added (here 1273):
 
 ```
 irb(main):001:0> User.last
   User Load (0.7ms)  SELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1  [["LIMIT", 1]]
-=> #<User id: 277, name: "Philippe Virouleau", wca_id: "2008VIRO01", country_iso2: "FR", email: "277@worldcubeassociation.org", avatar_url: "http://localhost:1234/uploads/user/avatar/2008VIRO...", avatar_thumb_url: "http://localhost:1234/uploads/user/avatar/2008VIRO...", gender: "m", birthdate: "1954-12-04", created_at: "2018-05-17 13:35:29", updated_at: "2018-05-17 13:35:29", delegate_status: "delegate", admin: false, communication: false, spanish_delegate: false, notify_subscription: false>
+=> #<User id: 1273, name: "Alberto Pérez de Rada Fiol", wca_id: "2011FIOL01", country_iso2: "ES", email: "1273@worldcubeassociation.org", avatar_url: "http://localhost:1234/uploads/user/avatar/2011FIOL...", avatar_thumb_url: "http://localhost:1234/uploads/user/avatar/2011FIOL...", gender: "m", birthdate: "1954-12-04", created_at: "2018-12-27 18:37:30", updated_at: "2018-12-27 18:37:30", delegate_status: "delegate", admin: false, communication: false, spanish_delegate: true, notify_subscription: true>
 ```
 
-Il suffit alors de mettre le champ `admin` à `true` manuellement :
+Then just update the field `admin` to `true` manually:
 
 ```
-irb(main):002:0> User.find(277).update(admin: true)
-  User Load (0.9ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2  [["id", 277], ["LIMIT", 1]]
+irb(main):002:0> User.find(1273).update(admin: true)
+  User Load (0.9ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2  [["id", 1273], ["LIMIT", 1]]
    (0.3ms)  BEGIN
-  SQL (0.9ms)  UPDATE "users" SET "admin" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["admin", "t"], ["updated_at", "2018-05-17 13:40:37.844392"], ["id", 277]]
+  SQL (0.9ms)  UPDATE "users" SET "admin" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["admin", "t"], ["updated_at", "2018-12-27 18:37:37"], ["id", 1273]]
   ...
    (63.7ms)  COMMIT
 => true
 ```
 
-Vous pouvez ensuite gérer les autres utilisateurs via l'interface du site.
+Other users can then be managed through the website user interface.
 
-### Lancer des migrations
+### Run the migrations
 
-Via le standard `bin/rails db:migrate`.
+Via the standard `bin/rails db:migrate`.
+
+**TO DO**
 
 ## Production
 
-Voir la [page du wiki dédiée](https://github.com/speedcubingmadrid/speedcubingmadrid.org/wiki/Serveur-de-production-AFS).
+See the [dedicated wiki page](https://github.com/speedcubingmadrid/speedcubingmadrid.org/wiki/AMS-Production-Server).
 
 ## Sendgrid
 
+Sendgrid is used to send emails in production.
 
-Sendgrid est utilisé pour envoyer des emails depuis la production.
+The only thing to know is that you have to set up the API key for the mail sending system to work.
 
-La seule chose à savoir est qu'il faut mettre en place l'API key pour que le système d'envoi de mail fonctionne.
+The dashboard is in: https://app.sendgrid.com/
 
-Le dashboard est là : https://app.sendgrid.com/
-(cf les logins/mdp)
+To test the sending of mail locally, just start `mailcatcher` (locally emails are sent to smtp localhost).
 
-Pour tester l'envoi de mail en local, il suffit de démarrer `mailcatcher` (en local les emails sont envoyés au smtp localhost).
+## Stripe
 
+Stripe is used to charge the subscription fee to members.
 
+The only thing to know is that you have to set up the API key for the automated subscription system to work.
