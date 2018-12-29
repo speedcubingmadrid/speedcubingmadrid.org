@@ -1,28 +1,38 @@
 <% provide(:title, "Socios") %>
 <%= render "layouts/page_wrapper", title: "Socios" do %>
 
-<p>
-  <%= @subscribers.size %> socios a <%= l(Date.today) %>.
-</p>
-<div class="table-responsive">
-  <% headers = ["Nombre completo", "WCA ID", "Socio hasta el"] %>
-  <%= render "shared/compact_table", headers: headers do %>
-    <% @subscribers.each do |s| %>
-      <tr>
-        <td>
-          <%= link_to(s.user.name, edit_user_path(s.user)) %>
-        </td>
-        <td>
-          <%= link_to_wca_profile(s.wca_id) %>
-        </td>
-        <td data-text="<%= s.until %>"><%= l(s.until) %></td>
-      </tr>
+  <p>
+    <%= @subscribers.size %> socios a <%= l(Date.today) %>.
+  </p>
+
+  <div class="table-responsive">
+    <% headers = ["Nombre completo", "WCA ID", "Socio hasta el", "Correo electrónico"] %>
+    <%= render "shared/compact_table", headers: headers do %>
+      <% @subscribers.each do |s| %>
+        <tr>
+          <td>
+            <%= link_to(s.user.name, edit_user_path(s.user)) %>
+          </td>
+          <td>
+            <%= link_to_wca_profile(s.wca_id) %>
+          </td>
+          <td data-text="<%= s.until %>"><%= l(s.until) %></td>
+          <td>
+            <%= mail_to s.email, cc: "contacto@speedcubingmadrid.org", reply_to: "contacto@speedcubingmadrid.org", target: "_self" do %>
+              <%= s.email %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
+    <% if @subscribers.empty? %>
+      <div class="alert alert-info">
+        No hay ningún socio.
+      </div>
+    <% end %>
+  </div>
+
+  <%= mail_to "contacto@speedcubingmadrid.org", bcc: @subscribers.map(&:email).join(","), reply_to: "contacto@speedcubingmadrid.org", target: "_self", class: "btn btn-success mb-4" do %>
+    <i class='fa fa-envelope'></i> Enviar un correo electrónico a todos los socios
   <% end %>
-  <% if @subscribers.empty? %>
-    <div class="alert alert-info">
-      No hay ningún socio.
-    </div>
-  <% end %>
-</div>
 <% end %>

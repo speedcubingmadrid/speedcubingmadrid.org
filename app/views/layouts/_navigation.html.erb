@@ -108,18 +108,12 @@
                     <% if current_user.can_manage_communication_matters? %>
                       <%= link_to "Socios", subscriptions_path, class: "dropdown-item" %>
                     <% end %>
+                    <%= link_to "Publicaciones", news_index_path, class: "dropdown-item" %>
+                    <%= link_to "Material", hardwares_path, class: "dropdown-item" %>
+                    <%= link_to "Grandes campeonatos", upcoming_champs_path, class: "dropdown-item" %>
                     <% if current_user.admin? %>
                       <%= link_to "Usuarios", users_path, class: "dropdown-item" %>
                     <% end %>
-                    <%= link_to "Publicaciones", news_index_path, class: "dropdown-item" %>
-                    <%= link_to "Grandes campeonatos", upcoming_champs_path, class: "dropdown-item" %>
-                  <% end %>
-                  <% if current_user.admin? || current_user.spanish_delegate? %>
-                    <div class="dropdown-divider"></div>
-                    <h6 role="presentation" class="dropdown-header">
-                      Delegado WCA
-                    </h6>
-                    <%= link_to "Material", hardwares_path, class: "dropdown-item" %>
                   <% end %>
 
                   <div class="dropdown-divider"></div>
