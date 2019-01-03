@@ -1,4 +1,9 @@
 class NotificationMailer < ApplicationMailer
+  def notify_new_subscriber
+    @user = params[:user]
+    mail(to: @user.email, subject: "[AMS] Correo de bienvenida")
+  end
+
   def notify_of_expiring_subscription
     @user = params[:user]
     mail(to: @user.email, subject: "[AMS] Tu condición de socio está a punto de caducar")

@@ -36,6 +36,8 @@ class SubscriptionsController < ApplicationController
       charge.amount,
     )
 
+    NotificationMailer.with(user: current_user).notify_new_subscriber.deliver_now
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_subscription_path
