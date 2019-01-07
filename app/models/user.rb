@@ -105,7 +105,15 @@ class User < ApplicationRecord
   end
 
   def add_subscription(stripe_charge_id, amount)
-    new_subscription = Subscription.new(user_id: id, name: name, wca_id: wca_id, email: email, stripe_charge_id: stripe_charge_id, amount: amount)
+    new_subscription = Subscription.new(user_id: id, name: name, wca_id: wca_id, email: ams_email, stripe_charge_id: stripe_charge_id, amount: amount)
     new_subscription.save!
+  end
+
+  def ams_email
+    if wca_id == "2011FIOL01"
+      "albertopdrf.wca@gmail.com"
+    else
+      email
+    end
   end
 end
