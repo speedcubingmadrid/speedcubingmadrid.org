@@ -3,3 +3,17 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.panel-title a[data-toggle="collapse"],
+.panel-title a.full-space {
+  display: block;
+  padding: 5px;
+}
+
+#example-container {
+  background-color: $bg-header;
+}
+
+#info-container {
+  background-color: $lighter-yellow;
+}
