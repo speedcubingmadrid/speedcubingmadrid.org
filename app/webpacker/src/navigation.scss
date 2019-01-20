@@ -100,11 +100,17 @@
             }
             border-color: $orange;
           }
-          &.nav-contact {
+          &.nav-members {
             &:hover, &:active, &.active, i {
               color: $green;
             }
             border-color: $green;
+          }
+          &.nav-contact {
+            &:hover, &:active, &.active, i {
+              color: $darker-yellow;
+            }
+            border-color: $darker-yellow;
           }
           &.nav-signin {
             &::before {
@@ -120,9 +126,9 @@
               left: 5px;
             }
             &:hover, &:active, i {
-              color: $darker-yellow;
+              color: $bg-header;
             }
-            border-color: $darker-yellow;
+            border-color: $bg-header;
 
             padding-left: $wca-logo-size + 10px;
             overflow: hidden;

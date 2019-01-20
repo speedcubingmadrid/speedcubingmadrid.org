@@ -79,6 +79,15 @@
                 <%= link_to "Tutoriales", page_path("speedcubing/tutorials"), class: "dropdown-item" %>
               </div>
             </li>
+            <li class="nav-item dropdown">
+              <% active = section == "members" ? "active" : nil %>
+              <a class="nav-link nav-members dropdown-toggle <%= active %>" href="#" id="dropdown-members" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-list-ol"></i> <span class="d-sm-none d-lg-inline">Socios</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown-members">
+                <%= link_to "Lista", page_path("subscriptions/show"), class: "dropdown-item" %>
+              </div>
+            </li>
             <li class="nav-item">
               <% active = section == "contact" ? "active" : nil %>
               <%= link_to page_path("contact"), class: "nav-link nav-contact #{active}" do %>

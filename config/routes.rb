@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :tags, only: [:index, :edit, :update]
   resources :hardwares
 
-  get '/subscriptions/list' => 'subscriptions#subscriptions_list'
+  get '/subscriptions/show' => 'subscriptions#show'
   get '/association/subscribe' => 'subscriptions#subscribe'
   get '/subscriptions/new' => 'subscriptions#new'
   get '/subscriptions/create' => 'subscriptions#create'

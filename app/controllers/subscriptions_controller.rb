@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :redirect_unless_admin!, except: [:index, :subscriptions_list, :subscribe, :new, :create]
-  before_action :redirect_unless_comm!, except: [:subscribe, :new, :create]
+  before_action :authenticate_user!, except: [:show]
+  before_action :redirect_unless_admin!, except: [:show, :index, :subscribe, :new, :create]
+  before_action :redirect_unless_comm!, except: [:show, :subscribe, :new, :create]
 
   ANNUAL_SUBSCRIPTION_COST=1000
 
@@ -11,8 +11,10 @@ class SubscriptionsController < ApplicationController
     end.values.map(&:first)
   end
 
-  def subscriptions_list
-    @subscriptions = Subscription.all.order(created_at: :desc)
+  def show
+    @subscribers = Subscription.active.includes(:user).order(:name).group_by do |s|
+      "#{s.name.downcase}"
+    end.values.map(&:first)
   end
 
   def create
