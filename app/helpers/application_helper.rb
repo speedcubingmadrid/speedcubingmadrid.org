@@ -18,6 +18,10 @@ module ApplicationHelper
     ENV['WCA_BASE_URL'] || "https://www.worldcubeassociation.org"
   end
 
+  def wca_competition_url(competition_id)
+    "#{wca_base_url}/competitions/#{competition_id}"
+  end
+
   def wca_token_url
     "#{wca_base_url}/oauth/token"
   end
