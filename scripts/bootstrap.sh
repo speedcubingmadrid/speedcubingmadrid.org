@@ -83,7 +83,7 @@ if [ "x$user_choice" == "xy" ]; then
 fi
 
 echo "Installing cron scripts"
-cp /home/ams/speedcubingmadrid.org/scripts/cron_weekly.sh /etc/cron.weekly
+cp /home/ams/speedcubingmadrid.org/scripts/cert_nginx /etc/cron.weekly
 
 echo "Bootstraping as ams"
 su ams -c "cd /home/ams && /home/ams/speedcubingmadrid.org/scripts/ams_bootstrap.sh"
