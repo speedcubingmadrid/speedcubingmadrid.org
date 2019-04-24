@@ -9,6 +9,12 @@ class NotificationMailer < ApplicationMailer
     mail(to: @user.ams_email, subject: "[AMS] Tu condición de socio está a punto de caducar")
   end
 
+  def notify_of_new_competition
+    @user = params[:user]
+    @competition = params[:competition]
+    mail(to: @user.ams_email, subject: "[AMS] La competición #{@competition.name} se acaba de anunciar")
+  end
+
   def notify_team_of_failed_job
     @task_name = params[:task_name]
     @error = params[:error]

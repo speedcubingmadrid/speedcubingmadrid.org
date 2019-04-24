@@ -111,7 +111,7 @@ class User < ApplicationRecord
 
   def ams_email
     if wca_id == "2011FIOL01"
-      "albertopdrf.wca@gmail.com"
+      "alberto@speedcubingmadrid.org"
     else
       email
     end

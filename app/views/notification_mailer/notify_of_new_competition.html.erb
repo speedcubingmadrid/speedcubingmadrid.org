@@ -1,0 +1,13 @@
+Hola <%= @user.name %>,
+
+<p>
+  La competición <%= @competition.name %> se anunció ayer. Como de costumbre, encontrarás toda la información al respecto en <%= link_to "la página de la WCA", @competition.website %>.
+</p>
+
+<p>
+  Estás recibiendo esta notificación porque así lo seleccionaste en tu perfil. Para dejar de recibir notificaciones como ésta, desmarca la casilla en <%= link_to "tu perfil", profile_url %> (donde también puedes ver la lista de tus cuotas de socio anuales pagadas).
+</p>
+
+Atentamente,
+<br />
+Asociación Madrileña de Speedcubing

@@ -56,7 +56,7 @@ es:
         admin: "Administrador"
         communication: "Equipo de comunicación"
         spanish_delegate: "Delegado WCA"
-        notify_subscription: "Avisarme cuando mi condición de socio vaya a expirar"
+        notify_subscription: "Activar las notificaciones (aviso de nuevas competiciones en Madrid y España, y de cuando la condición de socio vaya a expirar)"
       tag:
         name: "Alias de la etiqueta"
         color: "Color"
