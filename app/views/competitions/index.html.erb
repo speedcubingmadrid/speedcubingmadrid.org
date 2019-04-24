@@ -1,10 +1,10 @@
-<% provide(:title, "Calendario de competiciones") %>
+<% provide(:title, "Calendario") %>
 
 <% provide(:active_section, "speedcubing") %>
 <% content_for :additional_scripts do %>
   <%= javascript_pack_tag "calendar", 'data-turbolinks-track': 'reload'  %>
 <% end %>
-<%= render "shared/nav_competitions", current_page: :calendar, title: "Calendario de competiciones" do %>
+<%= render "shared/nav_competitions", current_page: :calendar, title: "Calendario" do %>
   El calendario a continuación contiene los siguientes elementos:
   <ul class="mb-2">
     <li class="color-green">Competiciones oficiales de la WCA en Madrid</li>
