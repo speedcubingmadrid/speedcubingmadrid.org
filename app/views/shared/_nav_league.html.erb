@@ -1,0 +1,15 @@
+<%
+  menu = {
+    classification: {
+      name: "Clasificación",
+      link: page_path("league"),
+    },
+    regulations: {
+      name: "Reglamento",
+      link: page_path("league/regulations"),
+    },
+  }
+%>
+<%= render "layouts/page_wrapper", menu: menu, active: current_page, title: title do %>
+  <% yield %>
+<% end %>

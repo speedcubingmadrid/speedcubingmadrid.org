@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/association/subscribe' => 'subscriptions#subscribe'
   get '/subscriptions/new' => 'subscriptions#new'
   get '/subscriptions/create' => 'subscriptions#create'
+  get '/league' => 'subscriptions#league_classification'
+  get '/league/regulations' => 'subscriptions#league_regulations'
 
   get '/my_competitions' => 'competitions#my_competitions'
   get '/upcoming_comps' => 'competitions#upcoming_comps'

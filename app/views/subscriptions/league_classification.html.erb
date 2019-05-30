@@ -1,0 +1,31 @@
+<% provide(:title, "Liga AMS") %>
+<% provide(:active_section, "members") %>
+<%= render "shared/nav_league", current_page: :classification, title: "Liga AMS" do %>
+  <h3 id="edición-2019">Edición 2019</h3>
+  <p>Los campeonatos que contabilizan para la edición de 2019 de la Liga AMS son:
+    <ul>
+      <li><%= link_to "Getafe Vuelve 2019", Competition.find("GetafeVuelve2019").website, target: "_blank" %></li>
+      <li><%= link_to "FMC Europe 2019", wca_competition_url("FMCEurope2019"), target: "_blank" %></li>
+      <li><%= link_to "Cervantes Cubea 2019", Competition.find("CervantesCubea2019").website, target: "_blank" %></li>
+      <li><%= link_to "UCM Open 2019", Competition.find("UCMOpen2019").website, target: "_blank" %></li>
+      <li><%= link_to "FMC 2019", wca_competition_url("FMC2019"), target: "_blank" %></li>
+      <li><%= link_to "Parla Open 2019", Competition.find("ParlaOpen2019").website, target: "_blank" %></li>
+      <li>Próximamente se anunciarán más competiciones</li>
+    </ul>
+  </p>
+
+  <p>La clasificación general, después de la cuarta jornada, es:</p>
+
+  <div id="general-classification-table" class="table table-responsive">
+    <% headers = ["Posición", "Nombre", "Puntos"] %>
+    <%= render "shared/compact_table", headers: headers do %>
+      <% @classification_2019.each do |c| %>
+        <tr>
+          <td><%= c[:position] %></td>
+          <td><%= link_to c[:name], wca_profile_url(c[:wca_id]), target: "_blank" %></td>
+          <td><%= c[:points] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,64 @@
+<% provide(:title, "Liga AMS") %>
+<% provide(:active_section, "members") %>
+<%= render "shared/nav_league", current_page: :regulations, title: "Liga AMS" do %>
+  <h3 id="reglamento">Reglamento</h3>
+  <p>La <b>Liga AMS</b> consiste en un sistema de puntuación basado en los resultados en competiciones oficiales de la WCA organizadas por (o en colaboración con) la AMS en el que participan gratuita y automáticamente todos los socios de la AMS. Los puntos se obtienen asistiendo a competiciones tradicionales organizadas por la AMS y clasificándose en unas determinadas posiciones en cada categoría. Tras la finalización de cada campeonato de la AMS se publicará una actualización del ránking de socios en la liga. <b>Todas las categorías oficiales de la WCA cuentan para la liga</b>.</p>
+  <p>Todos los socios de la AMS asistentes a cada campeonato que forme parte de la liga obtendrán <b>10 puntos sólo por el hecho de asistir al campeonato</b>. Los puntos obtenidos en función de la clasificación final de cada competidor en cada categoría son los siguientes:</p>
+
+  <div id="points-summary-table" class="table table-responsive">
+    <% headers = ["Posición", "Puntos"] %>
+    <%= render "shared/compact_table", headers: headers do %>
+      <tr> <td>1ª</td> <td>25</td> </tr>
+      <tr> <td>2ª</td> <td>18</td> </tr>
+      <tr> <td>3ª</td> <td>15</td> </tr>
+      <tr> <td>4ª</td> <td>12</td> </tr>
+      <tr> <td>5ª</td> <td>10</td> </tr>
+      <tr> <td>6ª</td> <td>8</td> </tr>
+      <tr> <td>7ª</td> <td>6</td> </tr>
+      <tr> <td>8ª</td> <td>5</td> </tr>
+      <tr> <td>9ª</td> <td>4</td> </tr>
+      <tr> <td>10ª</td> <td>3</td> </tr>
+      <tr> <td>11ª</td> <td>2</td> </tr>
+      <tr> <td>12ª</td> <td>1</td> </tr>
+    <% end %>
+  </div>
+
+  <p>No se asignarán puntos en ningún caso a un resultado DNF o DNS, pero si computará para el número de participantes en dicha categoría.</p>
+  <p>Con este sistema de puntuación se premia el acceso a las finales clásicas donde compiten los 12 primeros clasificados en las categorías con varias rondas. Además, para diferenciar el nivel relativo de cada categoría, <b>se multiplicarán los puntos obtenidos en cada categoría por un coeficiente de mayoración propio de cada una de ellas</b>, favoreciendo así los buenos resultados en una categoría en un campeonato con muchos competidores frente al mismo resultado en la misma categoría en un campeonato con menos competidores. Este coeficiente (\(c\)) depende del número de participantes en cada categoría (\(n\)) de la siguiente forma: $$c = 1 + {n \over 100}.$$</p>
+
+  <div id="example-container" class="container">
+    <div id="accordion" class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading heading-as-link">
+          <h5 class="panel-title">
+            <%= link_to ("<i class='fa fa-plus'></i> Ejemplo").html_safe, "#example", data: { toggle: "collapse", parent: "#accordion" } %>
+          </h5>
+        </div>
+        <div id="example" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p>Si en un campeonato participan 100 personas en el Cubo 3x3x3, el primer puesto en dicha categoría adjudicará \(25·(1+{100 \over 100})=50 \) puntos, mientras que si participan 50 competidores se adjudicarán \(25·(1+{50 \over 100})=37,5 \) puntos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>La liga finaliza en el Campeonato AMS del año en cuestión, <b>donde todos los puntos que se consigan contarán el doble</b>. Al acabar el campeonato se anunciará el podio y se entregarán los correspondientes premios y/o trofeos.</p>
+
+  <div id="info-container" class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h5 class="panel-title">
+          <i class='fa fa-info'></i>
+        </h5>
+      </div>
+      <div class="panel-body">
+        <p>La participación en la Liga AMS está destinada a todos los socios de la AMS, independientemente de que sean madrileños o no. Si una persona se asocia a la AMS en mitad de la liga empezará a recibir puntos desde el primer campeonato en el que compita con la condición de socio AMS.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+  </script>
+<% end %>
