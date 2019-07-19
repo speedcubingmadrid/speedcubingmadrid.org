@@ -57,6 +57,11 @@ gem 'dotenv-rails'
 
 gem 'stripe'
 
+gem 'activestorage-validator'
+gem 'image_processing'
+gem 'mini_magick'
+gem "aws-sdk-s3", require: false
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

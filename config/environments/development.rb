@@ -57,4 +57,7 @@ Rails.application.configure do
 
   # also fallback in dev
   config.i18n.fallbacks = true
+
+  # Setup for ActiveStorage.
+  config.active_storage.service = :local
 end

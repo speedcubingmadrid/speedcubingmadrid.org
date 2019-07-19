@@ -58,6 +58,9 @@ curl -sL https://deb.nodesource.com/setup_10.x | bash -
 # libpq-dev is for pg gem
 apt-get install -y nodejs yarn libpq-dev
 
+# for activestorage variants and previews
+apt-get install -y imagemagick
+apt-get install -y poppler-utils
 
 # for certbot
 apt-get install -y python-certbot-nginx -t stretch-backports
