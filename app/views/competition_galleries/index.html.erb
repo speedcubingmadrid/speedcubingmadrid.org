@@ -1,0 +1,49 @@
+<% provide(:title, "Galerías") %>
+
+<% provide(:active_section, "speedcubing") %>
+<%= render "layouts/page_wrapper", title: "Galerías" do %>
+
+  <% unless @featured_competition_galleries.empty? %>
+    <% unless @other_competition_galleries.empty? %>
+      <h3 id="destacadas">Destacadas</h3>
+    <% end %>
+
+    <div class="competition-galleries-list">
+      <% @featured_competition_galleries.each do |fcg| %>
+        <div class="competition-gallery-box">
+          <%= link_to competition_gallery_path(fcg) do %>
+            <%= image_tag fcg.photos.first.variant(resize: "500x300") %>
+            <div class="competition-name hide-until-hover">
+              <%= Competition.find(fcg.competition_id).name %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% unless @other_competition_galleries.empty? %>
+    <% unless @featured_competition_galleries.empty? %>
+      <h3 id="otras">Otras</h3>
+    <% end %>
+
+    <div class="competition-galleries-list">
+      <% @other_competition_galleries.each do |ocg| %>
+        <div class="competition-gallery-box">
+          <%= link_to competition_gallery_path(ocg) do %>
+            <%= image_tag ocg.photos.first.variant(resize: "500x300") %>
+            <div class="competition-name hide-until-hover">
+              <%= Competition.find(ocg.competition_id).name %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @featured_competition_galleries.empty? && @other_competition_galleries.empty? %>
+    <div class="alert alert-info">
+      No hay ninguna galería.
+    </div>
+  <% end %>
+<% end %>

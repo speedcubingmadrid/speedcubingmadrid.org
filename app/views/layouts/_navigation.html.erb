@@ -74,6 +74,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdown-speedcubing">
                 <%= link_to "Speedcubing", page_path("speedcubing"), class: "dropdown-item" %>
                 <%= link_to "Calendario", page_path("competitions"), class: "dropdown-item" %>
+                <%= link_to "Galerías", page_path("competition_galleries"), class: "dropdown-item" %>
                 <%= link_to "Reglamento", page_path("speedcubing/regulations"), class: "dropdown-item" %>
                 <%= link_to "Tutoriales", page_path("speedcubing/tutorials"), class: "dropdown-item" %>
               </div>
@@ -115,10 +116,9 @@
                     <h6 role="presentation" class="dropdown-header">
                       Administración
                     </h6>
-                    <% if current_user.can_manage_communication_matters? %>
-                      <%= link_to "Socios", subscriptions_path, class: "dropdown-item" %>
-                    <% end %>
+                    <%= link_to "Socios", subscriptions_path, class: "dropdown-item" %>
                     <%= link_to "Publicaciones", news_index_path, class: "dropdown-item" %>
+                    <%= link_to "Galerías", admin_competition_galleries_path, class: "dropdown-item" %>
                     <%= link_to "Material", hardwares_path, class: "dropdown-item" %>
                     <%= link_to "Grandes campeonatos", upcoming_champs_path, class: "dropdown-item" %>
                     <% if current_user.admin? %>

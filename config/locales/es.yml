@@ -71,6 +71,12 @@ es:
           user: "Usuario"
           start: "Del"
           end: "Al"
+      competition_gallery:
+        competition_id: "Competición"
+        user: "Usuario"
+        photos: "Fotos"
+        draft: "Esta galería es un borrador"
+        feature: "Destacar galería"
     hints:
       post:
         tags_string: "Para personalizar el texto que se muestra y el color de cada etiqueta, haz clic <a href='/tags' target='_blank'>aquí</a>."
@@ -79,6 +85,8 @@ es:
         body: "Agrega \"{{post_excerpt}}\" para separar la introducción de una publicación de su contenido principal."
       tag:
         name: "El alias permite identificar la etiqueta y no es editable"
+      competition_gallery:
+        photos: "Sólo se admiten ficheros PNG, JPG y JPEG menores de 25 MB"
   helpers:
     submit:
       signin:
@@ -99,6 +107,9 @@ es:
         update: "Guardar"
       big_champs:
         submit: "Guardar"
+      competition_gallery:
+        create: "Crear galería"
+        update: "Actualizar galería"
     page_entries_info:
       one_page:
         display_entries:

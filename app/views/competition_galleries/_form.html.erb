@@ -1,0 +1,30 @@
+<%= simple_form_for(@competition_gallery, url: @competition_gallery.new_record? ? new_competition_gallery_path : edit_competition_gallery_path(@competition_gallery)) do |f| %>
+  <%= f.error_notification message: "El formulario no es válido. Por favor, corrige los errores detallados a continuación." %>
+
+  <div class="form-inputs">
+    <%= f.input :competition_id, collection: Competition.all.order(start_date: :desc), label_method: lambda { |c| c.name }, value_method: lambda { |c| c.id }  %>
+
+    <%= f.input :photos, input_html: { multiple: true } %>
+    <% if @competition_gallery.photos.attached? %>
+      <div class="competition-galleries-list">
+        <% @competition_gallery.photos.each do |cgp| %>
+          <div class="competition-gallery-box">
+            <%= link_to(delete_photo_competition_gallery_path(cgp), method: :delete, data: { confirm: '¿Estás seguro?' }) do %>
+              <%= image_tag cgp.variant(resize: "200x150") %>
+              <div class="competition-name icon hide-until-hover">
+                <%= fa_icon("trash") %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= f.input :draft %>
+    <%= f.input :feature %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

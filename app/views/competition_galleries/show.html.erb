@@ -1,0 +1,20 @@
+<% provide(:title, "Galería del #{@competition_name}") %>
+
+<% provide(:active_section, "speedcubing") %>
+<%= render "layouts/page_wrapper", title: "Galería del #{@competition_name}" do %>
+  <div class="competition-galleries-list">
+    <% @competition_gallery.photos.each do |cgp| %>
+      <div class="competition-gallery-box">
+        <%= link_to url_for(cgp), target: "_blank" do %>
+          <%= image_tag url_for(cgp.variant(resize: "200x150")) %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @competition_gallery.photos.empty? %>
+    <div class="alert alert-info">
+      No hay ninguna foto.
+    </div>
+  <% end %>
+<% end %>

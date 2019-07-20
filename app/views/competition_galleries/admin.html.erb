@@ -1,0 +1,25 @@
+<% provide(:title, "Galerías") %>
+<h1>Galerías</h1>
+
+<%= link_to ("<i class='fa fa-plus-circle'></i> Nueva galería").html_safe, new_competition_gallery_path, class: "btn btn-success mb-4" %>
+
+<div class="list-group">
+  <% @competition_galleries.each do |cg| %>
+    <div class="list-group-item flex-column align-items-start list-group-item-<%= cg_contextual_class(cg) %>">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">
+          <%= link_to(Competition.find(cg.competition_id).name, edit_competition_gallery_path(cg), class: "text-#{cg_contextual_class(cg)} mr-2") %>
+        </h5>
+        <small>El <%= l(cg.created_at) %> por <%= User.find(cg.user_id).name %></small>
+      </div>
+      <div class="d-flex w-100 justify-content-between">
+        <small><%= cg_legend(cg) %></small>
+        <div>
+          <%= link_to(fa_icon("eye"), competition_gallery_path(cg), class: "btn btn-sm btn-info") %>
+          <%= link_to(fa_icon("pencil"), edit_competition_gallery_path(cg), class: "btn btn-sm btn-primary") %>
+          <%= link_to(fa_icon("trash"), competition_gallery_path(cg), method: :delete, data: { confirm: '¿Estás seguro?' }, class: "btn btn-sm btn-danger") %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

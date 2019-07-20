@@ -1,0 +1,52 @@
+$competition-gallery-cell-width: 120px;
+.competition-galleries-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .competition-gallery-box {
+    text-align: center;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    a {
+      display: inline-block;
+      position: relative;
+      height: $competition-gallery-cell-width;
+      min-width: $competition-gallery-cell-width;
+      img {
+        // Let the image take up whatever width it likes.
+        height: $competition-gallery-cell-width;
+      }
+      .competition-name {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        font-size: 15px;
+      }
+    }
+    .competition-name.hide-until-hover {
+      visibility: hidden;
+    }
+    &:hover .competition-name.hide-until-hover {
+      visibility: visible;
+      background-color: rgba(#fff, 0.8);
+    }
+    .competition-name.icon {
+      font-size: 30px;
+      color: $red;
+    }
+  }
+}
+
+.custom-file-label {
+  &::after {
+    content: "Seleccionar fotos";
+  }
+}

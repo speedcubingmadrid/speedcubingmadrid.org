@@ -1,0 +1,6 @@
+<% provide(:title, "Nueva galería") %>
+<h1>Nueva galería</h1>
+
+<%= link_to 'Volver a la lista de galerías', admin_competition_galleries_path %>
+
+<%= render 'form', competition_gallery: @competition_gallery %>

@@ -4,6 +4,16 @@ Rails.application.routes.draw do
   resources :subscriptions
   root 'posts#home'
 
+  resources :competition_galleries do
+    member do
+      delete :delete_photo
+    end
+  end
+  get 'admin/competition_galleries' => 'competition_galleries#admin'
+  post 'competition_galleries/new' => 'competition_galleries#create'
+  patch 'competition_galleries/:id/edit' => 'competition_galleries#update'
+  post 'competition_galleries/:id' => 'competition_galleries#delete_photo'
+
   resources :users, only: [:index, :edit, :update]
   get 'users/import' => 'users#import'
   post 'users/import' => 'users#import_from_wca'
