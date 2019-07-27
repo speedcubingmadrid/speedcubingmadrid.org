@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :league_classification, :league_regulations]
-  before_action :redirect_unless_admin!, except: [:show, :index, :subscribe, :new, :create, :league_classification, :league_regulations]
-  before_action :redirect_unless_comm!, except: [:show, :subscribe, :new, :create, :league_classification, :league_regulations]
+  before_action :authenticate_user!, except: [:show, :medal_collection, :league_classification, :league_regulations]
+  before_action :redirect_unless_admin!, except: [:show, :medal_collection, :index, :subscribe, :new, :create, :league_classification, :league_regulations]
+  before_action :redirect_unless_comm!, except: [:show, :medal_collection, :subscribe, :new, :create, :league_classification, :league_regulations]
 
   # Amount in cents
   ANNUAL_SUBSCRIPTION_COST=1000
@@ -50,6 +50,11 @@ class SubscriptionsController < ApplicationController
     @subscription.destroy
     flash[:success] = "Suscripción eliminada"
     redirect_to subscriptions_list_url
+  end
+
+  def medal_collection
+    wca_ids = Subscription.active.map(&:wca_id)
+    @persons = Person.where(wca_id: wca_ids).where("gold > 0 or silver > 0 or bronze > 0").order(gold: :desc, silver: :desc, bronze: :desc)
   end
 
   def league_classification

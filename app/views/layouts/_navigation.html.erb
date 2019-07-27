@@ -85,7 +85,8 @@
                 <i class="fa fa-list-ol"></i> <span class="d-sm-none d-lg-inline">Socios</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdown-members">
-                <%= link_to "Lista", page_path("subscriptions/show"), class: "dropdown-item" %>
+                <%= link_to "Lista", page_path("members"), class: "dropdown-item" %>
+                <%= link_to "Medallero", page_path("members/medal_collection"), class: "dropdown-item" %>
                 <%= link_to "Liga AMS", page_path("league"), class: "dropdown-item" %>
               </div>
             </li>

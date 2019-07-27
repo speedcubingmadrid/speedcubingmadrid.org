@@ -1,0 +1,23 @@
+<% provide(:title, "Medallero de socios") %>
+<% provide(:active_section, "members") %>
+<%= render "layouts/page_wrapper", title: "Medallero de socios" do %>
+  <div class="table-responsive">
+    <% headers = ["Posición", "Nombre", "Oros", "Platas", "Bronces"] %>
+    <%= render "shared/compact_table", headers: headers do %>
+      <% @persons.each_with_index do |p, i| %>
+        <tr>
+          <td> <%= i+1 %> </td>
+          <td> <%= link_to p.name, wca_profile_url(p.wca_id), target: "_blank" %> </td>
+          <td> <%= p.gold %> </td>
+          <td> <%= p.silver %> </td>
+          <td> <%= p.bronze %> </td>
+        </tr>
+      <% end %>
+    <% end %>
+    <% if @persons.empty? %>
+      <div class="alert alert-info">
+        No hay ningún socio.
+      </div>
+    <% end %>
+  </div>
+<% end %>
