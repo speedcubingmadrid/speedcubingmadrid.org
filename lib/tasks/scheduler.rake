@@ -2,7 +2,7 @@ require "#{Rails.root}/app/helpers/application_helper"
 include ApplicationHelper
 
 namespace :scheduler do
-  desc "Daily task to get WCA competitions"
+  desc "Daily task to get WCA Competitions"
   task :get_wca_competitions => :environment do
     puts "Getting competitions"
     url_params = {
@@ -40,12 +40,41 @@ namespace :scheduler do
     end
   end
 
+  desc "Daily task to get WCA persons"
+  task :get_wca_persons => :environment do
+    puts "Getting persons"
+    begin
+      subscribers = Subscription.active
+      names = []
+      subscribers.in_groups_of(100, false).each do |s|
+        persons_response = RestClient.get(wca_api_profile_url(s.map(&:wca_id).join(",")))
+        persons = JSON.parse(persons_response.body)
+        persons.each do |p|
+          puts "Importing #{p["person"]["name"]}"
+          _, person_obj = Person.create_or_update(p)
+          names << p["person"]["name"]
+        end
+      end
+      puts "Done."
+      if names.any?
+        message = "Las personas siguientes se han importado con éxito: #{names.join(", ")}."
+        NotificationMailer.with(task_name: "get_wca_persons", message: message).notify_team_of_job_done.deliver_now
+      end
+    rescue => err
+      puts "Could not get persons from the WCA, error:"
+      puts err
+      puts "---"
+      puts "Trying to notify the administrators."
+      NotificationMailer.with(task_name: "get_wca_persons", error: err).notify_team_of_failed_job.deliver_now
+    end
+  end
+
   desc "Daily task to send subscriptions reminder"
   task :send_subscription_reminders => :environment do
     users_to_notify = User.subscription_notification_enabled.select(&:last_subscription).select do |u|
       u.last_subscription.until == 2.days.from_now.to_date
     end
-    puts "#{users_to_notify.size} usuario a notificar."
+    puts "#{users_to_notify.size} usuarios a notificar."
     users_done = []
     users_to_notify.each do |u|
       puts u.name

@@ -42,6 +42,10 @@ module ApplicationHelper
     "#{wca_base_url}/persons/#{wca_id}"
   end
 
+  def wca_api_profile_url(wca_ids)
+    wca_api_url("/persons?wca_ids=#{wca_ids}&per_page=100")
+  end
+
   def wca_persons_search_url
     "#{wca_base_url}/persons/?page=1&region=all&only_with_wca_ids=true&search="
   end

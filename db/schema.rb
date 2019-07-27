@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_213418) do
+ActiveRecord::Schema.define(version: 2019_07_27_095326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,49 @@ ActiveRecord::Schema.define(version: 2019_07_19_213418) do
     t.date "start", null: false
     t.date "end", null: false
     t.index ["item_type", "item_id"], name: "index_owners_on_item_type_and_item_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "wca_id"
+    t.string "name"
+    t.integer "s_333"
+    t.integer "a_333"
+    t.integer "s_222"
+    t.integer "a_222"
+    t.integer "s_444"
+    t.integer "a_444"
+    t.integer "s_555"
+    t.integer "a_555"
+    t.integer "s_666"
+    t.integer "a_666"
+    t.integer "s_777"
+    t.integer "a_777"
+    t.integer "s_333bf"
+    t.integer "a_333bf"
+    t.integer "s_333fm"
+    t.integer "a_333fm"
+    t.integer "s_333oh"
+    t.integer "a_333oh"
+    t.integer "s_333ft"
+    t.integer "a_333ft"
+    t.integer "s_clock"
+    t.integer "a_clock"
+    t.integer "s_minx"
+    t.integer "a_minx"
+    t.integer "s_pyram"
+    t.integer "a_pyram"
+    t.integer "s_skewb"
+    t.integer "a_skewb"
+    t.integer "s_sq1"
+    t.integer "a_sq1"
+    t.integer "s_444bf"
+    t.integer "a_444bf"
+    t.integer "s_555bf"
+    t.integer "a_555bf"
+    t.integer "s_333mbf"
+    t.integer "gold"
+    t.integer "silver"
+    t.integer "bronze"
   end
 
   create_table "post_tags", force: :cascade do |t|

@@ -6,7 +6,7 @@
   </p>
 
   <div class="table-responsive">
-    <% headers = ["Nombre completo", "WCA ID", "Socio hasta el"] %>
+    <% headers = ["Nombre", "WCA ID", "Socio hasta el"] %>
     <%= render "shared/compact_table", headers: headers do %>
       <% @subscribers.each do |s| %>
         <tr>

@@ -3,6 +3,7 @@ class SubscriptionsController < ApplicationController
   before_action :redirect_unless_admin!, except: [:show, :index, :subscribe, :new, :create, :league_classification, :league_regulations]
   before_action :redirect_unless_comm!, except: [:show, :subscribe, :new, :create, :league_classification, :league_regulations]
 
+  # Amount in cents
   ANNUAL_SUBSCRIPTION_COST=1000
 
   def index
@@ -18,7 +19,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    # Amount in cents
     @amount = ANNUAL_SUBSCRIPTION_COST
 
     customer = Stripe::Customer.create(
