@@ -98,6 +98,12 @@ module ApplicationHelper
     content_tag :i, "", class: "fa fa-#{id}"
   end
 
+  def cubing_icon(event, html_options = {})
+    html_options[:class] ||= ""
+    html_options[:class] += " cubing-icon event-#{event}"
+    content_tag :span, "", html_options
+  end
+
   def link_to_wca_profile(wca_id, tooltip=false, text=nil)
     data = if tooltip
              {

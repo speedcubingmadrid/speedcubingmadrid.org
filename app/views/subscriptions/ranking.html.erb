@@ -1,0 +1,45 @@
+<% provide(:title, "Ránking de socios") %>
+<% provide(:active_section, "members") %>
+<%= render "layouts/page_wrapper", title: "Ránking de socios" do %>
+  <% event_param = params[:event_id] %>
+  <% format_param = params[:format] %>
+  <% formats = ["single", "average"] %>
+  <% formats_names = ["Sencillo", "Media"] %>
+
+  <div class="options">
+    <h3>Evento</h3>
+    <% @events.each_with_index do |e, i| %>
+      <%= link_to cubing_icon(e), "/members/ranking/#{e}/#{format_param}", class: (event_param == e ? 'ranking-active' : '') %>
+      <% if i == 8 %>
+        <br>
+      <% end %>
+    <% end %>
+    <% unless event_param == "333mbf" %>
+      <h3>Formato</h3>
+      <% formats.each_with_index do |f, i| %>
+        <%= link_to "#{formats_names[i]}", "/members/ranking/#{event_param}/#{f}", class: (format_param == f ? 'ranking-active' : '') %>
+      <% end %>
+    <% end %>
+  </div>
+  <br>
+
+  <h3>Ránking</h3>
+  <div class="table-responsive">
+    <% index = ("#{format_param}" == formats[0] ? 0 : 1) %>
+    <% headers = ["Posición", "Nombre", formats_names[index]] %>
+    <%= render "shared/compact_table", headers: headers do %>
+      <% @persons.each_with_index do |p, i| %>
+        <tr>
+          <td> <%= i+1 %> </td>
+          <td> <%= link_to p.name, wca_profile_url(p.wca_id), target: "_blank" %> </td>
+          <td> <%= SolveTime.new(event_param, format_param, p["#{@query}"]).clock_format %> </td>
+        </tr>
+      <% end %>
+    <% end %>
+    <% if @persons.empty? %>
+      <div class="alert alert-info">
+        No hay ningún socio con resultado en la categoría y el formato seleccionados.
+      </div>
+    <% end %>
+  </div>
+<% end %>

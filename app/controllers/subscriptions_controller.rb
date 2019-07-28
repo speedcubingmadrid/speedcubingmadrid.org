@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :medal_collection, :league_classification, :league_regulations]
-  before_action :redirect_unless_admin!, except: [:show, :medal_collection, :index, :subscribe, :new, :create, :league_classification, :league_regulations]
-  before_action :redirect_unless_comm!, except: [:show, :medal_collection, :subscribe, :new, :create, :league_classification, :league_regulations]
+  before_action :authenticate_user!, except: [:show, :ranking, :medal_collection, :league_classification, :league_regulations]
+  before_action :redirect_unless_admin!, except: [:show, :ranking, :medal_collection, :index, :subscribe, :new, :create, :league_classification, :league_regulations]
+  before_action :redirect_unless_comm!, except: [:show, :ranking, :medal_collection, :subscribe, :new, :create, :league_classification, :league_regulations]
 
   # Amount in cents
   ANNUAL_SUBSCRIPTION_COST=1000
@@ -50,6 +50,15 @@ class SubscriptionsController < ApplicationController
     @subscription.destroy
     flash[:success] = "Suscripción eliminada"
     redirect_to subscriptions_list_url
+  end
+
+  def ranking
+    @events = ["333", "222", "444", "555", "666", "777", "333bf", "333fm", "333oh", "333ft", "clock", "minx", "pyram", "skewb", "sq1", "444bf", "555bf", "333mbf"]
+    event = "#{params[:event_id]}"
+    format = "#{params[:format][0]}"
+    wca_ids = Subscription.active.map(&:wca_id)
+    @query = "#{format}_#{event}"
+    @persons = Person.where(wca_id: wca_ids).where("#{@query} IS NOT NULL").order("#{@query} ASC")
   end
 
   def medal_collection

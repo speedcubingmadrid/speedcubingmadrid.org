@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :hardwares
 
   get '/members' => 'subscriptions#show'
+  get '/members/ranking/333mbf/average', to: redirect('/members/ranking/333mbf/single')
+  get '/members/ranking/:event_id/:format' => 'subscriptions#ranking', as: :ranking
   get '/members/medal_collection' => 'subscriptions#medal_collection'
   get '/association/subscribe' => 'subscriptions#subscribe'
   get '/subscriptions/new' => 'subscriptions#new'
