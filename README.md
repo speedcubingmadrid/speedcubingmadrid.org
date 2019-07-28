@@ -8,11 +8,15 @@ This repository contains the source code that runs on [speedcubingmadrid.org](ht
 
   - Calendar of official competitions in Madrid, in Spain, being prepared, and AMS events.
   - Calendar export on iCal format to add it as an external calendar to your calendar (`/competitions.ics`).
+  - Galeries of competitions' photos.
 
 ## For members and competitors
 
   - List of subscriptions.
+  - Rankings of members
+  - Medal collection ranking of members.
   - Automatic notification 2 days before subscriptions expire.
+  - Automatic notification when new competitions are announced.
 
 ## For organizers
 
@@ -70,6 +74,10 @@ Then restart the server to take into account these environment variables.
 
 It's done via `bin/rails scheduler:get_wca_competitions`.
 
+### Import persons
+
+It's done via `bin/rails scheduler:get_wca_persons`.
+
 ### Add an administrator
 
 By default there is no administrator on the website.
@@ -121,3 +129,9 @@ To test the sending of mail locally, just start `mailcatcher` (locally emails ar
 Stripe is used to charge the subscription fee to members.
 
 The only thing to know is that you have to set up the API key for the automated subscription system to work.
+
+## AWS
+
+An AWS bucket is used to store the photos of competitions' galleries, which are uploaded through `Active Storage`.
+
+The public and private keys, the region, and the name of the bucket must be set up.
