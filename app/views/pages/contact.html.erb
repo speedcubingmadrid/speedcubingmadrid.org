@@ -3,7 +3,17 @@
 
 <%= render "layouts/page_wrapper", title: "Contacto" do %>
 
-  <p>Para cualquier cuestión, comentario o sugerencia relacionada con la AMS: envía un correo electrónico a <%= mail_to "contacto@speedcubingmadrid.org" %>.</p>
+  <p>Para cualquier cuestión, comentario o sugerencia general relacionada con la AMS: envía un correo electrónico a <%= mail_to "contacto@speedcubingmadrid.org" %>.</p>
+
+  <p>Para cuestiones más específicas tienes los siguientes contactos:
+    <ul>
+      <li>Cuestiones a la Junta Directiva: <%= mail_to "juntadirectiva@speedcubingmadrid.org" %>.</li>
+      <li>Cuestiones sobre competiciones oficiales: <%= mail_to "competiciones@speedcubingmadrid.org" %>.</li>
+      <li>Cuestiones a la Tesorería: <%= mail_to "tesoreria@speedcubingmadrid.org" %>.</li>
+      <li>Cuestiones al Equipo de Software: <%= mail_to "software@speedcubingmadrid.org" %>.</li>
+      <li>Cuestiones al Equipo de Comunicación: <%= mail_to "comunicacion@speedcubingmadrid.org" %>.</li>
+    </ul>
+  </p>
 
   <p>Si has encontrado algún fallo en la página, puedes abrir directamente una Issue en <a href="https://github.com/speedcubingmadrid/speedcubingmadrid.org/issues">GitHub</a>, o contactar con los administradores a través de <%= mail_to "administradores@speedcubingmadrid.org" %>.</p>
 <% end %>
