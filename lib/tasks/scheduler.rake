@@ -7,9 +7,13 @@ namespace :scheduler do
   desc "Daily task to sync mailing lists"
   task :sync_groups => :environment do
     sync_job_messages = []
+    # Mailing list for the Board
+    board_members = User.select(&:board).map(&:ams_email)
+    sync_job_messages << GsuiteMailingLists.sync_group("juntadirectiva@speedcubingmadrid.org", board_members)
+
+    # Mailing list for automatic notifications to subscribers
     subscribers_with_notifications = User.subscription_notification_enabled.with_active_subscription.map(&:ams_email)
-    subscribers_with_notifications << "contacto@speedcubingmadrid.org"
-    sync_job_messages << GsuiteMailingLists.sync_group("notificaciones@speedcubingmadrid.org", subscribers_with_notifications)
+    sync_job_messages << GsuiteMailingLists.sync_group("notificaciones-socios@speedcubingmadrid.org", subscribers_with_notifications)
 
     message = "Se ha realizado la sincronización de los grupos.\n"
     if sync_job_messages.empty?
