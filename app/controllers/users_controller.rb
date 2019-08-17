@@ -93,7 +93,9 @@ class UsersController < ApplicationController
     if current_user.admin?
       permitted_params += [
         :admin,
+        :board,
         :communication,
+        :software,
         :spanish_delegate,
       ]
     end

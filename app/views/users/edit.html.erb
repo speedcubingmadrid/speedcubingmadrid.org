@@ -23,7 +23,9 @@
   <%= f.input :wca_id, as: :display %>
   <%= f.input :friendly_birthdate, as: :display %>
   <%= f.input :admin, disabled: !is_admin %>
+  <%= f.input :board, disabled: !is_admin %>
   <%= f.input :communication, disabled: !is_admin %>
+  <%= f.input :software, disabled: !is_admin %>
   <%= f.input :spanish_delegate, disabled: !is_admin %>
   <%= f.input :notify_subscription %>
   <% if current_user&.can_edit_user?(@user) %>

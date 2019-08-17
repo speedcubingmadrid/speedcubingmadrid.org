@@ -33,7 +33,11 @@ class User < ApplicationRecord
   end
 
   def can_manage_communication_matters?
-    admin? || comm?
+    admin? || board? || comm?
+  end
+
+  def can_manage_software_matters?
+    admin? || soft?
   end
 
   def can_manage_calendar?
@@ -48,8 +52,16 @@ class User < ApplicationRecord
     admin
   end
 
+  def board?
+    board
+  end
+
   def comm?
     communication
+  end
+
+  def soft?
+    software
   end
 
   def delegate?

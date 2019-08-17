@@ -1,8 +1,14 @@
 <% if user.admin? %>
   <i class="fa fa-star" data-toggle="tooltip" data-placement="top" title="Administrador"></i>
 <% end %>
+<% if user.board? %>
+  <i class="fa fa-institution" data-toggle="tooltip" data-placement="top" title="Junta Directiva"></i>
+<% end %>
 <% if user.comm? %>
-  <i class="fa fa-globe" data-toggle="tooltip" data-placement="top" title="Comunicación"></i>
+  <i class="fa fa-globe" data-toggle="tooltip" data-placement="top" title="Equipo de Comunicación"></i>
+<% end %>
+<% if user.soft? %>
+  <i class="fa fa-laptop" data-toggle="tooltip" data-placement="top" title="Equipo de Software"></i>
 <% end %>
 <% if user.spanish_delegate? %>
   <i class="fa fa-balance-scale" data-toggle="tooltip" data-placement="top" title="Delegado WCA"></i>

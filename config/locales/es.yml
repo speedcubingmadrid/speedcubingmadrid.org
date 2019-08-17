@@ -54,7 +54,9 @@ es:
         wca_id: "WCA ID"
         friendly_birthdate: "Fecha de nacimiento"
         admin: "Administrador"
-        communication: "Equipo de comunicación"
+        board: "Junta Directiva"
+        communication: "Equipo de Comunicación"
+        software: "Equipo de Software"
         spanish_delegate: "Delegado WCA"
         notify_subscription: "Activar las notificaciones (aviso de nuevas competiciones en Madrid y España, y de cuando la condición de socio vaya a expirar)"
       tag:
