@@ -1,7 +1,25 @@
 require "#{Rails.root}/app/helpers/application_helper"
+require "#{Rails.root}/lib/gsuite_mailing_lists"
 include ApplicationHelper
+include GsuiteMailingLists
 
 namespace :scheduler do
+  desc "Daily task to sync mailing lists"
+  task :sync_groups => :environment do
+    sync_job_messages = []
+    subscribers_with_notifications = User.subscription_notification_enabled.with_active_subscription.map(&:ams_email)
+    subscribers_with_notifications << "contacto@speedcubingmadrid.org"
+    sync_job_messages << GsuiteMailingLists.sync_group("notificaciones@speedcubingmadrid.org", subscribers_with_notifications)
+
+    message = "Se ha realizado la sincronización de los grupos.\n"
+    if sync_job_messages.empty?
+      message += "No fueron necesarios cambios." if sync_job_messages.empty?
+    else
+      message += sync_job_messages.join("\n")
+    end
+    NotificationMailer.with(task_name: "sync_groups", message: message).notify_team_of_job_done.deliver_now
+  end
+
   desc "Daily task to get WCA Competitions"
   task :get_wca_competitions => :environment do
     puts "Getting competitions"

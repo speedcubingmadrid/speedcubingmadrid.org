@@ -48,6 +48,7 @@ scheduled_jobs() {
     source ~/.bashrc
   fi
   # This function is added as a daily cron in ams_bootstrap.sh
+  bin/rails scheduler:sync_groups
   bin/rails scheduler:get_wca_competitions
   bin/rails scheduler:get_wca_persons
   bin/rails scheduler:send_subscription_reminders

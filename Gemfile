@@ -57,6 +57,9 @@ gem 'dotenv-rails'
 
 gem 'stripe'
 
+# To sync G Suite groups
+gem 'google-api-client'
+
 gem 'activestorage-validator'
 gem 'image_processing'
 gem 'mini_magick'

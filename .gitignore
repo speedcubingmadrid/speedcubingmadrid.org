@@ -9,6 +9,7 @@
 /vendor/bundle
 .env
 .env.production
+credentials.json
 
 # Ignore all logfiles and tempfiles.
 /log/*

@@ -7,6 +7,11 @@ class User < ApplicationRecord
 
   scope :subscription_notification_enabled, -> { where(notify_subscription: true).where.not(email: nil) }
 
+  # NOTE: /!\ Important: this is *not* the list of subscribers.
+  # This is a list of person who *did* log in the website, and are subscribers.
+  # To get the list of subscribers, go through Subscription.active scope
+  scope :with_active_subscription, -> { joins(:subscriptions).where("subscriptions.created_at > ?", 1.year.ago) }
+
   validate :cannot_demote_themselves
   def cannot_demote_themselves
     if admin_was == true && admin == false
