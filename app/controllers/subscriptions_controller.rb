@@ -7,13 +7,13 @@ class SubscriptionsController < ApplicationController
   ANNUAL_SUBSCRIPTION_COST=1000
 
   def index
-    @subscribers = Subscription.active.includes(:user).order(:name).group_by do |s|
+    @subscribers = User.with_active_subscription.order(:name).group_by do |s|
       "#{s.name.downcase}"
     end.values.map(&:first)
   end
 
   def show
-    @subscribers = Subscription.active.includes(:user).order(:name).group_by do |s|
+    @subscribers = User.with_active_subscription.order(:name).group_by do |s|
       "#{s.name.downcase}"
     end.values.map(&:first)
   end
@@ -56,13 +56,13 @@ class SubscriptionsController < ApplicationController
     @events = ["333", "222", "444", "555", "666", "777", "333bf", "333fm", "333oh", "333ft", "clock", "minx", "pyram", "skewb", "sq1", "444bf", "555bf", "333mbf"]
     event = "#{params[:event_id]}"
     format = "#{params[:format][0]}"
-    wca_ids = Subscription.active.map(&:wca_id)
+    wca_ids = User.with_active_subscription.map(&:wca_id)
     @query = "#{format}_#{event}"
     @persons = Person.where(wca_id: wca_ids).where("#{@query} IS NOT NULL").order("#{@query} ASC")
   end
 
   def medal_collection
-    wca_ids = Subscription.active.map(&:wca_id)
+    wca_ids = User.with_active_subscription.map(&:wca_id)
     @persons = Person.where(wca_id: wca_ids).where("gold > 0 or silver > 0 or bronze > 0").order(gold: :desc, silver: :desc, bronze: :desc)
   end
 

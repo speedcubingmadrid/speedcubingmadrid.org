@@ -61,10 +61,10 @@ namespace :scheduler do
   task :get_wca_persons => :environment do
     puts "Getting persons"
     begin
-      subscribers = Subscription.active
+      wca_ids = User.with_active_subscription.map(&:wca_id)
       names = []
-      subscribers.in_groups_of(100, false).each do |s|
-        persons_response = RestClient.get(wca_api_profile_url(s.map(&:wca_id).join(",")))
+      wca_ids.in_groups_of(100, false).each do |wi|
+        persons_response = RestClient.get(wca_api_profile_url(wi.join(",")))
         persons = JSON.parse(persons_response.body)
         persons.each do |p|
           puts "Importing #{p["person"]["name"]}"
@@ -88,8 +88,8 @@ namespace :scheduler do
 
   desc "Daily task to send subscriptions reminder"
   task :send_subscription_reminders => :environment do
-    users_to_notify = User.subscription_notification_enabled.select(&:last_subscription).select do |u|
-      u.last_subscription.until == 2.days.from_now.to_date
+    users_to_notify = User.subscription_notification_enabled.select(&:last_active_subscription).select do |u|
+      u.last_active_subscription.until == 2.days.from_now.to_date
     end
     puts "#{users_to_notify.size} usuarios a notificar."
     users_done = []

@@ -2,13 +2,13 @@
 <% is_admin = current_user.admin? %>
 <h1><%= @user.name %> - <%= @user.country_name %> <%= flag_icon(@user.country_iso2) %></h1>
 <% last_sub = @user.last_subscription %>
-<% if last_sub&.active? %>
+<% if @user.last_active_subscription %>
   <div class="alert alert-success">
-    Eres socio de la AMS hasta el <%= l(last_sub.until) %>.
+    Eres socio de la AMS hasta el <%= l(@user.last_active_subscription.until) %>.
   </div>
-<% elsif last_sub %>
+<% elsif @user.last_subscription %>
   <div class="alert alert-warning">
-    No eres socio de la AMS desde el <%= l(last_sub.until) %>.
+    No eres socio de la AMS desde el <%= l(@user.last_subscription.until) %>.
   </div>
 <% else %>
   <div class="alert alert-danger">

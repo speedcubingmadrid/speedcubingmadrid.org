@@ -1,6 +1,6 @@
 Hola <%= @user.name %>,
 
-Tu condición de socio de la Asociación Madrileña de Speedcubing está a punto de expirar (expira el <%= l(@user.last_subscription.until) %>).
+Tu condición de socio de la Asociación Madrileña de Speedcubing está a punto de expirar (expira el <%= l(@user.last_active_subscription.until) %>).
 Si deseas continuar apoyándonos, puedes renovar tu condición de socio en socio aquí <%= new_subscription_url %>.
 
 Estás recibiendo esta notificación porque así lo seleccionaste en tu perfil. Para dejar de recibir notificaciones como ésta, desmarca la casilla en tu perfil (<%= profile_url %>, donde también puedes ver la lista de tus cuotas de socio anuales pagadas).

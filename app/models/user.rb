@@ -7,9 +7,6 @@ class User < ApplicationRecord
 
   scope :subscription_notification_enabled, -> { where(notify_subscription: true).where.not(email: nil) }
 
-  # NOTE: /!\ Important: this is *not* the list of subscribers.
-  # This is a list of person who *did* log in the website, and are subscribers.
-  # To get the list of subscribers, go through Subscription.active scope
   scope :with_active_subscription, -> { joins(:subscriptions).where("subscriptions.created_at > ?", 1.year.ago) }
 
   validate :cannot_demote_themselves
@@ -18,11 +15,6 @@ class User < ApplicationRecord
       errors.add(:admin, "no puedes eliminar tu propia condición de administrador, debes pedirle a otro administrador que lo haga.")
     end
   end
-
-  def subscriptions_join
-    Subscription.where("(wca_id <> '' and wca_id = ?) or lower(name)) = ?", wca_id, name.downcase)
-  end
-
 
   def can_edit_user?(user)
     admin? || user.id == self.id
@@ -42,6 +34,10 @@ class User < ApplicationRecord
 
   def can_manage_calendar?
     can_manage_delegate_matters? || can_manage_communication_matters?
+  end
+
+  def last_active_subscription
+    subscriptions.active.last
   end
 
   def last_subscription
@@ -122,7 +118,7 @@ class User < ApplicationRecord
   end
 
   def add_subscription(stripe_charge_id, amount)
-    new_subscription = Subscription.new(user_id: id, name: name, wca_id: wca_id, email: ams_email, stripe_charge_id: stripe_charge_id, amount: amount)
+    new_subscription = Subscription.new(user_id: id, stripe_charge_id: stripe_charge_id, amount: amount)
     new_subscription.save!
   end
 

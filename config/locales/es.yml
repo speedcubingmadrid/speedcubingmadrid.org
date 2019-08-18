@@ -49,7 +49,7 @@ es:
         query: "Búsqueda"
         user_id: "ID del usuario"
       signin:
-        can_manage: "Soy organizador o/y Delegado WCA, y autorizo a la AMS a gestionar mis competiciones."
+        can_manage: "Soy organizador y/o Delegado WCA, y autorizo a la AMS a gestionar mis competiciones."
       user:
         wca_id: "WCA ID"
         friendly_birthdate: "Fecha de nacimiento"

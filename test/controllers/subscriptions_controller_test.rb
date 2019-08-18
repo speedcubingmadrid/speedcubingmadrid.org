@@ -17,7 +17,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create subscription" do
     assert_difference('Subscription.count') do
-      post subscriptions_url, params: { subscription: { email: @subscription.email, name: @subscription.name, stripe_charge_id: @subscription.stripe_charge_id, amount: @subscription.amount, created_at: @subscription.created_at, wca_id: @subscription.wca_id } }
+      post subscriptions_url, params: { subscription: { user_id: @subscription.user_id, stripe_charge_id: @subscription.stripe_charge_id, amount: @subscription.amount, created_at: @subscription.created_at } }
     end
 
     assert_redirected_to subscription_url(Subscription.last)
@@ -34,7 +34,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update subscription" do
-    patch subscription_url(@subscription), params: { subscription: { email: @subscription.email, name: @subscription.name, stripe_charge_id: @subscription.stripe_charge_id, amount: @subscription.amount, created_at: @subscription.created_at, wca_id: @subscription.wca_id } }
+    patch subscription_url(@subscription), params: { subscription: { user_id: @subscription.user_id, stripe_charge_id: @subscription.stripe_charge_id, amount: @subscription.amount, created_at: @subscription.created_at } }
     assert_redirected_to subscription_url(@subscription)
   end
 

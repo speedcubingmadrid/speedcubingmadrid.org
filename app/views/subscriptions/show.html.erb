@@ -11,12 +11,12 @@
       <% @subscribers.each do |s| %>
         <tr>
           <td>
-            <%= s.user.name %>
+            <%= s.name %>
           </td>
           <td>
             <%= link_to_wca_profile(s.wca_id) %>
           </td>
-          <td data-text="<%= s.until %>"><%= l(s.until) %></td>
+          <td data-text="<%= s.last_active_subscription.until %>"><%= l(s.last_active_subscription.until) %></td>
         </tr>
       <% end %>
     <% end %>
