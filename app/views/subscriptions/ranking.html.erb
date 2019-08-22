@@ -28,12 +28,19 @@
     <% index = ("#{format_param}" == formats[0] ? 0 : 1) %>
     <% headers = ["Posición", "Nombre", formats_names[index]] %>
     <%= render "shared/compact_table", headers: headers do %>
+      <% previous_result = 0 %>
+      <% previous_rank = 0 %>
       <% @persons.each_with_index do |p, i| %>
+        <% result = p["#{@query}"] %>
+        <% rank = (result == previous_result ? previous_rank : i+1) %>
         <tr>
-          <td> <%= i+1 %> </td>
+          <td> <%= rank %> </td>
           <td> <%= link_to p.name, wca_profile_url(p.wca_id), target: "_blank" %> </td>
-          <td> <%= SolveTime.new(event_param, format_param, p["#{@query}"]).clock_format %> </td>
+          <td> <%= SolveTime.new(event_param, format_param, result).clock_format %> </td>
         </tr>
+
+        <% previous_result = result %>
+        <% previous_rank = rank %>
       <% end %>
     <% end %>
     <% if @persons.empty? %>

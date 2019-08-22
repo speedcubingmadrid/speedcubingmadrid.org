@@ -4,14 +4,21 @@
   <div class="table-responsive">
     <% headers = ["Posición", "Nombre", "Oros", "Platas", "Bronces"] %>
     <%= render "shared/compact_table", headers: headers do %>
+      <% previous_medals = {} %>
+      <% previous_rank = 0 %>
       <% @persons.each_with_index do |p, i| %>
+        <% medals = { gold: p.gold, silver: p.silver, bronze: p.bronze } %>
+        <% rank = (medals == previous_medals ? previous_rank : i+1) %>
         <tr>
-          <td> <%= i+1 %> </td>
+          <td> <%= rank %> </td>
           <td> <%= link_to p.name, wca_profile_url(p.wca_id), target: "_blank" %> </td>
-          <td> <%= p.gold %> </td>
-          <td> <%= p.silver %> </td>
-          <td> <%= p.bronze %> </td>
+          <td> <%= medals[:gold] %> </td>
+          <td> <%= medals[:silver] %> </td>
+          <td> <%= medals[:bronze] %> </td>
         </tr>
+
+        <% previous_medals = medals %>
+        <% previous_rank = rank %>
       <% end %>
     <% end %>
     <% if @persons.empty? %>
