@@ -1,16 +1,17 @@
 {
   "dependencies": {
-    "@rails/webpacker": "^3.4.1",
+    "@rails/webpacker": "^4.0.7",
     "babel-preset-react": "^6.24.1",
-    "bootstrap": "4.1.2",
+    "bootstrap": ">=4.3.1",
     "bootstrap-datepicker": "^1.8.0",
     "expose-loader": "^0.7.5",
     "flag-icon-css": "^3.0.0",
     "font-awesome": "^4.7.0",
     "fullcalendar": "^3.9.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "jquery-ujs": "^1.2.2",
-    "popper.js": "^1.14.1",
+    "moment": "^2.24.0",
+    "popper.js": "^1.14.3",
     "prop-types": "^15.6.1",
     "rails-erb-loader": "^5.4.1",
     "react": "^16.3.1",
@@ -23,6 +24,6 @@
     "upath": "1.1.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "2.11.2"
+    "webpack-dev-server": "^3.7.2"
   }
 }

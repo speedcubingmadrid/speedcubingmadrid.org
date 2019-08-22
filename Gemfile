@@ -6,17 +6,9 @@ source 'https://rubygems.org'
 gem 'rails', '5.2.3'
 gem 'rails-i18n', '~> 5.1'
 gem 'i18n-country-translations'
-gem 'webpacker', '~> 3.4'
+gem 'webpacker', '~> 4.x'
 # Use postgresql as the database for Active Record
 gem 'pg'
-# Use SCSS for stylesheets
-gem 'sass-rails'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Form helper
 gem 'simple_form'

@@ -74,13 +74,6 @@ GEM
     byebug (11.0.1)
     cocoon (1.2.14)
     coderay (1.1.2)
-    coffee-rails (5.0.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 5.2.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.4)
@@ -94,7 +87,6 @@ GEM
       dotenv (= 2.7.4)
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
-    execjs (2.7.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
@@ -173,7 +165,7 @@ GEM
       connection_pool (~> 2.2)
     netrc (0.11.0)
     nio4r (2.4.0)
-    nokogiri (1.10.3)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     os (1.0.1)
     pg (1.1.4)
@@ -201,7 +193,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.0.4)
+    rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
     rails-i18n (5.1.3)
       i18n (>= 0.7, < 2)
@@ -213,7 +205,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
-    rake (12.3.2)
+    rake (12.3.3)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -232,17 +224,6 @@ GEM
       ffi (~> 1.9)
     ruby_dep (1.5.0)
     ruby_http_client (3.3.0)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-    sass-rails (5.0.7)
-      railties (>= 4.0.0, < 6)
-      sass (~> 3.1)
-      sprockets (>= 2.8, < 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
-      tilt (>= 1.1, < 3)
     sdoc (1.0.0)
       rdoc (>= 5.0)
     sendgrid-ruby (6.0.0)
@@ -268,12 +249,9 @@ GEM
       net-http-persistent (~> 3.0)
     thor (0.20.3)
     thread_safe (0.3.6)
-    tilt (2.0.9)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (4.1.20)
-      execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
@@ -282,7 +260,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (3.6.0)
+    webpacker (4.0.7)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -300,7 +278,6 @@ DEPENDENCIES
   binding_of_caller
   byebug
   cocoon
-  coffee-rails
   dotenv-rails
   google-api-client
   high_voltage (~> 3.0.0)
@@ -318,15 +295,13 @@ DEPENDENCIES
   rails_layout
   redcarpet
   rest-client
-  sass-rails
   sdoc
   sendgrid-ruby
   simple_form
   spring
   stripe
-  uglifier
   web-console
-  webpacker (~> 3.4)
+  webpacker (~> 4.x)
 
 RUBY VERSION
    ruby 2.5.0p0
