@@ -11,6 +11,14 @@ namespace :scheduler do
     board_members = User.select(&:board).map(&:ams_email)
     sync_job_messages << GsuiteMailingLists.sync_group("juntadirectiva@speedcubingmadrid.org", board_members)
 
+    # Mailing list for the communication team
+    communication_members = User.select(&:communication).map(&:ams_email)
+    sync_job_messages << GsuiteMailingLists.sync_group("comunicacion@speedcubingmadrid.org", communication_members)
+
+    # Mailing list for the software team
+    software_members = User.select(&:software).map(&:ams_email)
+    sync_job_messages << GsuiteMailingLists.sync_group("software@speedcubingmadrid.org", software_members)
+
     # Mailing list for automatic notifications to subscribers
     subscribers_with_notifications = User.subscription_notification_enabled.with_active_subscription.map(&:ams_email)
     sync_job_messages << GsuiteMailingLists.sync_group("notificaciones-socios@speedcubingmadrid.org", subscribers_with_notifications)
