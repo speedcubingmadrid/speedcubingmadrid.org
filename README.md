@@ -26,8 +26,8 @@ This repository contains the source code that runs on [speedcubingmadrid.org](ht
 
   - Material management and estimated schedule.
   - Post and tags.
-  - Management of championships to display on home page (SC, WEC, WWC)
-
+  - Management of championships to display on home page (SC, WEC, WWC).
+  - Automatically synced mailing lists.
 
 # Dependencies and installation
 
@@ -108,8 +108,6 @@ Other users can then be managed through the website user interface.
 
 Via the standard `bin/rails db:migrate`.
 
-**TO DO**
-
 ## Production
 
 See the [dedicated wiki page](https://github.com/speedcubingmadrid/speedcubingmadrid.org/wiki/AMS-Production-Server).
@@ -135,3 +133,24 @@ The only thing to know is that you have to set up the API key for the automated 
 An AWS bucket is used to store the photos of competitions' galleries, which are uploaded through `Active Storage`.
 
 The public and private keys, the region, and the name of the bucket must be set up.
+
+## G Suite
+
+G Suite is used to manage the association's mailing lists. They are synced via `bin/rails scheduler:sync_groups`. To install it for the first time:
+
+  1. Enable google API in google settings.
+  2. Enable google developer console for all users.
+  3. Go to the google developer console, create a new project, add the API "Admin SDK".
+  4. Create "credentials" of type oauth, download the JSON and re-name it to `oauth_credentials.json`.
+  5. Install [`gcloud`](https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu).
+  6. Authenticate with **the API bot** account of the AMS, by running: `gcloud beta auth application-default login --scopes = 'https: //www.googleapis.com/ auth / admin.directory.group '--client-id-file = oauth_credentials.json`
+
+This should automatically create a JSON file:
+
+```
+Credentials saved to file: [/home/apdrf/.config/gcloud/application_default_credentials.json]
+```
+
+This file must be copied to the root of the project on the production server, renaming it to `credentials.json`. It is loaded by the corresponding library [here](https://github.com/speedcubingmadrid/speedcubingmadrid.org/blob/master/lib/gsuite_mailing_lists.rb#L4).
+
+If a production server is re-installed, step 6 will need to be repeated.
