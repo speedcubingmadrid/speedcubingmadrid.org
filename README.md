@@ -1,4 +1,4 @@
-# speedcubingmadrid.org
+# `speedcubingmadrid.org`
 
 This repository contains the source code that runs on [speedcubingmadrid.org](http://www.speedcubingmadrid.org).
 
