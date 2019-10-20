@@ -45,7 +45,7 @@ Before launching the website, you must create and initialize the database.
 Locally, the configuration is available in `config/database.yml`, and the website expects to be able to use the user `speedcubingmadrid` with the password `fas`.
 It must be created in PostgreSQL and given the rights to create databases.
 
-Once done, the database is initialized via `bin/rails db:setup`.
+Once done, the database is initialized via `bin/rails db:setup`. You would also need to run `bin/rake db:reset` to set up test database and then `bin/rake assets:precompile` to compile some assets needed for tests to run.
 
 Use `bin/rails s` to launch the server. To use it together with the WCA website server running locally, use `bin/rails s -p 1234` instead.
 
