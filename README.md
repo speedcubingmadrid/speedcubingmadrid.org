@@ -41,7 +41,7 @@ The database used is PostgreSQL, which must be installed to run the website loca
 The dependencies are managed via `bundler`, so the first thing to do is to run `bundle install --path vendor/bundle`.
 The website manages its JavaScript dependencies via Yarn, so you have to install them via `bin/yarn` as well.
 
-  - For macOS X you would additionally need to install XCode.app which is available [here](https://apps.apple.com/es/app/xcode/id497799835?mt=12).
+  - For macOS X you would additionally need to install Xcode which is available on the Mac App Store.
   - For Windows 10 you would additionally need to install .
 
 Before launching the website, you must create and initialize the database.
