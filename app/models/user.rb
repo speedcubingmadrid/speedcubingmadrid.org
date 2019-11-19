@@ -9,9 +9,11 @@ class User < ApplicationRecord
 
   scope :with_active_subscription, -> { joins(:subscriptions).where("subscriptions.created_at > ?", 1.year.ago) }
 
+  attr_accessor :editing_user
+
   validate :cannot_demote_themselves
   def cannot_demote_themselves
-    if admin_was == true && admin == false
+    if editing_user == self && admin_was == true && admin == false
       errors.add(:admin, "no puedes eliminar tu propia condición de administrador, debes pedirle a otro administrador que lo haga.")
     end
   end
