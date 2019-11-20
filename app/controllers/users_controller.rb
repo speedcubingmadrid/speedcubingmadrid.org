@@ -78,6 +78,7 @@ class UsersController < ApplicationController
 
   def set_user!
     @user = user_to_edit
+    @user.editing_user = current_user
   end
 
   def set_and_redirect_if_cannot_edit_user
