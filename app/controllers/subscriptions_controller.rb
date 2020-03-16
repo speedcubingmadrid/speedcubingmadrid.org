@@ -53,7 +53,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def ranking
-    @events = ["333", "222", "444", "555", "666", "777", "333bf", "333fm", "333oh", "333ft", "clock", "minx", "pyram", "skewb", "sq1", "444bf", "555bf", "333mbf"]
+    @events = ["333", "222", "444", "555", "666", "777", "333bf", "333fm", "333oh", "clock", "minx", "pyram", "skewb", "sq1", "444bf", "555bf", "333mbf"]
     event = "#{params[:event_id]}"
     format = "#{params[:format][0]}"
     wca_ids = User.with_active_subscription.map(&:wca_id)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_175816) do
+ActiveRecord::Schema.define(version: 2020_03_16_110426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,8 +130,6 @@ ActiveRecord::Schema.define(version: 2019_08_18_175816) do
     t.integer "a_333fm"
     t.integer "s_333oh"
     t.integer "a_333oh"
-    t.integer "s_333ft"
-    t.integer "a_333ft"
     t.integer "s_clock"
     t.integer "a_clock"
     t.integer "s_minx"
