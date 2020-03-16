@@ -23,8 +23,6 @@ class Person < ApplicationRecord
     a_333fm
     s_333oh
     a_333oh
-    s_333ft
-    a_333ft
     s_clock
     a_clock
     s_minx
@@ -103,12 +101,6 @@ class Person < ApplicationRecord
     if pr_333oh
       person.update(s_333oh: pr_333oh["single"]["best"]) if pr_333oh["single"]
       person.update(a_333oh: pr_333oh["average"]["best"]) if pr_333oh["average"]
-    end
-
-    pr_333ft = json_person["personal_records"]["333ft"]
-    if pr_333ft
-      person.update(s_333ft: pr_333ft["single"]["best"]) if pr_333ft["single"]
-      person.update(a_333ft: pr_333ft["average"]["best"]) if pr_333ft["average"]
     end
 
     pr_clock = json_person["personal_records"]["clock"]
