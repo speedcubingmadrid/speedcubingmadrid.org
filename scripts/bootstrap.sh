@@ -10,7 +10,7 @@ fi
 echo "Setting up ssh keys for members."
 
 tmp_authorized_keys_path="/tmp/authorized_keys"
-for user in ivan-brigidano PabloUC3M; do
+for user in albertopdrf ivan-brigidano pablouc3m; do
   public_keys_url="https://github.com/$user.keys"
 
   echo "" >> $tmp_authorized_keys_path
