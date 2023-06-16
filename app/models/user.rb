@@ -129,6 +129,8 @@ class User < ApplicationRecord
       "i.brigidano@speedcubingmadrid.org"
     elsif wca_id == "2013GARC08"
       "jesus@speedcubingmadrid.org"
+    elsif wca_id == "2017NETO02"
+      "s.neto@speedcubingmadrid.org"
     else
       email
     end
